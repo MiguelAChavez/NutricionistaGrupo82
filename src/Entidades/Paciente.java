@@ -18,27 +18,27 @@ public class Paciente {
     private double pesoActual;
     private double pesoDeseado;
     private double altura;
-    private LocalDate fechaNat;
+    private LocalDate fechaNac;
     private boolean estado;
 
     public Paciente() {
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, char sexo, LocalDate fechaNat, boolean estado, double peso, double pesoDeseado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, char sexo, LocalDate fechaNac, boolean estado, double peso, double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.domicilio = domicilio;
         this.telefono = telefono;
         this.sexo = sexo;
-        this.fechaNat = fechaNat;
+        this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
         this.pesoDeseado = pesoDeseado;
         this.altura = altura;
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, char sexo, LocalDate fechaNat, boolean estado, double peso,double pesoDeseado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, char sexo, LocalDate fechaNac, boolean estado, double peso,double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -46,7 +46,7 @@ public class Paciente {
         this.telefono = telefono;
         this.idPaciente = idPaciente;
         this.sexo = sexo;
-        this.fechaNat = fechaNat;
+        this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
         this.pesoDeseado = pesoDeseado;
@@ -118,12 +118,12 @@ public class Paciente {
         this.sexo = sexo;
     }
 
-    public LocalDate getFechaNat() {
-        return fechaNat;
+    public LocalDate getFechaNac() {
+        return fechaNac;
     }
 
-    public void setFechaNat(LocalDate fechaNat) {
-        this.fechaNat = fechaNat;
+    public void setFechaNac(LocalDate fechaNac) {
+        this.fechaNac = fechaNac;
     }
 
     public void setPeso(double peso) {
@@ -153,7 +153,7 @@ public class Paciente {
     
     @Override
     public String toString() {
-        return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idPaciente=" + idPaciente + ", sexo=" + sexo + ", peso=" + pesoActual + ", altura=" + altura + ", fechaNat=" + fechaNat + ", estado=" + estado + '}';
+        return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idPaciente=" + idPaciente + ", sexo=" + sexo + ", peso=" + pesoActual + ", altura=" + altura + ", fechaNac=" + fechaNac + ", estado=" + estado + '}';
     }
 
 }
