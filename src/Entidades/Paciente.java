@@ -1,5 +1,4 @@
-
-package nutricionistagrupo82;
+package Entidades;
 
 import java.time.LocalDate;
 
@@ -8,15 +7,16 @@ import java.time.LocalDate;
  * @author alber
  */
 public class Paciente {
-    
+
     private String nombre;
     private String apellido;
-    private int  dni;
+    private int dni;
     private String domicilio;
     private String telefono;
     private int idPaciente;
     private char sexo;
-    private double peso;
+    private double pesoActual;
+    private double pesoDeseado;
     private double altura;
     private LocalDate fechaNat;
     private boolean estado;
@@ -24,7 +24,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, char sexo, LocalDate fechaNat, boolean estado, double peso, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, char sexo, LocalDate fechaNat, boolean estado, double peso, double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -33,14 +33,12 @@ public class Paciente {
         this.sexo = sexo;
         this.fechaNat = fechaNat;
         this.estado = estado;
-        this.peso=peso;
-        this.altura=altura;
+        this.pesoActual = peso;
+        this.pesoDeseado = pesoDeseado;
+        this.altura = altura;
     }
-    
-    
-    
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, char sexo, LocalDate fechaNat, boolean estado, double peso, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, char sexo, LocalDate fechaNat, boolean estado, double peso,double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -50,9 +48,10 @@ public class Paciente {
         this.sexo = sexo;
         this.fechaNat = fechaNat;
         this.estado = estado;
-        this.peso=peso;
-        this.altura=altura;
-        
+        this.pesoActual = peso;
+        this.pesoDeseado = pesoDeseado;
+        this.altura = altura;
+
     }
 
     public boolean isEstado() {
@@ -127,29 +126,34 @@ public class Paciente {
         this.fechaNat = fechaNat;
     }
 
-     public void setPeso(double peso) {
-        this.peso = peso;
+    public void setPeso(double peso) {
+        this.pesoActual = peso;
     }
-     
-     public double getPeso() {
-        return peso;
+
+    public double getPeso() {
+        return pesoActual;
     }
-     
-     
+
     public void setAltura(double altura) {
         this.altura = altura;
     }
-     
 
     public double getAltura() {
         return altura;
     }
 
+    public double getPesoDeseado() {
+        return pesoDeseado;
+    }
+
+    public void setPesoDeseado(double pesoDeseado) {
+        this.pesoDeseado = pesoDeseado;
+    }
+
+    
     @Override
     public String toString() {
-        return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idPaciente=" + idPaciente + ", sexo=" + sexo + ", peso=" + peso + ", altura=" + altura + ", fechaNat=" + fechaNat + ", estado=" + estado + '}';
+        return "Paciente{" + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", idPaciente=" + idPaciente + ", sexo=" + sexo + ", peso=" + pesoActual + ", altura=" + altura + ", fechaNat=" + fechaNat + ", estado=" + estado + '}';
     }
- 
-    
-    
+
 }

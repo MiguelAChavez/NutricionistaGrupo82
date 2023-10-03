@@ -1,5 +1,5 @@
 
-package nutricionistagrupo82;
+package Entidades;
 
 import java.time.LocalDate;
 
