@@ -16,14 +16,12 @@ import javax.swing.JOptionPane;
  */
 public class ConexionData {
 
-
-
     private static final String URL = "jdbc:mariadb://localhost/";
     private static final String BD = "nutricionista";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "";
     private static Connection connection = null;     //variable de tipo Connection que es las que va a usar nuestras clases Data 
-                                                    //  a traves de un objeto de tipo connection para generar los PreparedStatement
+    //  a traves de un objeto de tipo connection para generar los PreparedStatement
 
     private ConexionData() {        //constructor
     }
@@ -44,6 +42,3 @@ public class ConexionData {
 
     }
 }
-
-    
-
