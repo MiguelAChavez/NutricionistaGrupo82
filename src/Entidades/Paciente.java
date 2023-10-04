@@ -14,7 +14,7 @@ public class Paciente {
     private String domicilio;
     private String telefono;
     private int idPaciente;
-    private char sexo;
+    private String sexo;
     private double pesoActual;
     private double pesoDeseado;
     private double altura;
@@ -24,7 +24,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, char sexo, LocalDate fechaNac, boolean estado, double peso, double pesoDeseado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -38,7 +38,7 @@ public class Paciente {
         this.altura = altura;
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, char sexo, LocalDate fechaNac, boolean estado, double peso,double pesoDeseado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, String sexo, LocalDate fechaNac, boolean estado, double peso,double pesoDeseado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -110,11 +110,11 @@ public class Paciente {
         this.idPaciente = idPaciente;
     }
 
-    public char getSexo() {
+    public String getSexo() {
         return sexo;
     }
 
-    public void setSexo(char sexo) {
+    public void setSexo(String sexo) {
         this.sexo = sexo;
     }
 
