@@ -51,7 +51,8 @@ public class PacienteData {
 
             if (rs.next()) {
                 paciente.setIdPaciente(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Paciente creado con éxito");
+                return;
+                // JOptionPane.showMessageDialog(null, "Paciente creado con éxito");
             }
             ps.close();
         } catch (SQLException ex) {
@@ -78,7 +79,8 @@ public class PacienteData {
 
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
+                return;
+                // JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
 
@@ -98,7 +100,8 @@ public class PacienteData {
 
             int res = ps.executeUpdate();
             if (res == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
+                return;
+               // JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
             }
 
             ps.close();
@@ -111,7 +114,7 @@ public class PacienteData {
 
     public static Paciente buscarPacientePorDni(int dni, boolean isActivo) {
         String sql;
-        sql = "SELECT apellido, nombre, telefono, domicilio, fechaNac, sexo, pesoActual, altura, pesoDeseado, estado FROM paciente "
+        sql = "SELECT * FROM paciente "
                 + " WHERE dni=? " + (isActivo ? " AND estado = 1" : " AND estado = 0 ");
         Paciente paciente = null;
         PreparedStatement ps;
@@ -123,6 +126,7 @@ public class PacienteData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 paciente = new Paciente();
+                paciente.setIdPaciente(rs.getInt("idPaciente"));
                 paciente.setDni(dni);
                 paciente.setApellido(rs.getString("apellido"));
                 paciente.setNombre(rs.getString("nombre"));
@@ -146,28 +150,21 @@ public class PacienteData {
         return paciente;
     }
 
-    public static List<Paciente> buscarPorNombreOApellido(String cadena, Estado buscar) {
+    public static List<Paciente> ListarPorNombreOApellido(String cadena, Estado buscar) {
         List<Paciente> pacientes = new ArrayList<>();
-        String estado;
-        switch (buscar.getEstado()) {
-            case 0:
-                estado = " AND estado = 0";
-                break;
-            case 1:
-                estado = " AND estado = 1";
-                break;
-            default:
-                estado = "";
-                break;
-        }
+        
+        String estado = getEstadoCondition(buscar.getEstado());
+        
         String sql = "SELECT * FROM paciente "
-                + "WHERE ( paciente.apellido LIKE '"+cadena+"%' OR paciente.nombre LIKE '"+cadena+"%' )"
+                + "WHERE ( paciente.apellido LIKE '" + cadena + "%' OR paciente.nombre LIKE '" + cadena + "%' )"
                 + estado
                 + " ORDER BY apellido ASC, nombre ASC;";
+        
         PreparedStatement ps;
+        
         try {
             ps = CONN.prepareStatement(sql);
- 
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Paciente paciente = new Paciente();
@@ -191,6 +188,64 @@ public class PacienteData {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return pacientes;
+    }
+
+    public static List<Paciente> ListarPacientes(Estado estado) {      
+        List<Paciente> pacientes = new ArrayList<>();    
+        String estado1;
+        
+        switch (estado.getEstado()) {
+            case 0:
+                estado1 = " WHERE estado = 0";
+                break;
+            case 1:
+                estado1 = " WHERE estado = 1";
+                break;
+            default:
+                estado1 = "";
+                break;
+        }
+        
+        String sql = "SELECT * FROM paciente " + estado1 + ";";
+        
+        PreparedStatement ps;
+        try {
+            ps = CONN.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Paciente paciente = new Paciente();
+                paciente.setIdPaciente(rs.getInt("idPaciente"));
+                paciente.setDni(rs.getInt("dni"));
+                paciente.setApellido(rs.getString("apellido"));
+                paciente.setNombre(rs.getString("nombre"));
+                paciente.setTelefono(rs.getString("telefono"));
+                paciente.setDomicilio(rs.getString("domicilio"));
+                paciente.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                paciente.setSexo(rs.getString("sexo"));
+                paciente.setPeso(rs.getDouble("pesoActual"));
+                paciente.setAltura(rs.getDouble("altura"));
+                paciente.setPesoDeseado(rs.getDouble("pesoDeseado"));
+                paciente.setEstado(rs.getBoolean("estado"));
+
+                pacientes.add(paciente);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+        return pacientes;
+    }
+
+    private static String getEstadoCondition(int estadoBusqueda) {
+        switch (estadoBusqueda) {
+            case 0:
+                return " AND estado = 0";
+            case 1:
+                return " AND estado = 1";
+            default:
+                return "";
+        }
     }
 
 }
