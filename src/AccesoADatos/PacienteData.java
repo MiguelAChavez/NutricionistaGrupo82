@@ -56,7 +56,7 @@ public class PacienteData {
             }
             ps.close();
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
+            
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
         }
     }
