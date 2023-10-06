@@ -75,26 +75,6 @@ public class ComidaData {
 
     }
 
-    public static void modificarComida(Comida comida) {
-        String sql = "UPDATE comida set nombre=?, detalle=?, cantidadCalorias=?";
-        try {
-            PreparedStatement ps = CONN.prepareStatement(sql);
-            ps.setString(1, comida.getNombre());
-            ps.setString(2, comida.getDatalle());
-            ps.setInt(3, comida.getCantCalorias());
-            int resultado = ps.executeUpdate();
-            if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, "La comida fué modificada exitoxamente");
-            } else {
-                JOptionPane.showMessageDialog(null, "La comida no existe");
-            }
-            ps.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la tabla comida " + ex.getMessage());
-        }
-
-    }
-
     public static void eliminarComida(int id) {
         String sql = "UPDATE comida SET estado = 0 WHERE idComida = ? ";
         PreparedStatement ps;
