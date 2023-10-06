@@ -11,8 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 
 /**
@@ -44,7 +43,7 @@ public class ComidaData {
              }
              ps.close();
          } catch (SQLException ex) {
-             JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
+             JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla comida " + ex.getMessage());
          }
         
     
@@ -53,12 +52,13 @@ public class ComidaData {
     
 }
     public static void modificarComida(Comida comida){
-        String sql = "UPDATE comida set nombre=?, detalle=?, cantidadCalorias=?";
+        String sql = "UPDATE comida set nombre=?, detalle=?, cantidadCalorias=? WHERE idComida=?";
          try {
              PreparedStatement ps = CONN.prepareStatement(sql);
              ps.setString(1, comida.getNombre());
              ps.setString(2, comida.getDatalle());
              ps.setInt(3, comida.getCantCalorias());
+             ps.setInt(4, comida.getIdComida());
              int resultado = ps.executeUpdate();
              if(resultado == 1){
                  JOptionPane.showMessageDialog(null, "La comida fué modificada exitoxamente");
