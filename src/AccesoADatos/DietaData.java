@@ -52,7 +52,7 @@ public class DietaData {
 
     }
 
-    public static void modificar(Dieta dieta) {
+    public static void modificarDieta(Dieta dieta) {
 
         String sql = "UPDATE dieta SET nombre=?, fechaFinal=?, pesoBuscado=? WHERE idDieta=?";
 
@@ -61,6 +61,7 @@ public class DietaData {
             ps.setString(1, dieta.getNombre());
             ps.setDate(2, Date.valueOf(dieta.getFechaFinal()));
             ps.setDouble(3, dieta.getPesoBuscado());
+            ps.setInt(4, dieta.getIdDieta());
 
             int diet = ps.executeUpdate();
 
@@ -79,7 +80,7 @@ public class DietaData {
 
     }
 
-    public static void eliminar(Dieta dieta) {
+    public static void eliminarDieta(Dieta dieta) {
 
         String sql = "DELETE FROM dieta WHERE idDieta = ? AND idDieta IN (SELECT idDieta FROM dietacomida) ";
 
