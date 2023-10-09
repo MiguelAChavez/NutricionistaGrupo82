@@ -281,7 +281,7 @@
                       <Color blue="ff" green="ff" red="ff" type="rgb"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="2" name="E:\Usuario\Descargas\logo-universidad-de-la-punta-PhotoRoom.png-PhotoRoom.png"/>
+                      <Image iconType="3" name="/Imagenes/logo-universidad-de-la-punta.png"/>
                     </Property>
                   </Properties>
                 </Component>

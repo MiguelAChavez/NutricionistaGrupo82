@@ -175,7 +175,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPRFondoImagen.setRoundTopRight(30);
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon("E:\\Usuario\\Descargas\\logo-universidad-de-la-punta-PhotoRoom.png-PhotoRoom.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
 
         javax.swing.GroupLayout jPRFondoImagenLayout = new javax.swing.GroupLayout(jPRFondoImagen);
         jPRFondoImagen.setLayout(jPRFondoImagenLayout);
