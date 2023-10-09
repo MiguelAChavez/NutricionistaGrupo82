@@ -81,7 +81,7 @@ public class ComidaData {
             ps.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Paciente." + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Comida." + e.getMessage());
         }
 
     }
