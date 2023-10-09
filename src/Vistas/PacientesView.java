@@ -27,38 +27,86 @@ public class PacientesView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        panelRound1 = new utils.PanelRound();
+        jBFormularioP = new javax.swing.JButton();
+        jBListarP = new javax.swing.JButton();
+        jBHistorialPaciente = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(35, 35, 35));
+        setBackground(java.awt.Color.lightGray);
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Hola  ");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 40, -1, -1));
+        jLabel1.setFont(new java.awt.Font("David Libre", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(117, 10, 10));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("MENU DEL PACIENTE");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1100, 40));
+        jLabel1.getAccessibleContext().setAccessibleName("MENU ");
 
-        jCheckBox1.setText("jCheckBox1");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
+        panelRound1.setBackground(new java.awt.Color(219, 219, 219));
+        panelRound1.setRoundBottomLeft(40);
+        panelRound1.setRoundBottomRight(40);
+        panelRound1.setRoundTopLeft(40);
+        panelRound1.setRoundTopRight(40);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jBFormularioP.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jBFormularioP.setText("FORMULARIO ");
+        jBFormularioP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.black, null, null, java.awt.Color.lightGray));
+        jBFormularioP.setBorderPainted(false);
+        jBFormularioP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFormularioP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBFormularioP.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                jBFormularioPActionPerformed(evt);
             }
         });
-        add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 250, 140, 50));
+        panelRound1.add(jBFormularioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 370, 90));
 
-        jTextField1.setText("jTextField1");
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 270, 70));
+        jBListarP.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jBListarP.setText("LISTAR ");
+        jBListarP.setActionCommand("LISTADO PACIENTE");
+        jBListarP.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBListarP.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBListarP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBListarPActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 370, 90));
+
+        jBHistorialPaciente.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jBHistorialPaciente.setText("HISTORIAL");
+        jBHistorialPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBHistorialPaciente.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBHistorialPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBHistorialPacienteActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jBHistorialPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 370, 90));
+
+        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        JOptionPane.showConfirmDialog(this, "Hola esto es una prueba");
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBHistorialPacienteActionPerformed
+
+    private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBListarPActionPerformed
+
+    private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBFormularioPActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JButton jBFormularioP;
+    private javax.swing.JButton jBHistorialPaciente;
+    private javax.swing.JButton jBListarP;
+    private javax.swing.JLabel jLabel1;
+    private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

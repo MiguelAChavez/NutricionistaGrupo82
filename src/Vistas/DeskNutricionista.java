@@ -95,7 +95,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jBDientas.setBackground(new java.awt.Color(58, 58, 58));
         jBDientas.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jBDientas.setForeground(new java.awt.Color(255, 255, 255));
+        jBDientas.setForeground(new java.awt.Color(204, 204, 204));
         jBDientas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dieta (1).png"))); // NOI18N
         jBDientas.setText("  Dietas");
         jBDientas.setBorder(null);
@@ -120,7 +120,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jBComida.setBackground(new java.awt.Color(58, 58, 58));
         jBComida.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jBComida.setForeground(new java.awt.Color(255, 255, 255));
+        jBComida.setForeground(new java.awt.Color(204, 204, 204));
         jBComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comida.png"))); // NOI18N
         jBComida.setText("  Comida");
         jBComida.setBorder(null);
