@@ -34,7 +34,7 @@ public class DietaComidaData {
 
             ps.setInt(1, dietaComida.getComida().getIdComida());
             ps.setInt(2, dietaComida.getDieta().getIdDieta());
-           // ps.setInt(3, dietaComida.getDietacomida());
+            ps.setString(3, dietaComida.getHorario().toString());
             ps.setDouble(4, dietaComida.getPorcion());
             
 
@@ -63,7 +63,7 @@ public class DietaComidaData {
 
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
-            //ps.seten(1, dietaComida.);
+            ps.setString(1, dietaComida.getHorario().toString());
             ps.setDouble(2, dietaComida.getPorcion());
             ps.setInt(3, dietaComida.getIdDietaComida());
 
@@ -87,7 +87,7 @@ public class DietaComidaData {
       
       public static void eliminarDietaComida(DietaComida dietaComida) {
 
-        String sql = "DELETE FROM dietacomida WHERE idDieta = ? AND idDieta IN (SELECT idDieta FROM dietacomida) ";
+        String sql = "DELETE FROM dietacomida WHERE idDieta = ? ) ";
 
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
