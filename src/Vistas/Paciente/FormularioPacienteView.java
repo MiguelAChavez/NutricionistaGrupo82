@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vistas.Paciente;
 
 import java.awt.Color;
 import javax.swing.JOptionPane;
@@ -19,6 +19,8 @@ public class FormularioPacienteView extends javax.swing.JPanel {
      */
     public FormularioPacienteView() {
         initComponents();
+        this.jBCancelar.setVisible(Boolean.FALSE);
+        this.jBBuscar.setToolTipText("Buscar");
     }
 
     /**
@@ -31,7 +33,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLTitulo = new javax.swing.JLabel();
-        jSEncabezado = new javax.swing.JSeparator();
+        panelRound1 = new utils.PanelRound();
         jSNombre = new javax.swing.JSeparator();
         jTFNombre = new javax.swing.JTextField();
         jLNombre = new javax.swing.JLabel();
@@ -45,7 +47,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jTFDomicilio = new javax.swing.JTextField();
         jLDomicilio = new javax.swing.JLabel();
         jLFechaNac = new javax.swing.JLabel();
-        jDFechaNac = new com.toedter.calendar.JDateChooser();
         jLTelefono = new javax.swing.JLabel();
         jSTelefono = new javax.swing.JSeparator();
         jTFTelefono = new javax.swing.JTextField();
@@ -60,28 +61,34 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLNombre7 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        jBEliminar = new javax.swing.JButton();
         jBBuscar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLTitulo.setBackground(new java.awt.Color(51, 51, 51));
         jLTitulo.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTitulo.setText("Formulario paciente");
-        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 790, -1));
+        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 790, -1));
 
-        jSEncabezado.setBackground(new java.awt.Color(193, 193, 193));
-        jSEncabezado.setOpaque(true);
-        jSEncabezado.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 790, 3));
+        panelRound1.setBackground(new java.awt.Color(51, 51, 51));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
+        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSNombre.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre.setToolTipText("");
         jSNombre.setOpaque(true);
         jSNombre.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 180, -1));
+        panelRound1.add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 180, -1));
 
         jTFNombre.setBackground(new java.awt.Color(35, 35, 35));
         jTFNombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -102,19 +109,19 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFNombreActionPerformed(evt);
             }
         });
-        add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 180, 40));
+        panelRound1.add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 180, 40));
 
         jLNombre.setBackground(new java.awt.Color(255, 255, 255));
         jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLNombre.setText("Nombre");
-        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 10));
+        panelRound1.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, 20));
 
         jLDni.setBackground(new java.awt.Color(255, 255, 255));
         jLDni.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLDni.setForeground(new java.awt.Color(255, 255, 255));
         jLDni.setText("DNI");
-        add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, 10));
+        panelRound1.add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jTFDni.setBackground(new java.awt.Color(35, 35, 35));
         jTFDni.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -135,24 +142,24 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFDniActionPerformed(evt);
             }
         });
-        add(jTFDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 170, 40));
+        panelRound1.add(jTFDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 170, 40));
 
         jSDni.setForeground(new java.awt.Color(255, 255, 255));
         jSDni.setToolTipText("");
         jSDni.setOpaque(true);
-        add(jSDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 170, -1));
+        panelRound1.add(jSDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 170, -1));
 
         jLApellido.setBackground(new java.awt.Color(255, 255, 255));
         jLApellido.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLApellido.setForeground(new java.awt.Color(255, 255, 255));
         jLApellido.setText("Apellido");
-        add(jLApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, 30));
+        panelRound1.add(jLApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 110, -1, 20));
 
         jSApellido.setForeground(new java.awt.Color(255, 255, 255));
         jSApellido.setToolTipText("");
         jSApellido.setOpaque(true);
         jSApellido.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 240, 180, -1));
+        panelRound1.add(jSApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 180, -1));
 
         jTFApellido.setBackground(new java.awt.Color(35, 35, 35));
         jTFApellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -173,13 +180,13 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFApellidoActionPerformed(evt);
             }
         });
-        add(jTFApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 180, 40));
+        panelRound1.add(jTFApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 180, 40));
 
         jSDomicilio.setForeground(new java.awt.Color(255, 255, 255));
         jSDomicilio.setToolTipText("");
         jSDomicilio.setOpaque(true);
         jSDomicilio.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 330, 240, -1));
+        panelRound1.add(jSDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 240, -1));
 
         jTFDomicilio.setBackground(new java.awt.Color(35, 35, 35));
         jTFDomicilio.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -200,32 +207,31 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFDomicilioActionPerformed(evt);
             }
         });
-        add(jTFDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 240, 40));
+        panelRound1.add(jTFDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 240, 40));
 
         jLDomicilio.setBackground(new java.awt.Color(255, 255, 255));
         jLDomicilio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLDomicilio.setForeground(new java.awt.Color(255, 255, 255));
         jLDomicilio.setText("Domicilio");
-        add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 270, -1, -1));
+        panelRound1.add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, -1, -1));
 
         jLFechaNac.setBackground(new java.awt.Color(255, 255, 255));
         jLFechaNac.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFechaNac.setForeground(new java.awt.Color(255, 255, 255));
         jLFechaNac.setText("Fecha de nacimiento");
-        add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, -1, -1));
-        add(jDFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 190, 30));
+        panelRound1.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLTelefono.setBackground(new java.awt.Color(255, 255, 255));
         jLTelefono.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jLTelefono.setText("Telefono");
-        add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 270, -1, -1));
+        panelRound1.add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         jSTelefono.setForeground(new java.awt.Color(255, 255, 255));
         jSTelefono.setToolTipText("");
         jSTelefono.setOpaque(true);
         jSTelefono.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 330, 120, -1));
+        panelRound1.add(jSTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, 120, -1));
 
         jTFTelefono.setBackground(new java.awt.Color(35, 35, 35));
         jTFTelefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -246,13 +252,13 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFTelefonoActionPerformed(evt);
             }
         });
-        add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 120, 40));
+        panelRound1.add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 120, 40));
 
         jLPeso.setBackground(new java.awt.Color(255, 255, 255));
         jLPeso.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPeso.setForeground(new java.awt.Color(255, 255, 255));
         jLPeso.setText("Peso Actual");
-        add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, -1, 10));
+        panelRound1.add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, 20));
 
         jTFPeso.setBackground(new java.awt.Color(35, 35, 35));
         jTFPeso.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -273,19 +279,19 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFPesoActionPerformed(evt);
             }
         });
-        add(jTFPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 530, 90, 40));
+        panelRound1.add(jTFPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 90, 40));
 
         jSPeso.setForeground(new java.awt.Color(255, 255, 255));
         jSPeso.setToolTipText("");
         jSPeso.setOpaque(true);
         jSPeso.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, 90, -1));
+        panelRound1.add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 90, -1));
 
         jLPesoDeseado.setBackground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setText("Peso Deseado");
-        add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 520, -1, 10));
+        panelRound1.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 100, 20));
 
         jTFNombre6.setBackground(new java.awt.Color(35, 35, 35));
         jTFNombre6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -306,19 +312,19 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFNombre6ActionPerformed(evt);
             }
         });
-        add(jTFNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 530, 90, 40));
+        panelRound1.add(jTFNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 90, 40));
 
         jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre6.setToolTipText("");
         jSNombre6.setOpaque(true);
         jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 570, 90, -1));
+        panelRound1.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 90, -1));
 
         jSAltura.setForeground(new java.awt.Color(255, 255, 255));
         jSAltura.setToolTipText("");
         jSAltura.setOpaque(true);
         jSAltura.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 490, 90, -1));
+        panelRound1.add(jSAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 90, -1));
 
         jTFAltura.setBackground(new java.awt.Color(35, 35, 35));
         jTFAltura.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -339,58 +345,178 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFAlturaActionPerformed(evt);
             }
         });
-        add(jTFAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 90, 40));
+        panelRound1.add(jTFAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 90, 40));
 
         jLNombre7.setBackground(new java.awt.Color(255, 255, 255));
         jLNombre7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre7.setForeground(new java.awt.Color(255, 255, 255));
         jLNombre7.setText("Altura");
-        add(jLNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, -1, 10));
+        panelRound1.add(jLNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(0, 204, 255));
+        jButton1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-editar.png"))); // NOI18N
+        jButton1.setText("Editar");
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setOpaque(true);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, -1, 30));
+        panelRound1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 80, 40));
 
-        jButton2.setText("jButton2");
-        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 620, -1, 30));
+        jButton2.setBackground(new java.awt.Color(48, 255, 167));
+        jButton2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
+        jButton2.setText("Crear");
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setOpaque(true);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 530, 80, 40));
 
-        jButton3.setText("jButton3");
-        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 620, -1, 30));
+        jBEliminar.setBackground(new java.awt.Color(247, 87, 87));
+        jBEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBEliminar.setForeground(new java.awt.Color(36, 2, 2));
+        jBEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
+        jBEliminar.setText("Eliminar");
+        jBEliminar.setBorder(null);
+        jBEliminar.setBorderPainted(false);
+        jBEliminar.setContentAreaFilled(false);
+        jBEliminar.setOpaque(true);
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jBEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 530, 90, 40));
 
-        jBBuscar.setText("jButton4");
+        jBBuscar.setBackground(new java.awt.Color(51, 153, 255));
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBBuscar.setToolTipText("");
+        jBBuscar.setBorder(null);
+        jBBuscar.setBorderPainted(false);
+        jBBuscar.setContentAreaFilled(false);
+        jBBuscar.setOpaque(true);
         jBBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBBuscarActionPerformed(evt);
             }
         });
-        add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 90, 40));
+        panelRound1.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 80, 40));
+
+        jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
+        jBCancelar.setToolTipText("");
+        jBCancelar.setBorder(null);
+        jBCancelar.setBorderPainted(false);
+        jBCancelar.setContentAreaFilled(false);
+        jBCancelar.setOpaque(true);
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
+        panelRound1.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 40, 40));
+
+        jDateChooser1.setBackground(new java.awt.Color(102, 102, 102));
+        jDateChooser1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        panelRound1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 140, 30));
+
+        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 470, 600));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreActionPerformed
-      JOptionPane.showConfirmDialog(this, ui);
-    }//GEN-LAST:event_jTFNombreActionPerformed
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarActionPerformed
 
-    private void jTFNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusGained
-        this.jTFNombre.setBackground(new Color(63,63,63));
-        this.jLNombre.setForeground(new Color(82,168,255));
-        this.jSNombre.setBackground(new Color(82,168,255));
-    }//GEN-LAST:event_jTFNombreFocusGained
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTFNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusLost
-        this.jTFNombre.setBackground(new Color(35,35,35));
-        this.jLNombre.setForeground(Color.WHITE);
-        this.jSNombre.setBackground(Color.WHITE);
-    }//GEN-LAST:event_jTFNombreFocusLost
+    private void jTFAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFAlturaActionPerformed
 
-    private void jTFDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusGained
-         this.jTFDni.setBackground(new Color(63,63,63));
-        this.jLDni.setForeground(new Color(82,168,255));
-        this.jSDni.setBackground(new Color(82,168,255));
-    }//GEN-LAST:event_jTFDniFocusGained
+    private void jTFAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFAlturaFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFAlturaFocusLost
+
+    private void jTFAlturaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFAlturaFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFAlturaFocusGained
+
+    private void jTFNombre6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombre6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6ActionPerformed
+
+    private void jTFNombre6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6FocusLost
+
+    private void jTFNombre6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6FocusGained
+
+    private void jTFPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFPesoActionPerformed
+
+    private void jTFPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFPesoFocusLost
+
+    private void jTFPesoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFPesoFocusGained
+
+    private void jTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoActionPerformed
+
+    private void jTFTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoFocusLost
+
+    private void jTFTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoFocusGained
+
+    private void jTFDomicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDomicilioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioActionPerformed
+
+    private void jTFDomicilioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioFocusLost
+
+    private void jTFDomicilioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioFocusGained
+
+    private void jTFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoActionPerformed
+
+    private void jTFApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoFocusLost
+
+    private void jTFApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoFocusGained
+
+    private void jTFDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDniActionPerformed
 
     private void jTFDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusLost
         this.jTFDni.setBackground(new Color(35,35,35));
@@ -398,97 +524,48 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         this.jSDni.setBackground(Color.WHITE);
     }//GEN-LAST:event_jTFDniFocusLost
 
-    private void jTFDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDniActionPerformed
+    private void jTFDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusGained
+        this.jTFDni.setBackground(new Color(63,63,63));
+        this.jLDni.setForeground(new Color(82,168,255));
+        this.jSDni.setBackground(new Color(82,168,255));
+    }//GEN-LAST:event_jTFDniFocusGained
 
-    private void jTFApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoFocusGained
+    private void jTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreActionPerformed
+        JOptionPane.showConfirmDialog(this, ui);
+    }//GEN-LAST:event_jTFNombreActionPerformed
 
-    private void jTFApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoFocusLost
+    private void jTFNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusLost
+        this.jTFNombre.setBackground(new Color(35,35,35));
+        this.jLNombre.setForeground(Color.WHITE);
+        this.jSNombre.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jTFNombreFocusLost
 
-    private void jTFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoActionPerformed
+    private void jTFNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusGained
+        this.jTFNombre.setBackground(new Color(63,63,63));
+        this.jLNombre.setForeground(new Color(82,168,255));
+        this.jSNombre.setBackground(new Color(82,168,255));
+    }//GEN-LAST:event_jTFNombreFocusGained
 
-    private void jTFDomicilioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusGained
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDomicilioFocusGained
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jTFDomicilioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusLost
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDomicilioFocusLost
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTFDomicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDomicilioActionPerformed
+    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDomicilioActionPerformed
-
-    private void jTFPesoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesoFocusGained
-
-    private void jTFPesoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesoFocusLost
-
-    private void jTFPesoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFPesoActionPerformed
-
-    private void jTFNombre6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNombre6FocusGained
-
-    private void jTFNombre6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNombre6FocusLost
-
-    private void jTFNombre6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombre6ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNombre6ActionPerformed
-
-    private void jTFAlturaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFAlturaFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFAlturaFocusGained
-
-    private void jTFAlturaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFAlturaFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFAlturaFocusLost
-
-    private void jTFAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAlturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFAlturaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBBuscarActionPerformed
-
-    private void jTFTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFTelefonoFocusGained
-
-    private void jTFTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFTelefonoFocusLost
-
-    private void jTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFTelefonoActionPerformed
+    }//GEN-LAST:event_jBEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBEliminar;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDFechaNac;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLApellido;
     private javax.swing.JLabel jLDni;
     private javax.swing.JLabel jLDomicilio;
@@ -499,11 +576,11 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JLabel jLPesoDeseado;
     private javax.swing.JLabel jLTelefono;
     private javax.swing.JLabel jLTitulo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JSeparator jSAltura;
     private javax.swing.JSeparator jSApellido;
     private javax.swing.JSeparator jSDni;
     private javax.swing.JSeparator jSDomicilio;
-    private javax.swing.JSeparator jSEncabezado;
     private javax.swing.JSeparator jSNombre;
     private javax.swing.JSeparator jSNombre6;
     private javax.swing.JSeparator jSPeso;
@@ -516,5 +593,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JTextField jTFNombre6;
     private javax.swing.JTextField jTFPeso;
     private javax.swing.JTextField jTFTelefono;
+    private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 }

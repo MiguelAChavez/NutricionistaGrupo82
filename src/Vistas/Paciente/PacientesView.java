@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vistas.Paciente;
 
+import Vistas.*;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
-
 /**
  *
  * @author Pc Chavez
