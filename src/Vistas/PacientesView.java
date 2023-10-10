@@ -6,13 +6,8 @@
 package Vistas;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
-import javafx.animation.Animation;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
-import utils.PanelRound;
 
 /**
  *
@@ -25,6 +20,7 @@ public class PacientesView extends javax.swing.JPanel {
      */
     utils.AnimationPanel mover = new AnimationPanel();
     private final DeskNutricionista contenedor;
+    
     public PacientesView(DeskNutricionista ContentPanel) {
         initComponents();
         contenedor = ContentPanel;
@@ -37,7 +33,6 @@ public class PacientesView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         PRFondo = new utils.PanelRound();
         jBFormularioP = new javax.swing.JButton();
         jBListarP = new javax.swing.JButton();
@@ -46,19 +41,12 @@ public class PacientesView extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(java.awt.Color.lightGray);
         setMinimumSize(new java.awt.Dimension(1030, 670));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("David Libre", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(117, 10, 10));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("MENU DEL PACIENTE");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1100, 40));
-        jLabel1.getAccessibleContext().setAccessibleName("MENU ");
 
         PRFondo.setBackground(new java.awt.Color(219, 219, 219));
         PRFondo.setRoundBottomLeft(40);
@@ -66,6 +54,7 @@ public class PacientesView extends javax.swing.JPanel {
         PRFondo.setRoundTopLeft(40);
         PRFondo.setRoundTopRight(40);
         PRFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jBFormularioP.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBFormularioP.setText("Formulario");
         jBFormularioP.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.black));
@@ -82,8 +71,8 @@ public class PacientesView extends javax.swing.JPanel {
                 jBFormularioPActionPerformed(evt);
             }
         });
+        PRFondo.add(jBFormularioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 240, 70));
 
-        PRFondo.add(jBFormularioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 370, 90));
         jBListarP.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarP.setText("Listar ");
         jBListarP.setActionCommand("LISTADO PACIENTE");
@@ -94,7 +83,8 @@ public class PacientesView extends javax.swing.JPanel {
                 jBListarPActionPerformed(evt);
             }
         });
-        PRFondo.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 370, 90));
+        PRFondo.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 240, 70));
+
         jBHistorialPaciente.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBHistorialPaciente.setText("Historial");
         jBHistorialPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -104,43 +94,41 @@ public class PacientesView extends javax.swing.JPanel {
                 jBHistorialPacienteActionPerformed(evt);
             }
         });
-        PRFondo.add(jBHistorialPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 370, 90));
+        PRFondo.add(jBHistorialPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 240, 70));
 
-        add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("<html>Abre el formulario para completar, modificar o eliminar los datos del paciente<html>");
         jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 210, 70));
+        PRFondo.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 210, 70));
 
         jLabel4.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("<html>Explora el listado de tus pacientes, activos y no activos<html>");
         jLabel4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 70));
+        PRFondo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 70));
 
         jLabel5.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("<html>Consulta el historial de cada paciente, con el registro cronológico de su dieta o dietas <html>");
-        panelRound1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 70));
+        PRFondo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 70));
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
+        add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
-        jLabel1.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel1.setText(" Home Paciente");
-        jPanel1.add(jLabel1);
-        jLabel1.getAccessibleContext().setAccessibleName("");
+        jLabel6.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel6.setText(" Home Paciente");
+        jPanel1.add(jLabel6);
+        jLabel6.getAccessibleContext().setAccessibleName("");
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo paciente.png"))); // NOI18N
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3);
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 650));
-
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed
@@ -165,14 +153,12 @@ public class PacientesView extends javax.swing.JPanel {
     private javax.swing.JButton jBFormularioP;
     private javax.swing.JButton jBHistorialPaciente;
     private javax.swing.JButton jBListarP;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private utils.PanelRound panelRound1;
-
     // End of variables declaration//GEN-END:variables
 
   private void showComponents(JPanel panel) {   
