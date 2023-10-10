@@ -122,7 +122,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jBComida.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
         jBComida.setForeground(new java.awt.Color(204, 204, 204));
         jBComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comida.png"))); // NOI18N
-        jBComida.setText("  Comida");
+        jBComida.setText("  Comidas");
         jBComida.setBorder(null);
         jBComida.setBorderPainted(false);
         jBComida.setContentAreaFilled(false);
@@ -238,7 +238,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(35, 35, 35));
 
-        jLabel1.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Bienvenido/a");
@@ -248,7 +248,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(361, Short.MAX_VALUE)
+                .addContainerGap(396, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(350, 350, 350))
         );
@@ -257,7 +257,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(56, 56, 56)
                 .addComponent(jLabel1)
-                .addContainerGap(557, Short.MAX_VALUE))
+                .addContainerGap(559, Short.MAX_VALUE))
         );
 
         jPSetup.add(jPanel1, "card2");
