@@ -7,6 +7,7 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
+import utils.PanelRound;
 
 /**
  *
@@ -21,7 +22,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     public DeskNutricionista() {
         initComponents();
-        this.pacientesView = new PacientesView();
+        this.pacientesView = new PacientesView(this);
         cardLayout = (CardLayout) this.jPSetup.getLayout();
         this.setIconImage(this.getIconImage());
 
@@ -327,7 +328,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBDientasMouseEntered
 
     private void jBPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPacientesActionPerformed
-        loadComponents(this.pacientesView);
+        showComponents(this.pacientesView);
+        this.mover.animateScroll(PRBarraMenu);
     }//GEN-LAST:event_jBPacientesActionPerformed
 
     private void jBPacientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBPacientesMouseExited
@@ -416,11 +418,21 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-    private void loadComponents(JPanel panel) {
-        this.jPSetup.add(panel, panel.getClass().getName() + "_layout");
-        cardLayout.show(jPSetup, panel.getClass().getName() + "_layout");
-        this.mover.animateScroll(PRBarraMenu);
+    private void showComponents(JPanel panel) {
+        this.jPSetup.removeAll();
+        this.jPSetup.add(panel, BorderLayout.CENTER);
+        this.jPSetup.revalidate();
+        this.jPSetup.repaint();
         this.jBDesplegar.setVisible(Boolean.TRUE);
     }
 
+    public PanelRound getPRBarraMenu() {
+        return PRBarraMenu;
+    }
+
+    public JPanel getjPSetup() {
+        return jPSetup;
+    }
+ 
+    
 }

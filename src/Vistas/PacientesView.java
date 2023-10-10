@@ -5,7 +5,14 @@
  */
 package Vistas;
 
+import java.awt.BorderLayout;
+import java.awt.Container;
+import javafx.animation.Animation;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import utils.AnimationPanel;
+import utils.PanelRound;
 
 /**
  *
@@ -16,8 +23,11 @@ public class PacientesView extends javax.swing.JPanel {
     /**
      * Creates new form PacientesView
      */
-    public PacientesView() {
+    utils.AnimationPanel mover = new AnimationPanel();
+    private final DeskNutricionista contenedor;
+    public PacientesView(DeskNutricionista ContentPanel) {
         initComponents();
+        contenedor = ContentPanel;
     }
 
     /**
@@ -28,12 +38,13 @@ public class PacientesView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        panelRound1 = new utils.PanelRound();
+        PRFondo = new utils.PanelRound();
         jBFormularioP = new javax.swing.JButton();
         jBListarP = new javax.swing.JButton();
         jBHistorialPaciente = new javax.swing.JButton();
 
         setBackground(java.awt.Color.lightGray);
+        setMinimumSize(new java.awt.Dimension(1030, 670));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("David Libre", 1, 48)); // NOI18N
@@ -43,12 +54,12 @@ public class PacientesView extends javax.swing.JPanel {
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 1100, 40));
         jLabel1.getAccessibleContext().setAccessibleName("MENU ");
 
-        panelRound1.setBackground(new java.awt.Color(219, 219, 219));
-        panelRound1.setRoundBottomLeft(40);
-        panelRound1.setRoundBottomRight(40);
-        panelRound1.setRoundTopLeft(40);
-        panelRound1.setRoundTopRight(40);
-        panelRound1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        PRFondo.setBackground(new java.awt.Color(219, 219, 219));
+        PRFondo.setRoundBottomLeft(40);
+        PRFondo.setRoundBottomRight(40);
+        PRFondo.setRoundTopLeft(40);
+        PRFondo.setRoundTopRight(40);
+        PRFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jBFormularioP.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jBFormularioP.setText("FORMULARIO ");
@@ -61,7 +72,7 @@ public class PacientesView extends javax.swing.JPanel {
                 jBFormularioPActionPerformed(evt);
             }
         });
-        panelRound1.add(jBFormularioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 370, 90));
+        PRFondo.add(jBFormularioP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, 370, 90));
 
         jBListarP.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jBListarP.setText("LISTAR ");
@@ -73,7 +84,7 @@ public class PacientesView extends javax.swing.JPanel {
                 jBListarPActionPerformed(evt);
             }
         });
-        panelRound1.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 370, 90));
+        PRFondo.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 370, 90));
 
         jBHistorialPaciente.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jBHistorialPaciente.setText("HISTORIAL");
@@ -84,9 +95,9 @@ public class PacientesView extends javax.swing.JPanel {
                 jBHistorialPacienteActionPerformed(evt);
             }
         });
-        panelRound1.add(jBHistorialPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 370, 90));
+        PRFondo.add(jBHistorialPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, 370, 90));
 
-        add(panelRound1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
+        add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed
@@ -98,15 +109,23 @@ public class PacientesView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-        // TODO add your handling code here:
+       showComponents(new FormularioPacienteView());
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private utils.PanelRound PRFondo;
     private javax.swing.JButton jBFormularioP;
     private javax.swing.JButton jBHistorialPaciente;
     private javax.swing.JButton jBListarP;
     private javax.swing.JLabel jLabel1;
-    private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+
+  private void showComponents(JPanel panel) {   
+        this.contenedor.getjPSetup().removeAll();
+        this.contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
+        this.contenedor.getjPSetup().validate();
+        this.contenedor.getjPSetup().repaint();      
+    }
+
 }

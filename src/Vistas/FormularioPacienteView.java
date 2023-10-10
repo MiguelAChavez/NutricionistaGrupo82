@@ -5,6 +5,9 @@
  */
 package Vistas;
 
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -27,19 +30,491 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        jLTitulo = new javax.swing.JLabel();
+        jSEncabezado = new javax.swing.JSeparator();
+        jSNombre = new javax.swing.JSeparator();
+        jTFNombre = new javax.swing.JTextField();
+        jLNombre = new javax.swing.JLabel();
+        jLDni = new javax.swing.JLabel();
+        jTFDni = new javax.swing.JTextField();
+        jSDni = new javax.swing.JSeparator();
+        jLApellido = new javax.swing.JLabel();
+        jSApellido = new javax.swing.JSeparator();
+        jTFApellido = new javax.swing.JTextField();
+        jSDomicilio = new javax.swing.JSeparator();
+        jTFDomicilio = new javax.swing.JTextField();
+        jLDomicilio = new javax.swing.JLabel();
+        jLFechaNac = new javax.swing.JLabel();
+        jDFechaNac = new com.toedter.calendar.JDateChooser();
+        jLTelefono = new javax.swing.JLabel();
+        jSTelefono = new javax.swing.JSeparator();
+        jTFTelefono = new javax.swing.JTextField();
+        jSPeso = new javax.swing.JSeparator();
+        jTFNombre5 = new javax.swing.JTextField();
+        jLNombre5 = new javax.swing.JLabel();
+        jSNombre6 = new javax.swing.JSeparator();
+        jTFNombre6 = new javax.swing.JTextField();
+        jLNombre6 = new javax.swing.JLabel();
+        jSNombre7 = new javax.swing.JSeparator();
+        jTFNombre7 = new javax.swing.JTextField();
+        jLNombre7 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jBBuscar = new javax.swing.JButton();
+
+        setBackground(new java.awt.Color(35, 35, 35));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLTitulo.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTitulo.setText("Formulario paciente");
+        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 790, -1));
+
+        jSEncabezado.setBackground(new java.awt.Color(193, 193, 193));
+        jSEncabezado.setOpaque(true);
+        jSEncabezado.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSEncabezado, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, 790, 3));
+
+        jSNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jSNombre.setToolTipText("");
+        jSNombre.setOpaque(true);
+        jSNombre.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 240, 170, -1));
+
+        jTFNombre.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombre.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombre.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombre.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombre.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombreFocusLost(evt);
+            }
+        });
+        jTFNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombreActionPerformed(evt);
+            }
+        });
+        add(jTFNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 200, 170, 40));
+
+        jLNombre.setBackground(new java.awt.Color(255, 255, 255));
+        jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre.setText("Nombre");
+        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 190, -1, 10));
+
+        jLDni.setBackground(new java.awt.Color(255, 255, 255));
+        jLDni.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLDni.setForeground(new java.awt.Color(255, 255, 255));
+        jLDni.setText("DNI");
+        add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, -1, 10));
+
+        jTFDni.setBackground(new java.awt.Color(35, 35, 35));
+        jTFDni.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFDni.setForeground(new java.awt.Color(204, 204, 204));
+        jTFDni.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFDni.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFDni.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFDni.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFDniFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFDniFocusLost(evt);
+            }
+        });
+        jTFDni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFDniActionPerformed(evt);
+            }
+        });
+        add(jTFDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 240, 40));
+
+        jSDni.setForeground(new java.awt.Color(255, 255, 255));
+        jSDni.setToolTipText("");
+        jSDni.setOpaque(true);
+        add(jSDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 240, -1));
+
+        jLApellido.setBackground(new java.awt.Color(255, 255, 255));
+        jLApellido.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLApellido.setForeground(new java.awt.Color(255, 255, 255));
+        jLApellido.setText("Apellido");
+        add(jLApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, -1, 30));
+
+        jSApellido.setForeground(new java.awt.Color(255, 255, 255));
+        jSApellido.setToolTipText("");
+        jSApellido.setOpaque(true);
+        jSApellido.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 240, 190, -1));
+
+        jTFApellido.setBackground(new java.awt.Color(35, 35, 35));
+        jTFApellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFApellido.setForeground(new java.awt.Color(204, 204, 204));
+        jTFApellido.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFApellido.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFApellido.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFApellido.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFApellidoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFApellidoFocusLost(evt);
+            }
+        });
+        jTFApellido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFApellidoActionPerformed(evt);
+            }
+        });
+        add(jTFApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 200, 190, 40));
+
+        jSDomicilio.setForeground(new java.awt.Color(255, 255, 255));
+        jSDomicilio.setToolTipText("");
+        jSDomicilio.setOpaque(true);
+        jSDomicilio.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 400, 360, -1));
+
+        jTFDomicilio.setBackground(new java.awt.Color(35, 35, 35));
+        jTFDomicilio.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFDomicilio.setForeground(new java.awt.Color(204, 204, 204));
+        jTFDomicilio.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFDomicilio.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFDomicilio.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFDomicilio.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFDomicilioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFDomicilioFocusLost(evt);
+            }
+        });
+        jTFDomicilio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFDomicilioActionPerformed(evt);
+            }
+        });
+        add(jTFDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 360, 360, 40));
+
+        jLDomicilio.setBackground(new java.awt.Color(255, 255, 255));
+        jLDomicilio.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLDomicilio.setForeground(new java.awt.Color(255, 255, 255));
+        jLDomicilio.setText("Domicilio");
+        add(jLDomicilio, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 340, -1, -1));
+
+        jLFechaNac.setBackground(new java.awt.Color(255, 255, 255));
+        jLFechaNac.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLFechaNac.setForeground(new java.awt.Color(255, 255, 255));
+        jLFechaNac.setText("Fecha de nacimiento");
+        add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, -1, -1));
+        add(jDFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 440, 190, 30));
+
+        jLTelefono.setBackground(new java.awt.Color(255, 255, 255));
+        jLTelefono.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jLTelefono.setText("Telefono");
+        add(jLTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 260, -1, -1));
+
+        jSTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jSTelefono.setToolTipText("");
+        jSTelefono.setOpaque(true);
+        jSTelefono.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, 360, -1));
+
+        jTFTelefono.setBackground(new java.awt.Color(35, 35, 35));
+        jTFTelefono.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFTelefono.setForeground(new java.awt.Color(204, 204, 204));
+        jTFTelefono.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFTelefono.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFTelefono.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFTelefonoFocusLost(evt);
+            }
+        });
+        jTFTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFTelefonoActionPerformed(evt);
+            }
+        });
+        add(jTFTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 360, 40));
+
+        jSPeso.setForeground(new java.awt.Color(255, 255, 255));
+        jSPeso.setToolTipText("");
+        jSPeso.setOpaque(true);
+        jSPeso.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 80, -1));
+
+        jTFNombre5.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombre5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombre5.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombre5.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombre5.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombre5.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFNombre5.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombre5FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombre5FocusLost(evt);
+            }
+        });
+        jTFNombre5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombre5ActionPerformed(evt);
+            }
+        });
+        add(jTFNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 520, 80, 40));
+
+        jLNombre5.setBackground(new java.awt.Color(255, 255, 255));
+        jLNombre5.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre5.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre5.setText("Nombre");
+        add(jLNombre5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 500, -1, 10));
+
+        jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
+        jSNombre6.setToolTipText("");
+        jSNombre6.setOpaque(true);
+        jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 90, -1));
+
+        jTFNombre6.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombre6.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombre6.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombre6.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombre6.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombre6.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFNombre6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombre6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombre6FocusLost(evt);
+            }
+        });
+        jTFNombre6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombre6ActionPerformed(evt);
+            }
+        });
+        add(jTFNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 510, 90, 40));
+
+        jLNombre6.setBackground(new java.awt.Color(255, 255, 255));
+        jLNombre6.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre6.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre6.setText("Nombre");
+        add(jLNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 500, -1, 10));
+
+        jSNombre7.setForeground(new java.awt.Color(255, 255, 255));
+        jSNombre7.setToolTipText("");
+        jSNombre7.setOpaque(true);
+        jSNombre7.setPreferredSize(new java.awt.Dimension(50, 2));
+        add(jSNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 620, 90, -1));
+
+        jTFNombre7.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombre7.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombre7.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombre7.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombre7.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombre7.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFNombre7.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombre7FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombre7FocusLost(evt);
+            }
+        });
+        jTFNombre7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombre7ActionPerformed(evt);
+            }
+        });
+        add(jTFNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 580, 90, 40));
+
+        jLNombre7.setBackground(new java.awt.Color(255, 255, 255));
+        jLNombre7.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre7.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre7.setText("Nombre");
+        add(jLNombre7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, 10));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 500, -1, 30));
+
+        jButton2.setText("jButton2");
+        add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 500, -1, 30));
+
+        jButton3.setText("jButton3");
+        add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 500, -1, 30));
+
+        jBBuscar.setText("jButton4");
+        jBBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarActionPerformed(evt);
+            }
+        });
+        add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTFNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreActionPerformed
+      JOptionPane.showConfirmDialog(this, ui);
+    }//GEN-LAST:event_jTFNombreActionPerformed
+
+    private void jTFNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusGained
+        this.jTFNombre.setBackground(new Color(63,63,63));
+        this.jLNombre.setForeground(new Color(82,168,255));
+        this.jSNombre.setBackground(new Color(82,168,255));
+    }//GEN-LAST:event_jTFNombreFocusGained
+
+    private void jTFNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreFocusLost
+        this.jTFNombre.setBackground(new Color(35,35,35));
+        this.jLNombre.setForeground(Color.WHITE);
+        this.jSNombre.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jTFNombreFocusLost
+
+    private void jTFDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusGained
+         this.jTFDni.setBackground(new Color(63,63,63));
+        this.jLDni.setForeground(new Color(82,168,255));
+        this.jSDni.setBackground(new Color(82,168,255));
+    }//GEN-LAST:event_jTFDniFocusGained
+
+    private void jTFDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusLost
+        this.jTFDni.setBackground(new Color(35,35,35));
+        this.jLDni.setForeground(Color.WHITE);
+        this.jSDni.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jTFDniFocusLost
+
+    private void jTFDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDniActionPerformed
+
+    private void jTFApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoFocusGained
+
+    private void jTFApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoFocusLost
+
+    private void jTFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFApellidoActionPerformed
+
+    private void jTFDomicilioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioFocusGained
+
+    private void jTFDomicilioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDomicilioFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioFocusLost
+
+    private void jTFDomicilioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDomicilioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFDomicilioActionPerformed
+
+    private void jTFNombre5FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre5FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre5FocusGained
+
+    private void jTFNombre5FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre5FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre5FocusLost
+
+    private void jTFNombre5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombre5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre5ActionPerformed
+
+    private void jTFNombre6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6FocusGained
+
+    private void jTFNombre6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre6FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6FocusLost
+
+    private void jTFNombre6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombre6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre6ActionPerformed
+
+    private void jTFNombre7FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre7FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre7FocusGained
+
+    private void jTFNombre7FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombre7FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre7FocusLost
+
+    private void jTFNombre7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombre7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombre7ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBBuscarActionPerformed
+
+    private void jTFTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoFocusGained
+
+    private void jTFTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFTelefonoFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoFocusLost
+
+    private void jTFTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFTelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBBuscar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private com.toedter.calendar.JDateChooser jDFechaNac;
+    private javax.swing.JLabel jLApellido;
+    private javax.swing.JLabel jLDni;
+    private javax.swing.JLabel jLDomicilio;
+    private javax.swing.JLabel jLFechaNac;
+    private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLNombre5;
+    private javax.swing.JLabel jLNombre6;
+    private javax.swing.JLabel jLNombre7;
+    private javax.swing.JLabel jLTelefono;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JSeparator jSApellido;
+    private javax.swing.JSeparator jSDni;
+    private javax.swing.JSeparator jSDomicilio;
+    private javax.swing.JSeparator jSEncabezado;
+    private javax.swing.JSeparator jSNombre;
+    private javax.swing.JSeparator jSNombre6;
+    private javax.swing.JSeparator jSNombre7;
+    private javax.swing.JSeparator jSPeso;
+    private javax.swing.JSeparator jSTelefono;
+    private javax.swing.JTextField jTFApellido;
+    private javax.swing.JTextField jTFDni;
+    private javax.swing.JTextField jTFDomicilio;
+    private javax.swing.JTextField jTFNombre;
+    private javax.swing.JTextField jTFNombre5;
+    private javax.swing.JTextField jTFNombre6;
+    private javax.swing.JTextField jTFNombre7;
+    private javax.swing.JTextField jTFTelefono;
     // End of variables declaration//GEN-END:variables
 }
