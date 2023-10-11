@@ -25,7 +25,7 @@ public class PacienteData {
 
     private static final Connection CONN = ConexionData.getConnection();
 
-    private PacienteData() {
+    public PacienteData() {
     }
 
     public static void CrearPaciente(Paciente paciente) {

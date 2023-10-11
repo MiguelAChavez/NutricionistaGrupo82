@@ -5,8 +5,13 @@
  */
 package Vistas.Paciente;
 
+import AccesoADatos.PacienteData;
+import Entidades.Paciente;
+import com.sun.java.accessibility.util.EventID;
 import java.awt.Color;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import utils.Estado;
 
 /**
  *
@@ -25,9 +30,15 @@ public class ListarPacientes extends javax.swing.JPanel {
         }  
     };
     
+    private final PacienteData data;
+    private Paciente mipaciente;
+    
     public ListarPacientes() {
         initComponents();
+        initTable();
         this.jBBuscar.setToolTipText("Buscar");
+        data = new PacienteData();
+        armarCombo();
     }
 
     /**
@@ -151,4 +162,43 @@ public class ListarPacientes extends javax.swing.JPanel {
     private javax.swing.JTable jTPacientes;
     private javax.swing.JTextField jTTexto;
     // End of variables declaration//GEN-END:variables
+
+    private void initTable() {
+
+        this.model.addColumn("idPaciente");
+        this.model.addColumn("Nombre");
+        this.model.addColumn("Apellido");
+        this.model.addColumn("Dni");
+        this.model.addColumn("Teléfono");
+        this.model.addColumn("Domicilio");
+        this.model.addColumn("Fecha de nacimeinto");
+        this.model.addColumn("Sexo");
+        this.model.addColumn("Estado");
+        this.model.addColumn("Altura");
+
+        this.jTPacientes.setModel(model);
+    }
+    
+    private void armarCombo() {
+        this.jCBSelecionFiltro.removeAll();
+        this.jCBSelecionFiltro.addItem("--Seleccione--");
+        this.jCBSelecionFiltro.setSelectedIndex(0);
+        this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
+        this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
+        this.jCBSelecionFiltro.addItem(Estado.TODOS);
+
+       // List<Paciente> paciente = data.
+
+//        for (Paciente pacientes : paciente) {
+//            jCBSelecionFiltro.addItem(pacientes);
+//        }
+
+    }
+
+
+
+
 }
+
+
+
