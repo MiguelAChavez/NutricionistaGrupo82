@@ -5,6 +5,9 @@
  */
 package Vistas.Paciente;
 
+import java.awt.Color;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Pc Chavez
@@ -14,8 +17,17 @@ public class ListarPacientes extends javax.swing.JPanel {
     /**
      * Creates new form ListarPacientes
      */
+    
+    private DefaultTableModel model = new  DefaultTableModel(){
+        @Override
+        public boolean isCellEditable(int i, int i1) {
+            return Boolean.FALSE;
+        }  
+    };
+    
     public ListarPacientes() {
         initComponents();
+        this.jBBuscar.setToolTipText("Buscar");
     }
 
     /**
@@ -25,19 +37,118 @@ public class ListarPacientes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1044, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 677, Short.MAX_VALUE)
-        );
+        jCBSelecionFiltro = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTPacientes = new javax.swing.JTable();
+        jTTexto = new javax.swing.JTextField();
+        jBBuscar = new javax.swing.JButton();
+        jLTitulo = new javax.swing.JLabel();
+        jLCantidad = new javax.swing.JLabel();
+        jLFiltro1 = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLCantidad1 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(35, 35, 35));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jCBSelecionFiltro.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jCBSelecionFiltro.setBorder(null);
+        add(jCBSelecionFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 140, 140, 40));
+
+        jTPacientes.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTPacientes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
+            }
+        ));
+        jTPacientes.setGridColor(new java.awt.Color(0, 0, 0));
+        jTPacientes.setSelectionBackground(new java.awt.Color(0, 153, 255));
+        jTPacientes.getTableHeader().setResizingAllowed(false);
+        jTPacientes.getTableHeader().setReorderingAllowed(false);
+        jScrollPane1.setViewportView(jTPacientes);
+
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 970, 450));
+
+        jTTexto.setBackground(new java.awt.Color(35, 35, 35));
+        jTTexto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTTexto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 10));
+        jTTexto.setCaretColor(new java.awt.Color(0, 153, 255));
+        jTTexto.setSelectionColor(new java.awt.Color(153, 153, 153));
+        jTTexto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTTextoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTTextoFocusLost(evt);
+            }
+        });
+        jTTexto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTTextoActionPerformed(evt);
+            }
+        });
+        add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 40));
+
+        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 110, 90, 40));
+
+        jLTitulo.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
+        jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
+        jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTitulo.setText("Tabla pacientes");
+        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1030, 50));
+
+        jLCantidad.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLCantidad.setForeground(new java.awt.Color(255, 255, 255));
+        jLCantidad.setText("Ingrese un apellido o un nombre: ");
+        add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 40));
+
+        jLFiltro1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLFiltro1.setForeground(new java.awt.Color(255, 255, 255));
+        jLFiltro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLFiltro1.setText("Filtro");
+        jLFiltro1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        add(jLFiltro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 20));
+
+        jSeparator1.setOpaque(true);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 480, 3));
+
+        jLCantidad1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jLCantidad1.setForeground(new java.awt.Color(255, 255, 255));
+        jLCantidad1.setText("Cantidad: 0");
+        add(jLCantidad1, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, 200, 30));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTextoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTTextoActionPerformed
+
+    private void jTTextoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoFocusGained
+       this.jTTexto.setBackground(new Color(63,63,63));
+    }//GEN-LAST:event_jTTextoFocusGained
+
+    private void jTTextoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoFocusLost
+       this.jTTexto.setBackground(new Color(35,35,35));
+    }//GEN-LAST:event_jTTextoFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBBuscar;
+    private javax.swing.JComboBox<Object> jCBSelecionFiltro;
+    private javax.swing.JLabel jLCantidad;
+    private javax.swing.JLabel jLCantidad1;
+    private javax.swing.JLabel jLFiltro1;
+    private javax.swing.JLabel jLTitulo;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTable jTPacientes;
+    private javax.swing.JTextField jTTexto;
     // End of variables declaration//GEN-END:variables
 }

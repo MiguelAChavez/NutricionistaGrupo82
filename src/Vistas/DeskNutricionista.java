@@ -20,13 +20,14 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     static CardLayout cardLayout;
     private final PacientesView pacientesView;
+    private int ingreso = 0;
 
     public DeskNutricionista() {
         initComponents();
         this.pacientesView = new PacientesView(this);
         cardLayout = (CardLayout) this.jPSetup.getLayout();
         this.setIconImage(this.getIconImage());
-
+        showComponents(new BienvenidaView());
     }
 
     @Override
@@ -51,8 +52,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPRFondoImagen = new utils.PanelRound();
         jLabel2 = new javax.swing.JLabel();
         jPSetup = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jBDesplegar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -171,13 +170,26 @@ public class DeskNutricionista extends javax.swing.JFrame {
         });
 
         jPRFondoImagen.setBackground(new java.awt.Color(255, 255, 255));
+        jPRFondoImagen.setToolTipText("");
         jPRFondoImagen.setRoundBottomLeft(30);
         jPRFondoImagen.setRoundBottomRight(30);
         jPRFondoImagen.setRoundTopLeft(30);
         jPRFondoImagen.setRoundTopRight(30);
+        jPRFondoImagen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPRFondoImagenMouseClicked(evt);
+            }
+        });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
+        jLabel2.setToolTipText("Inicio");
+        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPRFondoImagenLayout = new javax.swing.GroupLayout(jPRFondoImagen);
         jPRFondoImagen.setLayout(jPRFondoImagenLayout);
@@ -237,33 +249,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jPSetup.setBackground(new java.awt.Color(35, 35, 35));
         jPSetup.setLayout(new java.awt.CardLayout());
-
-        jPanel1.setBackground(new java.awt.Color(35, 35, 35));
-
-        jLabel1.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Bienvenido/a");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(396, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(350, 350, 350))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addContainerGap(559, Short.MAX_VALUE))
-        );
-
-        jPSetup.add(jPanel1, "card2");
-
         jPFondo.add(jPSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 1030, 670));
 
         jBDesplegar.setBackground(new java.awt.Color(153, 153, 153));
@@ -349,7 +334,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private void jBPlegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlegarActionPerformed
         this.mover.animateScroll(PRBarraMenu);
         this.jBDesplegar.setVisible(true);
-
     }//GEN-LAST:event_jBPlegarActionPerformed
 
     private void jBDesplegarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDesplegarMouseEntered
@@ -367,6 +351,17 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private void jBPlegarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBPlegarMouseExited
         this.jBPlegar.setBackground(new Color(153, 153, 153));
     }//GEN-LAST:event_jBPlegarMouseExited
+
+    private void jPRFondoImagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPRFondoImagenMouseClicked
+
+    }//GEN-LAST:event_jPRFondoImagenMouseClicked
+
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        if (this.ingreso > 1) {
+            this.mover.animateScroll(PRBarraMenu);
+            showComponents(new BienvenidaView());
+        }
+    }//GEN-LAST:event_jLabel2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -411,15 +406,14 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private javax.swing.JButton jBDientas;
     private javax.swing.JButton jBPacientes;
     private javax.swing.JButton jBPlegar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPFondo;
     private utils.PanelRound jPRFondoImagen;
     private javax.swing.JPanel jPSetup;
-    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
     private void showComponents(JPanel panel) {
+        this.ingreso++;
         this.jPSetup.removeAll();
         this.jPSetup.add(panel, BorderLayout.CENTER);
         this.jPSetup.revalidate();
@@ -434,6 +428,5 @@ public class DeskNutricionista extends javax.swing.JFrame {
     public JPanel getjPSetup() {
         return jPSetup;
     }
- 
-    
+
 }

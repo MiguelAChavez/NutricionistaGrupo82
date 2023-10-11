@@ -9,6 +9,7 @@ import Vistas.*;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
+
 /**
  *
  * @author Pc Chavez
@@ -20,7 +21,7 @@ public class PacientesView extends javax.swing.JPanel {
      */
     utils.AnimationPanel mover = new AnimationPanel();
     private final DeskNutricionista contenedor;
-    
+
     public PacientesView(DeskNutricionista ContentPanel) {
         initComponents();
         contenedor = ContentPanel;
@@ -115,7 +116,7 @@ public class PacientesView extends javax.swing.JPanel {
 
         add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 560, 400));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(22, 22, 22));
 
         jLabel6.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
@@ -136,11 +137,11 @@ public class PacientesView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBHistorialPacienteActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
-        // TODO add your handling code here:
+        showComponents(new ListarPacientes());
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-       showComponents(new FormularioPacienteView());
+        showComponents(new FormularioPacienteView());
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
     private void jBFormularioPFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioPFocusGained
@@ -161,11 +162,11 @@ public class PacientesView extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 
-  private void showComponents(JPanel panel) {   
+    private void showComponents(JPanel panel) {
         this.contenedor.getjPSetup().removeAll();
         this.contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
         this.contenedor.getjPSetup().validate();
-        this.contenedor.getjPSetup().repaint();      
+        this.contenedor.getjPSetup().repaint();
     }
 
 }
