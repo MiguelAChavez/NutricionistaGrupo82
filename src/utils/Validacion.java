@@ -12,15 +12,15 @@ package utils;
 public class Validacion {
 
     public static boolean isValidoString(String cadena) {
-        return cadena != null && cadena.matches("^[a-zA-Z% ]*$");
+        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ% ]*$");
     }
 
     public static boolean isValidoStringCNumero(String cadena) {
-        return cadena != null && cadena.matches("^[a-zA-Z% 0-9]*$");
+        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ% 0-9]*$");
     }
 
     public static boolean isValidoNumero(String cadena) {
-        return cadena != null && cadena.matches("^[0-9]*$");
+        return cadena != null && cadena.matches("^[0-9]{1,15}$");
     }
 
     public static boolean isValidoNumero(int i) {
