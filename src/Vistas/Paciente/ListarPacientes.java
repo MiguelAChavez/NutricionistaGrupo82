@@ -30,14 +30,12 @@ public class ListarPacientes extends javax.swing.JPanel {
         }  
     };
     
-    private final PacienteData data;
     private Paciente mipaciente;
     
     public ListarPacientes() {
         initComponents();
         initTable();
         this.jBBuscar.setToolTipText("Buscar");
-        data = new PacienteData();
         armarCombo();
     }
 
@@ -55,8 +53,8 @@ public class ListarPacientes extends javax.swing.JPanel {
         jBBuscar = new javax.swing.JButton();
         jLTitulo = new javax.swing.JLabel();
         jLCantidad = new javax.swing.JLabel();
-        jLFiltro1 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
+        jLFiltro1 = new javax.swing.JLabel();
         jLCantidad1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -88,7 +86,8 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         jTTexto.setBackground(new java.awt.Color(35, 35, 35));
         jTTexto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTTexto.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 10, 10));
+        jTTexto.setForeground(new java.awt.Color(255, 255, 255));
+        jTTexto.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jTTexto.setCaretColor(new java.awt.Color(0, 153, 255));
         jTTexto.setSelectionColor(new java.awt.Color(153, 153, 153));
         jTTexto.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -121,15 +120,15 @@ public class ListarPacientes extends javax.swing.JPanel {
         jLCantidad.setText("Ingrese un apellido o un nombre: ");
         add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 40));
 
+        jSeparator1.setOpaque(true);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 480, 3));
+
         jLFiltro1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFiltro1.setForeground(new java.awt.Color(255, 255, 255));
         jLFiltro1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLFiltro1.setText("Filtro");
         jLFiltro1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         add(jLFiltro1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 120, 70, 20));
-
-        jSeparator1.setOpaque(true);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 480, 3));
 
         jLCantidad1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLCantidad1.setForeground(new java.awt.Color(255, 255, 255));
@@ -171,7 +170,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.model.addColumn("Dni");
         this.model.addColumn("Teléfono");
         this.model.addColumn("Domicilio");
-        this.model.addColumn("Fecha de nacimeinto");
+        this.model.addColumn("Nacimiento");
         this.model.addColumn("Sexo");
         this.model.addColumn("Estado");
         this.model.addColumn("Altura");
@@ -183,16 +182,9 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.jCBSelecionFiltro.removeAll();
         this.jCBSelecionFiltro.addItem("--Seleccione--");
         this.jCBSelecionFiltro.setSelectedIndex(0);
+        this.jCBSelecionFiltro.addItem(Estado.TODOS);
         this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
-        this.jCBSelecionFiltro.addItem(Estado.TODOS);
-
-       // List<Paciente> paciente = data.
-
-//        for (Paciente pacientes : paciente) {
-//            jCBSelecionFiltro.addItem(pacientes);
-//        }
-
     }
 
 

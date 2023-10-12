@@ -23,4 +23,19 @@ public enum Estado {
     public int getEstado() {
         return cod;
     }
+
+    @Override
+    public String toString() {
+        switch (this) {
+            case INACTIVOS:
+                return "Inactivos";
+            case ACTIVO:
+                return "Activos";
+            case TODOS:
+                return "Todos";
+            default:
+                return null;
+        }
+    }
+
 }

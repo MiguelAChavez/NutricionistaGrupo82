@@ -51,8 +51,8 @@ public class PacienteData {
 
             if (rs.next()) {
                 paciente.setIdPaciente(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "Paciente creado con éxito");
                 return;
-                // JOptionPane.showMessageDialog(null, "Paciente creado con éxito");
             }
             ps.close();
         } catch (SQLException ex) {
