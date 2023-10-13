@@ -9,7 +9,9 @@ import AccesoADatos.PacienteData;
 import Entidades.Paciente;
 import com.sun.java.accessibility.util.EventID;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utils.Estado;
 
@@ -62,6 +64,11 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         jCBSelecionFiltro.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jCBSelecionFiltro.setBorder(null);
+        jCBSelecionFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBSelecionFiltroActionPerformed(evt);
+            }
+        });
         add(jCBSelecionFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 140, 140, 40));
 
         jTPacientes.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -148,6 +155,32 @@ public class ListarPacientes extends javax.swing.JPanel {
        this.jTTexto.setBackground(new Color(35,35,35));
     }//GEN-LAST:event_jTTextoFocusLost
 
+    private void jCBSelecionFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionFiltroActionPerformed
+         borrarFilas();
+        if ( this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class ) {
+            Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
+            List<Paciente> ListaPaciente = PacienteData.ListarPacientes(estado);
+            if (ListaPaciente.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                return;
+            }
+            for (Paciente paciente : ListaPaciente) {
+                model.addRow(new Object[]{
+                    paciente.getIdPaciente(),
+                    paciente.getNombre(),
+                    paciente.getApellido(),
+                    paciente.getDni(),
+                    paciente.getTelefono(),
+                    paciente.getDomicilio(),
+                    paciente.getFechaNac(),
+                    paciente.getSexo(),
+                    paciente.isEstado(),
+                    paciente.getAltura() 
+                });
+            }
+        }
+    }//GEN-LAST:event_jCBSelecionFiltroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
@@ -186,11 +219,17 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
     }
+    
+    private void borrarFilas() {
+        int filas = jTPacientes.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            model.removeRow(f);
+        }
 
 
 
 
 }
-
+}
 
 
