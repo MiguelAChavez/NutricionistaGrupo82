@@ -56,20 +56,22 @@ public class PacienteData {
             }
             ps.close();
         } catch (SQLException ex) {
-             //codigo de error por dato duplicado
+            //codigo de error por dato duplicado
             if (ex.getErrorCode() == 1062) {
                 JOptionPane.showMessageDialog(null, "El dni ya existe.");
             } else {
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
             }
-            
-            
+
         }
     }
 
     public static void modificarPaciente(Paciente paciente) {
         String sql = "UPDATE paciente set dni=?, apellido=?,  nombre=?, telefono=?, domicilio=?, fechaNac=?, sexo=?, pesoActual=?, altura=?, pesoDeseado=? WHERE idPaciente=? ";
+        
+        System.out.println(paciente);
+        
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setInt(1, paciente.getDni());
@@ -108,7 +110,7 @@ public class PacienteData {
             int res = ps.executeUpdate();
             if (res == 1) {
                 return;
-               // JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
+                // JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
             }
 
             ps.close();
@@ -119,13 +121,26 @@ public class PacienteData {
 
     }
 
-    public static Paciente buscarPacientePorDni(int dni, boolean isActivo) {
+    public static Paciente buscarPacientePorDni(int dni, Estado isActivo) {
         String sql;
-        sql = "SELECT * FROM paciente "
-                + " WHERE dni=? " + (isActivo ? " AND estado = 1" : " AND estado = 0 ");
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM paciente WHERE dni=? " + estado;
+
         Paciente paciente = null;
         PreparedStatement ps;
-
+        
         try {
             ps = CONN.prepareStatement(sql);
             ps.setInt(1, dni);
@@ -159,16 +174,16 @@ public class PacienteData {
 
     public static List<Paciente> ListarPorNombreOApellido(String cadena, Estado buscar) {
         List<Paciente> pacientes = new ArrayList<>();
-        
+
         String estado = getEstadoCondition(buscar.getEstado());
-        
+
         String sql = "SELECT * FROM paciente "
                 + "WHERE ( paciente.apellido LIKE '" + cadena + "%' OR paciente.nombre LIKE '" + cadena + "%' )"
                 + estado
                 + " ORDER BY apellido ASC, nombre ASC;";
-        
+
         PreparedStatement ps;
-        
+
         try {
             ps = CONN.prepareStatement(sql);
 
@@ -197,10 +212,10 @@ public class PacienteData {
         return pacientes;
     }
 
-    public static List<Paciente> ListarPacientes(Estado estado) {      
-        List<Paciente> pacientes = new ArrayList<>();    
+    public static List<Paciente> ListarPacientes(Estado estado) {
+        List<Paciente> pacientes = new ArrayList<>();
         String estado1;
-        
+
         switch (estado.getEstado()) {
             case 0:
                 estado1 = " WHERE estado = 0";
@@ -212,9 +227,9 @@ public class PacienteData {
                 estado1 = "";
                 break;
         }
-        
+
         String sql = "SELECT * FROM paciente " + estado1 + ";";
-        
+
         PreparedStatement ps;
         try {
             ps = CONN.prepareStatement(sql);
@@ -254,7 +269,7 @@ public class PacienteData {
                 return "";
         }
     }
-    
+
     public static void activar(Paciente paciente) {
         String SQL = "UPDATE paciente SET estado= 1 WHERE idPaciente = ?;";
         try {
