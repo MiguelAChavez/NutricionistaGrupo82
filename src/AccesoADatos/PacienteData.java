@@ -56,8 +56,15 @@ public class PacienteData {
             }
             ps.close();
         } catch (SQLException ex) {
+             //codigo de error por dato duplicado
+            if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "El dni ya existe.");
+            } else {
+                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
+            }
             
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
+            
         }
     }
 
@@ -245,6 +252,21 @@ public class PacienteData {
                 return " AND estado = 1";
             default:
                 return "";
+        }
+    }
+    
+    public static void activar(Paciente paciente) {
+        String SQL = "UPDATE paciente SET estado= 1 WHERE idPaciente = ?;";
+        try {
+            PreparedStatement ps = CONN.prepareStatement(SQL);
+            ps.setInt(1, paciente.getIdPaciente());
+
+            int res = ps.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Fue dado de alta nuevamente.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Paciente.");
         }
     }
 

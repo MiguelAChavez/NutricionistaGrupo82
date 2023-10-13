@@ -20,10 +20,10 @@ import utils.Validacion;
  */
 public class FormularioPacienteView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form FormularioPacienteView
-     */
-    public FormularioPacienteView() {
+   private Paciente miPaciente;
+    
+   
+   public FormularioPacienteView() {
         initComponents();
         this.jBCancelar.setVisible(Boolean.FALSE);
         this.jBBuscar.setToolTipText("Buscar");
@@ -64,7 +64,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jSAltura = new javax.swing.JSeparator();
         jTFAltura = new javax.swing.JTextField();
         jLcm = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        jBEditar = new javax.swing.JButton();
         jBCrear = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
         jBBuscar = new javax.swing.JButton();
@@ -383,23 +383,23 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLcm.setText("(cm)");
         PRSeccion.add(jLcm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, 40));
 
-        jButton1.setBackground(new java.awt.Color(0, 204, 255));
-        jButton1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-editar.png"))); // NOI18N
-        jButton1.setText("Editar");
-        jButton1.setBorder(null);
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setDisabledIcon(null);
-        jButton1.setEnabled(false);
-        jButton1.setOpaque(true);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jBEditar.setBackground(new java.awt.Color(0, 204, 255));
+        jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-editar.png"))); // NOI18N
+        jBEditar.setText("Editar");
+        jBEditar.setBorder(null);
+        jBEditar.setBorderPainted(false);
+        jBEditar.setContentAreaFilled(false);
+        jBEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBEditar.setDisabledIcon(null);
+        jBEditar.setEnabled(false);
+        jBEditar.setOpaque(true);
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jBEditarActionPerformed(evt);
             }
         });
-        PRSeccion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 80, 40));
+        PRSeccion.add(jBEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 530, 80, 40));
 
         jBCrear.setBackground(new java.awt.Color(48, 255, 167));
         jBCrear.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -507,12 +507,19 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
-        // TODO add your handling code here:
+          //Llamamos a buscarPaciente y guardamos el resultado en el atributo miPaciente
+        this.miPaciente = buscarPaciente();
+
+        //verificamos que miPaciente no sea nulo y cargamos sus atributos en los campos
+        if (miPaciente != null) {
+            cargarCampos(miPaciente);
+        }
     }//GEN-LAST:event_jBBuscarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+       //llamamos al metodo editar.
+        editar();
+    }//GEN-LAST:event_jBEditarActionPerformed
 
     private void jTFAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFAlturaActionPerformed
         // TODO add your handling code here:
@@ -619,7 +626,12 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFNombreFocusGained
 
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
-        // TODO add your handling code here:
+       //Llamamos al metodo limpiarCampos 
+        limpiarCampos();
+        //Llamamos invertirEstados para regresar al modo de crear un paciente
+        invertirEstados();
+        //igualamos a nulo el atributo miPaciente
+        this.miPaciente = null;
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
@@ -631,7 +643,17 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        // TODO add your handling code here:
+      this.miPaciente.getIdPaciente();
+        //enviamos un mensaje al usuario para que confirme la eliminacion.
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿esta seguro que desea eliminar el paciente? ");
+
+        //Comparamos la respueta con la constante YES_OPTION
+        if (respuesta == JOptionPane.YES_OPTION) {
+            //Enviamos miPaciente a PacienteData para que lo elimine
+            PacienteData.eliminarPaciente(this.miPaciente.getIdPaciente());
+            limpiarCampos();
+            invertirEstados();
+        }
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jTFDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDniKeyTyped
@@ -669,8 +691,8 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JButton jBBuscar;
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBCrear;
+    private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDFechaNacimiento;
     private javax.swing.JLabel jLAltura;
     private javax.swing.JLabel jLApellido;
@@ -792,5 +814,71 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         this.jTFPeso.setText("");
         this.jTFPesoDeseado.setText("");
     }
+    
+    private Paciente buscarPaciente() {
+        Paciente paciente;
+        try {
+            int dni = Integer.parseInt(jTFDni.getText());
+            if (dni > 0) {
+                paciente = PacienteData.buscarPacientePorDni(dni, Boolean.FALSE);
+               
+                if(!paciente.isEstado()){
+                    int result = JOptionPane.showConfirmDialog(this, "El paciente se encuentra dado de baja. ¿Quiere darlo de alta?");
+                    if(result == JOptionPane.YES_OPTION){
+                        PacienteData.activar(paciente);
+                    }else{
+                        paciente = PacienteData.buscarPacientePorDni(dni, Boolean.TRUE);;
+                    }
+                }
+                return paciente;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Solo puede ingresar numeros");
+        }
+        return null;
 
+}
+    
+     private void invertirEstados() {
+        this.jBCrear.setEnabled(!jBCrear.isEnabled());
+        this.jBEditar.setEnabled(!jBEditar.isEnabled());
+        this.jBEliminar.setEnabled(!jBEliminar.isEnabled());
+        this.jBBuscar.setVisible(!jBBuscar.isVisible());
+        this.jBCancelar.setVisible(!jBCancelar.isVisible());
+    }
+     
+     private void cargarCampos(Paciente paciente) {
+        //seteamos los atributos del paciente al los campos
+        invertirEstados();
+
+        this.jTFNombre.setText(paciente.getNombre());
+        this.jTFApellido.setText(paciente.getApellido());
+        this.jTFTelefono.setText(paciente.getTelefono());
+        this.jTFDomicilio.setText(paciente.getDomicilio());
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        LocalDate fechaNacimiento = paciente.getFechaNac();
+        this.jDFechaNacimiento.setDate(Date.from(fechaNacimiento.atStartOfDay(defaultZoneId).toInstant()));
+        this.jTFAltura.setText(paciente.getAltura()+"");
+        this.jTFDomicilio.setText(paciente.getSexo());
+        this.jTFPeso.setText(paciente.getPeso()+"");
+        this.jTFPesoDeseado.setText(paciente.getPesoDeseado()+"");
+
+
+
+        
+
+    }
+     
+       private void editar() {
+        //seteamos los datos de los campos a nuestro atributo miPaciente
+        Paciente pacienteAEditar = new Paciente();
+        pacienteAEditar.setIdPaciente(this.miPaciente.getIdPaciente());
+        pacienteAEditar = crearPaciente(pacienteAEditar);
+        
+        if(pacienteAEditar != null){
+            this.miPaciente = pacienteAEditar;
+            PacienteData.modificarPaciente(miPaciente);
+        } 
+        
+    }
 }
