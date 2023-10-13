@@ -101,7 +101,7 @@ public class NutricionistaGrupo82 {
         System.out.println("Ingrese el dni del paciente: ");
         int dni = leer.nextInt();
 
-        Paciente paciente = PacienteData.buscarPacientePorDni(dni, true);
+        Paciente paciente = PacienteData.buscarPacientePorDni(dni, Estado.ACTIVO);
 
         System.out.println("Nombre");
         leer.nextLine();
@@ -132,7 +132,7 @@ public class NutricionistaGrupo82 {
         System.out.println("Ingrese el dni del paciente: ");
         int dni = leer.nextInt();
 
-        Paciente paciente = PacienteData.buscarPacientePorDni(dni, true);
+        Paciente paciente = PacienteData.buscarPacientePorDni(dni, Estado.ACTIVO);
 
         PacienteData.eliminarPaciente(paciente.getIdPaciente());
         

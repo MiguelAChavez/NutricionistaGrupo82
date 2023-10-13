@@ -20,9 +20,9 @@ import utils.Validacion;
  * @author Lenovo
  */
 public class FormularioPacienteView extends javax.swing.JPanel {
-    
+
     private Paciente miPaciente;
-    
+
     public FormularioPacienteView() {
         initComponents();
         this.jBCancelar.setVisible(Boolean.FALSE);
@@ -509,7 +509,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
         //Llamamos a buscarPaciente y guardamos el resultado en el atributo miPaciente
         this.miPaciente = buscarPaciente();
-
         //verificamos que miPaciente no sea nulo y cargamos sus atributos en los campos
         if (miPaciente != null) {
             cargarCampos(miPaciente);
@@ -643,7 +642,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        this.miPaciente.getIdPaciente();
+
         //enviamos un mensaje al usuario para que confirme la eliminacion.
         int respuesta = JOptionPane.showConfirmDialog(null, "¿esta seguro que desea eliminar el paciente? ");
 
@@ -731,17 +730,17 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private Paciente crearPaciente(Paciente paciente) {
         try {
             int dni = Integer.parseInt(jTFDni.getText());
-            
+
             if (!Validacion.isValidoNumero(dni)) {
                 JOptionPane.showMessageDialog(this, "El dni no corresponde");
                 return null;
             }
-            
+
             String nombre = this.jTFNombre.getText();
             String apellido = this.jTFApellido.getText();
             String telefono = this.jTFTelefono.getText();
             String domicilio = this.jTFDomicilio.getText();
-            
+
             if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || domicilio.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacios.");
                 return null;
@@ -752,56 +751,56 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, "El telefono solo puede contener numeros.");
                 return null;
             }
-            
+
             Date date = this.jDFechaNacimiento.getDate();
-            
+
             if (date == null) {
                 JOptionPane.showMessageDialog(this, "Por favor, ingrese la fecha de nacimiento.");
                 return null;
             }
-            
+
             LocalDate fechaNacimiento = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-            
+
             if (fechaNacimiento.isAfter(LocalDate.now())) {
                 JOptionPane.showMessageDialog(this, "La fecha de nacimiento no puede estar en el futuro.");
                 return null;
             }
-            
+
             Double altura = Double.parseDouble(this.jTFAltura.getText());
             Double peso = Double.parseDouble(this.jTFPeso.getText());
             Double pesoDeseado = Double.parseDouble(this.jTFPesoDeseado.getText());
-            
+
             if (altura < 0 || peso < 0 || pesoDeseado < 0) {
                 JOptionPane.showMessageDialog(this, "Ingrese un valor positivo");
                 return null;
             }
-            
+
             String sexo = (this.jRFemenino.isSelected()) ? "Femenino" : "Masculino";
-            
+
             return new Paciente(
                     nombre, apellido, dni, domicilio, telefono, sexo, fechaNacimiento, Boolean.TRUE, peso, pesoDeseado, altura
             );
-            
+
         } catch (NumberFormatException e) {
-            
+
             if (e.getMessage().contains(this.jTFDni.getText())) {
-                
+
                 JOptionPane.showMessageDialog(this, "Error en campo del DNI");
             } else if (e.getMessage().contains(this.jTFAltura.getText())) {
-                
+
                 JOptionPane.showMessageDialog(this, "Error en campo de la Altura");
             } else if (e.getMessage().contains(this.jTFPeso.getText())) {
-                
+
                 JOptionPane.showMessageDialog(this, "Error en campo del peso");
             } else if (e.getMessage().contains(this.jTFPesoDeseado.getText())) {
-                
+
                 JOptionPane.showMessageDialog(this, "Error en campo del peso deseado");
             }
-            
+
         }
         return null;
     }
-    
+
     private void limpiarCampos() {
         this.jTFDni.setText("");
         this.jTFNombre.setText("");
@@ -814,7 +813,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         this.jTFPeso.setText("");
         this.jTFPesoDeseado.setText("");
     }
-    
+
     private Paciente buscarPaciente() {
         Paciente paciente;
         try {
@@ -823,10 +822,15 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 paciente = PacienteData.buscarPacientePorDni(dni, Estado.TODOS);
                 if (!paciente.isEstado()) {
                     int result = JOptionPane.showConfirmDialog(this, "El paciente se encuentra dado de baja. ¿Quiere darlo de alta?");
-                    if (result == JOptionPane.YES_OPTION) {
-                        PacienteData.activar(paciente);
-                    } else {
-                        paciente = PacienteData.buscarPacientePorDni(dni, Estado.INACTIVOS);
+                    switch (result) {
+                        case JOptionPane.YES_OPTION:
+                            PacienteData.activar(paciente);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            paciente = PacienteData.buscarPacientePorDni(dni, Estado.INACTIVOS);
+                            break;
+                        default:
+                            return null;
                     }
                 }
                 return paciente;
@@ -836,7 +840,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         }
         return null;
     }
-    
+
     private void invertirEstados() {
         this.jBCrear.setEnabled(!jBCrear.isEnabled());
         this.jBEditar.setEnabled(!jBEditar.isEnabled());
@@ -844,11 +848,11 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         this.jBBuscar.setVisible(!jBBuscar.isVisible());
         this.jBCancelar.setVisible(!jBCancelar.isVisible());
     }
-    
+
     private void cargarCampos(Paciente paciente) {
         //seteamos los atributos del paciente al los campos
         invertirEstados();
-        
+
         this.jTFNombre.setText(paciente.getNombre());
         this.jTFApellido.setText(paciente.getApellido());
         this.jTFTelefono.setText(paciente.getTelefono());
@@ -857,28 +861,29 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         LocalDate fechaNacimiento = paciente.getFechaNac();
         this.jDFechaNacimiento.setDate(Date.from(fechaNacimiento.atStartOfDay(defaultZoneId).toInstant()));
         this.jTFAltura.setText(paciente.getAltura() + "");
-        
+
         if (paciente.getSexo().equals("Femenino")) {
             jRFemenino.setSelected(Boolean.TRUE);
         } else {
             jRMasculio.setSelected(Boolean.TRUE);
         }
-        
+
         this.jTFPeso.setText(paciente.getPeso() + "");
         this.jTFPesoDeseado.setText(paciente.getPesoDeseado() + "");
-        
+
     }
-    
+
     private void editar() {
         //seteamos los datos de los campos a nuestro atributo miPaciente
         Paciente pacienteAEditar = new Paciente();
-        pacienteAEditar.setIdPaciente(this.miPaciente.getIdPaciente());
+
         pacienteAEditar = crearPaciente(pacienteAEditar);
-        
+
         if (pacienteAEditar != null) {
+            pacienteAEditar.setIdPaciente(this.miPaciente.getIdPaciente());
             this.miPaciente = pacienteAEditar;
             PacienteData.modificarPaciente(miPaciente);
-        }        
-        
+        }
+
     }
 }

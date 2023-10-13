@@ -69,9 +69,9 @@ public class PacienteData {
 
     public static void modificarPaciente(Paciente paciente) {
         String sql = "UPDATE paciente set dni=?, apellido=?,  nombre=?, telefono=?, domicilio=?, fechaNac=?, sexo=?, pesoActual=?, altura=?, pesoDeseado=? WHERE idPaciente=? ";
-        
+
         System.out.println(paciente);
-        
+
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setInt(1, paciente.getDni());
@@ -88,8 +88,7 @@ public class PacienteData {
 
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                return;
-                // JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
+                JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
 
@@ -109,8 +108,7 @@ public class PacienteData {
 
             int res = ps.executeUpdate();
             if (res == 1) {
-                return;
-                // JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
+                JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
             }
 
             ps.close();
@@ -140,7 +138,7 @@ public class PacienteData {
 
         Paciente paciente = null;
         PreparedStatement ps;
-        
+
         try {
             ps = CONN.prepareStatement(sql);
             ps.setInt(1, dni);
