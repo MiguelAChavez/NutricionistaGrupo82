@@ -167,8 +167,8 @@ public class ListarPacientes extends javax.swing.JPanel {
             for (Paciente paciente : ListaPaciente) {
                 model.addRow(new Object[]{
                     paciente.getIdPaciente(),
-                    paciente.getNombre(),
                     paciente.getApellido(),
+                    paciente.getNombre(),
                     paciente.getDni(),
                     paciente.getTelefono(),
                     paciente.getDomicilio(),
@@ -198,8 +198,8 @@ public class ListarPacientes extends javax.swing.JPanel {
     private void initTable() {
 
         this.model.addColumn("idPaciente");
-        this.model.addColumn("Nombre");
         this.model.addColumn("Apellido");
+        this.model.addColumn("Nombre");
         this.model.addColumn("Dni");
         this.model.addColumn("Teléfono");
         this.model.addColumn("Domicilio");
