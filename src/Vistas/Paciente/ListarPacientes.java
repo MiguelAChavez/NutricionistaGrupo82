@@ -110,6 +110,11 @@ public class ListarPacientes extends javax.swing.JPanel {
                 jTTextoActionPerformed(evt);
             }
         });
+        jTTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTTextoKeyReleased(evt);
+            }
+        });
         add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 40));
 
         jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
@@ -180,6 +185,28 @@ public class ListarPacientes extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jCBSelecionFiltroActionPerformed
+
+    private void jTTextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoKeyReleased
+                borrarFilas();
+                String texto = this.jTTexto.getText();
+                List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto , Estado.TODOS);
+        for (Paciente paciente : listaPaciente) {
+            if(paciente.getNombre().startsWith(jTTexto.getText()) || paciente.getApellido().startsWith(jTTexto.getText()) ){
+                model.addRow(new Object[]{paciente.getIdPaciente(),
+                    paciente.getApellido(),
+                    paciente.getNombre(),
+                    paciente.getDni(),
+                    paciente.getTelefono(),
+                    paciente.getDomicilio(),
+                    paciente.getFechaNac(),
+                    paciente.getSexo(),
+                    paciente.isEstado(),
+                    paciente.getAltura()});
+            
+            }
+            
+        }
+    }//GEN-LAST:event_jTTextoKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

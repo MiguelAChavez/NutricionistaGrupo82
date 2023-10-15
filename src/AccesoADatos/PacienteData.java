@@ -226,7 +226,7 @@ public class PacienteData {
                 break;
         }
 
-        String sql = "SELECT * FROM paciente " + estado1 + ";";
+        String sql = "SELECT * FROM paciente  " + estado1 + ";";
 
         PreparedStatement ps;
         try {
