@@ -134,6 +134,7 @@ public class PacientesView extends javax.swing.JPanel {
 
     private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed
         // TODO add your handling code here:
+        showComponents(new HistorialPacientesView());
     }//GEN-LAST:event_jBHistorialPacienteActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
