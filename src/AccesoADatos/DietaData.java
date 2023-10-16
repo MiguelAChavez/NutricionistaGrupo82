@@ -12,6 +12,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import utils.Estado;
 
 public class DietaData {
 
@@ -102,6 +103,51 @@ public class DietaData {
             JOptionPane.showMessageDialog(null, "No se encontro la dieta");
         }
 
+    }
+    
+    public static Dieta buscarDietaPorNombre(String cadena, Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
+
+        Dieta dieta = null;
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setString(1, cadena);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                dieta = new Dieta();
+                dieta.setIdDieta(rs.getInt("idComida"));
+                dieta.setNombre(cadena);
+                dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("pesoInical"));
+                dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoFinal(rs.getDouble("pesoBuscado"));
+                
+            } else {
+                JOptionPane.showMessageDialog(null, "La dieta no existe");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return dieta;
     }
 
 }

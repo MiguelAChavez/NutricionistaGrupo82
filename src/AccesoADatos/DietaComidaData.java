@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
+import utils.Estado;
 
 /**
  *
@@ -107,6 +108,48 @@ public class DietaComidaData {
             JOptionPane.showMessageDialog(null, "No se encontro la dietacomida");
         }
 
+    }
+      
+       public static DietaComida buscarDietaComidaPorId(int id, Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
+
+        DietaComida dietacomida = null;
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                dietacomida = new DietaComida();
+                dietacomida.setIdDietaComida(rs.getInt("idDietaComida"));
+                //dietaComida.setHorario(rs.getString("horario"));
+                dietacomida.setPorcion(rs.getDouble("porcion"));
+               
+            } else {
+                JOptionPane.showMessageDialog(null, "La dieta no existe");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return dietacomida;
     }
     
 }
