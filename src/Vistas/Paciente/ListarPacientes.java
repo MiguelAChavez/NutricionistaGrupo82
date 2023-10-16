@@ -7,10 +7,12 @@ package Vistas.Paciente;
 
 import AccesoADatos.PacienteData;
 import Entidades.Paciente;
-import com.sun.java.accessibility.util.EventID;
 import java.awt.Color;
+import java.awt.Font;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 import utils.Estado;
 
 /**
@@ -23,11 +25,11 @@ public class ListarPacientes extends javax.swing.JPanel {
      * Creates new form ListarPacientes
      */
     
-    private DefaultTableModel model = new  DefaultTableModel(){
+    private final DefaultTableModel model = new  DefaultTableModel(){
         @Override
         public boolean isCellEditable(int i, int i1) {
             return Boolean.FALSE;
-        }  
+        }
     };
     
     private Paciente mipaciente;
@@ -62,11 +64,24 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         jCBSelecionFiltro.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jCBSelecionFiltro.setBorder(null);
-        add(jCBSelecionFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 140, 140, 40));
+        jCBSelecionFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBSelecionFiltroActionPerformed(evt);
+            }
+        });
+        add(jCBSelecionFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 140, 40));
 
+        jTPacientes.setBackground(new java.awt.Color(51, 51, 51));
         jTPacientes.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTPacientes.setForeground(new java.awt.Color(255, 255, 255));
         jTPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -77,12 +92,18 @@ public class ListarPacientes extends javax.swing.JPanel {
             }
         ));
         jTPacientes.setGridColor(new java.awt.Color(0, 0, 0));
-        jTPacientes.setSelectionBackground(new java.awt.Color(0, 153, 255));
+        jTPacientes.setRowHeight(40);
+        jTPacientes.setSelectionBackground(new java.awt.Color(30, 150, 117));
+        jTPacientes.setShowVerticalLines(false);
         jTPacientes.getTableHeader().setResizingAllowed(false);
         jTPacientes.getTableHeader().setReorderingAllowed(false);
+        JTableHeader theader = jTPacientes.getTableHeader();
+        theader.setBackground(Color.red);
+        theader.setForeground(new Color(13,13,13));
+        theader.setFont(new java.awt.Font("Roboto", Font.BOLD, 16));
         jScrollPane1.setViewportView(jTPacientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 970, 450));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 970, 450));
 
         jTTexto.setBackground(new java.awt.Color(35, 35, 35));
         jTTexto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -101,6 +122,11 @@ public class ListarPacientes extends javax.swing.JPanel {
         jTTexto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTTextoActionPerformed(evt);
+            }
+        });
+        jTTexto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTTextoKeyReleased(evt);
             }
         });
         add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 40));
@@ -148,6 +174,54 @@ public class ListarPacientes extends javax.swing.JPanel {
        this.jTTexto.setBackground(new Color(35,35,35));
     }//GEN-LAST:event_jTTextoFocusLost
 
+    private void jCBSelecionFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionFiltroActionPerformed
+         borrarFilas();
+        if ( this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class ) {
+            Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
+            List<Paciente> ListaPaciente = PacienteData.ListarPacientes(estado);
+            if (ListaPaciente.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                return;
+            }
+            for (Paciente paciente : ListaPaciente) {
+                model.addRow(new Object[]{
+                    paciente.getIdPaciente(),
+                    paciente.getApellido(),
+                    paciente.getNombre(),
+                    paciente.getDni(),
+                    paciente.getTelefono(),
+                    paciente.getDomicilio(),
+                    paciente.getFechaNac(),
+                    paciente.getSexo(),
+                    paciente.isEstado(),
+                    paciente.getAltura() 
+                });
+            }
+        }
+    }//GEN-LAST:event_jCBSelecionFiltroActionPerformed
+
+    private void jTTextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoKeyReleased
+                borrarFilas();
+                String texto = this.jTTexto.getText();
+                List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto , Estado.TODOS);
+        for (Paciente paciente : listaPaciente) {
+            //if(paciente.getNombre().startsWith(jTTexto.getText()) || paciente.getApellido().startsWith(jTTexto.getText()) ){
+                model.addRow(new Object[]{paciente.getIdPaciente(),
+                    paciente.getApellido(),
+                    paciente.getNombre(),
+                    paciente.getDni(),
+                    paciente.getTelefono(),
+                    paciente.getDomicilio(),
+                    paciente.getFechaNac(),
+                    paciente.getSexo(),
+                    paciente.isEstado(),
+                    paciente.getAltura()});
+            
+            //}
+            
+        }
+    }//GEN-LAST:event_jTTextoKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBBuscar;
@@ -165,8 +239,8 @@ public class ListarPacientes extends javax.swing.JPanel {
     private void initTable() {
 
         this.model.addColumn("idPaciente");
-        this.model.addColumn("Nombre");
         this.model.addColumn("Apellido");
+        this.model.addColumn("Nombre");
         this.model.addColumn("Dni");
         this.model.addColumn("Teléfono");
         this.model.addColumn("Domicilio");
@@ -186,11 +260,17 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
     }
+    
+    private void borrarFilas() {
+        int filas = jTPacientes.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            model.removeRow(f);
+        }
 
 
 
 
 }
-
+}
 
 
