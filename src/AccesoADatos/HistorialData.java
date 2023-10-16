@@ -9,7 +9,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
+import utils.Estado;
 
 /**
  * @author alber
@@ -101,5 +104,27 @@ public class HistorialData {
 
     }   
 
-    
+    public static List<Historial> getHistorialPaciente(int idPaciente){
+        String sql = "SELECT * FROM historial WHERE historial.idPaciente = ? ORDER BY historial.fechaRegistro DESC;";
+        List<Historial> listHistorial = new ArrayList<>();
+        try {
+            PreparedStatement ps = CONN.prepareStatement(sql);
+            ps.setInt(1, idPaciente);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Historial historial = new Historial();
+                historial.setIdHistorial(rs.getInt("idHistorial"));
+                historial.setPaciente(PacienteData.buscarPacientePorId(idPaciente, Estado.TODOS));
+                historial.setPeso(rs.getDouble("peso"));
+                historial.setFechaRegistro(rs.getDate("fechaRegistro").toLocalDate());
+                listHistorial.add(historial);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "No se encontro el historial");
+        }
+        return listHistorial;
+    }
+      
+      
 }

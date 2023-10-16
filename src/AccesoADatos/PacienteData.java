@@ -169,7 +169,56 @@ public class PacienteData {
 
         return paciente;
     }
+ public static Paciente buscarPacientePorId(int idPaciente, Estado isActivo) {
+        String sql;
 
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM paciente WHERE idPaciente=? " + estado;
+
+        Paciente paciente = null;
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, idPaciente);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                paciente = new Paciente();
+                paciente.setIdPaciente(rs.getInt("idPaciente"));
+                paciente.setDni(rs.getInt("dni"));
+                paciente.setApellido(rs.getString("apellido"));
+                paciente.setNombre(rs.getString("nombre"));
+                paciente.setTelefono(rs.getString("telefono"));
+                paciente.setDomicilio(rs.getString("domicilio"));
+                paciente.setFechaNac(rs.getDate("fechaNac").toLocalDate());
+                paciente.setSexo(rs.getString("sexo"));
+                paciente.setPeso(rs.getDouble("pesoActual"));
+                paciente.setAltura(rs.getDouble("altura"));
+                paciente.setPesoDeseado(rs.getDouble("pesoDeseado"));
+                paciente.setEstado(rs.getBoolean("estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "El Paciente no existe");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return paciente;
+    }
     public static List<Paciente> ListarPorNombreOApellido(String cadena, Estado buscar) {
         List<Paciente> pacientes = new ArrayList<>();
 
@@ -226,7 +275,7 @@ public class PacienteData {
                 break;
         }
 
-        String sql = "SELECT * FROM paciente  " + estado1 + ";";
+        String sql = "SELECT * FROM paciente  " + estado1 + " ORDER BY apellido ASC, nombre ASC;";
 
         PreparedStatement ps;
         try {

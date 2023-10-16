@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Vistas;
+package Vistas.Comida;
 
 /**
  *
@@ -15,7 +15,7 @@ public class ComidaView extends javax.swing.JPanel {
      * Creates new form ComidaView
      */
     public ComidaView() {
-        initComponents();
+        initComponents(); 
     }
 
     /**
@@ -81,7 +81,6 @@ public class ComidaView extends javax.swing.JPanel {
             }
         });
         PRFondo.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 240, 70));
-        
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("<html>Abre el formulario para completar, modificar o eliminar los datos del paciente<html>");

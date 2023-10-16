@@ -40,7 +40,6 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jLTituloHistorial = new javax.swing.JLabel();
         jLNombre = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        jBBuscar = new javax.swing.JButton();
         jTTextoNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTHistorial = new javax.swing.JTable();
@@ -55,20 +54,21 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
         setMinimumSize(new java.awt.Dimension(780, 670));
         setPreferredSize(new java.awt.Dimension(1100, 670));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTituloHistorial.setFont(new java.awt.Font("Dialog", 1, 39)); // NOI18N
         jLTituloHistorial.setForeground(new java.awt.Color(255, 255, 255));
         jLTituloHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTituloHistorial.setText("Historial Pacientes");
+        add(jLTituloHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 1090, 64));
 
         jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre.setForeground(new java.awt.Color(255, 255, 255));
         jLNombre.setText("Ingrese un apellido o un nombre: ");
+        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
 
         jSeparator1.setOpaque(true);
-
-        jBBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        jBBuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 400, -1));
 
         jTTextoNombre.setBackground(new java.awt.Color(35, 35, 35));
         jTTextoNombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -89,8 +89,16 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                 jTTextoNombreActionPerformed(evt);
             }
         });
+        jTTextoNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTTextoNombreKeyReleased(evt);
+            }
+        });
+        add(jTTextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 400, 40));
 
-        jTHistorial.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTHistorial.setBackground(new java.awt.Color(51, 51, 51));
+        jTHistorial.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTHistorial.setForeground(new java.awt.Color(255, 255, 255));
         jTHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -103,91 +111,31 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             }
         ));
         jTHistorial.setGridColor(new java.awt.Color(0, 0, 0));
+        jTHistorial.setRowHeight(40);
         jTHistorial.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTHistorial.getTableHeader().setResizingAllowed(false);
         jTHistorial.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTHistorial);
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 403, 454));
+
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("ID Paciente");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 115, -1));
 
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Peso de Ingreso");
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Peso Deseado");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jTTextoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 389, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTpesoDeseado)
-                            .addComponent(jTpesoIngreso)
-                            .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(52, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLTituloHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 427, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 353, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLTituloHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTTextoNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBBuscar))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
-                        .addGap(18, 18, 18))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(jTId, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(75, 75, 75)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(jTpesoIngreso, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTpesoDeseado, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(184, Short.MAX_VALUE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(484, Short.MAX_VALUE)))
-        );
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 115, -1));
+        add(jTId, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 140, 42));
+        add(jTpesoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 140, 42));
+        add(jTpesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 420, 140, 41));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusGained
@@ -202,9 +150,14 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTTextoNombreActionPerformed
 
+    private void jTTextoNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoNombreKeyReleased
+        
+        
+        
+    }//GEN-LAST:event_jTTextoNombreKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBBuscar;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLTituloHistorial;
     private javax.swing.JLabel jLabel1;
@@ -222,8 +175,8 @@ public class HistorialPacientesView extends javax.swing.JPanel {
 
   private void initTableHistorial() {
 
-        this.model.addColumn("Ultimo Peso");
-        this.model.addColumn("Ultimo Registro");
+        this.model.addColumn("Peso");
+        this.model.addColumn("Fecha de Registro");
         
         this.jTHistorial.setModel(model);
     }
