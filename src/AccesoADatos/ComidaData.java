@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.swing.JOptionPane;
+import utils.Estado;
 
 /**
  *
@@ -85,5 +86,51 @@ public class ComidaData {
         }
 
     }
+    
+    public static Comida buscarComidaPorNombre(String cadena, Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM comida WHERE nombre=? " + estado;
+
+        Comida comida = null;
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setString(1, cadena);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                comida = new Comida();
+                comida.setIdComida(rs.getInt("idComida"));
+                comida.setNombre(cadena);
+                comida.setDatalle(rs.getString("detalle"));
+                comida.setCantCalorias(rs.getInt("cantidadCalorias"));
+                comida.setEstado(rs.getBoolean("estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "La comida no existe");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return comida;
+    }
+    
+    
 
 }

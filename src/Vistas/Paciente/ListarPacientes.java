@@ -205,7 +205,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                 String texto = this.jTTexto.getText();
                 List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto , Estado.TODOS);
         for (Paciente paciente : listaPaciente) {
-            if(paciente.getNombre().startsWith(jTTexto.getText()) || paciente.getApellido().startsWith(jTTexto.getText()) ){
+            //if(paciente.getNombre().startsWith(jTTexto.getText()) || paciente.getApellido().startsWith(jTTexto.getText()) ){
                 model.addRow(new Object[]{paciente.getIdPaciente(),
                     paciente.getApellido(),
                     paciente.getNombre(),
@@ -217,7 +217,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                     paciente.isEstado(),
                     paciente.getAltura()});
             
-            }
+            //}
             
         }
     }//GEN-LAST:event_jTTextoKeyReleased
