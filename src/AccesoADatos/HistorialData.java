@@ -1,6 +1,4 @@
-
 package AccesoADatos;
-
 
 import Entidades.Historial;
 import java.sql.Connection;
@@ -18,13 +16,13 @@ import utils.Estado;
  * @author alber
  */
 public class HistorialData {
-    
+
     private static final Connection CONN = ConexionData.getConnection();
-    
-      private HistorialData() {
+
+    private HistorialData() {
     }
 
-    public static void crearHistorial(Historial historial){
+    public static void crearHistorial(Historial historial) {
 
         String sql = "INSERT INTO historial ( idPaciente, peso, fechaRegistro) "
                 + "VALUES(?, ?, ?)";
@@ -34,16 +32,15 @@ public class HistorialData {
             ps.setInt(1, historial.getPaciente().getIdPaciente());
             ps.setDouble(2, historial.getPeso());
             ps.setDate(3, Date.valueOf(historial.getFechaRegistro()));
-       
+
             ps.executeUpdate();
-            
+
             ResultSet rs = ps.getGeneratedKeys();
 
             if (rs.next()) {
 
                 historial.setIdHistorial(rs.getInt(1));
-                                                
-                JOptionPane.showMessageDialog(null, "El registro en el historial ha sido creado con exito");
+
             }
             ps.close();
 
@@ -56,14 +53,13 @@ public class HistorialData {
 
     public static void modificarHistorial(Historial historial) {
 
-        String sql = "UPDATE historial SET peso=?, fechaRegistro=? WHERE idHistorial=?";
+        String sql = "UPDATE historial SET peso=?  WHERE idHistorial=?";
 
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setDouble(1, historial.getPeso());
-            ps.setDate(2, Date.valueOf(historial.getFechaRegistro()));
-           
-            int rta= ps.executeUpdate();
+            ps.setInt(2, historial.getIdHistorial());
+            int rta = ps.executeUpdate();
 
             if (rta == 1) {
                 JOptionPane.showMessageDialog(null, " Se modifico el historial de registros exitosamente");
@@ -79,8 +75,8 @@ public class HistorialData {
         }
 
     }
-    
-      public static void eliminarHisorial(Historial historial) {
+
+    public static void eliminarHisorial(Historial historial) {
 
         String sql = "DELETE FROM historial WHERE idHistorial = ? ";
 
@@ -102,10 +98,10 @@ public class HistorialData {
             JOptionPane.showMessageDialog(null, "No se encontro el historial");
         }
 
-    }   
+    }
 
-    public static List<Historial> getHistorialPaciente(int idPaciente){
-        String sql = "SELECT * FROM historial WHERE historial.idPaciente = ? ORDER BY historial.fechaRegistro DESC;";
+    public static List<Historial> getHistorialPaciente(int idPaciente) {
+        String sql = "SELECT * FROM historial WHERE historial.idPaciente = ? ORDER BY historial.fechaRegistro ASC;";
         List<Historial> listHistorial = new ArrayList<>();
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
@@ -125,6 +121,5 @@ public class HistorialData {
         }
         return listHistorial;
     }
-      
-      
+
 }
