@@ -28,8 +28,8 @@ public class FormularioComidaView extends javax.swing.JPanel {
     private void initComponents() {
 
         panelRound1 = new utils.PanelRound();
-        jTFDni = new javax.swing.JTextField();
-        jTFApellido = new javax.swing.JTextField();
+        jTFNombreComida = new javax.swing.JTextField();
+        jTFCaloria = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
@@ -38,58 +38,38 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEditar = new javax.swing.JButton();
         jBCrear = new javax.swing.JButton();
         jBEliminar = new javax.swing.JButton();
+        jSNombre = new javax.swing.JSeparator();
+        jSNombre1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
 
         panelRound1.setBackground(new java.awt.Color(51, 51, 51));
+        panelRound1.setRoundBottomLeft(50);
+        panelRound1.setRoundBottomRight(50);
+        panelRound1.setRoundTopLeft(50);
+        panelRound1.setRoundTopRight(50);
 
-        jTFDni.setBackground(new java.awt.Color(35, 35, 35));
-        jTFDni.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTFDni.setForeground(new java.awt.Color(204, 204, 204));
-        jTFDni.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
-        jTFDni.setCaretColor(new java.awt.Color(51, 153, 255));
-        jTFDni.setSelectionColor(new java.awt.Color(102, 102, 102));
-        jTFDni.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTFDniFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFDniFocusLost(evt);
-            }
-        });
-        jTFDni.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFDniActionPerformed(evt);
-            }
-        });
-        jTFDni.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFDniKeyTyped(evt);
-            }
-        });
+        jTFNombreComida.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombreComida.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombreComida.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombreComida.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombreComida.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombreComida.setSelectionColor(new java.awt.Color(102, 102, 102));
+       
 
-        jTFApellido.setBackground(new java.awt.Color(35, 35, 35));
-        jTFApellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTFApellido.setForeground(new java.awt.Color(204, 204, 204));
-        jTFApellido.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
-        jTFApellido.setCaretColor(new java.awt.Color(51, 153, 255));
-        jTFApellido.setSelectionColor(new java.awt.Color(102, 102, 102));
-        jTFApellido.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTFApellidoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFApellidoFocusLost(evt);
-            }
-        });
-        jTFApellido.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFApellidoActionPerformed(evt);
-            }
-        });
+        jTFCaloria.setBackground(new java.awt.Color(35, 35, 35));
+        jTFCaloria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFCaloria.setForeground(new java.awt.Color(204, 204, 204));
+        jTFCaloria.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFCaloria.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFCaloria.setSelectionColor(new java.awt.Color(102, 102, 102));
+     
 
+        jTextArea1.setBackground(new java.awt.Color(35, 35, 35));
         jTextArea1.setColumns(20);
+        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTextArea1.setForeground(new java.awt.Color(255, 255, 255));
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -103,7 +83,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("                Detalle");
+        jLabel4.setText("Detalle");
 
         jBEditar.setBackground(new java.awt.Color(0, 204, 255));
         jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -116,11 +96,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEditar.setDisabledIcon(null);
         jBEditar.setEnabled(false);
         jBEditar.setOpaque(true);
-        jBEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEditarActionPerformed(evt);
-            }
-        });
+     
 
         jBCrear.setBackground(new java.awt.Color(48, 255, 167));
         jBCrear.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -132,11 +108,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBCrear.setDisabledIcon(null);
         jBCrear.setOpaque(true);
-        jBCrear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCrearActionPerformed(evt);
-            }
-        });
+     
 
         jBEliminar.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -149,62 +121,77 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEliminar.setDisabledIcon(null);
         jBEliminar.setEnabled(false);
         jBEliminar.setOpaque(true);
-        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarActionPerformed(evt);
-            }
-        });
+       
+
+        jSNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jSNombre.setToolTipText("");
+        jSNombre.setOpaque(true);
+        jSNombre.setPreferredSize(new java.awt.Dimension(50, 2));
+
+        jSNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jSNombre1.setToolTipText("");
+        jSNombre1.setOpaque(true);
+        jSNombre1.setPreferredSize(new java.awt.Dimension(50, 2));
 
         javax.swing.GroupLayout panelRound1Layout = new javax.swing.GroupLayout(panelRound1);
         panelRound1.setLayout(panelRound1Layout);
         panelRound1Layout.setHorizontalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(101, 101, 101))
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+                .addGap(25, 25, 25)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(panelRound1Layout.createSequentialGroup()
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNombreComida)
+                            .addComponent(jSNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jSNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCaloria, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
+                        .addGap(0, 25, Short.MAX_VALUE)
                         .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jBCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 39, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
-                            .addComponent(jTFDni))))
-                .addContainerGap())
+                        .addGap(22, 22, 22)))
+                .addGap(25, 25, 25))
         );
         panelRound1Layout.setVerticalGroup(
             panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelRound1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(51, 51, 51)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTFDni, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTFNombreComida, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGap(1, 1, 1)
+                .addComponent(jSNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTFApellido, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                    .addComponent(jTFCaloria, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jSNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
                 .addGroup(panelRound1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
+                .addGap(42, 42, 42))
         );
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
@@ -216,11 +203,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(263, 263, 263)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelRound1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(427, Short.MAX_VALUE))
+                .addGap(315, 315, 315)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(358, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -229,51 +216,9 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTFDniFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusGained
-     
-    }//GEN-LAST:event_jTFDniFocusGained
-
-    private void jTFDniFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFDniFocusLost
-      
-    }//GEN-LAST:event_jTFDniFocusLost
-
-    private void jTFDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFDniActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFDniActionPerformed
-
-    private void jTFDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDniKeyTyped
-       
-    }//GEN-LAST:event_jTFDniKeyTyped
-
-    private void jTFApellidoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoFocusGained
-
-    private void jTFApellidoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFApellidoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoFocusLost
-
-    private void jTFApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFApellidoActionPerformed
-
-    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-        //llamamos al metodo editar.
-       
-    }//GEN-LAST:event_jBEditarActionPerformed
-
-    private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
-        
-    }//GEN-LAST:event_jBCrearActionPerformed
-
-    private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-
-       
-    }//GEN-LAST:event_jBEliminarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -284,9 +229,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JSeparator jSNombre;
+    private javax.swing.JSeparator jSNombre1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTFApellido;
-    private javax.swing.JTextField jTFDni;
+    private javax.swing.JTextField jTFCaloria;
+    private javax.swing.JTextField jTFNombreComida;
     private javax.swing.JTextArea jTextArea1;
     private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables

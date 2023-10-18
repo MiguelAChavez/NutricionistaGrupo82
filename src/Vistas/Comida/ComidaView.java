@@ -184,8 +184,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBFormularioPFocusGained
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-     cargarComponente.showComponents(new FormularioComidaView(), contenedor);
-     
+    
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
@@ -193,7 +192,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioP1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioP1FocusGained
-        // TODO add your handling code here:
+        cargarComponente.showComponents(new FormularioComidaView(), contenedor);
     }//GEN-LAST:event_jBFormularioP1FocusGained
 
     private void jBFormularioP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioP1ActionPerformed
