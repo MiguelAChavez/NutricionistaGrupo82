@@ -778,7 +778,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             String sexo = (this.jRFemenino.isSelected()) ? "Femenino" : "Masculino";
 
             return new Paciente(
-                    nombre, apellido, dni, domicilio, telefono, sexo, fechaNacimiento, Boolean.TRUE, peso, pesoDeseado, altura
+                    nombre.trim(), apellido.trim(), dni, domicilio.trim(), telefono.trim(), sexo.trim(), fechaNacimiento, Boolean.TRUE, peso, pesoDeseado, altura
             );
 
         } catch (NumberFormatException e) {
