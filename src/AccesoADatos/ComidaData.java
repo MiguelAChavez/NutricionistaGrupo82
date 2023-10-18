@@ -22,15 +22,14 @@ public class ComidaData {
     }
 
     public static void crearComida(Comida comida) {
-        String sql = "INSERT INTO `comida`( nombre, detalle, cantidadCalorias, estado) "
-                + "VALUES(?,?,?,?)";
+        String sql = "INSERT INTO `comida`( nombre, detalle, cantidadCalorias) "
+                + "VALUES(?,?,?)";
 
         try {
             PreparedStatement ps = CONN.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, comida.getNombre());
             ps.setString(2, comida.getDatalle());
             ps.setInt(3, comida.getCantCalorias());
-            ps.setBoolean(4, comida.isEstado());
             ps.executeUpdate();
             ResultSet resultado = ps.getGeneratedKeys();
             if (resultado.next()) {

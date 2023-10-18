@@ -5,6 +5,8 @@
  */
 package Vistas.Comida;
 
+import Entidades.Comida;
+
 /**
  *
  * @author RAMON
@@ -237,4 +239,9 @@ public class FormularioComidaView extends javax.swing.JPanel {
     private javax.swing.JTextArea jTextArea1;
     private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
+
+
+
+
 }
+
