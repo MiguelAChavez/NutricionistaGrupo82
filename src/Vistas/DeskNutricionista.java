@@ -292,7 +292,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComidaActionPerformed
         this.mover.animateScroll(PRBarraMenu);
-        showComponents(new ComidaView());
+        showComponents(new ComidaView(this));
     }//GEN-LAST:event_jBComidaActionPerformed
 
     private void jBComidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBComidaMouseExited

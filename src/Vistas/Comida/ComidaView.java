@@ -5,17 +5,19 @@
  */
 package Vistas.Comida;
 
+import Vistas.DeskNutricionista;
+import utils.cargarComponente;
+
 /**
  *
  * @author RAMON
  */
 public class ComidaView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ComidaView
-     */
-    public ComidaView() {
+    DeskNutricionista contenedor;
+    public ComidaView(DeskNutricionista contenedor) {
         initComponents(); 
+        this.contenedor = contenedor;
     }
 
     /**
@@ -182,6 +184,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBFormularioPFocusGained
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
+     cargarComponente.showComponents(new FormularioComidaView(), contenedor);
      
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
