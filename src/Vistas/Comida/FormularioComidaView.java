@@ -5,6 +5,7 @@
  */
 package Vistas.Comida;
 
+import AccesoADatos.ComidaData;
 import Entidades.Comida;
 import javax.swing.JOptionPane;
 import utils.Validacion;
@@ -15,9 +16,7 @@ import utils.Validacion;
  */
 public class FormularioComidaView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form FormularioComidaView
-     */
+    private Comida micomida;
     public FormularioComidaView() {
         initComponents();
     }
@@ -294,7 +293,13 @@ public class FormularioComidaView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-        // TODO add your handling code here:
+        Comida comidaAeditar = new Comida();
+        comidaAeditar = crearComida(comidaAeditar);
+        if(comidaAeditar!=null){
+        comidaAeditar.setIdComida(this.micomida.getIdComida());
+        this.micomida=comidaAeditar;
+        ComidaData.modificarComida(micomida);
+        }
     }//GEN-LAST:event_jBEditarActionPerformed
 
     private void jBCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearActionPerformed
@@ -311,10 +316,14 @@ public class FormularioComidaView extends javax.swing.JPanel {
             evt.consume();
         }
 
-    }//GEN-LAST:event_jTFCaloriaKeyTyped
+    }                                   
 
     private void jBCrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCrearMouseClicked
-        // TODO add your handling code here:
+     Comida comida = this.crearComida(new Comida());
+     if(comida!=null){
+         ComidaData.crearComida(comida);
+         limpiarCampos();
+     }
     }//GEN-LAST:event_jBCrearMouseClicked
 
     private void jBBuscarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCActionPerformed
