@@ -90,7 +90,7 @@ public class PacienteData {
 
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                
+
                 Historial historial = new Historial(paciente, paciente.getPeso(), LocalDate.now());
                 List<Historial> ListaHistorial = HistorialData.getHistorialPaciente(paciente.getIdPaciente());
                 if (ListaHistorial.isEmpty()) {
@@ -98,7 +98,7 @@ public class PacienteData {
                     JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente y se agrego a su historial");
                 } else {
                     Historial hist = ListaHistorial.get(0);
-                    if ( !hist.getFechaRegistro().equals(LocalDate.now()) ||  hist.getPeso() != paciente.getPeso() ) {
+                    if (!hist.getFechaRegistro().equals(LocalDate.now()) || hist.getPeso() != paciente.getPeso()) {
                         HistorialData.crearHistorial(historial);
                         JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente y se agrego a su historial");
                     } else {
@@ -243,15 +243,16 @@ public class PacienteData {
         String estado = getEstadoCondition(buscar.getEstado());
 
         String sql = "SELECT * FROM paciente "
-                + "WHERE ( paciente.apellido LIKE '" + cadena + "%' OR paciente.nombre LIKE '" + cadena + "%' )"
-                + estado
+                + "WHERE ( paciente.apellido LIKE ? OR paciente.nombre LIKE ? )" + estado
                 + " ORDER BY apellido ASC, nombre ASC;";
 
         PreparedStatement ps;
 
         try {
             ps = CONN.prepareStatement(sql);
-
+            ps.setString(1, cadena + "%");
+            ps.setString(2, cadena + "%");
+            
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Paciente paciente = new Paciente();

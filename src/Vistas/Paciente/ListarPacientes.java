@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utils.Estado;
+import utils.Validacion;
 
 /**
  *
@@ -163,6 +164,11 @@ public class ListarPacientes extends javax.swing.JPanel {
         jTCant.setForeground(new java.awt.Color(248, 245, 150));
         jTCant.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTCant.setBorder(null);
+        jTCant.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTCantActionPerformed(evt);
+            }
+        });
         add(jTCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 640, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
@@ -214,24 +220,30 @@ public class ListarPacientes extends javax.swing.JPanel {
             borrarFilas();
             this.jTCant.setText("0");
         } else {
-            List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
-            this.jTCant.setText(listaPaciente.size() + "");
+            if (Validacion.isValidoString(texto)) {
+                List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
+                this.jTCant.setText(listaPaciente.size() + "");
 
-            for (Paciente paciente : listaPaciente) {
-                model.addRow(new Object[]{paciente.getIdPaciente(),
-                    paciente.getApellido(),
-                    paciente.getNombre(),
-                    paciente.getDni(),
-                    paciente.getTelefono(),
-                    paciente.getDomicilio(),
-                    paciente.getFechaNac(),
-                    paciente.getSexo(),
-                    (paciente.isEstado()) ? "Activo" : "Inactivo",
-                    paciente.getAltura()});
+                for (Paciente paciente : listaPaciente) {
+                    model.addRow(new Object[]{paciente.getIdPaciente(),
+                        paciente.getApellido(),
+                        paciente.getNombre(),
+                        paciente.getDni(),
+                        paciente.getTelefono(),
+                        paciente.getDomicilio(),
+                        paciente.getFechaNac(),
+                        paciente.getSexo(),
+                        (paciente.isEstado()) ? "Activo" : "Inactivo",
+                        paciente.getAltura()});
 
-            }
+                }
+            } 
         }
     }//GEN-LAST:event_jTTextoKeyReleased
+
+    private void jTCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCantActionPerformed
+
+    }//GEN-LAST:event_jTCantActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,6 +280,8 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.jCBSelecionFiltro.addItem(Estado.TODOS);
         this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
+        this.jCBSelecionFiltro.addItem(Estado.DIETA_VIGENTE);
+        this.jCBSelecionFiltro.addItem(Estado.DIETA_CULMINADA);
         this.jCBSelecionFiltro.setSelectedIndex(0);
     }
 
