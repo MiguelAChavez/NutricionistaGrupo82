@@ -11,7 +11,7 @@ import java.awt.Toolkit;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
 import utils.PanelRound;
-import utils.cargarComponente;
+import utils.CargarComponente;
 
 /**
  *
