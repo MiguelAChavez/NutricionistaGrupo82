@@ -7,6 +7,7 @@ package Vistas.Dietas;
 
 import Vistas.DeskNutricionista;
 import utils.AnimationPanel;
+import utils.Validacion;
 import utils.cargarComponente;
 
 
@@ -117,6 +118,7 @@ private final DeskNutricionista d1;
     private void jBFormularioD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioD1ActionPerformed
         // TODO add your handling code here:       
         cargarComponente.showComponents(new FormularioDietaView(d1), this.d1);
+       
     }//GEN-LAST:event_jBFormularioD1ActionPerformed
 
 
