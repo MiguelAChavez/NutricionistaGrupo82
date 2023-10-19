@@ -128,7 +128,7 @@ private final DeskNutricionista d1;
 
     private void jBHistorialPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPaciente1ActionPerformed
         // TODO add your handling code here:
-        cargarComponente.showComponents(new ListadoDietas(), d1);
+        CargarComponente.showComponents(new ListadoDietas(), d1);
     }//GEN-LAST:event_jBHistorialPaciente1ActionPerformed
 
 

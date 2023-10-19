@@ -64,28 +64,12 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jTFNombreComida.setCaretColor(new java.awt.Color(51, 153, 255));
         jTFNombreComida.setSelectionColor(new java.awt.Color(102, 102, 102));
 
-      
-      
-        jTFNombreComida.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNombreComidaActionPerformed(evt);
-            }
-        });
-    
-
         jTFCaloria.setBackground(new java.awt.Color(35, 35, 35));
         jTFCaloria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTFCaloria.setForeground(new java.awt.Color(204, 204, 204));
         jTFCaloria.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jTFCaloria.setCaretColor(new java.awt.Color(51, 153, 255));
         jTFCaloria.setSelectionColor(new java.awt.Color(102, 102, 102));
-
-        
-        jTFCaloria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFCaloriaActionPerformed(evt);
-            }
-        });
         jTFCaloria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFCaloriaKeyTyped(evt);
