@@ -1,6 +1,7 @@
 package Vistas;
 
 import Vistas.Comida.ComidaView;
+import Vistas.Dietas.DietaView;
 import Vistas.Paciente.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -10,6 +11,7 @@ import java.awt.Toolkit;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
 import utils.PanelRound;
+import utils.cargarComponente;
 
 /**
  *
@@ -305,6 +307,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
+        cargarComponente.showComponents(new DietaView(), this);
+            this.mover.animateScroll(PRBarraMenu);
     }//GEN-LAST:event_jBDientasActionPerformed
 
     private void jBDientasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDientasMouseExited
