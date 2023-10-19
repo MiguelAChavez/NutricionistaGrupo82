@@ -308,7 +308,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
         this.mover.animateScroll(PRBarraMenu);
-        showComponents(new DietaView());
+        showComponents(new DietaView(this));
     }//GEN-LAST:event_jBDientasActionPerformed
 
     private void jBDientasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDientasMouseExited

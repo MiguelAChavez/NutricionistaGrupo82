@@ -5,17 +5,22 @@
  */
 package Vistas.Dietas;
 
+import Vistas.DeskNutricionista;
+import utils.cargarComponente;
+
 /**
  *
  * @author Lenovo
  */
 public class FormularioDietaView extends javax.swing.JPanel {
 
+    private DeskNutricionista  nutricionistaDesk ;
     /**
      * Creates new form NewJdd
      */
-    public FormularioDietaView() {
+    public FormularioDietaView(DeskNutricionista nutricionistaDesk) {
         initComponents();
+        this. nutricionistaDesk = nutricionistaDesk;
     }
 
     /**
@@ -49,7 +54,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jDFechaFinDieta = new com.toedter.calendar.JDateChooser();
         jTFPesoBuscadoDieta = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jButton1 = new javax.swing.JButton();
+        jButtonSiguienteDieta = new javax.swing.JButton();
         jSNombre7 = new javax.swing.JSeparator();
         jSNombre8 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -283,13 +288,16 @@ public class FormularioDietaView extends javax.swing.JPanel {
         });
         PRSeccion.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, 40));
 
-        jButton1.setText("Siguiente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSiguienteDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/s⁫iguiente.png"))); // NOI18N
+        jButtonSiguienteDieta.setText("Siguiente");
+        jButtonSiguienteDieta.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jButtonSiguienteDieta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonSiguienteDietaActionPerformed(evt);
             }
         });
-        PRSeccion.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 530, -1, -1));
+        PRSeccion.add(jButtonSiguienteDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 520, -1, 30));
+        jButtonSiguienteDieta.getAccessibleContext().setAccessibleName(" Siguiente");
 
         jSNombre7.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre7.setToolTipText("");
@@ -446,9 +454,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteDietaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+        cargarComponente.showComponents(new Formulario2DietaComida(),this.nutricionistaDesk);
+        
+    }//GEN-LAST:event_jButtonSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained
         // TODO add your handling code here:
@@ -472,7 +482,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JButton jBCrearDieta;
     private javax.swing.JButton jBEditarDieta;
     private javax.swing.JButton jBEliminarDieta;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonSiguienteDieta;
     private javax.swing.JComboBox<String> jComboBox1;
     private com.toedter.calendar.JDateChooser jDFechaFinDieta;
     private com.toedter.calendar.JDateChooser jDFechaInicioDieta;

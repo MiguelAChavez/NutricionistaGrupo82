@@ -5,17 +5,22 @@
  */
 package Vistas.Dietas;
 
+import Vistas.DeskNutricionista;
+import utils.cargarComponente;
+
+
 /**
  *
  * @author Lenovo
  */
 public class DietaView extends javax.swing.JPanel {
-
+private DeskNutricionista d1;
     /**
      * Creates new form DietaView
      */
-    public DietaView() {
+    public DietaView(DeskNutricionista d1) {
         initComponents();
+        this.d1 = d1;
     }
 
     /**
@@ -28,7 +33,7 @@ public class DietaView extends javax.swing.JPanel {
     private void initComponents() {
 
         PRFondo1 = new utils.PanelRound();
-        jBFormularioP1 = new javax.swing.JButton();
+        jBFormularioD1 = new javax.swing.JButton();
         jBListarP1 = new javax.swing.JButton();
         jBHistorialPaciente1 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
@@ -47,13 +52,18 @@ public class DietaView extends javax.swing.JPanel {
         PRFondo1.setRoundTopRight(40);
         PRFondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBFormularioP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        jBFormularioP1.setText("Formulario");
-        jBFormularioP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.black));
-        jBFormularioP1.setBorderPainted(false);
-        jBFormularioP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBFormularioP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jBFormularioP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 240, 70));
+        jBFormularioD1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
+        jBFormularioD1.setText("Formulario");
+        jBFormularioD1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.black));
+        jBFormularioD1.setBorderPainted(false);
+        jBFormularioD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFormularioD1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBFormularioD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBFormularioD1ActionPerformed(evt);
+            }
+        });
+        PRFondo1.add(jBFormularioD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 240, 70));
 
         jBListarP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarP1.setText("Listar ");
@@ -102,10 +112,15 @@ public class DietaView extends javax.swing.JPanel {
         add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 70, 1300, 660));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBFormularioD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioD1ActionPerformed
+        // TODO add your handling code here:
+        cargarComponente.showComponents(new FormularioDietaView(d1), this.d1);
+    }//GEN-LAST:event_jBFormularioD1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRFondo1;
-    private javax.swing.JButton jBFormularioP1;
+    private javax.swing.JButton jBFormularioD1;
     private javax.swing.JButton jBHistorialPaciente1;
     private javax.swing.JButton jBListarP1;
     private javax.swing.JLabel jLabel10;
