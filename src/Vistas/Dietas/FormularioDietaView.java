@@ -60,7 +60,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg2 = new javax.swing.JLabel();
         jLTdieta = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(35, 35, 35));
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
@@ -106,36 +106,36 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLDni.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLDni.setForeground(new java.awt.Color(255, 255, 255));
         jLDni.setText("Registrar nombre");
-        PRSeccion.add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 170, -1));
+        PRSeccion.add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 170, -1));
 
         jSDni.setForeground(new java.awt.Color(255, 255, 255));
         jSDni.setToolTipText("");
         jSDni.setOpaque(true);
-        PRSeccion.add(jSDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 220, -1));
+        PRSeccion.add(jSDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, -1));
 
         jLFechaNac.setBackground(new java.awt.Color(255, 255, 255));
         jLFechaNac.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFechaNac.setForeground(new java.awt.Color(255, 255, 255));
         jLFechaNac.setText("Fecha de inicio");
-        PRSeccion.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        PRSeccion.add(jLFechaNac, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         jLPeso.setBackground(new java.awt.Color(255, 255, 255));
         jLPeso.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPeso.setForeground(new java.awt.Color(255, 255, 255));
         jLPeso.setText("Peso Inicial");
-        PRSeccion.add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, 90, 20));
+        PRSeccion.add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 90, 20));
 
         jSPeso.setForeground(new java.awt.Color(255, 255, 255));
         jSPeso.setToolTipText("");
         jSPeso.setOpaque(true);
         jSPeso.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, 110, -1));
+        PRSeccion.add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 110, -1));
 
         jLPesoDeseado.setBackground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setText("Peso Buscado");
-        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 130, 20));
+        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 130, 20));
 
         jTFPesoIncialDieta.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoIncialDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -161,13 +161,13 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jTFPesoIncialDietaKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoIncialDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 110, 40));
+        PRSeccion.add(jTFPesoIncialDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, 40));
 
         jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre6.setToolTipText("");
         jSNombre6.setOpaque(true);
         jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 110, -1));
+        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 110, -1));
 
         jBEditarDieta.setBackground(new java.awt.Color(0, 204, 255));
         jBEditarDieta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -226,27 +226,27 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
         jLKg.setText("(Kg.)");
-        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 40, 40));
+        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 40, 40));
 
         jLFechaNac1.setBackground(new java.awt.Color(255, 255, 255));
         jLFechaNac1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFechaNac1.setForeground(new java.awt.Color(255, 255, 255));
         jLFechaNac1.setText("Fecha de inicio");
-        PRSeccion.add(jLFechaNac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+        PRSeccion.add(jLFechaNac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         jDFechaInicioDieta.setBackground(new java.awt.Color(102, 102, 102));
         jDFechaInicioDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        PRSeccion.add(jDFechaInicioDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 160, 35));
+        PRSeccion.add(jDFechaInicioDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 160, 35));
 
         jLFechaNac2.setBackground(new java.awt.Color(255, 255, 255));
         jLFechaNac2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFechaNac2.setForeground(new java.awt.Color(255, 255, 255));
         jLFechaNac2.setText("Fecha de fin");
-        PRSeccion.add(jLFechaNac2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 410, -1, -1));
+        PRSeccion.add(jLFechaNac2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
         jDFechaFinDieta.setBackground(new java.awt.Color(102, 102, 102));
         jDFechaFinDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        PRSeccion.add(jDFechaFinDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 430, 160, 35));
+        PRSeccion.add(jDFechaFinDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 160, 35));
 
         jTFPesoBuscadoDieta.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoBuscadoDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -272,15 +272,16 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jTFPesoBuscadoDietaKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoBuscadoDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 110, 40));
+        PRSeccion.add(jTFPesoBuscadoDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, 40));
 
+        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        PRSeccion.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, 210, -1));
+        PRSeccion.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, 40));
 
         jButton1.setText("Siguiente");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -347,36 +348,38 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jTFNombreDieta1KeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFNombreDieta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 220, 40));
+        PRSeccion.add(jTFNombreDieta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 220, 40));
 
         jLKg2.setBackground(new java.awt.Color(255, 255, 255));
         jLKg2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg2.setForeground(new java.awt.Color(255, 255, 255));
         jLKg2.setText("(Kg.)");
-        PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 40, 40));
+        PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 40, 40));
 
         jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
         jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
         jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTdieta.setText("Formulario dieta");
-        PRSeccion.add(jLTdieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(307, Short.MAX_VALUE)
-                .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(132, 132, 132))
+                .addGap(305, 305, 305)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PRSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
+                    .addComponent(jLTdieta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(316, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(69, Short.MAX_VALUE)
+                .addComponent(jLTdieta)
+                .addGap(2, 2, 2)
                 .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(198, 198, 198))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
