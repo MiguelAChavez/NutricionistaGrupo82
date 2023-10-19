@@ -43,27 +43,34 @@ public class ListadoDietas extends javax.swing.JPanel {
         jLTituloD.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
         jLTituloD.setForeground(new java.awt.Color(255, 255, 255));
         jLTituloD.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTituloD.setText("Tabla de dietas");
+        jLTituloD.setText("Historial de dietas");
 
         jTableDietas.setBackground(new java.awt.Color(51, 51, 51));
         jTableDietas.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTableDietas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Nombre", "Cantidad de pacientes"
+                "Nombre", "Paciente", "Fecha Inicio", "Fecha Final", "Peso Inicial", "Peso Buscado"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Object.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true, false
             };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
         jScrollPane1.setViewportView(jTableDietas);

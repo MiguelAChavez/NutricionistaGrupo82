@@ -65,39 +65,39 @@ private final DeskNutricionista d1;
                 jBFormularioD1ActionPerformed(evt);
             }
         });
-        PRFondo1.add(jBFormularioD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 60, 240, 70));
+        PRFondo1.add(jBFormularioD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 240, 70));
 
         jBListarP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarP1.setText("Listar ");
         jBListarP1.setActionCommand("LISTADO PACIENTE");
         jBListarP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBListarP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jBListarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 240, 70));
+        PRFondo1.add(jBListarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 240, 70));
 
         jBHistorialPaciente1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBHistorialPaciente1.setText("Historial");
         jBHistorialPaciente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBHistorialPaciente1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jBHistorialPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 280, 240, 70));
+        PRFondo1.add(jBHistorialPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos del paciente<html>");
+        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el botón continuar abre el registro de cada dieta con sus comidas, selecciona un horario y porción para cada una<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 210, 70));
+        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 220, 100));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("<html>Explora el listado de tus pacientes, activos y no activos<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 210, 70));
+        PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 70));
 
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("<html>Consulta el historial de cada paciente, con el registro cronológico de su dieta o dietas <html>");
-        PRFondo1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 70));
+        jLabel9.setText("<html>Consulta el historial de cada dieta, si ésta se encuentra terminada o vigente, modificando el estado si fuese necesario. <html>");
+        PRFondo1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 220, 70));
 
-        add(PRFondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 599, 377));
+        add(PRFondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 599, 430));
 
         jPanel5.setBackground(new java.awt.Color(22, 22, 22));
 
