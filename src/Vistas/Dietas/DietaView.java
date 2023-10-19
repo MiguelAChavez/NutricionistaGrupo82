@@ -6,6 +6,7 @@
 package Vistas.Dietas;
 
 import Vistas.DeskNutricionista;
+import utils.AnimationPanel;
 import utils.cargarComponente;
 
 
@@ -14,9 +15,10 @@ import utils.cargarComponente;
  * @author Lenovo
  */
 public class DietaView extends javax.swing.JPanel {
-private DeskNutricionista d1;
+private final DeskNutricionista d1;
     /**
      * Creates new form DietaView
+     * 
      */
     public DietaView(DeskNutricionista d1) {
         initComponents();
@@ -113,7 +115,7 @@ private DeskNutricionista d1;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBFormularioD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioD1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:       
         cargarComponente.showComponents(new FormularioDietaView(d1), this.d1);
     }//GEN-LAST:event_jBFormularioD1ActionPerformed
 
