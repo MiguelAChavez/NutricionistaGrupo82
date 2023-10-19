@@ -249,7 +249,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jPSetup.setBackground(new java.awt.Color(35, 35, 35));
         jPSetup.setLayout(new java.awt.CardLayout());
-        jPFondo.add(jPSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, 1030, 670));
+        jPFondo.add(jPSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 670));
 
         jBDesplegar.setBackground(new java.awt.Color(153, 153, 153));
         jBDesplegar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.png"))); // NOI18N

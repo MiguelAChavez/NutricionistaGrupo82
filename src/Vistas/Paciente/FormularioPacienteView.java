@@ -85,7 +85,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTitulo.setText("Formulario paciente");
-        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 0, 790, -1));
+        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 790, -1));
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
