@@ -79,6 +79,11 @@ private final DeskNutricionista d1;
         jBHistorialPaciente1.setText("Historial");
         jBHistorialPaciente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBHistorialPaciente1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBHistorialPaciente1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBHistorialPaciente1ActionPerformed(evt);
+            }
+        });
         PRFondo1.add(jBHistorialPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
@@ -89,7 +94,7 @@ private final DeskNutricionista d1;
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html>Explora el listado de tus pacientes, activos y no activos<html>");
+        jLabel8.setText("<html>Selecciona una dieta y explora el listado de los pacientes, activos y no activos<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 70));
 
@@ -120,6 +125,11 @@ private final DeskNutricionista d1;
         cargarComponente.showComponents(new FormularioDietaView(d1), this.d1);
        
     }//GEN-LAST:event_jBFormularioD1ActionPerformed
+
+    private void jBHistorialPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPaciente1ActionPerformed
+        // TODO add your handling code here:
+        cargarComponente.showComponents(new ListadoDietas(), d1);
+    }//GEN-LAST:event_jBHistorialPaciente1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

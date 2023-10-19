@@ -64,6 +64,8 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jTFNombreDieta1 = new javax.swing.JTextField();
         jLKg2 = new javax.swing.JLabel();
         jSDni1 = new javax.swing.JSeparator();
+        jBBuscarD = new javax.swing.JButton();
+        jBCancelarD = new javax.swing.JButton();
         jLTdieta = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -370,6 +372,35 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jSDni1.setOpaque(true);
         PRSeccion.add(jSDni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 190, -1));
 
+        jBBuscarD.setBackground(new java.awt.Color(51, 153, 255));
+        jBBuscarD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBBuscarD.setToolTipText("");
+        jBBuscarD.setBorder(null);
+        jBBuscarD.setBorderPainted(false);
+        jBBuscarD.setContentAreaFilled(false);
+        jBBuscarD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBBuscarD.setOpaque(true);
+        jBBuscarD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarDActionPerformed(evt);
+            }
+        });
+        PRSeccion.add(jBBuscarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 80, 40));
+
+        jBCancelarD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
+        jBCancelarD.setToolTipText("");
+        jBCancelarD.setBorder(null);
+        jBCancelarD.setBorderPainted(false);
+        jBCancelarD.setContentAreaFilled(false);
+        jBCancelarD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBCancelarD.setOpaque(true);
+        jBCancelarD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarDActionPerformed(evt);
+            }
+        });
+        PRSeccion.add(jBCancelarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 40, 40));
+
         jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
         jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
@@ -482,9 +513,27 @@ public class FormularioDietaView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFNombreDieta1KeyTyped
 
+    private void jBBuscarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarDActionPerformed
+        //Llamamos a buscarPaciente y guardamos el resultado en el atributo miPaciente
+        
+        //verificamos que miPaciente no sea nulo y cargamos sus atributos en los campos
+    
+    }//GEN-LAST:event_jBBuscarDActionPerformed
+
+    private void jBCancelarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarDActionPerformed
+        //Llamamos al metodo limpiarCampos
+     
+        //Llamamos invertirEstados para regresar al modo de crear un paciente
+
+        //igualamos a nulo el atributo miPaciente
+ 
+    }//GEN-LAST:event_jBCancelarDActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRSeccion;
+    private javax.swing.JButton jBBuscarD;
+    private javax.swing.JButton jBCancelarD;
     private javax.swing.JButton jBCrearDieta;
     private javax.swing.JButton jBEditarDieta;
     private javax.swing.JButton jBEliminarDieta;

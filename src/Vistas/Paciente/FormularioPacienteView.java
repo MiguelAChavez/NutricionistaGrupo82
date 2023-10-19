@@ -449,7 +449,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jBBuscarActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 50, 80, 40));
+        PRSeccion.add(jBBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 80, 40));
 
         jBCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelar.setToolTipText("");
@@ -463,7 +463,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jBCancelarActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 40, 40));
+        PRSeccion.add(jBCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 50, 40, 40));
 
         jDFechaNacimiento.setBackground(new java.awt.Color(102, 102, 102));
         jDFechaNacimiento.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N

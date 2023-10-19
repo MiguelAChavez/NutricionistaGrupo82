@@ -12,7 +12,10 @@ package utils;
 public enum Estado {
     INACTIVOS(0),
     ACTIVO(1),
-    TODOS(2);
+    TODOS(2),
+    DIETA_CULMINADA(3),
+    DIETA_VIGENTE(4);
+    
 
     int cod;
 
@@ -33,6 +36,10 @@ public enum Estado {
                 return "Activos";
             case TODOS:
                 return "Todos";
+            case DIETA_CULMINADA:
+                return "Dieta culminada";
+            case DIETA_VIGENTE:
+                return "Dieta vigente";
             default:
                 return null;
         }
