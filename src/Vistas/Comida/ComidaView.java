@@ -40,7 +40,7 @@ public class ComidaView extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         PRFondo1 = new utils.PanelRound();
         jBFormularioP1 = new javax.swing.JButton();
-        jBListarP1 = new javax.swing.JButton();
+        jBListarComida = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -82,6 +82,7 @@ public class ComidaView extends javax.swing.JPanel {
             }
         });
         PRFondo.add(jBListarP, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 240, 70));
+
         jLabel3.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("<html>Abre el formulario para completar, modificar o eliminar los datos del paciente<html>");
@@ -135,17 +136,17 @@ public class ComidaView extends javax.swing.JPanel {
         });
         PRFondo1.add(jBFormularioP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 240, 70));
 
-        jBListarP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        jBListarP1.setText("Listar ");
-        jBListarP1.setActionCommand("LISTADO PACIENTE");
-        jBListarP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBListarP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBListarP1.addActionListener(new java.awt.event.ActionListener() {
+        jBListarComida.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
+        jBListarComida.setText("Listar ");
+        jBListarComida.setActionCommand("LISTADO PACIENTE");
+        jBListarComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBListarComida.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBListarComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBListarP1ActionPerformed(evt);
+                jBListarComidaActionPerformed(evt);
             }
         });
-        PRFondo1.add(jBListarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 240, 70));
+        PRFondo1.add(jBListarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -180,10 +181,11 @@ public class ComidaView extends javax.swing.JPanel {
 
     private void jBFormularioPFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioPFocusGained
         // TODO add your handling code here:
+   
     }//GEN-LAST:event_jBFormularioPFocusGained
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-    
+        
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
@@ -198,9 +200,9 @@ public class ComidaView extends javax.swing.JPanel {
      
     }//GEN-LAST:event_jBFormularioP1ActionPerformed
 
-    private void jBListarP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarP1ActionPerformed
-      
-    }//GEN-LAST:event_jBListarP1ActionPerformed
+    private void jBListarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarComidaActionPerformed
+       cargarComponente.showComponents(new ListarComidaView(), contenedor);
+    }//GEN-LAST:event_jBListarComidaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -208,8 +210,8 @@ public class ComidaView extends javax.swing.JPanel {
     private utils.PanelRound PRFondo1;
     private javax.swing.JButton jBFormularioP;
     private javax.swing.JButton jBFormularioP1;
+    private javax.swing.JButton jBListarComida;
     private javax.swing.JButton jBListarP;
-    private javax.swing.JButton jBListarP1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
