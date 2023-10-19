@@ -191,7 +191,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioP1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioP1FocusGained
-        cargarComponente.showComponents(new FormularioComidaView(), contenedor);
+        CargarComponente.showComponents(new FormularioComidaView(), contenedor);
     }//GEN-LAST:event_jBFormularioP1FocusGained
 
     private void jBFormularioP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioP1ActionPerformed

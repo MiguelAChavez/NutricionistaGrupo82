@@ -6,7 +6,7 @@
 package Vistas.Dietas;
 
 import Vistas.DeskNutricionista;
-import utils.cargarComponente;
+import utils.CargarComponente;
 
 /**
  *
@@ -462,7 +462,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
     private void jButtonSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteDietaActionPerformed
         // TODO add your handling code here:
-        cargarComponente.showComponents(new Formulario2DietaComida(),this.nutricionistaDesk);
+        CargarComponente.showComponents(new Formulario2DietaComida(),this.nutricionistaDesk);
         
     }//GEN-LAST:event_jButtonSiguienteDietaActionPerformed
 

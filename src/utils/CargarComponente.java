@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  *
  * @author RAMON
  */
-public class cargarComponente {
+public class CargarComponente {
     
     
      public static void showComponents(JPanel panel, DeskNutricionista contenedor) {
@@ -23,7 +23,7 @@ public class cargarComponente {
         contenedor.getjPSetup().repaint();
     }
 
-    private cargarComponente() {
+    private CargarComponente() {
     }
      
      
