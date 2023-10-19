@@ -63,6 +63,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jTFNombreDieta1 = new javax.swing.JTextField();
         jLKg2 = new javax.swing.JLabel();
+        jSDni1 = new javax.swing.JSeparator();
         jLTdieta = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -329,7 +330,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ingrese un título y cantidad de calorias ");
+        jLabel3.setText("Ingrese un título ");
         PRSeccion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jTFNombreDieta1.setBackground(new java.awt.Color(35, 35, 35));
@@ -363,6 +364,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg2.setForeground(new java.awt.Color(255, 255, 255));
         jLKg2.setText("(Kg.)");
         PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 40, 40));
+
+        jSDni1.setForeground(new java.awt.Color(255, 255, 255));
+        jSDni1.setToolTipText("");
+        jSDni1.setOpaque(true);
+        PRSeccion.add(jSDni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 190, -1));
 
         jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
         jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
@@ -500,6 +506,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSDni;
+    private javax.swing.JSeparator jSDni1;
     private javax.swing.JSeparator jSNombre;
     private javax.swing.JSeparator jSNombre6;
     private javax.swing.JSeparator jSNombre7;
