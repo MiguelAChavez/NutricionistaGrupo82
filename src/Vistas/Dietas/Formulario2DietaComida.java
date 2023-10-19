@@ -55,29 +55,36 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTableDietaComida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Comida", "Porción", "Horario"
+                "Codigo", "Comida", "Porción", "Horario"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, true, true
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -88,6 +95,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
             jTableDietaComida.getColumnModel().getColumn(0).setResizable(false);
             jTableDietaComida.getColumnModel().getColumn(1).setResizable(false);
             jTableDietaComida.getColumnModel().getColumn(2).setResizable(false);
+            jTableDietaComida.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));

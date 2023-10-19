@@ -88,13 +88,13 @@ private final DeskNutricionista d1;
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el botón continuar abre el registro de cada dieta con sus comidas, selecciona un horario y porción para cada una<html>");
+        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el botón continuar abre el registro de comidas de cada dieta.<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 220, 100));
+        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 220, 80));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html>Selecciona una dieta y explora el listado de los pacientes, activos y no activos<html>");
+        jLabel8.setText("<html>Selecciona una dieta y explora el listado de las comidas, selecciona un horario y porción para cada una.<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 70));
 
@@ -113,11 +113,11 @@ private final DeskNutricionista d1;
         jLabel10.setText(" Home Dietas");
         jPanel5.add(jLabel10);
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
-
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo paciente.png"))); // NOI18N
         jLabel11.setText("jLabel3");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 70, 1300, 660));
+        jPanel5.add(jLabel11);
+
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBFormularioD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioD1ActionPerformed

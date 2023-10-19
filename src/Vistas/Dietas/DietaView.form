@@ -114,13 +114,13 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el bot&#xf3;n continuar abre el registro de cada dieta con sus comidas, selecciona un horario y porci&#xf3;n para cada una&lt;html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el bot&#xf3;n continuar abre el registro de comidas de cada dieta.&lt;html&gt;&quot;" type="code"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="50" width="220" height="100"/>
+              <AbsoluteConstraints x="30" y="50" width="220" height="80"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -131,7 +131,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;Selecciona una dieta y explora el listado de los pacientes, activos y no activos&lt;html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;Selecciona una dieta y explora el listado de las comidas, selecciona un horario y porci&#xf3;n para cada una.&lt;html&gt;&quot;" type="code"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
@@ -185,20 +185,15 @@
             <Property name="text" type="java.lang.String" value=" Home Dietas"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JLabel" name="jLabel11">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/Imagenes/fondo paciente.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="jLabel3"/>
+          </Properties>
+        </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel11">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Imagenes/fondo paciente.png"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="jLabel3"/>
-      </Properties>
-      <Constraints>
-        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-          <AbsoluteConstraints x="-70" y="70" width="1300" height="660"/>
-        </Constraint>
-      </Constraints>
-    </Component>
   </SubComponents>
 </Form>
