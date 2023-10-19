@@ -201,7 +201,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBFormularioP1ActionPerformed
 
     private void jBListarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarComidaActionPerformed
-       cargarComponente.showComponents(new ListarComidaView(), contenedor);
+       CargarComponente.showComponents(new ListarComidaView(), contenedor);
     }//GEN-LAST:event_jBListarComidaActionPerformed
 
 
