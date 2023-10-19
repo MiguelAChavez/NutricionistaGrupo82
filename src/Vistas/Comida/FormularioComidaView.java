@@ -104,12 +104,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEditar.setDisabledIcon(null);
         jBEditar.setEnabled(false);
         jBEditar.setOpaque(true);
-        jBEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEditarActionPerformed(evt);
-            }
-        });
-
+      
         jBCrear.setBackground(new java.awt.Color(48, 255, 167));
         jBCrear.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBCrear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
