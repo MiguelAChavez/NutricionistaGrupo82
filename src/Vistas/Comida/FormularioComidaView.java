@@ -6,6 +6,8 @@
 package Vistas.Comida;
 
 import Entidades.Comida;
+import javax.swing.JOptionPane;
+import utils.Validacion;
 
 /**
  *
@@ -58,7 +60,24 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jTFNombreComida.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jTFNombreComida.setCaretColor(new java.awt.Color(51, 153, 255));
         jTFNombreComida.setSelectionColor(new java.awt.Color(102, 102, 102));
-       
+        jTFNombreComida.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombreComidaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombreComidaFocusLost(evt);
+            }
+        });
+        jTFNombreComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombreComidaActionPerformed(evt);
+            }
+        });
+        jTFNombreComida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNombreComidaKeyTyped(evt);
+            }
+        });
 
         jTFCaloria.setBackground(new java.awt.Color(35, 35, 35));
         jTFCaloria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -66,7 +85,24 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jTFCaloria.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
         jTFCaloria.setCaretColor(new java.awt.Color(51, 153, 255));
         jTFCaloria.setSelectionColor(new java.awt.Color(102, 102, 102));
-     
+        jTFCaloria.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFCaloriaFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFCaloriaFocusLost(evt);
+            }
+        });
+        jTFCaloria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFCaloriaActionPerformed(evt);
+            }
+        });
+        jTFCaloria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFCaloriaKeyTyped(evt);
+            }
+        });
 
         jTextArea1.setBackground(new java.awt.Color(35, 35, 35));
         jTextArea1.setColumns(20);
@@ -98,7 +134,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEditar.setDisabledIcon(null);
         jBEditar.setEnabled(false);
         jBEditar.setOpaque(true);
-     
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
 
         jBCrear.setBackground(new java.awt.Color(48, 255, 167));
         jBCrear.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -110,7 +150,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBCrear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBCrear.setDisabledIcon(null);
         jBCrear.setOpaque(true);
-     
+        jBCrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCrearActionPerformed(evt);
+            }
+        });
 
         jBEliminar.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -123,7 +167,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jBEliminar.setDisabledIcon(null);
         jBEliminar.setEnabled(false);
         jBEliminar.setOpaque(true);
-       
+        jBEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEliminarActionPerformed(evt);
+            }
+        });
 
         jSNombre.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre.setToolTipText("");
@@ -160,7 +208,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
                                     .addComponent(jSNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTFCaloria, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelRound1Layout.createSequentialGroup()
-                        .addGap(0, 25, Short.MAX_VALUE)
+                        .addGap(0, 29, Short.MAX_VALUE)
                         .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(40, 40, 40)
                         .addComponent(jBCrear, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -209,7 +257,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 410, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(358, Short.MAX_VALUE))
+                .addContainerGap(354, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -221,6 +269,13 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 .addContainerGap(120, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTFCaloriaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCaloriaKeyTyped
+        char caracter = evt.getKeyChar();
+        if ((caracter < '0' || caracter > '9') && caracter != '.') {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFCaloriaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -240,7 +295,64 @@ public class FormularioComidaView extends javax.swing.JPanel {
     private utils.PanelRound panelRound1;
     // End of variables declaration//GEN-END:variables
 
+private Comida crearComida(Comida comida){
+    try {
+           int calorias = Integer.parseInt(jTFCaloria.getText());
+           if (calorias < 0) {
+                JOptionPane.showMessageDialog(this, "Ingrese números mayores a cero");
+                return null;
+            }
+           
+            String nombre = this.jTFNombreComida.getText();
+            
+            String detalle = this.jTextArea1.getText();
+           
 
+            if (nombre.isEmpty() ||  detalle.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacios.");
+                return null;
+            } else if (!Validacion.isValidoString(nombre)  || !Validacion.isValidoString(detalle)) {
+                JOptionPane.showMessageDialog(this, "Alguno de los campos de texto contiene caracteres inválidos.");
+                return null;
+            } 
+
+            
+
+            return new Comida(nombre.trim(), detalle.trim(), calorias, Boolean.TRUE);
+                 
+
+        } catch (NumberFormatException e) {
+
+            if (e.getMessage().contains(this.jTFNombreComida.getText())) {
+
+                JOptionPane.showMessageDialog(this, "Error en campo del Nombre");
+            } else if (e.getMessage().contains(this.jTFCaloria.getText())) {
+
+                JOptionPane.showMessageDialog(this, "Error en campo de Caloria");
+            } else if (e.getMessage().contains(this.jTextArea1.getText())) {
+
+                JOptionPane.showMessageDialog(this, "Error en campo del detalle");
+            } 
+
+        }
+        return null;
+
+
+}
+
+private void limpiarCampos() {
+        this.jTFNombreComida.setText("");
+        this.jTFCaloria.setText("");
+        this.jTextArea1.setText("");
+       
+    }
+
+    private void invertirEstados() {
+        this.jBCrear.setEnabled(!jBCrear.isEnabled());
+        this.jBEditar.setEnabled(!jBEditar.isEnabled());
+        this.jBEliminar.setEnabled(!jBEliminar.isEnabled());
+        
+    }
 
 
 }
