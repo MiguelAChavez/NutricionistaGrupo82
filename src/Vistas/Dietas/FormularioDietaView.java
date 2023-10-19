@@ -27,13 +27,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLTdieta = new javax.swing.JLabel();
         PRSeccion = new utils.PanelRound();
         jSNombre = new javax.swing.JSeparator();
         jTFNombrePaciente = new javax.swing.JTextField();
         jLNombre = new javax.swing.JLabel();
         jLDni = new javax.swing.JLabel();
-        jTFNombreDieta = new javax.swing.JTextField();
         jSDni = new javax.swing.JSeparator();
         jLFechaNac = new javax.swing.JLabel();
         jLPeso = new javax.swing.JLabel();
@@ -50,7 +48,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLFechaNac2 = new javax.swing.JLabel();
         jDFechaFinDieta = new com.toedter.calendar.JDateChooser();
         jTFPesoBuscadoDieta = new javax.swing.JTextField();
-        jLKg1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jSNombre7 = new javax.swing.JSeparator();
@@ -59,14 +56,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jSNombre9 = new javax.swing.JSeparator();
         jLabel3 = new javax.swing.JLabel();
+        jTFNombreDieta1 = new javax.swing.JTextField();
+        jLKg2 = new javax.swing.JLabel();
+        jLTdieta = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
-
-        jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
-        jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
-        jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTdieta.setText("Formulario dieta");
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
@@ -113,32 +107,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLDni.setForeground(new java.awt.Color(255, 255, 255));
         jLDni.setText("Registrar nombre");
         PRSeccion.add(jLDni, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 170, -1));
-
-        jTFNombreDieta.setBackground(new java.awt.Color(35, 35, 35));
-        jTFNombreDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTFNombreDieta.setForeground(new java.awt.Color(204, 204, 204));
-        jTFNombreDieta.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
-        jTFNombreDieta.setCaretColor(new java.awt.Color(51, 153, 255));
-        jTFNombreDieta.setSelectionColor(new java.awt.Color(102, 102, 102));
-        jTFNombreDieta.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTFNombreDietaFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFNombreDietaFocusLost(evt);
-            }
-        });
-        jTFNombreDieta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNombreDietaActionPerformed(evt);
-            }
-        });
-        jTFNombreDieta.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFNombreDietaKeyTyped(evt);
-            }
-        });
-        PRSeccion.add(jTFNombreDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 220, 40));
 
         jSDni.setForeground(new java.awt.Color(255, 255, 255));
         jSDni.setToolTipText("");
@@ -257,7 +225,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg.setBackground(new java.awt.Color(255, 255, 255));
         jLKg.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
-        jLKg.setText("(Kg)");
+        jLKg.setText("(Kg.)");
         PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 40, 40));
 
         jLFechaNac1.setBackground(new java.awt.Color(255, 255, 255));
@@ -306,12 +274,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
         });
         PRSeccion.add(jTFPesoBuscadoDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 110, 40));
 
-        jLKg1.setBackground(new java.awt.Color(255, 255, 255));
-        jLKg1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jLKg1.setForeground(new java.awt.Color(255, 255, 255));
-        jLKg1.setText("(Kg)");
-        PRSeccion.add(jLKg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 40, 40));
-
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -358,29 +320,61 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Ingrese un título ");
+        jLabel3.setText("Ingrese un título y cantidad de calorias ");
         PRSeccion.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+
+        jTFNombreDieta1.setBackground(new java.awt.Color(35, 35, 35));
+        jTFNombreDieta1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTFNombreDieta1.setForeground(new java.awt.Color(204, 204, 204));
+        jTFNombreDieta1.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
+        jTFNombreDieta1.setCaretColor(new java.awt.Color(51, 153, 255));
+        jTFNombreDieta1.setSelectionColor(new java.awt.Color(102, 102, 102));
+        jTFNombreDieta1.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFNombreDieta1FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFNombreDieta1FocusLost(evt);
+            }
+        });
+        jTFNombreDieta1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNombreDieta1ActionPerformed(evt);
+            }
+        });
+        jTFNombreDieta1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNombreDieta1KeyTyped(evt);
+            }
+        });
+        PRSeccion.add(jTFNombreDieta1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 220, 40));
+
+        jLKg2.setBackground(new java.awt.Color(255, 255, 255));
+        jLKg2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jLKg2.setForeground(new java.awt.Color(255, 255, 255));
+        jLKg2.setText("(Kg.)");
+        PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 290, 40, 40));
+
+        jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
+        jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
+        jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTdieta.setText("Formulario dieta");
+        PRSeccion.add(jLTdieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(118, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLTdieta, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(162, 162, 162))))
+                .addContainerGap(307, Short.MAX_VALUE)
+                .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLTdieta)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(198, 198, 198))
         );
@@ -397,25 +391,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private void jTFNombrePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombrePacienteActionPerformed
 
     }//GEN-LAST:event_jTFNombrePacienteActionPerformed
-
-    private void jTFNombreDietaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDietaFocusGained
-  
-    }//GEN-LAST:event_jTFNombreDietaFocusGained
-
-    private void jTFNombreDietaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDietaFocusLost
-   
-    }//GEN-LAST:event_jTFNombreDietaFocusLost
-
-    private void jTFNombreDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreDietaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNombreDietaActionPerformed
-
-    private void jTFNombreDietaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreDietaKeyTyped
-        char caracter = evt.getKeyChar();
-        if (caracter < '0' || caracter > '9') {
-            evt.consume();
-        }
-    }//GEN-LAST:event_jTFNombreDietaKeyTyped
 
     private void jTFPesoIncialDietaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaFocusGained
         // TODO add your handling code here:
@@ -472,6 +447,22 @@ public class FormularioDietaView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreDieta1FocusGained
+
+    private void jTFNombreDieta1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreDieta1FocusLost
+
+    private void jTFNombreDieta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreDieta1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreDieta1ActionPerformed
+
+    private void jTFNombreDieta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreDieta1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNombreDieta1KeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRSeccion;
@@ -487,7 +478,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JLabel jLFechaNac1;
     private javax.swing.JLabel jLFechaNac2;
     private javax.swing.JLabel jLKg;
-    private javax.swing.JLabel jLKg1;
+    private javax.swing.JLabel jLKg2;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLPeso;
     private javax.swing.JLabel jLPesoDeseado;
@@ -502,7 +493,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JSeparator jSNombre8;
     private javax.swing.JSeparator jSNombre9;
     private javax.swing.JSeparator jSPeso;
-    private javax.swing.JTextField jTFNombreDieta;
+    private javax.swing.JTextField jTFNombreDieta1;
     private javax.swing.JTextField jTFNombrePaciente;
     private javax.swing.JTextField jTFPesoBuscadoDieta;
     private javax.swing.JTextField jTFPesoIncialDieta;
