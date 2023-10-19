@@ -22,15 +22,14 @@ public class ComidaData {
     }
 
     public static void crearComida(Comida comida) {
-        String sql = "INSERT INTO `comida`( nombre, detalle, cantidadCalorias, estado) "
-                + "VALUES(?,?,?,?)";
+        String sql = "INSERT INTO `comida`( nombre, detalle, cantidadCalorias) "
+                + "VALUES(?,?,?)";
 
         try {
             PreparedStatement ps = CONN.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, comida.getNombre());
             ps.setString(2, comida.getDatalle());
             ps.setInt(3, comida.getCantCalorias());
-            ps.setBoolean(4, comida.isEstado());
             ps.executeUpdate();
             ResultSet resultado = ps.getGeneratedKeys();
             if (resultado.next()) {
@@ -118,6 +117,50 @@ public class ComidaData {
                 comida.setNombre(cadena);
                 comida.setDatalle(rs.getString("detalle"));
                 comida.setCantCalorias(rs.getInt("cantidadCalorias"));
+                comida.setEstado(rs.getBoolean("estado"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "La comida no existe");
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return comida;
+    }
+    
+    public static Comida buscarComidaPorCalorias(int cantCalorias, Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM comida WHERE nombre=? " + estado;
+
+        Comida comida = null;
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, cantCalorias);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                comida = new Comida();
+                comida.setIdComida(rs.getInt("idComida"));
+                comida.setCantCalorias(cantCalorias);
+                comida.setNombre("nombre");
+                comida.setDatalle(rs.getString("detalle"));
                 comida.setEstado(rs.getBoolean("estado"));
 
             } else {

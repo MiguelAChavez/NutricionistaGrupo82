@@ -21,6 +21,11 @@ public class Historial {
     public Historial() {
     }
 
+    public Historial(int idHistorial, double peso) {
+        this.idHistorial = idHistorial;
+        this.peso = peso;
+    }
+
     public Historial(Paciente paciente, double peso, LocalDate fechaRegistro) {
         this.paciente = paciente;
         this.peso = peso;

@@ -57,6 +57,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jLFiltro1 = new javax.swing.JLabel();
         jLCantidad = new javax.swing.JLabel();
+        jTCant = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -154,7 +155,15 @@ public class ListarPacientes extends javax.swing.JPanel {
         jLCantidad.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLCantidad.setForeground(new java.awt.Color(255, 255, 255));
         jLCantidad.setText("Cantidad:  ");
-        add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, 200, 30));
+        add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, 90, 30));
+
+        jTCant.setEditable(false);
+        jTCant.setBackground(new java.awt.Color(35, 35, 35));
+        jTCant.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        jTCant.setForeground(new java.awt.Color(248, 245, 150));
+        jTCant.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTCant.setBorder(null);
+        add(jTCant, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 640, 40, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTextoActionPerformed
@@ -176,9 +185,10 @@ public class ListarPacientes extends javax.swing.JPanel {
             List<Paciente> ListaPaciente = PacienteData.ListarPacientes(estado);
             if (ListaPaciente.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                this.jTCant.setText("0");
                 return;
-            }           
-            this.jLCantidad.setText("Cantidad: " + ListaPaciente.size());       
+            }
+            this.jTCant.setText(ListaPaciente.size() + "");
             for (Paciente paciente : ListaPaciente) {
                 model.addRow(new Object[]{
                     paciente.getIdPaciente(),
@@ -202,10 +212,10 @@ public class ListarPacientes extends javax.swing.JPanel {
         Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
         if (texto.isEmpty()) {
             borrarFilas();
+            this.jTCant.setText("0");
         } else {
             List<Paciente> listaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
-            this.jLCantidad.setText("Cantidad: " + listaPaciente.size());
-                
+            this.jTCant.setText(listaPaciente.size() + "");
 
             for (Paciente paciente : listaPaciente) {
                 model.addRow(new Object[]{paciente.getIdPaciente(),
@@ -232,6 +242,7 @@ public class ListarPacientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JTextField jTCant;
     private javax.swing.JTable jTPacientes;
     private javax.swing.JTextField jTTexto;
     // End of variables declaration//GEN-END:variables

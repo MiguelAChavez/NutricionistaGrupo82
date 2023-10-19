@@ -5,6 +5,7 @@
  */
 package AccesoADatos;
 
+import Entidades.Historial;
 import Entidades.Paciente;
 import java.sql.Connection;
 import java.sql.Date;
@@ -12,6 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -88,10 +90,24 @@ public class PacienteData {
 
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
+                
+                Historial historial = new Historial(paciente, paciente.getPeso(), LocalDate.now());
+                List<Historial> ListaHistorial = HistorialData.getHistorialPaciente(paciente.getIdPaciente());
+                if (ListaHistorial.isEmpty()) {
+                    HistorialData.crearHistorial(historial);
+                    JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente y se agrego a su historial");
+                } else {
+                    Historial hist = ListaHistorial.get(0);
+                    if ( !hist.getFechaRegistro().equals(LocalDate.now()) ||  hist.getPeso() != paciente.getPeso() ) {
+                        HistorialData.crearHistorial(historial);
+                        JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente y se agrego a su historial");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "El paciente fué modificado exitoxamente");
+                    }
+                }
+
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
-
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la tabla paciente " + ex.getMessage());
@@ -169,7 +185,8 @@ public class PacienteData {
 
         return paciente;
     }
- public static Paciente buscarPacientePorId(int idPaciente, Estado isActivo) {
+
+    public static Paciente buscarPacientePorId(int idPaciente, Estado isActivo) {
         String sql;
 
         String estado = "";
@@ -219,6 +236,7 @@ public class PacienteData {
 
         return paciente;
     }
+
     public static List<Paciente> ListarPorNombreOApellido(String cadena, Estado buscar) {
         List<Paciente> pacientes = new ArrayList<>();
 

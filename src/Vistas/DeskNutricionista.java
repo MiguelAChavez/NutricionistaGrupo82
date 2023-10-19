@@ -1,5 +1,6 @@
 package Vistas;
 
+import Vistas.Comida.ComidaView;
 import Vistas.Paciente.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
@@ -290,7 +291,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComidaActionPerformed
-        // TODO add your handling code here:
+        this.mover.animateScroll(PRBarraMenu);
+        showComponents(new ComidaView(this));
     }//GEN-LAST:event_jBComidaActionPerformed
 
     private void jBComidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBComidaMouseExited

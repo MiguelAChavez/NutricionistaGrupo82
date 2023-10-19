@@ -5,8 +5,18 @@
  */
 package Vistas.Paciente;
 
+import AccesoADatos.HistorialData;
+import AccesoADatos.PacienteData;
+import Entidades.Historial;
+import Entidades.Paciente;
 import java.awt.Color;
+import java.awt.HeadlessException;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import utils.Estado;
 
 /**
  *
@@ -17,14 +27,22 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-     private DefaultTableModel model = new  DefaultTableModel(){
+    private DefaultTableModel model = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int i, int i1) {
-            return Boolean.FALSE;
-        }  
+            switch (i1) {
+                case 1:
+                    if (i > 0) {
+                        return Boolean.TRUE;
+                    }else{
+                        return Boolean.FALSE;
+                    }
+                default:
+                    return Boolean.FALSE;
+            }
+        }
     };
-       
-    
+
     public HistorialPacientesView() {
         initComponents();
         initTableHistorial();
@@ -43,12 +61,11 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jTTextoNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTHistorial = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTId = new javax.swing.JTextField();
         jTpesoIngreso = new javax.swing.JTextField();
         jTpesoDeseado = new javax.swing.JTextField();
+        jBEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -115,35 +132,59 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jTHistorial.setSelectionBackground(new java.awt.Color(0, 153, 255));
         jTHistorial.getTableHeader().setResizingAllowed(false);
         jTHistorial.getTableHeader().setReorderingAllowed(false);
+        jTHistorial.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTHistorialFocusGained(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTHistorial);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 403, 454));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("ID Paciente");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 200, 115, -1));
-
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Peso de Ingreso");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 320, -1, -1));
+        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Peso Deseado");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, 115, -1));
-        add(jTId, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 190, 140, 42));
-        add(jTpesoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 310, 140, 42));
-        add(jTpesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 420, 140, 41));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 115, 20));
+
+        jTpesoIngreso.setEditable(false);
+        jTpesoIngreso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTpesoIngreso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        add(jTpesoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, 90, 42));
+
+        jTpesoDeseado.setEditable(false);
+        jTpesoDeseado.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTpesoDeseado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        add(jTpesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, 90, 41));
+
+        jBEditar.setBackground(new java.awt.Color(0, 204, 255));
+        jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-editar.png"))); // NOI18N
+        jBEditar.setText("Editar Peso");
+        jBEditar.setBorder(null);
+        jBEditar.setBorderPainted(false);
+        jBEditar.setContentAreaFilled(false);
+        jBEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBEditar.setDisabledIcon(null);
+        jBEditar.setOpaque(true);
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
+        add(jBEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 110, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusGained
-        this.jTTextoNombre.setBackground(new Color(63,63,63));
+        this.jTTextoNombre.setBackground(new Color(63, 63, 63));
     }//GEN-LAST:event_jTTextoNombreFocusGained
 
     private void jTTextoNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusLost
-        this.jTTextoNombre.setBackground(new Color(35,35,35));
+        this.jTTextoNombre.setBackground(new Color(35, 35, 35));
     }//GEN-LAST:event_jTTextoNombreFocusLost
 
     private void jTTextoNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTTextoNombreActionPerformed
@@ -151,41 +192,97 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTTextoNombreActionPerformed
 
     private void jTTextoNombreKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoNombreKeyReleased
-        
-        
-        
+        borrarFilas();
+        String texto = this.jTTextoNombre.getText();
+        if (texto.isEmpty()) {
+            borrarFilas();
+        } else {
+            List<Paciente> pacientes = PacienteData.ListarPorNombreOApellido(texto, Estado.TODOS);
+            if (!pacientes.isEmpty()) {
+
+                Paciente p = pacientes.get(0);
+                List<Historial> listHistorial = HistorialData.getHistorialPaciente(p.getIdPaciente());
+                if (!listHistorial.isEmpty()) {
+                    for (Historial historial : listHistorial) {
+                        this.model.addRow(new Object[]{
+                            historial.getIdHistorial(),
+                            historial.getPeso(),
+                            historial.getFechaRegistro()
+                        });
+                    }
+                    this.jTpesoIngreso.setText(listHistorial.get(0).getPeso() + "");
+                    this.jTpesoDeseado.setText(p.getPesoDeseado() + "");
+                }
+            }
+        }
+
     }//GEN-LAST:event_jTTextoNombreKeyReleased
+
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+
+        int[] filas = jTHistorial.getSelectedRows();
+
+        if (filas.length > 0) {
+            try {
+                for (int i = 0; i < filas.length; i++) {
+
+                    int idHistorial = Integer.parseInt(jTHistorial.getValueAt(filas[i], 0).toString());
+                    double peso = Double.parseDouble(jTHistorial.getValueAt(filas[i], 1).toString());
+
+                    if (peso < 0.0) {
+                        JOptionPane.showMessageDialog(this, "ingrese un valor valido mayor a 0 para la fila " + (filas[i] + 1));
+                        break;
+                    }
+
+                    HistorialData.modificarHistorial(new Historial(idHistorial, peso));
+
+                }
+
+            } catch (NumberFormatException e) {
+                System.out.println(e.getMessage());
+                JOptionPane.showMessageDialog(this, "solo puede ingresar numeros");
+            } catch (HeadlessException e) {
+                System.out.println(e.getMessage());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Seleccione el peso a modificar");
+        }
+
+    }//GEN-LAST:event_jBEditarActionPerformed
+
+    private void jTHistorialFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTHistorialFocusGained
+
+    }//GEN-LAST:event_jTHistorialFocusGained
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBEditar;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLTituloHistorial;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTHistorial;
-    private javax.swing.JTextField jTId;
     private javax.swing.JTextField jTTextoNombre;
     private javax.swing.JTextField jTpesoDeseado;
     private javax.swing.JTextField jTpesoIngreso;
     // End of variables declaration//GEN-END:variables
 
-
-  private void initTableHistorial() {
-
+    private void initTableHistorial() {
+        this.model.addColumn("Codigo");
         this.model.addColumn("Peso");
         this.model.addColumn("Fecha de Registro");
-        
+
         this.jTHistorial.setModel(model);
     }
 
+    private void borrarFilas() {
+        int filas = jTHistorial.getRowCount() - 1;
+        for (int f = filas; f >= 0; f--) {
+            model.removeRow(f);
+        }
 
-
-
-
-
-
+    }
 
 }

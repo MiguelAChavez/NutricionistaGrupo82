@@ -5,17 +5,19 @@
  */
 package Vistas.Comida;
 
+import Vistas.DeskNutricionista;
+import utils.*;
+
 /**
  *
  * @author RAMON
  */
 public class ComidaView extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ComidaView
-     */
-    public ComidaView() {
+    DeskNutricionista contenedor;
+    public ComidaView(DeskNutricionista contenedor) {
         initComponents(); 
+        this.contenedor = contenedor;
     }
 
     /**
@@ -30,7 +32,6 @@ public class ComidaView extends javax.swing.JPanel {
         PRFondo = new utils.PanelRound();
         jBFormularioP = new javax.swing.JButton();
         jBListarP = new javax.swing.JButton();
-        jBHistorialPaciente = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -148,13 +149,13 @@ public class ComidaView extends javax.swing.JPanel {
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos del paciente<html>");
+        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar las comidas del paciente<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 70));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html>Explora el listado de tus pacientes, activos y no activos<html>");
+        jLabel8.setText("<html>Explora el listado de las comidas y sus calorias<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 210, 70));
 
@@ -182,7 +183,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBFormularioPFocusGained
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-     
+    
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
@@ -190,7 +191,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioP1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioP1FocusGained
-        // TODO add your handling code here:
+        cargarComponente.showComponents(new FormularioComidaView(), contenedor);
     }//GEN-LAST:event_jBFormularioP1FocusGained
 
     private void jBFormularioP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioP1ActionPerformed
@@ -207,7 +208,6 @@ public class ComidaView extends javax.swing.JPanel {
     private utils.PanelRound PRFondo1;
     private javax.swing.JButton jBFormularioP;
     private javax.swing.JButton jBFormularioP1;
-    private javax.swing.JButton jBHistorialPaciente;
     private javax.swing.JButton jBListarP;
     private javax.swing.JButton jBListarP1;
     private javax.swing.JLabel jLabel2;
