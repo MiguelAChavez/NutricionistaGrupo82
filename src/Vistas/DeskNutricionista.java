@@ -252,7 +252,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jPSetup.setBackground(new java.awt.Color(35, 35, 35));
         jPSetup.setLayout(new java.awt.CardLayout());
-        jPFondo.add(jPSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 670));
+        jPFondo.add(jPSetup, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 1100, 670));
 
         jBDesplegar.setBackground(new java.awt.Color(153, 153, 153));
         jBDesplegar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/menu.png"))); // NOI18N
@@ -307,8 +307,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
-        cargarComponente.showComponents(new DietaView(), this);
-            this.mover.animateScroll(PRBarraMenu);
+        this.mover.animateScroll(PRBarraMenu);
+        showComponents(new DietaView());
     }//GEN-LAST:event_jBDientasActionPerformed
 
     private void jBDientasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDientasMouseExited

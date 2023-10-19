@@ -129,7 +129,7 @@ public class PacientesView extends javax.swing.JPanel {
         jLabel3.setText("jLabel3");
         jPanel1.add(jLabel3);
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 650));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, 670));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed

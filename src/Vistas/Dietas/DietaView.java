@@ -27,9 +27,6 @@ public class DietaView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel3 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
         PRFondo1 = new utils.PanelRound();
         jBFormularioP1 = new javax.swing.JButton();
         jBListarP1 = new javax.swing.JButton();
@@ -37,17 +34,11 @@ public class DietaView extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setBackground(new java.awt.Color(22, 22, 22));
-
-        jLabel10.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel10.setText(" Home Dietas");
-        jPanel5.add(jLabel10);
 
         PRFondo1.setBackground(new java.awt.Color(219, 219, 219));
         PRFondo1.setRoundBottomLeft(40);
@@ -94,34 +85,21 @@ public class DietaView extends javax.swing.JPanel {
         jLabel9.setText("<html>Consulta el historial de cada paciente, con el registro cronológico de su dieta o dietas <html>");
         PRFondo1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 210, 70));
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 1110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(550, 550, 550)
-                .addComponent(PRFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, 599, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(598, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(PRFondo1, javax.swing.GroupLayout.PREFERRED_SIZE, 377, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(PRFondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 599, 377));
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 0, -1, 510));
+        jPanel5.setBackground(new java.awt.Color(22, 22, 22));
+
+        jLabel10.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        jLabel10.setText(" Home Dietas");
+        jPanel5.add(jLabel10);
+
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
 
         jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo paciente.png"))); // NOI18N
         jLabel11.setText("jLabel3");
-        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-140, 70, -1, -1));
+        add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 70, 1300, 660));
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -135,7 +113,6 @@ public class DietaView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
     // End of variables declaration//GEN-END:variables
 }
