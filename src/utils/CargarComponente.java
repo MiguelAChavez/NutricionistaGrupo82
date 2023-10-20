@@ -14,20 +14,15 @@ import javax.swing.JPanel;
  * @author RAMON
  */
 public class CargarComponente {
-    
-    
-     public static void showComponents(JPanel panel, DeskNutricionista contenedor) {
+
+    private CargarComponente() {
+    }
+
+    public static void showComponents(JPanel panel, DeskNutricionista contenedor) {
         contenedor.getjPSetup().removeAll();
         contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
         contenedor.getjPSetup().validate();
         contenedor.getjPSetup().repaint();
     }
 
-    private CargarComponente() {
-    }
-     
-     
-     
-     
-    
 }

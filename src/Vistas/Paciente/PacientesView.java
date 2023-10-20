@@ -6,9 +6,7 @@
 package Vistas.Paciente;
 
 import Vistas.*;
-import java.awt.BorderLayout;
-import javax.swing.JPanel;
-import utils.AnimationPanel;
+import utils.CargarComponente;
 
 /**
  *
@@ -19,7 +17,7 @@ public class PacientesView extends javax.swing.JPanel {
     /**
      * Creates new form PacientesView
      */
-    utils.AnimationPanel mover = new AnimationPanel();
+   
     private final DeskNutricionista contenedor;
 
     public PacientesView(DeskNutricionista ContentPanel) {
@@ -134,15 +132,15 @@ public class PacientesView extends javax.swing.JPanel {
 
     private void jBHistorialPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPacienteActionPerformed
         // TODO add your handling code here:
-        showComponents(new HistorialPacientesView());
+        CargarComponente.showComponents(new HistorialPacientesView(),this.contenedor);
     }//GEN-LAST:event_jBHistorialPacienteActionPerformed
 
     private void jBListarPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarPActionPerformed
-        showComponents(new ListarPacientes());
+        CargarComponente.showComponents(new ListarPacientes(),this.contenedor);
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioPActionPerformed
-        showComponents(new FormularioPacienteView());
+       CargarComponente.showComponents(new FormularioPacienteView(),this.contenedor);
     }//GEN-LAST:event_jBFormularioPActionPerformed
 
     private void jBFormularioPFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioPFocusGained
@@ -162,12 +160,5 @@ public class PacientesView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
-
-    private void showComponents(JPanel panel) {
-        this.contenedor.getjPSetup().removeAll();
-        this.contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
-        this.contenedor.getjPSetup().validate();
-        this.contenedor.getjPSetup().repaint();
-    }
 
 }
