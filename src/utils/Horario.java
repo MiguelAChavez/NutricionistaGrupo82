@@ -11,12 +11,21 @@ package utils;
  */
 public enum Horario {
     
-    DESAYUNO, 
-    ALMUERZO,
-    MERIENDA,
-    CENA,
-    SNACK,
-    COLASION,
-   
-    
+    DESAYUNO("Desayuno"),
+    ALMUERZO("Almuerzo"),
+    MERIENDA("Merienda"),
+    CENA("Cena"),
+    SNACK("Snack");
+
+    private final String name;
+
+    private Horario(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
 }

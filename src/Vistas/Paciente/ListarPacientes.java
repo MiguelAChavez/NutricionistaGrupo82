@@ -9,6 +9,7 @@ import AccesoADatos.PacienteData;
 import Entidades.Paciente;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -188,12 +189,27 @@ public class ListarPacientes extends javax.swing.JPanel {
         borrarFilas();
         if (this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class && cont != 0) {
             Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
-            List<Paciente> ListaPaciente = PacienteData.ListarPacientes(estado);
-            if (ListaPaciente.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
-                this.jTCant.setText("0");
-                return;
+            List<Paciente> ListaPaciente = new ArrayList<>();
+            String texto = this.jTTexto.getText().trim();
+
+            if (texto.isEmpty()) {
+                ListaPaciente = PacienteData.ListarPacientes(estado);
+                if (ListaPaciente.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                    this.jTCant.setText("0");
+                    return;
+                }
+
+            } else if (Validacion.isValidoString(texto)) {
+                ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
+               
+                if (ListaPaciente.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                    this.jTCant.setText("0");
+                    return;
+                }
             }
+
             this.jTCant.setText(ListaPaciente.size() + "");
             for (Paciente paciente : ListaPaciente) {
                 model.addRow(new Object[]{
@@ -214,7 +230,7 @@ public class ListarPacientes extends javax.swing.JPanel {
 
     private void jTTextoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoKeyReleased
         borrarFilas();
-        String texto = this.jTTexto.getText();
+        String texto = this.jTTexto.getText().trim();
         Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
         if (texto.isEmpty()) {
             borrarFilas();
@@ -237,7 +253,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                         paciente.getAltura()});
 
                 }
-            } 
+            }
         }
     }//GEN-LAST:event_jTTextoKeyReleased
 
