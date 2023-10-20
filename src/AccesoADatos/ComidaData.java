@@ -174,6 +174,22 @@ public class ComidaData {
         return comida;
     }
     
+    public static void activar(Comida comida) {
+        String SQL = "UPDATE comida SET estado= 1 WHERE idComida = ?;";
+        try {
+            PreparedStatement ps = CONN.prepareStatement(SQL);
+            ps.setInt(1, comida.getIdComida());
+
+            int res = ps.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Fué dada de alta nuevamente.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Comida.");
+        }
+    }
+
+    
     
 
 }

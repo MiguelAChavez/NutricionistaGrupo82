@@ -8,6 +8,7 @@ package Vistas.Comida;
 import AccesoADatos.ComidaData;
 import Entidades.Comida;
 import javax.swing.JOptionPane;
+import utils.Estado;
 import utils.Validacion;
 
 /**
@@ -327,8 +328,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearMouseClicked
 
     private void jBBuscarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCActionPerformed
-        //Llamamos a buscarPaciente y guardamos el resultado en el atributo miPaciente
-        //verificamos que miPaciente no sea nulo y cargamos sus atributos en los campos
+      
 
     }//GEN-LAST:event_jBBuscarCActionPerformed
 
@@ -414,5 +414,33 @@ public class FormularioComidaView extends javax.swing.JPanel {
         this.jBEliminar.setEnabled(!jBEliminar.isEnabled());
 
     }
+    
+    private Comida buscarComida() {
+        Comida comida;
+        try {
+            String nombre = this.jTFNombreComida.getText();
+            if (nombre!=null) {
+                comida = ComidaData. buscarComidaPorNombre(nombre, Estado.TODOS);
+                if (!comida.isEstado()) {
+                    int result = JOptionPane.showConfirmDialog(this, "La comida se encuentra dada de baja. ¿Quiere darla de alta?");
+                    switch (result) {
+                        case JOptionPane.YES_OPTION:
+                            ComidaData.activar(comida);
+                            break;
+                        case JOptionPane.NO_OPTION:
+                            comida = ComidaData. buscarComidaPorNombre (nombre, Estado.INACTIVOS);
+                            break;
+                        default:
+                            return null;
+                    }
+                }
+                return comida;
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Solo puede ingresar letras");
+        }
+        return null;
+    }
+
 
 }
