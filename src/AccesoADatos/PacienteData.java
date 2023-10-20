@@ -243,16 +243,17 @@ public class PacienteData {
         String estado = getEstadoCondition(buscar.getEstado());
 
         String sql = "SELECT * FROM paciente "
-                + "WHERE ( paciente.apellido LIKE ? OR paciente.nombre LIKE ? )" + estado
+                + "WHERE ((CONCAT(paciente.nombre, ' ', paciente.apellido) LIKE ?) OR " 
+                + "(CONCAT(paciente.apellido, ' ', paciente.nombre) LIKE ?))" + estado
                 + " ORDER BY apellido ASC, nombre ASC;";
 
         PreparedStatement ps;
 
         try {
             ps = CONN.prepareStatement(sql);
-            ps.setString(1, cadena + "%");
-            ps.setString(2, cadena + "%");
-            
+            ps.setString(1, "%" + cadena + "%");
+            ps.setString(2, "%" + cadena + "%");
+              
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Paciente paciente = new Paciente();
