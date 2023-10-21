@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.swing.JOptionPane;
 import utils.Estado;
@@ -85,7 +86,7 @@ public class ComidaData {
         }
 
     }
-    
+
     public static Comida buscarComidaPorNombre(String cadena, Estado isActivo) {
         String sql;
 
@@ -129,8 +130,8 @@ public class ComidaData {
 
         return comida;
     }
-    
-    public static Comida buscarComidaPorCalorias(int cantCalorias, Estado isActivo) {
+
+    public static List<Comida> buscarComidaPorCalorias(int cantCalorias, Estado isActivo) {
         String sql;
 
         String estado = "";
@@ -144,10 +145,9 @@ public class ComidaData {
             default:
                 break;
         }
+        sql = "SELECT * FROM comida WHERE cantidadCalorias<? " + estado;
 
-        sql = "SELECT * FROM comida WHERE nombre=? " + estado;
-
-        Comida comida = null;
+        List listacomida = null;
         PreparedStatement ps;
 
         try {
@@ -155,25 +155,22 @@ public class ComidaData {
             ps.setInt(1, cantCalorias);
 
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                comida = new Comida();
+            while (rs.next()) {
+                Comida comida = new Comida();
                 comida.setIdComida(rs.getInt("idComida"));
                 comida.setCantCalorias(cantCalorias);
                 comida.setNombre("nombre");
                 comida.setDatalle(rs.getString("detalle"));
                 comida.setEstado(rs.getBoolean("estado"));
-
-            } else {
-                JOptionPane.showMessageDialog(null, "La comida no existe");
-            }
+                listacomida.add(comida);
+            }   
             ps.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
-
-        return comida;
+        return listacomida;
     }
-    
+
     public static void activar(Comida comida) {
         String SQL = "UPDATE comida SET estado= 1 WHERE idComida = ?;";
         try {
@@ -188,8 +185,5 @@ public class ComidaData {
             JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Comida.");
         }
     }
-
-    
-    
 
 }
