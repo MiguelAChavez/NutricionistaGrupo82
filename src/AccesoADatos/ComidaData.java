@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -145,9 +146,9 @@ public class ComidaData {
             default:
                 break;
         }
-        sql = "SELECT * FROM comida WHERE cantidadCalorias<? " + estado;
+        sql = "SELECT * FROM comida WHERE cantidadCalorias<? "+ estado ;
 
-        List listacomida = null;
+        List listacomida=new ArrayList();
         PreparedStatement ps;
 
         try {
@@ -158,8 +159,8 @@ public class ComidaData {
             while (rs.next()) {
                 Comida comida = new Comida();
                 comida.setIdComida(rs.getInt("idComida"));
-                comida.setCantCalorias(cantCalorias);
-                comida.setNombre("nombre");
+                comida.setCantCalorias(rs.getInt("cantidadCalorias"));
+                comida.setNombre(rs.getString("nombre"));
                 comida.setDatalle(rs.getString("detalle"));
                 comida.setEstado(rs.getBoolean("estado"));
                 listacomida.add(comida);
