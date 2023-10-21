@@ -308,7 +308,17 @@ public class FormularioComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearActionPerformed
 
     private void jBEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarActionPerformed
-        // TODO add your handling code here:
+        //enviamos un mensaje al usuario para que confirme la eliminacion.
+        int respuesta = JOptionPane.showConfirmDialog(null, "¿está seguro que desea eliminar la comida? ");
+
+        //Comparamos la respueta con la constante YES_OPTION
+        if (respuesta == JOptionPane.YES_OPTION) {
+            //Enviamos micomida a ComidaData para que la elimine
+            ComidaData.eliminarComida(this.micomida.getIdComida());
+            limpiarCampos();
+            invertirEstados();
+        }
+
     }//GEN-LAST:event_jBEliminarActionPerformed
 
     private void jTFCaloriaKeyTyped(java.awt.event.KeyEvent evt) {// GEN-FIRST:event_jTFCaloriaKeyTyped
@@ -328,14 +338,23 @@ public class FormularioComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearMouseClicked
 
     private void jBBuscarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarCActionPerformed
-      
+      //Llamamos a buscarComida y guardamos el resultado en el atributo micomida
+        this.micomida = buscarComida();
+        //verificamos que micomida no sea nulo y cargamos sus atributos en los campos
+        if (micomida != null) {
+            cargarCampos(micomida);
+        }
+
 
     }//GEN-LAST:event_jBBuscarCActionPerformed
 
     private void jBCancelarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarCActionPerformed
-        //Llamamos al metodo limpiarCampos
-        //Llamamos invertirEstados para regresar al modo de crear un paciente
-        //igualamos a nulo el atributo miPaciente
+     //Llamamos al metodo limpiarCampos 
+        limpiarCampos();
+        //Llamamos invertirEstados para regresar al modo de crear una comida
+        invertirEstados();
+        //igualamos a nulo el atributo micomida
+        this.micomida = null;
 
     }//GEN-LAST:event_jBCancelarCActionPerformed
 
@@ -441,6 +460,20 @@ public class FormularioComidaView extends javax.swing.JPanel {
         }
         return null;
     }
+    
+    private void cargarCampos(Comida comida) {
+        //seteamos los atributos del paciente al los campos
+        invertirEstados();
+
+        this. jTFNombreComida.setText(comida.getNombre());
+        this. jTFCaloria.setText(comida.getCantCalorias()+"");
+        this. jTextArea1.setText(comida.getDatalle());
+        
+        
+ 
+
+    }
+
 
 
 }
