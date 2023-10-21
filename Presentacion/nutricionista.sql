@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-10-2023 a las 23:37:59
+-- Tiempo de generación: 21-10-2023 a las 23:40:47
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -29,13 +29,21 @@ USE `nutricionista`;
 -- Estructura de tabla para la tabla `comida`
 --
 
+DROP TABLE IF EXISTS `comida`;
 CREATE TABLE `comida` (
   `idComida` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
   `detalle` text NOT NULL,
   `cantidadCalorias` int(11) NOT NULL,
-  `estado` tinyint(1) NOT NULL
+  `estado` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `comida`
+--
+
+INSERT INTO `comida` (`idComida`, `nombre`, `detalle`, `cantidadCalorias`, `estado`) VALUES
+(1, 'Milanesa', 'Milanesa de pollo', 300, 1);
 
 -- --------------------------------------------------------
 
@@ -43,6 +51,7 @@ CREATE TABLE `comida` (
 -- Estructura de tabla para la tabla `dieta`
 --
 
+DROP TABLE IF EXISTS `dieta`;
 CREATE TABLE `dieta` (
   `idDieta` int(11) NOT NULL,
   `idPaciente` int(11) NOT NULL,
@@ -50,7 +59,8 @@ CREATE TABLE `dieta` (
   `fechaInicial` date NOT NULL,
   `pesoInicial` double NOT NULL,
   `fechaFinal` date NOT NULL,
-  `pesoBuscado` double NOT NULL
+  `pesoBuscado` double NOT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -59,6 +69,7 @@ CREATE TABLE `dieta` (
 -- Estructura de tabla para la tabla `dietacomida`
 --
 
+DROP TABLE IF EXISTS `dietacomida`;
 CREATE TABLE `dietacomida` (
   `idDietaComida` int(11) NOT NULL,
   `idComida` int(11) NOT NULL,
@@ -73,6 +84,7 @@ CREATE TABLE `dietacomida` (
 -- Estructura de tabla para la tabla `historial`
 --
 
+DROP TABLE IF EXISTS `historial`;
 CREATE TABLE `historial` (
   `idHistorial` int(11) NOT NULL,
   `idPaciente` int(11) NOT NULL,
@@ -80,12 +92,26 @@ CREATE TABLE `historial` (
   `fechaRegistro` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `historial`
+--
+
+INSERT INTO `historial` (`idHistorial`, `idPaciente`, `peso`, `fechaRegistro`) VALUES
+(1, 23, 72, '2022-10-12'),
+(2, 23, 70.2, '2023-02-09'),
+(3, 23, 75, '2023-10-16'),
+(4, 21, 75, '2023-10-17'),
+(5, 28, 83.5, '2023-10-17'),
+(6, 23, 73, '2023-10-17'),
+(7, 21, 79, '2023-10-17');
+
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `paciente`
 --
 
+DROP TABLE IF EXISTS `paciente`;
 CREATE TABLE `paciente` (
   `idPaciente` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,
@@ -106,18 +132,19 @@ CREATE TABLE `paciente` (
 --
 
 INSERT INTO `paciente` (`idPaciente`, `nombre`, `apellido`, `dni`, `telefono`, `domicilio`, `fechaNac`, `sexo`, `estado`, `pesoActual`, `altura`, `pesoDeseado`) VALUES
-(21, 'Juan', 'Perez', 12345678, '555-123-4567', 'Calle 123', '1990-05-15', 'Masculino', 1, 75.5, 175, 70),
+(21, 'Juan', 'Perez', 12345678, '555434567', 'Calle 123', '1990-05-15', 'Masculino', 0, 79, 175, 70),
 (22, 'Maria', 'Gomez', 23456789, '555-234-5678', 'Avenida 456', '1985-09-20', 'Femenino', 1, 85, 160, 60),
-(23, 'Carlos', 'Lopez', 34567890, '555-345-6789', 'Plaza 789', '1995-02-10', 'Masculino', 1, 70, 180, 75),
+(23, 'Carlos', 'Lopez', 34567890, '555346789', 'Plaza 789', '1995-02-10', 'Masculino', 1, 73, 180, 75),
 (24, 'Ana', 'Rodriguez', 45678901, '555-456-7890', 'Calle 567', '1988-11-30', 'Femenino', 1, 50, 155, 55),
 (25, 'Luis', 'Fernandez', 56789012, '555-567-8901', 'Avenida 890', '1992-07-25', 'Masculino', 0, 80, 170, 72),
 (26, 'Laura', 'Martinez', 67890123, '555-678-9012', 'Calle 1011', '1980-04-03', 'Femenino', 0, 90, 165, 70),
 (27, 'Pedro', 'Gonzalez', 78901234, '555-789-0123', 'Plaza 1213', '1998-12-18', 'Masculino', 1, 78, 175, 73),
-(28, 'Isabel', 'Lopez', 89012345, '555-890-1234', 'Avenida 1415', '1987-03-12', 'Femenino', 1, 88.5, 160, 65),
+(28, 'carmen', 'Lopez', 89012345, '555890234', 'Avenida 1415', '1987-03-12', 'Femenino', 0, 83.5, 160, 65),
 (29, 'Miguel', 'Torres', 90123456, '555-901-2345', 'Calle 1617', '1993-08-08', 'Masculino', 1, 76, 178, 74),
-(30, 'Juana', 'Sanchez', 1234567, '555-012-2136', 'Avenida 1819', '1982-06-01', 'femenino', 0, 82, 163, 68),
-(31, 'Pedro', 'Peres', 20972164, '21-1232-42', 'Gral. Paz 550', '2023-10-04', 'Masculino', 0, 300, 1.8, 150),
-(35, 'Maria', 'Rosales', 213123, '123123', 'Cap.', '1990-09-11', 'Femenino', 1, 90, 1.65, 60);
+(30, 'Juana', 'Sanchez', 1234567, '222113243', 'Avenida 1819', '1982-06-01', 'Femenino', 0, 82, 163, 68),
+(31, 'Pedro', 'Peres', 20972164, '21-1232-42', 'Gral. Paz 550', '2023-10-04', 'Masculino', 0, 300, 180, 150),
+(35, 'Maria', 'Rosales', 213123, '123123', 'Cap.', '1990-09-11', 'Femenino', 1, 90, 165, 60),
+(38, 'Pedro', 'Perez', 25879962, '1232432', 'Capital Federal Directorio 4700', '2019-10-03', 'Masculino', 1, 180, 180, 90);
 
 --
 -- Índices para tablas volcadas
@@ -168,7 +195,7 @@ ALTER TABLE `paciente`
 -- AUTO_INCREMENT de la tabla `comida`
 --
 ALTER TABLE `comida`
-  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idComida` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `dieta`
@@ -186,13 +213,13 @@ ALTER TABLE `dietacomida`
 -- AUTO_INCREMENT de la tabla `historial`
 --
 ALTER TABLE `historial`
-  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idHistorial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `paciente`
 --
 ALTER TABLE `paciente`
-  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `idPaciente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- Restricciones para tablas volcadas
