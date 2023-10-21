@@ -70,6 +70,11 @@ public class DietaView extends javax.swing.JPanel {
         jBListarP1.setActionCommand("LISTADO PACIENTE");
         jBListarP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jBListarP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBListarP1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBListarP1ActionPerformed(evt);
+            }
+        });
         PRFondo1.add(jBListarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 240, 70));
 
         jBHistorialPaciente1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
@@ -127,6 +132,11 @@ public class DietaView extends javax.swing.JPanel {
         // TODO add your handling code here:
         CargarComponente.showComponents(new ListadoDietas(), d1);
     }//GEN-LAST:event_jBHistorialPaciente1ActionPerformed
+
+    private void jBListarP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarP1ActionPerformed
+        // TODO add your handling code here:
+         CargarComponente.showComponents(new Formulario2DietaComida(), d1);
+    }//GEN-LAST:event_jBListarP1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -37,26 +37,32 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     private void initComponents() {
 
         jLTDietaComida = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
+        jComboBoxDietaComida = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableDietaComida = new javax.swing.JTable();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jBCrearDietaComida = new javax.swing.JButton();
         jBEliminarDietaComida = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jComboBoxDietaComida = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(0, 0, 0));
         setPreferredSize(new java.awt.Dimension(1100, 670));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTDietaComida.setBackground(new java.awt.Color(51, 51, 51));
         jLTDietaComida.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLTDietaComida.setForeground(new java.awt.Color(255, 255, 255));
         jLTDietaComida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTDietaComida.setText("Formulario dieta-comida");
+        add(jLTDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, 10, 1400, -1));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-        jPanel1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jPanel1.setForeground(new java.awt.Color(51, 51, 51));
+        jComboBoxDietaComida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jComboBoxDietaComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar la dieta" }));
+        jComboBoxDietaComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDietaComidaActionPerformed(evt);
+            }
+        });
+        add(jComboBoxDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 449, 28));
 
         jTableDietaComida.setBackground(new java.awt.Color(51, 51, 51));
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -100,6 +106,12 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
             jTableDietaComida.getColumnModel().getColumn(3).setResizable(false);
         }
 
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 180, 622, 332));
+
+        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 398, 30));
+
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBCrearDietaComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
@@ -115,6 +127,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jBCrearDietaComidaActionPerformed(evt);
             }
         });
+        add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 530, 80, 40));
 
         jBEliminarDietaComida.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminarDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -132,70 +145,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jBEliminarDietaComidaActionPerformed(evt);
             }
         });
-
-        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBCrearDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(152, 152, 152)
-                .addComponent(jBEliminarDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(217, 217, 217))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 398, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 622, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(77, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBCrearDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBEliminarDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jComboBoxDietaComida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jComboBoxDietaComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar la dieta" }));
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(142, 142, 142)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 790, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jComboBoxDietaComida, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(168, 168, 168))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(11, 11, 11)
-                .addComponent(jLTDietaComida)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBoxDietaComida, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(43, 43, 43)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
+        add(jBEliminarDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 530, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEliminarDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaComidaActionPerformed
@@ -206,6 +156,10 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jBCrearDietaComidaActionPerformed
 
+    private void jComboBoxDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDietaComidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDietaComidaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCrearDietaComida;
@@ -213,7 +167,6 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxDietaComida;
     private javax.swing.JLabel jLTDietaComida;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDietaComida;
     // End of variables declaration//GEN-END:variables
