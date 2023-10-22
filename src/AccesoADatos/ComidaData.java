@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
@@ -147,7 +148,7 @@ public class ComidaData {
         }
         sql = "SELECT * FROM comida WHERE cantidadCalorias<? " + estado;
 
-        List listacomida = null;
+        List listacomida = new ArrayList();
         PreparedStatement ps;
 
         try {
@@ -165,7 +166,7 @@ public class ComidaData {
                 listacomida.add(comida);
             }   
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return listacomida;

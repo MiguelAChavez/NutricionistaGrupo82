@@ -5,9 +5,6 @@
  */
 package Vistas.Dietas;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -26,7 +23,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     public Formulario2DietaComida() {
         initComponents();
         setCombo();
-        
+         
     }
 
     /**

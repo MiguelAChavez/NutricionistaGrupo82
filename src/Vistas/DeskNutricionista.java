@@ -8,10 +8,10 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
 import utils.PanelRound;
-import utils.CargarComponente;
 
 /**
  *
@@ -293,7 +293,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComidaActionPerformed
-        this.mover.animateScroll(PRBarraMenu);
         showComponents(new ComidaView(this));
     }//GEN-LAST:event_jBComidaActionPerformed
 
@@ -307,7 +306,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
-        this.mover.animateScroll(PRBarraMenu);
         showComponents(new DietaView(this));
     }//GEN-LAST:event_jBDientasActionPerformed
 
@@ -321,7 +319,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPacientesActionPerformed
         showComponents(this.pacientesView);
-        this.mover.animateScroll(PRBarraMenu);
     }//GEN-LAST:event_jBPacientesActionPerformed
 
     private void jBPacientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBPacientesMouseExited
@@ -333,13 +330,11 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPacientesMouseEntered
 
     private void jBDesplegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDesplegarActionPerformed
-        this.jBDesplegar.setVisible(false);
-        this.mover.animateScroll(PRBarraMenu);
+        this.mover.animateVisibleScroll(PRBarraMenu, this.jBDesplegar);
     }//GEN-LAST:event_jBDesplegarActionPerformed
 
     private void jBPlegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlegarActionPerformed
-        this.mover.animateScroll(PRBarraMenu);
-        this.jBDesplegar.setVisible(true);
+        this.mover.animateHiddenScroll(PRBarraMenu, this.jBDesplegar);
     }//GEN-LAST:event_jBPlegarActionPerformed
 
     private void jBDesplegarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDesplegarMouseEntered
@@ -364,7 +359,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         if (this.ingreso > 1) {
-            this.mover.animateScroll(PRBarraMenu);
             showComponents(new BienvenidaView());
         }
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -419,12 +413,14 @@ public class DeskNutricionista extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void showComponents(JPanel panel) {
-        this.ingreso++;
+        if (this.ingreso > 0) {
+            this.mover.animateHiddenScroll(PRBarraMenu, this.jBDesplegar);
+        }
         this.jPSetup.removeAll();
         this.jPSetup.add(panel, BorderLayout.CENTER);
         this.jPSetup.revalidate();
         this.jPSetup.repaint();
-        this.jBDesplegar.setVisible(Boolean.TRUE);
+        this.ingreso++;
     }
 
     public PanelRound getPRBarraMenu() {
@@ -433,6 +429,10 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     public JPanel getjPSetup() {
         return jPSetup;
+    }
+
+    public JButton getjBDesplegar() {
+        return jBDesplegar;
     }
 
 }
