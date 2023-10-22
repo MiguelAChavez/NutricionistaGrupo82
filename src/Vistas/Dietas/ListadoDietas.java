@@ -5,15 +5,29 @@
  */
 package Vistas.Dietas;
 
+import AccesoADatos.DietaData;
+import Entidades.Dieta;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import utils.CargarComponente;
+import utils.Estado;
+
 /**
  *
  * @author Lenovo
  */
 public class ListadoDietas extends javax.swing.JPanel {
 
-    /**
-     * Creates new form ListadoDietas
-     */
+   private final DefaultTableModel model = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int i, int i1) {
+            return Boolean.FALSE;
+        }
+    };
+   
+   private Dieta miDieta;
     public ListadoDietas() {
         initComponents();
     }
@@ -73,12 +87,17 @@ public class ListadoDietas extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTableDietas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableDietas);
         if (jTableDietas.getColumnModel().getColumnCount() > 0) {
             jTableDietas.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jComboBoxDietasTabla.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBoxDietasTabla.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDietasTablaActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -184,15 +203,56 @@ public class ListadoDietas extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jBCrearDietaComidaActionPerformed
 
+    private void jComboBoxDietasTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDietasTablaActionPerformed
+      CargarComponente.borrarFilas(jTableDietas, model);
+        if ( this.jComboBoxDietasTabla.getSelectedItem().getClass() != String.class ) {
+            Dieta dieta = (Dieta) jComboBoxDietasTabla.getSelectedItem();
+       List<Dieta> ListaDieta =    DietaData.buscarPorNombreDieta(Estado.TODOS);
+            if (ListaDieta.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay ninguna dieta creada");
+                return;
+            }
+            //for (Dieta dieta : ListaDieta) {
+                model.addRow(new Object[]{
+                    dieta.getIdDieta(),
+                    dieta.getNombre (),
+                    dieta.getFechaInicial(),
+                    dieta.getFechaFinal(),
+                    dieta.getPesoInicial(),
+                    dieta.getPesoInicial()
+                });
+            //}
+        }
+
+    }//GEN-LAST:event_jComboBoxDietasTablaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCrearDietaComida;
     private javax.swing.JButton jBEliminarDietaTabla;
-    private javax.swing.JComboBox<String> jComboBoxDietasTabla;
+    private javax.swing.JComboBox<Object> jComboBoxDietasTabla;
     private javax.swing.JLabel jLTituloD;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableDietas;
     // End of variables declaration//GEN-END:variables
+
+      private void armarCombo() {
+        this.jComboBoxDietasTabla.removeAll();
+        this.jComboBoxDietasTabla.addItem("--Seleccione--");
+        this.jComboBoxDietasTabla.setSelectedIndex(0);
+
+        ArrayList<Dieta> listaDieta = (ArrayList<Dieta>) DietaData.buscarPorNombreDieta(Estado.TODOS);
+        for (Dieta dieta : listaDieta) {
+            this.jComboBoxDietasTabla.addItem(dieta);
+        }
+                
+    }
+
+
+
+
+
+
 }

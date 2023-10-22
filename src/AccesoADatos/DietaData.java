@@ -9,6 +9,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -149,5 +151,49 @@ public class DietaData {
 
         return dieta;
     }
+    
+    public static List<Dieta> buscarPorNombreDieta(Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+        sql = "SELECT * FROM dieta WHERE  nombre=? "+ estado ;
+
+        List listadieta=new ArrayList();
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            //ps.setString(1, cadena);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Dieta dieta = new Dieta();
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setNombre(rs.getString("nombre"));
+                //dieta.setPaciente(rs.getInt("idPaciente")+"");
+	        dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+	        dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("PesoInicial"));
+	        dieta.setPesoFinal(rs.getDouble("PesoFinal"));
+                dieta.setEstado(rs.getBoolean("estado"));
+                listadieta.add(dieta);
+            }   
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+        return listadieta;
+    }
+
 
 }
