@@ -83,6 +83,7 @@ public class ListarComidaView extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        JTableComida.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(JTableComida);
 
         JLtituloComida.setFont(new java.awt.Font("Dialog", 1, 39)); // NOI18N
@@ -146,14 +147,14 @@ public class ListarComidaView extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldComidaList, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
+                        .addGap(18, 18, 18)
                         .addComponent(jBBuscarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBCancelarComida, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 778, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(129, 129, 129))
         );
         layout.setVerticalGroup(
@@ -180,8 +181,7 @@ public class ListarComidaView extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldComidaListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldComidaListActionPerformed
-        // TODO add your handling code here:
-
+      
     }//GEN-LAST:event_jTextFieldComidaListActionPerformed
 
     private void jBBuscarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarComidaActionPerformed
@@ -202,7 +202,8 @@ public class ListarComidaView extends javax.swing.JPanel {
 
     private void jBCancelarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarComidaActionPerformed
         //Llamamos al metodo limpiarCampos
-
+        CargarComponente.borrarFilas(JTableComida, model);
+        this.jTextFieldComidaList.setText("");
     }//GEN-LAST:event_jBCancelarComidaActionPerformed
 
     private void jTextFieldComidaListKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComidaListKeyTyped
@@ -210,7 +211,7 @@ public class ListarComidaView extends javax.swing.JPanel {
         caracter = evt.getKeyChar();
         if ((caracter < '0' || caracter > '9')) {
             evt.consume();
-        }        // TODO add your handling code here:
+        }    
     }//GEN-LAST:event_jTextFieldComidaListKeyTyped
 
 

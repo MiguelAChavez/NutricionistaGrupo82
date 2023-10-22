@@ -21,6 +21,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
 
     public FormularioComidaView() {
         initComponents();
+        this.jBCancelarC.setVisible(Boolean.FALSE);
     }
 
     /**
@@ -401,7 +402,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
             if (nombre.isEmpty() || detalle.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacios.");
                 return null;
-            } else if (!Validacion.isValidoString(nombre) || !Validacion.isValidoString(detalle)) {
+            } else if (!Validacion.isValidoString(nombre) || Validacion.isValidoString(detalle)) {
                 JOptionPane.showMessageDialog(this, "Alguno de los campos de texto contiene caracteres inválidos.");
                 return null;
             }
@@ -437,6 +438,8 @@ public class FormularioComidaView extends javax.swing.JPanel {
         this.jBCrear.setEnabled(!jBCrear.isEnabled());
         this.jBEditar.setEnabled(!jBEditar.isEnabled());
         this.jBEliminar.setEnabled(!jBEliminar.isEnabled());
+        this.jBBuscarC.setVisible(!jBBuscarC.isVisible());
+        this.jBCancelarC.setVisible(!jBCancelarC.isVisible());
 
     }
 
@@ -461,8 +464,8 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 }
                 return comida;
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Solo puede ingresar letras");
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, " Complete el campo nombre para realizar la busqueda ");
         }
         return null;
     }
