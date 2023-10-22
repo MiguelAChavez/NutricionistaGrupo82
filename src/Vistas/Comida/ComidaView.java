@@ -18,6 +18,7 @@ public class ComidaView extends javax.swing.JPanel {
     public ComidaView(DeskNutricionista contenedor) {
         initComponents(); 
         this.contenedor = contenedor;
+        System.out.println("Vistas.Comida.ComidaView.<init>()  " +this.contenedor);
     }
 
     /**
@@ -193,7 +194,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBListarPActionPerformed
 
     private void jBFormularioP1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioP1FocusGained
-        CargarComponente.showComponents(new FormularioComidaView(), contenedor);
+        CargarComponente.showComponents(new FormularioComidaView(), this.contenedor);
     }//GEN-LAST:event_jBFormularioP1FocusGained
 
     private void jBFormularioP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioP1ActionPerformed
@@ -201,7 +202,7 @@ public class ComidaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBFormularioP1ActionPerformed
 
     private void jBListarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarComidaActionPerformed
-       CargarComponente.showComponents(new ListarComidaView(), contenedor);
+       CargarComponente.showComponents(new ListarComidaView(), this.contenedor);
     }//GEN-LAST:event_jBListarComidaActionPerformed
 
 

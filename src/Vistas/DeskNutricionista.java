@@ -23,11 +23,16 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     static CardLayout cardLayout;
     private final PacientesView pacientesView;
+    private final DietaView dietaView;
+    private final ComidaView comidaView;
     private int ingreso = 0;
 
     public DeskNutricionista() {
         initComponents();
         this.pacientesView = new PacientesView(this);
+        this.dietaView = new DietaView(this);
+        this.comidaView = new ComidaView(this);
+        
         cardLayout = (CardLayout) this.jPSetup.getLayout();
         this.setIconImage(this.getIconImage());
         showComponents(new BienvenidaView());
@@ -67,6 +72,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRBarraMenu.setBackground(new java.awt.Color(51, 51, 51));
+        PRBarraMenu.setOpaque(true);
         PRBarraMenu.setRoundBottomRight(40);
         PRBarraMenu.setRoundTopRight(40);
 
@@ -293,7 +299,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComidaActionPerformed
-        showComponents(new ComidaView(this));
+        showComponents(this.comidaView);
     }//GEN-LAST:event_jBComidaActionPerformed
 
     private void jBComidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBComidaMouseExited
@@ -306,7 +312,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
-        showComponents(new DietaView(this));
+        showComponents(this.dietaView);
     }//GEN-LAST:event_jBDientasActionPerformed
 
     private void jBDientasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDientasMouseExited
