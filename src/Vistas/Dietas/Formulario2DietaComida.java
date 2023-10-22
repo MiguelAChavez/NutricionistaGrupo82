@@ -5,12 +5,14 @@
  */
 package Vistas.Dietas;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.JTableHeader;
 import javax.swing.table.TableColumn;
 import utils.Horario;
 
@@ -26,7 +28,18 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     public Formulario2DietaComida() {
         initComponents();
         setCombo();
-        
+         JTableHeader tableHeader = jTableDietaComida.getTableHeader();
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                c.setPreferredSize(new Dimension(c.getWidth(), 40));
+                c.setBackground(Color.GRAY); 
+                c.setForeground(Color.WHITE);
+                return c;
+            }
+        });
+
     }
 
     /**
@@ -44,16 +57,16 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
         jBCrearDietaComida = new javax.swing.JButton();
         jBEliminarDietaComida = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(35, 35, 35));
         setPreferredSize(new java.awt.Dimension(1100, 670));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLTDietaComida.setBackground(new java.awt.Color(51, 51, 51));
-        jLTDietaComida.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLTDietaComida.setFont(new java.awt.Font("Dialog", 1, 39)); // NOI18N
         jLTDietaComida.setForeground(new java.awt.Color(255, 255, 255));
         jLTDietaComida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTDietaComida.setText("Formulario dieta-comida");
-        add(jLTDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(-110, 10, 1400, -1));
+        add(jLTDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1080, -1));
 
         jComboBoxDietaComida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jComboBoxDietaComida.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar la dieta" }));
@@ -62,15 +75,15 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jComboBoxDietaComidaActionPerformed(evt);
             }
         });
-        add(jComboBoxDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 449, 28));
+        add(jComboBoxDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 449, 28));
 
         jTableDietaComida.setBackground(new java.awt.Color(51, 51, 51));
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTableDietaComida.setForeground(new java.awt.Color(255, 255, 255));
         jTableDietaComida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {"12", "ALGO", "123", null},
-                {"123", "COSA", null, null},
+                {"12", "ALGO", "123", ""},
+                {"123", "COSA", "121", null},
                 {null, null, null, null},
                 {null, null, null, null},
                 {null, null, null, null},
@@ -97,7 +110,9 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jTableDietaComida.setGridColor(new java.awt.Color(0, 0, 0));
         jTableDietaComida.setRowHeight(40);
+        jTableDietaComida.setSelectionBackground(new java.awt.Color(30, 150, 117));
         jScrollPane1.setViewportView(jTableDietaComida);
         if (jTableDietaComida.getColumnModel().getColumnCount() > 0) {
             jTableDietaComida.getColumnModel().getColumn(0).setResizable(false);
@@ -106,11 +121,11 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
             jTableDietaComida.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, 622, 332));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 190, 700, 380));
 
         jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 140, 398, 30));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 398, 30));
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -127,7 +142,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jBCrearDietaComidaActionPerformed(evt);
             }
         });
-        add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 550, 80, 40));
+        add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 600, 80, 40));
 
         jBEliminarDietaComida.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminarDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -145,7 +160,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jBEliminarDietaComidaActionPerformed(evt);
             }
         });
-        add(jBEliminarDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 550, 90, 40));
+        add(jBEliminarDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEliminarDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaComidaActionPerformed

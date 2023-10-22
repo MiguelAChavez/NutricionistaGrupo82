@@ -8,10 +8,10 @@ import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
 import utils.PanelRound;
-import utils.CargarComponente;
 
 /**
  *
@@ -23,11 +23,16 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     static CardLayout cardLayout;
     private final PacientesView pacientesView;
+    private final DietaView dietaView;
+    private final ComidaView comidaView;
     private int ingreso = 0;
 
     public DeskNutricionista() {
         initComponents();
         this.pacientesView = new PacientesView(this);
+        this.dietaView = new DietaView(this);
+        this.comidaView = new ComidaView(this);
+        
         cardLayout = (CardLayout) this.jPSetup.getLayout();
         this.setIconImage(this.getIconImage());
         showComponents(new BienvenidaView());
@@ -67,6 +72,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRBarraMenu.setBackground(new java.awt.Color(51, 51, 51));
+        PRBarraMenu.setOpaque(true);
         PRBarraMenu.setRoundBottomRight(40);
         PRBarraMenu.setRoundTopRight(40);
 
@@ -293,8 +299,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBComidaActionPerformed
-        this.mover.animateScroll(PRBarraMenu);
-        showComponents(new ComidaView(this));
+        showComponents(this.comidaView);
     }//GEN-LAST:event_jBComidaActionPerformed
 
     private void jBComidaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBComidaMouseExited
@@ -307,8 +312,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDientasActionPerformed
         // TODO add your handling code here:
-        this.mover.animateScroll(PRBarraMenu);
-        showComponents(new DietaView(this));
+        showComponents(this.dietaView);
     }//GEN-LAST:event_jBDientasActionPerformed
 
     private void jBDientasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDientasMouseExited
@@ -321,7 +325,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jBPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPacientesActionPerformed
         showComponents(this.pacientesView);
-        this.mover.animateScroll(PRBarraMenu);
     }//GEN-LAST:event_jBPacientesActionPerformed
 
     private void jBPacientesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBPacientesMouseExited
@@ -333,13 +336,11 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }//GEN-LAST:event_jBPacientesMouseEntered
 
     private void jBDesplegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDesplegarActionPerformed
-        this.jBDesplegar.setVisible(false);
-        this.mover.animateScroll(PRBarraMenu);
+        this.mover.animateVisibleScroll(PRBarraMenu, this.jBDesplegar);
     }//GEN-LAST:event_jBDesplegarActionPerformed
 
     private void jBPlegarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBPlegarActionPerformed
-        this.mover.animateScroll(PRBarraMenu);
-        this.jBDesplegar.setVisible(true);
+        this.mover.animateHiddenScroll(PRBarraMenu, this.jBDesplegar);
     }//GEN-LAST:event_jBPlegarActionPerformed
 
     private void jBDesplegarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBDesplegarMouseEntered
@@ -364,7 +365,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
         if (this.ingreso > 1) {
-            this.mover.animateScroll(PRBarraMenu);
             showComponents(new BienvenidaView());
         }
     }//GEN-LAST:event_jLabel2MouseClicked
@@ -419,12 +419,14 @@ public class DeskNutricionista extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void showComponents(JPanel panel) {
-        this.ingreso++;
+        if (this.ingreso > 0) {
+            this.mover.animateHiddenScroll(PRBarraMenu, this.jBDesplegar);
+        }
         this.jPSetup.removeAll();
         this.jPSetup.add(panel, BorderLayout.CENTER);
         this.jPSetup.revalidate();
         this.jPSetup.repaint();
-        this.jBDesplegar.setVisible(Boolean.TRUE);
+        this.ingreso++;
     }
 
     public PanelRound getPRBarraMenu() {
@@ -433,6 +435,10 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     public JPanel getjPSetup() {
         return jPSetup;
+    }
+
+    public JButton getjBDesplegar() {
+        return jBDesplegar;
     }
 
 }

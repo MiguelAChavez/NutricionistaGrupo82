@@ -85,7 +85,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTitulo.setText("Formulario paciente");
-        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 790, -1));
+        add(jLTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 790, -1));
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
@@ -502,7 +502,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLAltura.setText("Altura");
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
-        add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 470, 600));
+        add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 470, 600));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
     }// </editor-fold>//GEN-END:initComponents
 

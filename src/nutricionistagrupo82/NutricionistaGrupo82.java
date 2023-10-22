@@ -17,10 +17,11 @@ public class NutricionistaGrupo82 {
     /**
      * @param args the command line arguments
      */
-    private static Scanner leer = new Scanner(System.in);
+    private static final Scanner LEER = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+      
+       
         while (true) {
             System.out.println("---------------------------------------------- \n");
 
@@ -29,8 +30,8 @@ public class NutricionistaGrupo82 {
             System.out.println("2- modificar");
             System.out.println("3- lista");
             System.out.println("4- Eliminar");
-            int op = leer.nextInt();
-            leer.nextLine();
+            int op = LEER.nextInt();
+            LEER.nextLine();
 
             switch (op) {
                 case 1:
@@ -56,39 +57,39 @@ public class NutricionistaGrupo82 {
         Paciente paciente = new Paciente();
 
         System.out.println("Dni");
-        paciente.setDni(leer.nextInt());
+        paciente.setDni(LEER.nextInt());
 
         System.out.println("Nombre");
-        leer.nextLine();
-        paciente.setNombre(leer.next());
+        LEER.nextLine();
+        paciente.setNombre(LEER.next());
 
         System.out.println("Apellido");
-        paciente.setApellido(leer.next());
+        paciente.setApellido(LEER.next());
 
         System.out.println("Telefono");
-        paciente.setTelefono(leer.next());
+        paciente.setTelefono(LEER.next());
 
         System.out.println("Domicilio");
-        paciente.setDomicilio(leer.next());
-        leer.nextLine();
+        paciente.setDomicilio(LEER.next());
+        LEER.nextLine();
 
         System.out.println("Fecha nac");
-        paciente.setFechaNac(LocalDate.parse(leer.next(), DateTimeFormatter.ISO_LOCAL_DATE));
+        paciente.setFechaNac(LocalDate.parse(LEER.next(), DateTimeFormatter.ISO_LOCAL_DATE));
 
         System.out.println("Sexo");
-        paciente.setSexo(leer.next());
+        paciente.setSexo(LEER.next());
 
         System.out.println("Peso Actual");
-        paciente.setPeso(leer.nextDouble());
-        leer.nextLine();
+        paciente.setPeso(LEER.nextDouble());
+        LEER.nextLine();
 
         System.out.println("Peso Deseado");
-        paciente.setPesoDeseado(leer.nextDouble());
-        leer.nextLine();
+        paciente.setPesoDeseado(LEER.nextDouble());
+        LEER.nextLine();
 
         System.out.println("Altura");
-        paciente.setAltura(leer.nextDouble());
-        leer.nextLine();
+        paciente.setAltura(LEER.nextDouble());
+        LEER.nextLine();
 
         paciente.setEstado(Boolean.TRUE);
 
@@ -99,22 +100,22 @@ public class NutricionistaGrupo82 {
     private static void modificar() {
 
         System.out.println("Ingrese el dni del paciente: ");
-        int dni = leer.nextInt();
+        int dni = LEER.nextInt();
 
         Paciente paciente = PacienteData.buscarPacientePorDni(dni, Estado.ACTIVO);
 
         System.out.println("Nombre");
-        leer.nextLine();
-        paciente.setNombre(leer.next());
+        LEER.nextLine();
+        paciente.setNombre(LEER.next());
 
         System.out.println("Apellido");
-        paciente.setApellido(leer.next());
+        paciente.setApellido(LEER.next());
 
         System.out.println("Telefono");
-        paciente.setTelefono(leer.next());
+        paciente.setTelefono(LEER.next());
 
         System.out.println("Sexo");
-        paciente.setSexo(leer.next());
+        paciente.setSexo(LEER.next());
 
         PacienteData.modificarPaciente(paciente);
 
@@ -130,12 +131,12 @@ public class NutricionistaGrupo82 {
 
     public static void Eliminar() {
         System.out.println("Ingrese el dni del paciente: ");
-        int dni = leer.nextInt();
+        int dni = LEER.nextInt();
 
         Paciente paciente = PacienteData.buscarPacientePorDni(dni, Estado.ACTIVO);
 
         PacienteData.eliminarPaciente(paciente.getIdPaciente());
-        
+
     }
 
 }
