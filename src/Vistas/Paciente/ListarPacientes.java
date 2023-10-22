@@ -309,8 +309,8 @@ public class ListarPacientes extends javax.swing.JPanel {
     private void armarCombo() {
         this.jCBSelecionFiltro.removeAll();
         this.jCBSelecionFiltro.addItem(Estado.TODOS);
-        this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
+        this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.DIETA_VIGENTE);
         this.jCBSelecionFiltro.addItem(Estado.DIETA_CULMINADA);
         this.jCBSelecionFiltro.setSelectedIndex(0);

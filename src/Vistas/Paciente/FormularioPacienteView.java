@@ -75,6 +75,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jRMasculio = new javax.swing.JRadioButton();
         jRFemenino = new javax.swing.JRadioButton();
         jLAltura = new javax.swing.JLabel();
+        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -311,7 +312,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setText("Peso Deseado");
-        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 100, 20));
+        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 100, 20));
 
         jTFPesoDeseado.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoDeseado.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -337,13 +338,13 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFPesoDeseadoKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 90, 40));
+        PRSeccion.add(jTFPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 90, 40));
 
         jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre6.setToolTipText("");
         jSNombre6.setOpaque(true);
         jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 90, -1));
+        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 90, -1));
 
         jSAltura.setForeground(new java.awt.Color(255, 255, 255));
         jSAltura.setToolTipText("");
@@ -479,7 +480,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLKg.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
         jLKg.setText("(Kg)");
-        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 460, -1, 40));
+        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, -1, 40));
 
         jRMasculio.setBackground(new java.awt.Color(51, 51, 51));
         bGrupoSexo.add(jRMasculio);
@@ -501,6 +502,10 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLAltura.setForeground(new java.awt.Color(255, 255, 255));
         jLAltura.setText("Altura");
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
+
+        jCheckBox1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jCheckBox1.setText("¿Quieres usar el IMC?");
+        PRSeccion.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, 140, 40));
 
         add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 470, 600));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
@@ -692,6 +697,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;
+    private javax.swing.JCheckBox jCheckBox1;
     private com.toedter.calendar.JDateChooser jDFechaNacimiento;
     private javax.swing.JLabel jLAltura;
     private javax.swing.JLabel jLApellido;
