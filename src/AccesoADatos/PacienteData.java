@@ -32,7 +32,7 @@ public class PacienteData {
 
     public static void CrearPaciente(Paciente paciente) {
         String sql = "INSERT INTO `paciente`"
-                + "(`nombre`, `apellido`, `dni`, `telefono`, `domicilio`, `fechaNac`, `sexo`, `pesoActual`, `altura`, `pesoDeseado`) "
+                + "(`nombre`, `apellido`, `dni`, `telefono`, `domicilio`, `fechaNac`, `sexo`, `pesoActual`, `altura`, `pesoBuscado`) "
                 + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement ps;
         try {
@@ -70,7 +70,7 @@ public class PacienteData {
     }
 
     public static void modificarPaciente(Paciente paciente) {
-        String sql = "UPDATE paciente set dni=?, apellido=?,  nombre=?, telefono=?, domicilio=?, fechaNac=?, sexo=?, pesoActual=?, altura=?, pesoDeseado=? WHERE idPaciente=? ";
+        String sql = "UPDATE paciente set dni=?, apellido=?,  nombre=?, telefono=?, domicilio=?, fechaNac=?, sexo=?, pesoActual=?, altura=?, pesoBuscado=? WHERE idPaciente=? ";
 
         System.out.println(paciente);
 
@@ -172,7 +172,7 @@ public class PacienteData {
                 paciente.setSexo(rs.getString("sexo"));
                 paciente.setPeso(rs.getDouble("pesoActual"));
                 paciente.setAltura(rs.getDouble("altura"));
-                paciente.setPesoBuscado(rs.getDouble("pesoDeseado"));
+                paciente.setPesoBuscado(rs.getDouble("pesoBuscado"));
                 paciente.setEstado(rs.getBoolean("estado"));
 
             } else {
@@ -223,7 +223,7 @@ public class PacienteData {
                 paciente.setSexo(rs.getString("sexo"));
                 paciente.setPeso(rs.getDouble("pesoActual"));
                 paciente.setAltura(rs.getDouble("altura"));
-                paciente.setPesoBuscado(rs.getDouble("pesoDeseado"));
+                paciente.setPesoBuscado(rs.getDouble("pesoBuscado"));
                 paciente.setEstado(rs.getBoolean("estado"));
 
             } else {
@@ -267,7 +267,7 @@ public class PacienteData {
                 paciente.setSexo(rs.getString("sexo"));
                 paciente.setPeso(rs.getDouble("pesoActual"));
                 paciente.setAltura(rs.getDouble("altura"));
-                paciente.setPesoBuscado(rs.getDouble("pesoDeseado"));
+                paciente.setPesoBuscado(rs.getDouble("pesoBuscado"));
                 paciente.setEstado(rs.getBoolean("estado"));
 
                 pacientes.add(paciente);
@@ -314,7 +314,7 @@ public class PacienteData {
                 paciente.setSexo(rs.getString("sexo"));
                 paciente.setPeso(rs.getDouble("pesoActual"));
                 paciente.setAltura(rs.getDouble("altura"));
-                paciente.setPesoBuscado(rs.getDouble("pesoDeseado"));
+                paciente.setPesoBuscado(rs.getDouble("pesoBuscado"));
                 paciente.setEstado(rs.getBoolean("estado"));
 
                 pacientes.add(paciente);
