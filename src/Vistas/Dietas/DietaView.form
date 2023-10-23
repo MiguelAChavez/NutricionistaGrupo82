@@ -65,16 +65,16 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="280" y="60" width="240" height="70"/>
+              <AbsoluteConstraints x="280" y="70" width="240" height="70"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jBListarP1">
+        <Component class="javax.swing.JButton" name="jBListarD2">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Malgun Gothic" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Listar "/>
+            <Property name="text" type="java.lang.String" value="Registro"/>
             <Property name="actionCommand" type="java.lang.String" value="LISTADO PACIENTE"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
@@ -82,7 +82,7 @@
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBListarP1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBListarD2ActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -90,19 +90,19 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JButton" name="jBHistorialPaciente1">
+        <Component class="javax.swing.JButton" name="jBListadoD3">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Malgun Gothic" size="24" style="1"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Historial"/>
+            <Property name="text" type="java.lang.String" value="Listado"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
               <Color id="Cursor de Mano"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBHistorialPaciente1ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBListadoD3ActionPerformed"/>
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -117,13 +117,13 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el bot&#xf3;n continuar abre el registro de comidas de cada dieta.&lt;html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;Abre el formulario para completar, modificar o eliminar los datos de la dieta, con el bot&#xf3;n continuar abre el registro de comidas de cada dieta.&lt;html&gt;&quot;" type="code"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="30" y="50" width="220" height="80"/>
+              <AbsoluteConstraints x="30" y="70" width="220" height="80"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -134,7 +134,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;Selecciona una dieta y explora el listado de las comidas, selecciona un horario y porci&#xf3;n para cada una.&lt;html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;Selecciona una dieta, luego explora y registra las comidas con su horario y porci&#xf3;n.&lt;html&gt;&quot;" type="code"/>
             </Property>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
@@ -151,7 +151,7 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
             <Property name="text" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-              <Connection code="&quot;&lt;html&gt;Consulta el historial de cada dieta, si &#xe9;sta se encuentra terminada o vigente, modificando el estado si fuese necesario. &lt;html&gt;&quot;" type="code"/>
+              <Connection code="&quot;&lt;html&gt;Consulta el listado de todas las dietas, si &#xe9;stas se encuentran terminadas o vigentes, modificando el estado si fuese necesario. &lt;html&gt;&quot;" type="code"/>
             </Property>
           </Properties>
           <Constraints>

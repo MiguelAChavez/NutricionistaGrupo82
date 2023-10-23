@@ -220,7 +220,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                         });
                     }
                     this.jTpesoIngreso.setText(listHistorial.get(0).getPeso() + "");
-                    this.jTpesoDeseado.setText(p.getPesoDeseado() + "");
+                    this.jTpesoDeseado.setText(p.getPesoBuscado() + "");
                 }
             }
         }

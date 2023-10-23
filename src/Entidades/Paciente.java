@@ -16,7 +16,7 @@ public class Paciente {
     private int idPaciente;
     private String sexo;
     private double pesoActual;
-    private double pesoDeseado;
+    private double pesoBuscado;
     private double altura;
     private LocalDate fechaNac;
     private boolean estado;
@@ -34,7 +34,7 @@ public class Paciente {
         this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
-        this.pesoDeseado = pesoDeseado;
+        this.pesoBuscado = pesoDeseado;
         this.altura = altura;
     }
 
@@ -49,7 +49,7 @@ public class Paciente {
         this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
-        this.pesoDeseado = pesoDeseado;
+        this.pesoBuscado = pesoDeseado;
         this.altura = altura;
 
     }
@@ -142,12 +142,12 @@ public class Paciente {
         return altura;
     }
 
-    public double getPesoDeseado() {
-        return pesoDeseado;
+    public double getPesoBuscado() {
+        return pesoBuscado;
     }
 
-    public void setPesoDeseado(double pesoDeseado) {
-        this.pesoDeseado = pesoDeseado;
+    public void setPesoBuscado(double pesoBuscado) {
+        this.pesoBuscado = pesoBuscado;
     }
 
     
