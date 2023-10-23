@@ -311,7 +311,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLPesoDeseado.setBackground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
-        jLPesoDeseado.setText("Peso Deseado");
+        jLPesoDeseado.setText("Peso Buscado");
         PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 100, 20));
 
         jTFPesoDeseado.setBackground(new java.awt.Color(35, 35, 35));

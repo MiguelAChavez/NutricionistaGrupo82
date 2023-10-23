@@ -115,7 +115,7 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBBuscarComidaActionPerformed(evt);
             }
         });
-        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(603, 113, 77, 40));
+        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 77, 40));
 
         jBCancelarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelarComida.setToolTipText("");
@@ -129,13 +129,13 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBCancelarComidaActionPerformed(evt);
             }
         });
-        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(686, 113, 40, 40));
+        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 40, 40));
 
         jSTextComidaList.setForeground(new java.awt.Color(255, 255, 255));
         jSTextComidaList.setToolTipText("");
         jSTextComidaList.setOpaque(true);
         jSTextComidaList.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSTextComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 150, 180, -1));
+        add(jSTextComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 180, -1));
 
         jTextFieldComidaList.setBackground(new java.awt.Color(35, 35, 35));
         jTextFieldComidaList.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -156,12 +156,12 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jTextFieldComidaListActionPerformed(evt);
             }
         });
-        add(jTextFieldComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, 180, 40));
+        add(jTextFieldComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Escriba la cantidad de calorias :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 110, -1, 40));
+        jLabel1.setText("Escriba hasta que cantidad de calorias quiere listar :");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarComidaActionPerformed
