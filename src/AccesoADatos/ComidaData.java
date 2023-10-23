@@ -148,7 +148,8 @@ public class ComidaData {
         }
         sql = "SELECT * FROM comida WHERE cantidadCalorias<? "+ estado ;
 
-        List listacomida=new ArrayList();
+        List listacomida = new ArrayList();
+
         PreparedStatement ps;
 
         try {
@@ -166,7 +167,7 @@ public class ComidaData {
                 listacomida.add(comida);
             }   
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return listacomida;

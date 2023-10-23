@@ -27,7 +27,9 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    private final DefaultTableModel model = new DefaultTableModel() {
+
+    private DefaultTableModel MODEL = new DefaultTableModel() {
+
         @Override
         public boolean isCellEditable(int i, int i1) {
             switch (i1) {
@@ -41,6 +43,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                     return Boolean.FALSE;
             }
         }
+              
     };
 
     public HistorialPacientesView() {
@@ -66,6 +69,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jTpesoIngreso = new javax.swing.JTextField();
         jTpesoDeseado = new javax.swing.JTextField();
         jBEditar = new javax.swing.JButton();
+        jLNombre1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -81,8 +85,8 @@ public class HistorialPacientesView extends javax.swing.JPanel {
 
         jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLNombre.setText("Ingrese un apellido o un nombre: ");
-        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
+        jLNombre.setText("Primer registro");
+        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, 32));
 
         jSeparator1.setOpaque(true);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 400, -1));
@@ -177,6 +181,11 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             }
         });
         add(jBEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 110, 40));
+
+        jLNombre1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre1.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre1.setText("Ingrese un apellido o un nombre: ");
+        add(jLNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusGained
@@ -204,7 +213,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                 List<Historial> listHistorial = HistorialData.getHistorialPaciente(p.getIdPaciente());
                 if (!listHistorial.isEmpty()) {
                     for (Historial historial : listHistorial) {
-                        this.model.addRow(new Object[]{
+                        this.MODEL.addRow(new Object[]{
                             historial.getIdHistorial(),
                             historial.getPeso(),
                             historial.getFechaRegistro()
@@ -258,6 +267,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBEditar;
     private javax.swing.JLabel jLNombre;
+    private javax.swing.JLabel jLNombre1;
     private javax.swing.JLabel jLTituloHistorial;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -270,17 +280,17 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initTableHistorial() {
-        this.model.addColumn("Codigo");
-        this.model.addColumn("Peso");
-        this.model.addColumn("Fecha de Registro");
+        this.MODEL.addColumn("Codigo");
+        this.MODEL.addColumn("Peso");
+        this.MODEL.addColumn("Fecha de Registro");
 
-        this.jTHistorial.setModel(model);
+        this.jTHistorial.setModel(MODEL);
     }
 
     private void borrarFilas() {
         int filas = jTHistorial.getRowCount() - 1;
         for (int f = filas; f >= 0; f--) {
-            model.removeRow(f);
+            MODEL.removeRow(f);
         }
 
     }

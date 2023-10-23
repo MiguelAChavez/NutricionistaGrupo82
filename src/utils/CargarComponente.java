@@ -21,6 +21,7 @@ public class CargarComponente {
     }
     
     public static void showComponents(JPanel panel, DeskNutricionista contenedor) {
+        new AnimationPanel().animateHiddenScroll(contenedor.getPRBarraMenu(), contenedor.getjBDesplegar());
         contenedor.getjPSetup().removeAll();
         contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
         contenedor.getjPSetup().validate();

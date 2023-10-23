@@ -71,6 +71,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLTdieta = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
@@ -411,31 +412,14 @@ public class FormularioDietaView extends javax.swing.JPanel {
         });
         PRSeccion.add(jBCancelarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 40, 40));
 
+        add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 54, 479, 582));
+
         jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
         jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
         jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
         jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTdieta.setText("Formulario dieta");
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(305, 305, 305)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(PRSeccion, javax.swing.GroupLayout.DEFAULT_SIZE, 479, Short.MAX_VALUE)
-                    .addComponent(jLTdieta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(316, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLTdieta, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(PRSeccion, javax.swing.GroupLayout.PREFERRED_SIZE, 582, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
-        );
+        add(jLTdieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 0, 479, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTFNombrePacienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombrePacienteFocusGained

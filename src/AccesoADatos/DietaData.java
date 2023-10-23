@@ -1,16 +1,15 @@
 package AccesoADatos;
 
-import Entidades.Comida;
 import Entidades.Dieta;
-import Entidades.Paciente;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 import utils.Estado;
 
@@ -104,7 +103,7 @@ public class DietaData {
         }
 
     }
-    
+
     public static Dieta buscarDietaPorNombre(String cadena, Estado isActivo) {
         String sql;
 
@@ -138,7 +137,7 @@ public class DietaData {
                 dieta.setPesoInicial(rs.getDouble("pesoInical"));
                 dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
                 dieta.setPesoFinal(rs.getDouble("pesoBuscado"));
-                
+
             } else {
                 JOptionPane.showMessageDialog(null, "La dieta no existe");
             }
@@ -148,6 +147,47 @@ public class DietaData {
         }
 
         return dieta;
+    }
+
+    public static List<Dieta> buscarDieta(Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = "WHERE estado = 1";
+                break;
+            case INACTIVOS:
+                estado = "WHERE estado = 0 ";
+            default:
+                break;
+        }
+        sql = "SELECT * FROM dieta " + estado;
+
+        List listadieta = new ArrayList();
+        PreparedStatement ps;
+        try {
+            
+            ps = CONN.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Dieta dieta = new Dieta();
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setNombre(rs.getString("nombre"));
+                dieta.setPaciente(PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), Estado.TODOS));
+                dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("PesoInicial"));
+                dieta.setPesoFinal(rs.getDouble("PesoFinal"));
+                dieta.setEstado(rs.getBoolean("estado"));
+                listadieta.add(dieta);
+            }
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+        return listadieta;
     }
 
 }

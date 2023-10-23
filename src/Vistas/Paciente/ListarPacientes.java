@@ -8,10 +8,14 @@ package Vistas.Paciente;
 import AccesoADatos.PacienteData;
 import Entidades.Paciente;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import utils.Estado;
@@ -74,7 +78,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         add(jCBSelecionFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 140, 140, 40));
 
         jTPacientes.setBackground(new java.awt.Color(51, 51, 51));
-        jTPacientes.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTPacientes.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTPacientes.setForeground(new java.awt.Color(255, 255, 255));
         jTPacientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -97,7 +101,6 @@ public class ListarPacientes extends javax.swing.JPanel {
         jTPacientes.setRowHeight(40);
         jTPacientes.setSelectionBackground(new java.awt.Color(30, 150, 117));
         jTPacientes.setShowVerticalLines(false);
-        jTPacientes.getTableHeader().setResizingAllowed(false);
         jTPacientes.getTableHeader().setReorderingAllowed(false);
         JTableHeader theader = jTPacientes.getTableHeader();
         theader.setBackground(Color.red);
@@ -289,13 +292,25 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.model.addColumn("Altura");
 
         this.jTPacientes.setModel(model);
+        JTableHeader tableHeader = jTPacientes.getTableHeader();
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                c.setPreferredSize(new Dimension(c.getWidth(), 40));
+                c.setBackground(Color.GRAY); 
+                c.setForeground(Color.WHITE);
+                return c;
+            }
+        });
+
     }
 
     private void armarCombo() {
         this.jCBSelecionFiltro.removeAll();
         this.jCBSelecionFiltro.addItem(Estado.TODOS);
-        this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.ACTIVO);
+        this.jCBSelecionFiltro.addItem(Estado.INACTIVOS);
         this.jCBSelecionFiltro.addItem(Estado.DIETA_VIGENTE);
         this.jCBSelecionFiltro.addItem(Estado.DIETA_CULMINADA);
         this.jCBSelecionFiltro.setSelectedIndex(0);

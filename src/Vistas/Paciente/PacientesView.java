@@ -18,11 +18,10 @@ public class PacientesView extends javax.swing.JPanel {
      * Creates new form PacientesView
      */
    
-    private final DeskNutricionista contenedor;
-
+    DeskNutricionista contenedor;
     public PacientesView(DeskNutricionista ContentPanel) {
         initComponents();
-        contenedor = ContentPanel;
+        this.contenedor = ContentPanel;
     }
 
     /**
@@ -118,8 +117,8 @@ public class PacientesView extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        jLabel6.setText(" Home Paciente");
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("Home Paciente");
         jPanel1.add(jLabel6);
         jLabel6.getAccessibleContext().setAccessibleName("");
 
