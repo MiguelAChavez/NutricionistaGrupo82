@@ -11,9 +11,9 @@ import Entidades.Historial;
 import Entidades.Paciente;
 import java.awt.Color;
 import java.awt.HeadlessException;
-import java.time.LocalDate;
+
 import java.util.List;
-import java.util.Optional;
+
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utils.Estado;
@@ -27,7 +27,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    private DefaultTableModel model = new DefaultTableModel() {
+    private final DefaultTableModel model = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int i, int i1) {
             switch (i1) {

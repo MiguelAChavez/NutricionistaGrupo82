@@ -5,7 +5,9 @@
  */
 package Vistas.Dietas;
 
+import Entidades.*;
 import Vistas.DeskNutricionista;
+import javax.swing.JOptionPane;
 import utils.CargarComponente;
 
 /**
@@ -14,6 +16,7 @@ import utils.CargarComponente;
  */
 public class FormularioDietaView extends javax.swing.JPanel {
 
+    private Dieta dietaD;
     /**
      * Creates new form NewJdd
      */
@@ -514,6 +517,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
     private void jTFNombreDieta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreDieta1ActionPerformed
         // TODO add your handling code here:
+             JOptionPane.showConfirmDialog(this, ui);
     }//GEN-LAST:event_jTFNombreDieta1ActionPerformed
 
     private void jTFNombreDieta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreDieta1KeyTyped
@@ -573,4 +577,8 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JTextField jTFPesoBuscadoDieta;
     private javax.swing.JTextField jTFPesoIncialDieta;
     // End of variables declaration//GEN-END:variables
+
+
 }
+
+
