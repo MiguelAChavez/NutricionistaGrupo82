@@ -25,7 +25,9 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    private final DefaultTableModel MODEL = new DefaultTableModel() {
+
+    private DefaultTableModel MODEL = new DefaultTableModel() {
+
         @Override
         public boolean isCellEditable(int i, int i1) {
             switch (i1) {
@@ -216,7 +218,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                         });
                     }
                     this.jTpesoIngreso.setText(listHistorial.get(0).getPeso() + "");
-                    this.jTpesoDeseado.setText(p.getPesoDeseado() + "");
+                    this.jTpesoDeseado.setText(p.getPesoBuscado() + "");
                 }
             }
         }

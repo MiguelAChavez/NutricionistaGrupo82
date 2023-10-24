@@ -189,5 +189,42 @@ public class DietaData {
         }
         return listadieta;
     }
+    
+        public static void activar(Dieta dieta) {
+        String SQL = "UPDATE dieta SET estado= 1 WHERE idDieta = ?;";
+        try {
+            PreparedStatement ps = CONN.prepareStatement(SQL);
+            ps.setInt(1, dieta.getIdDieta());
+
+            int res = ps.executeUpdate();
+            if (res > 0) {
+                JOptionPane.showMessageDialog(null, "Fue dada de alta nuevamente.");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Dieta.");
+        }
+    }
+        
+        public static void eliminarDieta(int id) {
+        String sql = "UPDATE dieta SET estado = 0 WHERE idDieta = ? ";
+        PreparedStatement ps;
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            int res = ps.executeUpdate();
+            if (res == 1) {
+                JOptionPane.showMessageDialog(null, " Se eliminó la dieta.");
+            }
+
+            ps.close();
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla dieta." + e.getMessage());
+        }
+
+    }
+
+
 
 }

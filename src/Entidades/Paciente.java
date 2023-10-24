@@ -16,7 +16,7 @@ public class Paciente {
     private int idPaciente;
     private String sexo;
     private double pesoActual;
-    private double pesoDeseado;
+    private double pesoBuscado;
     private double altura;
     private LocalDate fechaNac;
     private boolean estado;
@@ -24,7 +24,7 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoDeseado, double altura) {
+        public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoBuscado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -34,11 +34,11 @@ public class Paciente {
         this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
-        this.pesoDeseado = pesoDeseado;
+        this.pesoBuscado = pesoBuscado;
         this.altura = altura;
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, String sexo, LocalDate fechaNac, boolean estado, double peso,double pesoDeseado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, String sexo, LocalDate fechaNac, boolean estado, double peso,double pesoBuscado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -49,7 +49,7 @@ public class Paciente {
         this.fechaNac = fechaNac;
         this.estado = estado;
         this.pesoActual = peso;
-        this.pesoDeseado = pesoDeseado;
+        this.pesoBuscado = pesoBuscado;
         this.altura = altura;
 
     }
@@ -142,12 +142,12 @@ public class Paciente {
         return altura;
     }
 
-    public double getPesoDeseado() {
-        return pesoDeseado;
+    public double getPesoBuscado() {
+        return pesoBuscado;
     }
 
-    public void setPesoDeseado(double pesoDeseado) {
-        this.pesoDeseado = pesoDeseado;
+    public void setPesoBuscado(double pesoBuscado) {
+        this.pesoBuscado = pesoBuscado;
     }
 
     

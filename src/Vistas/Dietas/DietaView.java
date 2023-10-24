@@ -34,8 +34,8 @@ public class DietaView extends javax.swing.JPanel {
 
         PRFondo = new utils.PanelRound();
         jBFormularioD1 = new javax.swing.JButton();
-        jBListarP1 = new javax.swing.JButton();
-        jBHistorialPaciente1 = new javax.swing.JButton();
+        jBListarD2 = new javax.swing.JButton();
+        jBListadoD3 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -63,46 +63,46 @@ public class DietaView extends javax.swing.JPanel {
                 jBFormularioD1ActionPerformed(evt);
             }
         });
-        PRFondo.add(jBFormularioD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 240, 70));
+        PRFondo.add(jBFormularioD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 240, 70));
 
-        jBListarP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        jBListarP1.setText("Listar ");
-        jBListarP1.setActionCommand("LISTADO PACIENTE");
-        jBListarP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBListarP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBListarP1.addActionListener(new java.awt.event.ActionListener() {
+        jBListarD2.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
+        jBListarD2.setText("Registro");
+        jBListarD2.setActionCommand("LISTADO PACIENTE");
+        jBListarD2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBListarD2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBListarD2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBListarP1ActionPerformed(evt);
+                jBListarD2ActionPerformed(evt);
             }
         });
-        PRFondo.add(jBListarP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 240, 70));
+        PRFondo.add(jBListarD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 240, 70));
 
-        jBHistorialPaciente1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        jBHistorialPaciente1.setText("Historial");
-        jBHistorialPaciente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBHistorialPaciente1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBHistorialPaciente1.addActionListener(new java.awt.event.ActionListener() {
+        jBListadoD3.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
+        jBListadoD3.setText("Listado");
+        jBListadoD3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBListadoD3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBListadoD3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBHistorialPaciente1ActionPerformed(evt);
+                jBListadoD3ActionPerformed(evt);
             }
         });
-        PRFondo.add(jBHistorialPaciente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 240, 70));
+        PRFondo.add(jBListadoD3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de las dietas, luego con el botón continuar abre el registro de comidas de cada dieta.<html>");
+        jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de la dieta, con el botón continuar abre el registro de comidas de cada dieta.<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 220, 80));
+        PRFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 220, 80));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel8.setText("<html>Selecciona una dieta y explora el listado de las comidas, selecciona un horario y porción para cada una.<html>");
+        jLabel8.setText("<html>Selecciona una dieta, luego explora y registra las comidas con su horario y porción.<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         PRFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 70));
 
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel9.setText("<html>Consulta el historial de cada dieta, si ésta se encuentra terminada o vigente, modificando el estado si fuese necesario. <html>");
+        jLabel9.setText("<html>Consulta el listado de todas las dietas, si éstas se encuentran terminadas o vigentes, modificando el estado si fuese necesario. <html>");
         PRFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 220, 70));
 
         add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 570, 400));
@@ -127,22 +127,22 @@ public class DietaView extends javax.swing.JPanel {
         CargarComponente.showComponents(new FormularioDietaView(d1), this.d1);
     }//GEN-LAST:event_jBFormularioD1ActionPerformed
 
-    private void jBHistorialPaciente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialPaciente1ActionPerformed
+    private void jBListadoD3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListadoD3ActionPerformed
         // TODO add your handling code here:
         CargarComponente.showComponents(new ListadoDietas(), this.d1);
-    }//GEN-LAST:event_jBHistorialPaciente1ActionPerformed
+    }//GEN-LAST:event_jBListadoD3ActionPerformed
 
-    private void jBListarP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarP1ActionPerformed
+    private void jBListarD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarD2ActionPerformed
         // TODO add your handling code here:
          CargarComponente.showComponents(new Formulario2DietaComida(), this.d1);
-    }//GEN-LAST:event_jBListarP1ActionPerformed
+    }//GEN-LAST:event_jBListarD2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRFondo;
     private javax.swing.JButton jBFormularioD1;
-    private javax.swing.JButton jBHistorialPaciente1;
-    private javax.swing.JButton jBListarP1;
+    private javax.swing.JButton jBListadoD3;
+    private javax.swing.JButton jBListarD2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel7;

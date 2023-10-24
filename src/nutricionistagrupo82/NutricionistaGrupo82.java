@@ -84,7 +84,7 @@ public class NutricionistaGrupo82 {
         LEER.nextLine();
 
         System.out.println("Peso Deseado");
-        paciente.setPesoDeseado(LEER.nextDouble());
+        paciente.setPesoBuscado(LEER.nextDouble());
         LEER.nextLine();
 
         System.out.println("Altura");
