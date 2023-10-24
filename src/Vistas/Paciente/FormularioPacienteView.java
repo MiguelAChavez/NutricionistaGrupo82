@@ -25,7 +25,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
 
     public FormularioPacienteView() {
         initComponents();
-        this.jBCancelar.setVisible(Boolean.FALSE);
         this.jBBuscar.setToolTipText("Buscar");
     }
 
@@ -458,6 +457,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jBCancelar.setBorderPainted(false);
         jBCancelar.setContentAreaFilled(false);
         jBCancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBCancelar.setEnabled(false);
         jBCancelar.setOpaque(true);
         jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -504,6 +504,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         jCheckBox1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setText("¿Quieres usar el IMC?");
         PRSeccion.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 160, 40));
 
@@ -851,8 +852,8 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         this.jBCrear.setEnabled(!jBCrear.isEnabled());
         this.jBEditar.setEnabled(!jBEditar.isEnabled());
         this.jBEliminar.setEnabled(!jBEliminar.isEnabled());
-        this.jBBuscar.setVisible(!jBBuscar.isVisible());
-        this.jBCancelar.setVisible(!jBCancelar.isVisible());
+        this.jBBuscar.setEnabled(!jBBuscar.isEnabled());
+        this.jBCancelar.setEnabled(!jBCancelar.isEnabled());
     }
 
     private void cargarCampos(Paciente paciente) {

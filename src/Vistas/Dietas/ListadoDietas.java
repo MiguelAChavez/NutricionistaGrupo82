@@ -56,9 +56,9 @@ public class ListadoDietas extends javax.swing.JPanel {
         jBCrearDietaComida = new javax.swing.JButton();
         jLTituloD = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(0, 0, 0));
+        setBackground(new java.awt.Color(33, 33, 33));
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBackground(new java.awt.Color(33, 33, 33));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableDietas.setBackground(new java.awt.Color(51, 51, 51));
@@ -94,19 +94,19 @@ public class ListadoDietas extends javax.swing.JPanel {
             jTableDietas.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 800, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 800, 410));
 
         jComboBoxDietasTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDietasTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 10, 140, 30));
+        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 40, 140, 30));
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Seleccione estado:");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 20, 122, -1));
+        jLabel1.setText("Filtro");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 50, 30));
 
         jBEliminarDietaTabla.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminarDietaTabla.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -124,7 +124,7 @@ public class ListadoDietas extends javax.swing.JPanel {
                 jBEliminarDietaTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBEliminarDietaTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 480, 90, 40));
+        jPanel1.add(jBEliminarDietaTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, 90, 40));
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -141,7 +141,7 @@ public class ListadoDietas extends javax.swing.JPanel {
                 jBCrearDietaComidaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 80, 40));
+        jPanel1.add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 80, 40));
 
         jLTituloD.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
         jLTituloD.setForeground(new java.awt.Color(255, 255, 255));
@@ -164,9 +164,9 @@ public class ListadoDietas extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(8, 8, 8)
                 .addComponent(jLTituloD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 542, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -219,7 +219,7 @@ public class ListadoDietas extends javax.swing.JPanel {
 
     private void armarCombo() {
         this.jComboBoxDietasTabla.removeAll();
-        this.jComboBoxDietasTabla.addItem("--Seleccione--");
+        this.jComboBoxDietasTabla.addItem("Seleccione un Estado");
         this.jComboBoxDietasTabla.addItem(Estado.TODOS);
         this.jComboBoxDietasTabla.addItem(Estado.ACTIVO);
         this.jComboBoxDietasTabla.addItem(Estado.INACTIVOS);

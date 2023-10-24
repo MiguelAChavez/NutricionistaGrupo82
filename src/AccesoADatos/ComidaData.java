@@ -125,7 +125,7 @@ public class ComidaData {
                 JOptionPane.showMessageDialog(null, "La comida no existe");
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
 

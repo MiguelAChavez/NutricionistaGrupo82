@@ -57,10 +57,10 @@ public class ListarPacientes extends javax.swing.JPanel {
         jCBSelecionFiltro = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTPacientes = new javax.swing.JTable();
+        jSeparator1 = new javax.swing.JSeparator();
         jTTexto = new javax.swing.JTextField();
         jLTitulo = new javax.swing.JLabel();
         jLTexto = new javax.swing.JLabel();
-        jSeparator1 = new javax.swing.JSeparator();
         jLFiltro1 = new javax.swing.JLabel();
         jLCantidad = new javax.swing.JLabel();
         jTCant = new javax.swing.JTextField();
@@ -110,6 +110,9 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 970, 450));
 
+        jSeparator1.setOpaque(true);
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 148, 480, 3));
+
         jTTexto.setBackground(new java.awt.Color(35, 35, 35));
         jTTexto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTTexto.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,10 +148,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         jLTexto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLTexto.setForeground(new java.awt.Color(255, 255, 255));
         jLTexto.setText("Ingrese un apellido o un nombre: ");
-        add(jLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 240, 40));
-
-        jSeparator1.setOpaque(true);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 480, 3));
+        add(jLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 240, 50));
 
         jLFiltro1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFiltro1.setForeground(new java.awt.Color(255, 255, 255));
@@ -300,7 +300,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                 c.setPreferredSize(new Dimension(c.getWidth(), 40));
                 c.setBackground(Color.GRAY); 
                 c.setForeground(Color.WHITE);
-                return c;
+                return this;
             }
         });
 

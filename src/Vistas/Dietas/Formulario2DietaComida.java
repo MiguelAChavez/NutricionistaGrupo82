@@ -32,20 +32,24 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     /**
      * Creates new form Formulario2DietaComida
      */
+    private final DefaultTableModel model = new DefaultTableModel() {
+        @Override
+        public boolean isCellEditable(int i, int i1) {
+            switch (i1) {
+                case 2 | 3:
+                    return Boolean.TRUE;
+                default:
+                    return Boolean.FALSE;
+            }
+        }
+    };
+
     public Formulario2DietaComida() {
         initComponents();
-        setCombo();
-        JTableHeader tableHeader = jTableDietaComida.getTableHeader();
-        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
-            @Override
-            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
-                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-                c.setPreferredSize(new Dimension(c.getWidth(), 40));
-                c.setBackground(Color.GRAY);
-                c.setForeground(Color.WHITE);
-                return c;
-            }
-        });
+
+       
+        initTable();
+ setCombo();
 
     }
 
@@ -65,6 +69,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
         jComboBox1 = new javax.swing.JComboBox<>();
         jBCrearDietaComida = new javax.swing.JButton();
         jBEliminarDietaComida = new javax.swing.JButton();
+        jBEditar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setPreferredSize(new java.awt.Dimension(1100, 670));
@@ -84,7 +89,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
                 jComboBoxDietaComidaActionPerformed(evt);
             }
         });
-        add(jComboBoxDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, 449, 28));
+        add(jComboBoxDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 449, 28));
 
         jTableDietaComida.setBackground(new java.awt.Color(51, 51, 51));
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -122,6 +127,7 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
         jTableDietaComida.setGridColor(new java.awt.Color(0, 0, 0));
         jTableDietaComida.setRowHeight(40);
         jTableDietaComida.setSelectionBackground(new java.awt.Color(30, 150, 117));
+        jTableDietaComida.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableDietaComida);
         if (jTableDietaComida.getColumnModel().getColumnCount() > 0) {
             jTableDietaComida.getColumnModel().getColumn(0).setResizable(false);
@@ -130,11 +136,11 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
             jTableDietaComida.getColumnModel().getColumn(3).setResizable(false);
         }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(252, 190, 700, 380));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 700, 380));
 
         jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 398, 30));
+        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 398, 30));
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -170,6 +176,22 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
             }
         });
         add(jBEliminarDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 90, 40));
+
+        jBEditar.setBackground(new java.awt.Color(132, 181, 90));
+        jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jBEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-agregar.png"))); // NOI18N
+        jBEditar.setText("Agregar");
+        jBEditar.setBorder(null);
+        jBEditar.setBorderPainted(false);
+        jBEditar.setContentAreaFilled(false);
+        jBEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBEditar.setOpaque(true);
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBEditarActionPerformed(evt);
+            }
+        });
+        add(jBEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBEliminarDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaComidaActionPerformed
@@ -186,9 +208,14 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jComboBoxDietaComidaActionPerformed
 
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
+
+    }//GEN-LAST:event_jBEditarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCrearDietaComida;
+    private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminarDietaComida;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBoxDietaComida;
@@ -197,10 +224,33 @@ public class Formulario2DietaComida extends javax.swing.JPanel {
     private javax.swing.JTable jTableDietaComida;
     // End of variables declaration//GEN-END:variables
 
+    private void initTable() {
+
+        this.model.addColumn("Codigo");
+        this.model.addColumn("Comida");
+        this.model.addColumn("Porción");
+        this.model.addColumn("Horario");
+
+        this.jTableDietaComida.setModel(this.model);
+
+        JTableHeader tableHeader = jTableDietaComida.getTableHeader();
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                c.setPreferredSize(new Dimension(c.getWidth(), 40));
+                c.setBackground(Color.GRAY);
+                c.setForeground(Color.WHITE);
+                return c;
+            }
+        });
+
+        setCombo();
+    }
+
     private void setCombo() {
         TableColumn column = this.jTableDietaComida.getColumnModel().getColumn(3);
-        JComboBox<Object> comboBox = new JComboBox();
-        comboBox.addItem("Seleccione un Horario");
+        JComboBox<Horario> comboBox = new JComboBox();
         comboBox.addItem(Horario.DESAYUNO);
         comboBox.addItem(Horario.ALMUERZO);
         comboBox.addItem(Horario.MERIENDA);

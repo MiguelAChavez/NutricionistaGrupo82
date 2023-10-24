@@ -44,7 +44,7 @@ public class HistorialData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar con la tabla de historial" + ex.getMessage());
 
         }
@@ -69,7 +69,7 @@ public class HistorialData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, " No se encontro el historial");
 
         }
@@ -93,7 +93,7 @@ public class HistorialData {
 
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "No se encontro el historial");
         }
@@ -116,7 +116,7 @@ public class HistorialData {
                 listHistorial.add(historial);
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "No se encontro el historial");
         }
         return listHistorial;

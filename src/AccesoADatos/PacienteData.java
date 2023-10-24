@@ -66,6 +66,8 @@ public class PacienteData {
                 JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
             }
 
+        } catch (NullPointerException npe) {
+           
         }
     }
 
@@ -109,7 +111,7 @@ public class PacienteData {
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
             }
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error en la tabla paciente " + ex.getMessage());
         }
 
@@ -129,7 +131,7 @@ public class PacienteData {
 
             ps.close();
 
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Paciente." + e.getMessage());
         }
 
@@ -179,7 +181,7 @@ public class PacienteData {
                 JOptionPane.showMessageDialog(null, "El Paciente no existe");
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
 
@@ -230,7 +232,7 @@ public class PacienteData {
                 JOptionPane.showMessageDialog(null, "El Paciente no existe");
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
 

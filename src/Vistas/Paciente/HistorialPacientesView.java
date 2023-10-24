@@ -11,9 +11,7 @@ import Entidades.Historial;
 import Entidades.Paciente;
 import java.awt.Color;
 import java.awt.HeadlessException;
-
 import java.util.List;
-
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import utils.Estado;

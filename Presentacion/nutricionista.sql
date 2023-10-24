@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-10-2023 a las 23:40:47
+-- Tiempo de generación: 22-10-2023 a las 23:45:05
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -20,16 +20,17 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `nutricionista`
 --
-CREATE DATABASE IF NOT EXISTS `nutricionista` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE `nutricionista`;
 
 -- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `comida`
 --
+CREATE DATABASE IF NOT EXISTS nutricionista default character set 
+utf8mb4 collate utf8mb4_general_ci;
 
-DROP TABLE IF EXISTS `comida`;
+use nutricionista;
+
 CREATE TABLE `comida` (
   `idComida` int(11) NOT NULL,
   `nombre` varchar(100) NOT NULL,
@@ -51,7 +52,6 @@ INSERT INTO `comida` (`idComida`, `nombre`, `detalle`, `cantidadCalorias`, `esta
 -- Estructura de tabla para la tabla `dieta`
 --
 
-DROP TABLE IF EXISTS `dieta`;
 CREATE TABLE `dieta` (
   `idDieta` int(11) NOT NULL,
   `idPaciente` int(11) NOT NULL,
@@ -69,7 +69,6 @@ CREATE TABLE `dieta` (
 -- Estructura de tabla para la tabla `dietacomida`
 --
 
-DROP TABLE IF EXISTS `dietacomida`;
 CREATE TABLE `dietacomida` (
   `idDietaComida` int(11) NOT NULL,
   `idComida` int(11) NOT NULL,
@@ -84,7 +83,6 @@ CREATE TABLE `dietacomida` (
 -- Estructura de tabla para la tabla `historial`
 --
 
-DROP TABLE IF EXISTS `historial`;
 CREATE TABLE `historial` (
   `idHistorial` int(11) NOT NULL,
   `idPaciente` int(11) NOT NULL,
@@ -111,7 +109,6 @@ INSERT INTO `historial` (`idHistorial`, `idPaciente`, `peso`, `fechaRegistro`) V
 -- Estructura de tabla para la tabla `paciente`
 --
 
-DROP TABLE IF EXISTS `paciente`;
 CREATE TABLE `paciente` (
   `idPaciente` int(11) NOT NULL,
   `nombre` varchar(30) NOT NULL,

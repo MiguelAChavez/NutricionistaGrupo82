@@ -23,7 +23,6 @@ public class DietaView extends javax.swing.JPanel {
     public DietaView(DeskNutricionista d1) {
         initComponents();
         this.d1 = d1;
-        System.out.println(this.d1);
     }
 
     /**

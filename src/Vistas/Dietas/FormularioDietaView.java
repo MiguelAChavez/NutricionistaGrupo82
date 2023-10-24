@@ -25,6 +25,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     public FormularioDietaView(DeskNutricionista nutricionistaDesk) {
         initComponents();
         this.nutricionistaDesk = nutricionistaDesk;
+        this.jBBuscarD.setToolTipText("Buscar");
     }
 
     /**
@@ -50,7 +51,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jBCrearDieta = new javax.swing.JButton();
         jBEliminarDieta = new javax.swing.JButton();
         jLKg = new javax.swing.JLabel();
-        jLFechaNac1 = new javax.swing.JLabel();
         jDFechaInicioDieta = new com.toedter.calendar.JDateChooser();
         jLFechaNac2 = new javax.swing.JLabel();
         jDFechaFinDieta = new com.toedter.calendar.JDateChooser();
@@ -196,7 +196,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jBEditarDietaActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBEditarDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, 80, 40));
+        PRSeccion.add(jBEditarDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, 80, 40));
 
         jBCrearDieta.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDieta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -213,7 +213,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jBCrearDietaActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBCrearDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 520, 80, 40));
+        PRSeccion.add(jBCrearDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 530, 80, 40));
 
         jBEliminarDieta.setBackground(new java.awt.Color(247, 87, 87));
         jBEliminarDieta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -231,19 +231,13 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jBEliminarDietaActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBEliminarDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 520, 90, 40));
+        PRSeccion.add(jBEliminarDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 530, 90, 40));
 
         jLKg.setBackground(new java.awt.Color(255, 255, 255));
         jLKg.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
         jLKg.setText("(Kg.)");
         PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 40, 40));
-
-        jLFechaNac1.setBackground(new java.awt.Color(255, 255, 255));
-        jLFechaNac1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLFechaNac1.setForeground(new java.awt.Color(255, 255, 255));
-        jLFechaNac1.setText("Fecha de inicio");
-        PRSeccion.add(jLFechaNac1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, -1, -1));
 
         jDFechaInicioDieta.setBackground(new java.awt.Color(102, 102, 102));
         jDFechaInicioDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -309,7 +303,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jButtonSiguienteDietaActionPerformed(evt);
             }
         });
-        PRSeccion.add(jButtonSiguienteDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 520, 90, 40));
+        PRSeccion.add(jButtonSiguienteDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 90, 40));
         jButtonSiguienteDieta.getAccessibleContext().setAccessibleName(" Siguiente");
 
         jSNombre7.setBackground(new java.awt.Color(204, 204, 204));
@@ -412,7 +406,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         });
         PRSeccion.add(jBCancelarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 40, 40));
 
-        add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 54, 479, 582));
+        add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 46, 479, 600));
 
         jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
         jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
@@ -443,7 +437,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoIncialDietaFocusLost
 
     private void jTFPesoIncialDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaActionPerformed
-        // TODO add your handling code here:
+    
     }//GEN-LAST:event_jTFPesoIncialDietaActionPerformed
 
     private void jTFPesoIncialDietaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaKeyTyped
@@ -474,21 +468,20 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoBuscadoDietaFocusLost
 
     private void jTFPesoBuscadoDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTFPesoBuscadoDietaActionPerformed
 
     private void jTFPesoBuscadoDietaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaKeyTyped
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTFPesoBuscadoDietaKeyTyped
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+      
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButtonSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteDietaActionPerformed
-        // TODO add your handling code here:
+    
         CargarComponente.showComponents(new Formulario2DietaComida(), this.nutricionistaDesk);
-
     }//GEN-LAST:event_jButtonSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained
@@ -509,18 +502,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFNombreDieta1KeyTyped
 
     private void jBBuscarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarDActionPerformed
-        //Llamamos a buscarPaciente y guardamos el resultado en el atributo miPaciente
-
-        //verificamos que miPaciente no sea nulo y cargamos sus atributos en los campos
-
+       
     }//GEN-LAST:event_jBBuscarDActionPerformed
 
     private void jBCancelarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarDActionPerformed
-        //Llamamos al metodo limpiarCampos
-
-        //Llamamos invertirEstados para regresar al modo de crear un paciente
-        //igualamos a nulo el atributo miPaciente
-
+   
     }//GEN-LAST:event_jBCancelarDActionPerformed
 
 
@@ -537,7 +523,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private com.toedter.calendar.JDateChooser jDFechaInicioDieta;
     private javax.swing.JLabel jLDni;
     private javax.swing.JLabel jLFechaNac;
-    private javax.swing.JLabel jLFechaNac1;
     private javax.swing.JLabel jLFechaNac2;
     private javax.swing.JLabel jLKg;
     private javax.swing.JLabel jLKg2;

@@ -16,23 +16,23 @@ import javax.swing.table.DefaultTableModel;
  * @author RAMON
  */
 public class CargarComponente {
-    
+
     private CargarComponente() {
     }
-    
+
     public static void showComponents(JPanel panel, DeskNutricionista contenedor) {
-        new AnimationPanel().animateHiddenScroll(contenedor.getPRBarraMenu(), contenedor.getjBDesplegar());
         contenedor.getjPSetup().removeAll();
         contenedor.getjPSetup().add(panel, BorderLayout.CENTER);
         contenedor.getjPSetup().validate();
         contenedor.getjPSetup().repaint();
+        new AnimationPanel().animateHiddenScroll(contenedor.getPRBarraMenu(), contenedor.getjBDesplegar());
     }
-    
+
     public static void borrarFilas(JTable tabla, DefaultTableModel tablita) {
         int filas = tabla.getRowCount() - 1;
-        for (int i = filas; i >= 0; i --) {
+        for (int i = filas; i >= 0; i--) {
             tablita.removeRow(i);
         }
     }
-    
+
 }
