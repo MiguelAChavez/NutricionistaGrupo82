@@ -149,7 +149,50 @@ public class DietaData {
         return dieta;
     }
 
-    public static List<Dieta> buscarDieta(Estado isActivo) {
+    public static List<Dieta> buscarListadodeDietaPorNombre(String cadena, Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " AND estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " AND estado = 0 ";
+            default:
+                break;
+        }
+
+        sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
+
+        List<Dieta> listadoDieta = new ArrayList();
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setString(1, cadena);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Dieta dietita = new Dieta();
+                dietita.setIdDieta(rs.getInt("idComida"));
+                dietita.setNombre(cadena);
+                dietita.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dietita.setPesoInicial(rs.getDouble("pesoInical"));
+                dietita.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dietita.setPesoFinal(rs.getDouble("pesoBuscado"));
+                listadoDieta.add(dietita);
+            } 
+            ps.close();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+
+        return listadoDieta;
+    }
+
+    public static List<Dieta> buscarDietas(Estado isActivo) {
         String sql;
 
         String estado = "";
@@ -168,7 +211,7 @@ public class DietaData {
         List listadieta = new ArrayList();
         PreparedStatement ps;
         try {
-            
+
             ps = CONN.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -184,13 +227,13 @@ public class DietaData {
                 listadieta.add(dieta);
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return listadieta;
     }
-    
-        public static void activar(Dieta dieta) {
+
+    public static void activar(Dieta dieta) {
         String SQL = "UPDATE dieta SET estado= 1 WHERE idDieta = ?;";
         try {
             PreparedStatement ps = CONN.prepareStatement(SQL);
@@ -204,8 +247,8 @@ public class DietaData {
             JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Dieta.");
         }
     }
-        
-        public static void eliminarDieta(int id) {
+
+    public static void eliminarDieta(int id) {
         String sql = "UPDATE dieta SET estado = 0 WHERE idDieta = ? ";
         PreparedStatement ps;
         try {
@@ -224,7 +267,5 @@ public class DietaData {
         }
 
     }
-
-
 
 }

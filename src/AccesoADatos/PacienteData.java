@@ -243,7 +243,7 @@ public class PacienteData {
         String estado = getEstadoCondition(buscar.getEstado());
 
         String sql = "SELECT * FROM paciente "
-                + "WHERE ((CONCAT(paciente.nombre, ' ', paciente.apellido) LIKE ?) OR " 
+                + "WHERE ((CONCAT(paciente.nombre, ' ', paciente.apellido) LIKE ?) OR "
                 + "(CONCAT(paciente.apellido, ' ', paciente.nombre) LIKE ?))" + estado
                 + " ORDER BY apellido ASC, nombre ASC;";
 
@@ -253,7 +253,7 @@ public class PacienteData {
             ps = CONN.prepareStatement(sql);
             ps.setString(1, "%" + cadena + "%");
             ps.setString(2, "%" + cadena + "%");
-              
+
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Paciente paciente = new Paciente();
@@ -273,7 +273,7 @@ public class PacienteData {
                 pacientes.add(paciente);
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return pacientes;
@@ -320,7 +320,7 @@ public class PacienteData {
                 pacientes.add(paciente);
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return pacientes;
@@ -347,7 +347,7 @@ public class PacienteData {
             if (res > 0) {
                 JOptionPane.showMessageDialog(null, "Fue dado de alta nuevamente.");
             }
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Paciente.");
         }
     }

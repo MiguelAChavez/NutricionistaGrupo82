@@ -182,7 +182,7 @@ public class ListadoDietas extends javax.swing.JPanel {
         if (this.jComboBoxDietasTabla.getSelectedItem().getClass() != String.class) {
             CargarComponente.borrarFilas(jTableDietas, model);
             Estado estado = (Estado) jComboBoxDietasTabla.getSelectedItem();
-            List<Dieta> ListaDieta = DietaData.buscarDieta(estado);
+            List<Dieta> ListaDieta = DietaData.buscarDietas(estado);
 
             if (ListaDieta.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No se ha encontrado ninguna dieta.");
