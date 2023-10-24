@@ -5,10 +5,8 @@
  */
 package AccesoADatos;
 
-import Entidades.Dieta;
 import Entidades.DietaComida;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,7 +48,7 @@ public class DietaComidaData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dietacomida " + ex.getMessage());
 
         }
@@ -78,7 +76,7 @@ public class DietaComidaData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, " No se encontro la dietacomida");
 
         }
@@ -103,8 +101,7 @@ public class DietaComidaData {
 
             ps.close();
 
-        } catch (SQLException ex) {
-
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se encontro la dietacomida");
         }
 
@@ -145,7 +142,7 @@ public class DietaComidaData {
                 JOptionPane.showMessageDialog(null, "La dieta no existe");
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
 

@@ -18,26 +18,25 @@ import utils.PanelRound;
  * @author Pc Chavez
  */
 public class DeskNutricionista extends javax.swing.JFrame {
-
+    
     utils.AnimationPanel mover = new AnimationPanel();
-
-    static CardLayout cardLayout;
+    
     private final PacientesView pacientesView;
     private final DietaView dietaView;
     private final ComidaView comidaView;
     private int ingreso = 0;
-
+    
     public DeskNutricionista() {
         initComponents();
         this.pacientesView = new PacientesView(this);
         this.dietaView = new DietaView(this);
         this.comidaView = new ComidaView(this);
         
-        cardLayout = (CardLayout) this.jPSetup.getLayout();
         this.setIconImage(this.getIconImage());
+        this.jBDesplegar.setVisible(Boolean.FALSE);
         showComponents(new BienvenidaView());
     }
-
+    
     @Override
     public final Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo-universidad-de-la-punta.png"));
@@ -72,9 +71,9 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRBarraMenu.setBackground(new java.awt.Color(51, 51, 51));
-        PRBarraMenu.setOpaque(true);
         PRBarraMenu.setRoundBottomRight(40);
         PRBarraMenu.setRoundTopRight(40);
+        PRBarraMenu.setVerifyInputWhenFocusTarget(false);
 
         jBPacientes.setBackground(new java.awt.Color(58, 58, 58));
         jBPacientes.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
@@ -221,37 +220,36 @@ public class DeskNutricionista extends javax.swing.JFrame {
         PRBarraMenu.setLayout(PRBarraMenuLayout);
         PRBarraMenuLayout.setHorizontalGroup(
             PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PRBarraMenuLayout.createSequentialGroup()
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
                 .addGap(94, 94, 94)
                 .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PRBarraMenuLayout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addGroup(PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jBComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBDientas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addGap(43, 43, 43)
+                .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         PRBarraMenuLayout.setVerticalGroup(
             PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
                 .addGroup(PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                        .addGap(28, 28, 28)
-                        .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(PRBarraMenuLayout.createSequentialGroup()
                         .addGap(14, 14, 14)
-                        .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         jPFondo.add(PRBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 670));
@@ -428,17 +426,17 @@ public class DeskNutricionista extends javax.swing.JFrame {
         this.jPSetup.repaint();
         this.ingreso++;
     }
-
+    
     public PanelRound getPRBarraMenu() {
         return PRBarraMenu;
     }
-
+    
     public JPanel getjPSetup() {
         return jPSetup;
     }
-
+    
     public JButton getjBDesplegar() {
         return jBDesplegar;
     }
-
+    
 }

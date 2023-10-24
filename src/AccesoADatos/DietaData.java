@@ -45,7 +45,7 @@ public class DietaData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dieta " + ex.getMessage());
 
         }
@@ -73,7 +73,7 @@ public class DietaData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
             JOptionPane.showMessageDialog(null, " No se encontro la dieta");
 
         }
@@ -97,7 +97,7 @@ public class DietaData {
 
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (NullPointerException | SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "No se encontro la dieta");
         }
@@ -142,7 +142,7 @@ public class DietaData {
                 JOptionPane.showMessageDialog(null, "La dieta no existe");
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
 
@@ -184,7 +184,7 @@ public class DietaData {
                 listadieta.add(dieta);
             }
             ps.close();
-        } catch (SQLException e) {
+        } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
         return listadieta;
