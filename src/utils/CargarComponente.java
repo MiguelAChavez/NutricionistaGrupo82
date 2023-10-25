@@ -29,8 +29,8 @@ public class CargarComponente {
     }
 
     public static void borrarFilas(JTable tabla, DefaultTableModel tablita) {
-        int filas = tabla.getRowCount() - 1;
-        for (int i = filas; i >= 0; i--) {
+        int filas = tabla.getRowCount();
+        for (int i = filas - 1; i >= 0; i--) {
             tablita.removeRow(i);
         }
     }

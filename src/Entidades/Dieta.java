@@ -1,4 +1,3 @@
-
 package Entidades;
 
 import java.time.LocalDate;
@@ -8,7 +7,7 @@ import java.time.LocalDate;
  * @author alber
  */
 public class Dieta {
-    
+
     private int idDieta;
     private String nombre;
     private Paciente paciente;
@@ -28,7 +27,7 @@ public class Dieta {
         this.pesoInicial = pesoInicial;
         this.pesoFinal = pesoFinal;
         this.fechaFinal = fechaFinal;
-        this.estado=estado;
+        this.estado = estado;
     }
 
     public Dieta(int idDieta, String nombre, Paciente paciente, LocalDate fechaInicial, double pesoInicial, double pesoFinal, LocalDate fechaFinal, boolean estado) {
@@ -39,7 +38,7 @@ public class Dieta {
         this.pesoInicial = pesoInicial;
         this.pesoFinal = pesoFinal;
         this.fechaFinal = fechaFinal;
-        this.estado=estado;
+        this.estado = estado;
     }
 
     public LocalDate getFechaFinal() {
@@ -97,8 +96,7 @@ public class Dieta {
     public void setPesoFinal(double pesoFinal) {
         this.pesoFinal = pesoFinal;
     }
-    
-    
+
     public boolean isEstado() {
         return estado;
     }
@@ -109,16 +107,7 @@ public class Dieta {
 
     @Override
     public String toString() {
-        return "Dieta{" + "idDieta=" + idDieta + ", nombre=" + nombre + ", paciente=" + paciente + ", fechaInicial=" + fechaInicial + ", pesoInicial=" + pesoInicial + ", pesoFinal=" + pesoFinal + ", fechaFinal=" + fechaFinal + ", estado=" + estado + '}';
+        return this.nombre + ", " + this.paciente.getFullname();
     }
 
-    public double getPesoBuscado() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-
-    
-    
-    
 }

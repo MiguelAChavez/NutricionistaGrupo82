@@ -18,8 +18,8 @@ public class DietaView extends javax.swing.JPanel {
      * Creates new form DietaView
      *
      */
-    
     DeskNutricionista d1;
+
     public DietaView(DeskNutricionista d1) {
         initComponents();
         this.d1 = d1;
@@ -134,7 +134,7 @@ public class DietaView extends javax.swing.JPanel {
 
     private void jBListarD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarD2ActionPerformed
         // TODO add your handling code here:
-         CargarComponente.showComponents(new Formulario2DietaComida(), this.d1);
+        CargarComponente.showComponents(new Formulario2DietaComida(null), this.d1);
     }//GEN-LAST:event_jBListarD2ActionPerformed
 
 

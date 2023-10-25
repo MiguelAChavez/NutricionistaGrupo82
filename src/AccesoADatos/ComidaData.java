@@ -146,7 +146,7 @@ public class ComidaData {
             default:
                 break;
         }
-        sql = "SELECT * FROM comida WHERE cantidadCalorias<? "+ estado ;
+        sql = "SELECT * FROM comida WHERE cantidadCalorias<? " + estado;
 
         List listacomida = new ArrayList();
 
@@ -165,7 +165,73 @@ public class ComidaData {
                 comida.setDatalle(rs.getString("detalle"));
                 comida.setEstado(rs.getBoolean("estado"));
                 listacomida.add(comida);
-            }   
+            }
+            ps.close();
+        } catch (NullPointerException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+        return listacomida;
+    }
+
+    public static Comida buscarComidaPorId(int idComida) {
+        String sql;
+        Comida comida = new Comida();
+
+        sql = "SELECT * FROM comida WHERE idComida = ? ";
+        PreparedStatement ps;
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, idComida);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+
+                comida.setIdComida(rs.getInt("idComida"));
+                comida.setCantCalorias(rs.getInt("cantidadCalorias"));
+                comida.setNombre(rs.getString("nombre"));
+                comida.setDatalle(rs.getString("detalle"));
+                comida.setEstado(rs.getBoolean("estado"));
+            }
+            ps.close();
+        } catch (NullPointerException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+        }
+        return comida;
+    }
+
+    public static List<Comida> buscarComidas(Estado isActivo) {
+        String sql;
+
+        String estado = "";
+
+        switch (isActivo) {
+            case ACTIVO:
+                estado = " WHERE estado = 1";
+                break;
+            case INACTIVOS:
+                estado = " WHERE estado = 0 ";
+            default:
+                break;
+        }
+        sql = "SELECT * FROM comida " + estado;
+
+        List listacomida = new ArrayList();
+
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Comida comida = new Comida();
+                comida.setIdComida(rs.getInt("idComida"));
+                comida.setCantCalorias(rs.getInt("cantidadCalorias"));
+                comida.setNombre(rs.getString("nombre"));
+                comida.setDatalle(rs.getString("detalle"));
+                comida.setEstado(rs.getBoolean("estado"));
+                listacomida.add(comida);
+            }
             ps.close();
         } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());

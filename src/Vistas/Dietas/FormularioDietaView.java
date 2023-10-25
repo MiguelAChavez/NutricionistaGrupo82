@@ -148,6 +148,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLPesoDeseado.setText("Peso Buscado");
         PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 130, 20));
 
+        jTFPesoIncialDieta.setEditable(false);
         jTFPesoIncialDieta.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoIncialDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTFPesoIncialDieta.setForeground(new java.awt.Color(204, 204, 204));
@@ -253,6 +254,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jDFechaFinDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         PRSeccion.add(jDFechaFinDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 160, 35));
 
+        jTFPesoBuscadoDieta.setEditable(false);
         jTFPesoBuscadoDieta.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoBuscadoDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTFPesoBuscadoDieta.setForeground(new java.awt.Color(204, 204, 204));
@@ -295,6 +297,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jButtonSiguienteDieta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(42, 42, 63)));
         jButtonSiguienteDieta.setContentAreaFilled(false);
         jButtonSiguienteDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButtonSiguienteDieta.setEnabled(false);
         jButtonSiguienteDieta.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         jButtonSiguienteDieta.setInheritsPopupMenu(true);
         jButtonSiguienteDieta.setOpaque(true);
@@ -480,8 +483,8 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButtonSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteDietaActionPerformed
-    
-        CargarComponente.showComponents(new Formulario2DietaComida(), this.nutricionistaDesk);
+
+        CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), this.nutricionistaDesk);
     }//GEN-LAST:event_jButtonSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained

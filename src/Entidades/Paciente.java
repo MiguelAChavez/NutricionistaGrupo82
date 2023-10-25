@@ -24,7 +24,7 @@ public class Paciente {
     public Paciente() {
     }
 
-        public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoBuscado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoBuscado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -38,7 +38,7 @@ public class Paciente {
         this.altura = altura;
     }
 
-    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, String sexo, LocalDate fechaNac, boolean estado, double peso,double pesoBuscado, double altura) {
+    public Paciente(String nombre, String apellido, int dni, String domicilio, String telefono, int idPaciente, String sexo, LocalDate fechaNac, boolean estado, double peso, double pesoBuscado, double altura) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
@@ -150,10 +150,13 @@ public class Paciente {
         this.pesoBuscado = pesoBuscado;
     }
 
-    
+    public String getFullname() {
+        return this.nombre + " " + this.apellido;
+    }
+
     @Override
     public String toString() {
-        return "Paciente{ " + "idPaciente= " + idPaciente  + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono +  ", sexo=" + sexo + ", peso=" + pesoActual + ", altura=" + altura + ", fechaNac=" + fechaNac + ", estado=" + estado + "}";
+        return "Paciente{ " + "idPaciente= " + idPaciente + "nombre=" + nombre + ", apellido=" + apellido + ", dni=" + dni + ", domicilio=" + domicilio + ", telefono=" + telefono + ", sexo=" + sexo + ", peso=" + pesoActual + ", altura=" + altura + ", fechaNac=" + fechaNac + ", estado=" + estado + "}";
     }
 
 }

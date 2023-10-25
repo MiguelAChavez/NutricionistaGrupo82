@@ -22,8 +22,8 @@ public class DietaData {
 
     public static void crearDieta(Dieta dieta) {
 
-        String sql = "INSERT INTO dieta ( idPaciente, nombre, fechaInicial, pesoInicial, fechaFinal, pesoBuscado) "
-                + "VALUES(?, ?, ?, ? ,?,?)";
+        String sql = "INSERT INTO dieta ( idPaciente, nombre, fechaInicial, pesoInicial, pesoFinal ,fechaFinal) "
+                + "VALUES(?, ?, ?, ? , ?, ?)";
         try {
             PreparedStatement ps = CONN.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -31,8 +31,8 @@ public class DietaData {
             ps.setString(2, dieta.getNombre());
             ps.setDate(3, Date.valueOf(dieta.getFechaInicial()));
             ps.setDouble(4, dieta.getPesoInicial());
-            ps.setDate(5, Date.valueOf(dieta.getFechaFinal()));
-            ps.setDouble(6, dieta.getPesoBuscado());
+            ps.setDouble(5, dieta.getPesoFinal());
+            ps.setDate(6, Date.valueOf(dieta.getFechaFinal()));
 
             ps.executeUpdate();
 
@@ -60,7 +60,7 @@ public class DietaData {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setString(1, dieta.getNombre());
             ps.setDate(2, Date.valueOf(dieta.getFechaFinal()));
-            ps.setDouble(3, dieta.getPesoBuscado());
+            ps.setDouble(3, dieta.getPesoFinal());
             ps.setInt(4, dieta.getIdDieta());
 
             int diet = ps.executeUpdate();
@@ -183,7 +183,7 @@ public class DietaData {
                 dietita.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
                 dietita.setPesoFinal(rs.getDouble("pesoBuscado"));
                 listadoDieta.add(dietita);
-            } 
+            }
             ps.close();
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());

@@ -4,7 +4,6 @@ import Vistas.Comida.ComidaView;
 import Vistas.Dietas.DietaView;
 import Vistas.Paciente.*;
 import java.awt.BorderLayout;
-import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.Toolkit;
