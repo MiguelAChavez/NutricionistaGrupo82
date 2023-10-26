@@ -156,6 +156,11 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jTextFieldComidaListActionPerformed(evt);
             }
         });
+        jTextFieldComidaList.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldComidaListKeyTyped(evt);
+            }
+        });
         add(jTextFieldComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -169,7 +174,7 @@ public class ListarComidaView extends javax.swing.JPanel {
             int num;
             num = Integer.parseInt(jTextFieldComidaList.getText());
             List<Comida> listacomidas;
-            listacomidas = ComidaData.buscarComidaPorCalorias(num, Estado.TODOS);
+            listacomidas = ComidaData.buscarComidasPorCalorias(num, Estado.TODOS);
             if (listacomidas.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No se ha encontrado ninguna comida menor: " + num);
                 return;
@@ -199,6 +204,13 @@ public class ListarComidaView extends javax.swing.JPanel {
     private void jTextFieldComidaListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldComidaListActionPerformed
         jBBuscarComidaActionPerformed(evt);
     }//GEN-LAST:event_jTextFieldComidaListActionPerformed
+
+    private void jTextFieldComidaListKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComidaListKeyTyped
+        char caracter = evt.getKeyChar();
+        if(caracter < '0' || caracter > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldComidaListKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

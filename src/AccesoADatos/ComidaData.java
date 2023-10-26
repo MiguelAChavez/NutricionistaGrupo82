@@ -132,7 +132,7 @@ public class ComidaData {
         return comida;
     }
 
-    public static List<Comida> buscarComidaPorCalorias(int cantCalorias, Estado isActivo) {
+    public static List<Comida> buscarComidasPorCalorias(int cantCalorias, Estado isActivo) {
         String sql;
 
         String estado = "";
@@ -146,7 +146,7 @@ public class ComidaData {
             default:
                 break;
         }
-        sql = "SELECT * FROM comida WHERE cantidadCalorias<? " + estado;
+        sql = "SELECT * FROM comida WHERE cantidadCalorias<?  " + estado + " ORDER BY comida.cantidadCalorias ASC;";
 
         List listacomida = new ArrayList();
 

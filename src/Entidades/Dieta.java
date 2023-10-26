@@ -107,7 +107,7 @@ public class Dieta {
 
     @Override
     public String toString() {
-        return this.nombre + ", " + this.paciente.getFullname();
+        return this.idDieta + " "+this.nombre + ", " + this.paciente.getFullname();
     }
 
 }

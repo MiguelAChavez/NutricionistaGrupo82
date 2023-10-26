@@ -9,7 +9,6 @@ ense Headers in Project Properties.
  */
 package Vistas.Dietas;
 
-import AccesoADatos.DietaComidaData;
 import AccesoADatos.DietaData;
 import AccesoADatos.PacienteData;
 import Entidades.*;
@@ -18,7 +17,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.time.LocalDate;
 import java.time.ZoneId;
-import java.time.temporal.TemporalAmount;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -44,7 +42,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         this.nutricionistaDesk = nutricionistaDesk;
         this.jBBuscarPaciente.setToolTipText("Buscar");
         this.jDFechaInicioDieta.setMinSelectableDate(new Date());
-        
+
         date();
     }
 
@@ -468,11 +466,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoIncialDietaKeyTyped
 
     private void jBEditarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarDietaActionPerformed
-
+        editar();
     }//GEN-LAST:event_jBEditarDietaActionPerformed
 
     private void jBCrearDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearDietaActionPerformed
-        this.dietaD = crearDieta(this.dietaD);
+        this.dietaD = crearDieta(this.dietaD, Boolean.TRUE);
         if (this.dietaD != null) {
             DietaData.crearDieta(dietaD);
             invertirEstado();
@@ -569,16 +567,18 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
     private void jBBuscarD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarD1ActionPerformed
         String nombre = this.jTFNombreDieta1.getText().trim();
-        if (Validacion.isValidoString(nombre)) {
+        if (Validacion.isValidoString(nombre) || !nombre.isEmpty()) {
             this.dietaD = DietaData.buscarDietaPorNombre(nombre, Estado.TODOS);
             if (this.dietaD != null) {
                 cargarCampos(this.dietaD);
                 this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
                 this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+                ZoneId defaultZoneId = ZoneId.systemDefault();
+                this.jDFechaInicioDieta.setMinSelectableDate(Date.from(this.dietaD.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
                 invertirEstado();
             }
         } else {
-            JOptionPane.showMessageDialog(this, "");
+            JOptionPane.showMessageDialog(this, "Ingrese un nombre valido.");
         }
 
     }//GEN-LAST:event_jBBuscarD1ActionPerformed
@@ -624,7 +624,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JTextField jTFPesoIncialDieta;
     // End of variables declaration//GEN-END:variables
 
-    private Dieta crearDieta(Dieta dieta) {
+    private Dieta crearDieta(Dieta dieta, boolean isPesoEditable) {
         try {
             String nombre = this.jTFNombreDieta1.getText().trim();
             if (!Validacion.isValidoString(nombre) || nombre.isEmpty()) {
@@ -645,15 +645,12 @@ public class FormularioDietaView extends javax.swing.JPanel {
             LocalDate fechaInicio = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
             LocalDate fechaFinal = dateFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
-            if (fechaInicio.isBefore(LocalDate.now())) {
-                JOptionPane.showMessageDialog(this, "");
-                return null;
-            } else if (fechaFinal.isEqual(fechaInicio) || fechaFinal.isBefore(fechaInicio)) {
-                JOptionPane.showMessageDialog(this, "");
+            if (fechaFinal.isEqual(fechaInicio) || fechaFinal.isBefore(fechaInicio)) {
+                JOptionPane.showMessageDialog(this, "La fecha no puede ser anterior a la fecha de inicio");
                 return null;
             }
 
-            if (dieta.getPaciente() == null) {
+            if (this.dietaD.getPaciente() == null) {
                 JOptionPane.showMessageDialog(this, "Seleccione un paciente");
                 return null;
             }
@@ -661,13 +658,15 @@ public class FormularioDietaView extends javax.swing.JPanel {
             dieta.setNombre(nombre);
             dieta.setFechaInicial(fechaInicio);
             dieta.setFechaFinal(fechaFinal);
-            dieta.setPesoInicial(dieta.getPaciente().getPeso());
-            dieta.setPesoFinal(dieta.getPaciente().getPesoBuscado());
+
+            if (isPesoEditable) {
+                dieta.setPesoInicial(dieta.getPaciente().getPeso());
+            }
 
             return dieta;
 
         } catch (NullPointerException e) {
-            JOptionPane.showMessageDialog(this, "Error");
+            JOptionPane.showMessageDialog(this, "Error " + e.getMessage());
         }
         return null;
     }
@@ -688,8 +687,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
                     jDFechaFinDieta.setMinSelectableDate(selectedDate);
                     jDFechaFinDieta.setEnabled(Boolean.TRUE);
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "");
                 }
             }
         });
@@ -705,20 +702,35 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private void cargarCampos(Dieta dieta) {
         this.jTFNombreDieta1.setText(dieta.getNombre());
         this.jCBPacientes.addItem(dieta.getPaciente());
+        this.jCBPacientes.setEnabled(Boolean.FALSE);
         ZoneId defaultZoneId = ZoneId.systemDefault();
         this.jTFPesoIncialDieta.setText(dieta.getPesoInicial() + "");
         this.jTFPesoBuscadoDieta.setText(dieta.getPaciente().getPesoBuscado() + "");
         this.jDFechaInicioDieta.setDate(Date.from(dieta.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
+        this.jDFechaInicioDieta.setEnabled(false);
         this.jDFechaFinDieta.setDate(Date.from(dieta.getFechaFinal().atStartOfDay(defaultZoneId).toInstant()));
     }
 
     private void limpiarCampos() {
         this.jTFNombreDieta1.setText("");
         this.jCBPacientes.removeAllItems();
+        this.jCBPacientes.setEnabled(Boolean.TRUE);
         this.jTFPesoIncialDieta.setText("");
         this.jTFPesoBuscadoDieta.setText("");
         this.jDFechaInicioDieta.setDate(null);
+        this.jDFechaInicioDieta.setEnabled(true);
         this.jDFechaFinDieta.setDate(null);
+    }
+
+    private void editar() {
+        Dieta dieta = crearDieta(new Dieta(), false);
+        if (dieta != null) {
+            dieta.setIdDieta(this.dietaD.getIdDieta());
+            dieta.setPesoInicial(this.dietaD.getPesoInicial());
+            dieta.setPaciente(this.dietaD.getPaciente());
+            this.dietaD = dieta;
+            DietaData.modificarDieta(this.dietaD);
+        }
     }
 
 }

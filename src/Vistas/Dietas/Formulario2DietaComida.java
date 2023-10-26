@@ -14,6 +14,7 @@ import Entidades.DietaComida;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -48,10 +49,13 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         }
     };
     private final Dieta MI_DIETA;
-
+    private int cont = 0;
+    private final List<DietaComida> dietasComidas;
+    
     public Formulario2DietaComida(Dieta dieta1) {
         initComponents();
         initTable();
+        dietasComidas = new ArrayList<>();
         if (dieta1 == null) {
             iniciarComboDietas();
             this.MI_DIETA = null;
@@ -61,6 +65,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             jCBComidas.setEnabled(Boolean.TRUE);
             cargarTabla(DietaComidaData.buscarDietaComidaPorIdDieta(this.MI_DIETA.getIdDieta()));
         }
+        this.cont++;
         iniciarComboComida();
     }
 
@@ -143,7 +148,6 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
         jCBComidas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jCBComidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
-        jCBComidas.setSelectedIndex(-1);
         jCBComidas.setEnabled(false);
         jCBComidas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -317,7 +321,9 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         if (listita == null) {
             JOptionPane.showMessageDialog(this, "No hay ninguna comida cargada en la dieta");
         } else if (listita.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No hay ninguna comida cargada en la dieta");
+            if (this.cont > 0) {
+                JOptionPane.showMessageDialog(this, "No hay ninguna comida cargada en la dieta");
+            }
         } else {
             CargarComponente.borrarFilas(this.jTableDietaComida, this.tablita);
             for (DietaComida dietaComida : listita) {

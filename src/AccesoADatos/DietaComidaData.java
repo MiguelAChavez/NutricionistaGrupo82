@@ -126,7 +126,7 @@ public class DietaComidaData {
         
         sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
         
-        DietaComida dietacomida = null;
+        DietaComida dietacomida =  new DietaComida();;
         PreparedStatement ps;
         
         try {
@@ -135,9 +135,9 @@ public class DietaComidaData {
             
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                dietacomida = new DietaComida();
                 dietacomida.setIdDietaComida(rs.getInt("idDietaComida"));
-                //dietaComida.setHorario(rs.getString("horario"));
+                dietacomida.setComida(ComidaData.buscarComidaPorId(rs.getInt("idComida")));
+                dietacomida.setHorario(mapHorario(rs.getString("horario")));
                 dietacomida.setPorcion(rs.getDouble("porcion"));
                 
             } else {

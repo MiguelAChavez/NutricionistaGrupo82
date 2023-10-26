@@ -22,8 +22,8 @@ public class DietaData {
 
     public static void crearDieta(Dieta dieta) {
 
-        String sql = "INSERT INTO dieta ( idPaciente, nombre, fechaInicial, pesoInicial, pesoFinal ,fechaFinal) "
-                + "VALUES(?, ?, ?, ? , ?, ?)";
+        String sql = "INSERT INTO dieta ( idPaciente, nombre, fechaInicial, pesoInicial ,fechaFinal) "
+                + "VALUES(?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = CONN.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -31,8 +31,7 @@ public class DietaData {
             ps.setString(2, dieta.getNombre());
             ps.setDate(3, Date.valueOf(dieta.getFechaInicial()));
             ps.setDouble(4, dieta.getPesoInicial());
-            ps.setDouble(5, dieta.getPesoFinal());
-            ps.setDate(6, Date.valueOf(dieta.getFechaFinal()));
+            ps.setDate(5, Date.valueOf(dieta.getFechaFinal()));
 
             ps.executeUpdate();
 
@@ -59,14 +58,13 @@ public class DietaData {
 
     public static void modificarDieta(Dieta dieta) {
 
-        String sql = "UPDATE dieta SET nombre=?, fechaFinal=?, pesoBuscado=? WHERE idDieta=?";
-
+        String sql = "UPDATE dieta SET nombre=?, fechaFinal=? WHERE idDieta=?";
+        System.out.println(dieta);
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setString(1, dieta.getNombre());
             ps.setDate(2, Date.valueOf(dieta.getFechaFinal()));
-            ps.setDouble(3, dieta.getPesoFinal());
-            ps.setInt(4, dieta.getIdDieta());
+            ps.setInt(3, dieta.getIdDieta());
 
             int diet = ps.executeUpdate();
 
@@ -79,8 +77,7 @@ public class DietaData {
 
             ps.close();
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, " No se encontro la dieta");
-
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Dieta. " + ex.getMessage());
         }
 
     }
@@ -104,7 +101,7 @@ public class DietaData {
 
         } catch (NullPointerException | SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "No se encontro la dieta");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Dieta.");
         }
 
     }
@@ -126,7 +123,7 @@ public class DietaData {
 
         sql = "SELECT * FROM dieta WHERE nombre LIKE ? " + estado;
 
-        Dieta dieta = null;
+        Dieta dieta = new Dieta();
         PreparedStatement ps;
 
         try {
@@ -134,8 +131,7 @@ public class DietaData {
             ps.setString(1, cadena);
 
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {
-                dieta = new Dieta();
+            if (rs.next()) {            
                 dieta.setIdDieta(rs.getInt("idDieta"));
                 dieta.setNombre(rs.getString("nombre"));
                 dieta.setPaciente(PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), isActivo));
