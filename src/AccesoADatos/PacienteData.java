@@ -53,17 +53,17 @@ public class PacienteData {
 
             if (rs.next()) {
                 paciente.setIdPaciente(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Paciente creado con éxito");
+                JOptionPane.showMessageDialog(null, "El paciente creado con éxito");
                 return;
             }
             ps.close();
         } catch (SQLException ex) {
             //codigo de error por dato duplicado
             if (ex.getErrorCode() == 1062) {
-                JOptionPane.showMessageDialog(null, "El dni ya existe.");
+                JOptionPane.showMessageDialog(null, "El dni ya existe");
             } else {
                 System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente " + ex.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente, error: " + ex.getMessage());
             }
 
         } catch (NullPointerException npe) {
@@ -112,7 +112,7 @@ public class PacienteData {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
             }
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la tabla paciente " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla paciente, error:  " + ex.getMessage());
         }
 
     }
@@ -126,13 +126,13 @@ public class PacienteData {
 
             int res = ps.executeUpdate();
             if (res == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó el paciente.");
+                JOptionPane.showMessageDialog(null, " Se eliminó el paciente");
             }
 
             ps.close();
 
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Paciente." + e.getMessage());
+            JOptionPane.showMessageDialog(null, " No se pudo conectar a la tabla paciente, error: " + e.getMessage());
         }
 
     }
@@ -178,11 +178,11 @@ public class PacienteData {
                 paciente.setEstado(rs.getBoolean("estado"));
 
             } else {
-                JOptionPane.showMessageDialog(null, "El Paciente no existe");
+                JOptionPane.showMessageDialog(null, "El paciente no existe");
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
 
         return paciente;
@@ -233,7 +233,7 @@ public class PacienteData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " No se pudo conectar a la tabla paciente, error: " + e.getMessage());
         }
 
         return paciente;
@@ -276,7 +276,7 @@ public class PacienteData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, " No se pudo conectar a la tabla paciente, error: " + e.getMessage());
         }
         return pacientes;
     }
@@ -323,7 +323,7 @@ public class PacienteData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
         }
         return pacientes;
     }
@@ -347,10 +347,10 @@ public class PacienteData {
 
             int res = ps.executeUpdate();
             if (res > 0) {
-                JOptionPane.showMessageDialog(null, "Fue dado de alta nuevamente.");
+                JOptionPane.showMessageDialog(null, "El paciente fué dado de alta nuevamente");
             }
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Paciente.");
+            JOptionPane.showConfirmDialog(null, "No se pudo conectar a la tabla paciente, error: " + e.getMessage());
         }
     }
 

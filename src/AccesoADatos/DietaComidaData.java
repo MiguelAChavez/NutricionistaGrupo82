@@ -46,7 +46,7 @@ public class DietaComidaData {
             
             if (rs.next()) {    
                 dietaComida.setIdDietaComida(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "La dietaComida ha sido creada con exito");
+                JOptionPane.showMessageDialog(null, "Se ha creado con exito");
             }
             ps.close();
             
@@ -70,15 +70,15 @@ public class DietaComidaData {
             int resultado = ps.executeUpdate();
             
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, " Se modifico la dietacomida exitosamente");
+                JOptionPane.showMessageDialog(null, "Se modificó la comida exitosamente");
                 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro la dietacomida");
+                JOptionPane.showMessageDialog(null, "No se encontró la comida");
             }
             
             ps.close();
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, " No se encontro la dietacomida");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dietacomida " + ex.getMessage());
             
         }
         
@@ -93,16 +93,16 @@ public class DietaComidaData {
             ps.setInt(1, dietaComida.getDieta().getIdDieta());
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, " Se elimino la dietacomida exitosamente");
+                JOptionPane.showMessageDialog(null, "Se elimino lacomida exitosamente");
                 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro la dietacomida");
+                JOptionPane.showMessageDialog(null, " No se encontró la comida");
             }
             
             ps.close();
             
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se encontro la dietacomida");
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla dietacomida " + ex.getMessage());
         }
         
     }

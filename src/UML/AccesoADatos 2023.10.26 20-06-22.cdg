@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AccesoADatos">
+  <ClassDiagramComponents>
+    <Class name="ComidaData" package="AccesoADatos" visibility="public" xPosition="992.0" yPosition="20.0">
+      <Fields>
+        <Field name="CONN" type="Connection" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Comida" name="comida"/>
+        </Method>
+        <Method name="modificarComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Comida" name="comida"/>
+        </Method>
+        <Method name="eliminarComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarComidaPorNombre" returnType="Comida" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarComidasPorCalorias" returnType="List&lt;Comida&gt;" visibility="public" isStatic="true">
+          <Argument type="int" name="cantCalorias"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarComidaPorId" returnType="Comida" visibility="public" isStatic="true">
+          <Argument type="int" name="idComida"/>
+        </Method>
+        <Method name="buscarComidas" returnType="List&lt;Comida&gt;" visibility="public" isStatic="true">
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="activar" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Comida" name="comida"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ConexionData" package="AccesoADatos" visibility="public" xPosition="444.0" yPosition="20.0">
+      <Fields>
+        <Field name="URL" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="BD" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="USUARIO" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="PASSWORD" type="String" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="connection" type="Connection" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="getConnection" returnType="Connection" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="DietaComidaData" package="AccesoADatos" visibility="public" xPosition="19.0" yPosition="20.0">
+      <Fields>
+        <Field name="CONN" type="Connection" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearDietaComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="DietaComida" name="dietaComida"/>
+        </Method>
+        <Method name="modificarDietaComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="DietaComida" name="dietaComida"/>
+        </Method>
+        <Method name="eliminarDietaComida" returnType="void" visibility="public" isStatic="true">
+          <Argument type="DietaComida" name="dietaComida"/>
+        </Method>
+        <Method name="buscarDietaComidaPorId" returnType="DietaComida" visibility="public" isStatic="true">
+          <Argument type="int" name="id"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarDietaComidaPorIdDieta" returnType="List&lt;DietaComida&gt;" visibility="public" isStatic="true">
+          <Argument type="int" name="IdDieta"/>
+        </Method>
+        <Method name="mapHorario" returnType="Horario" visibility="private" isStatic="true">
+          <Argument type="String" name="horarioString"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="DietaData" package="AccesoADatos" visibility="public" xPosition="601.0" yPosition="289.0">
+      <Fields>
+        <Field name="CONN" type="Connection" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearDieta" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Dieta" name="dieta"/>
+        </Method>
+        <Method name="modificarDieta" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Dieta" name="dieta"/>
+        </Method>
+        <Method name="eliminarDieta" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Dieta" name="dieta"/>
+        </Method>
+        <Method name="buscarDietaPorNombre" returnType="Dieta" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarListadodeDietaPorNombre" returnType="List&lt;Dieta&gt;" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarDietas" returnType="List&lt;Dieta&gt;" visibility="public" isStatic="true">
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="activar" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Dieta" name="dieta"/>
+        </Method>
+        <Method name="eliminarDieta" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="HistorialData" package="AccesoADatos" visibility="public" xPosition="681.0" yPosition="20.0">
+      <Fields>
+        <Field name="CONN" type="Connection" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="private"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearHistorial" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Historial" name="historial"/>
+        </Method>
+        <Method name="modificarHistorial" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Historial" name="historial"/>
+        </Method>
+        <Method name="eliminarHisorial" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Historial" name="historial"/>
+        </Method>
+        <Method name="getHistorialPaciente" returnType="List&lt;Historial&gt;" visibility="public" isStatic="true">
+          <Argument type="int" name="idPaciente"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PacienteData" package="AccesoADatos" visibility="public" xPosition="80.0" yPosition="273.0">
+      <Fields>
+        <Field name="CONN" type="Connection" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="CrearPaciente" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Paciente" name="paciente"/>
+        </Method>
+        <Method name="modificarPaciente" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Paciente" name="paciente"/>
+        </Method>
+        <Method name="eliminarPaciente" returnType="void" visibility="public" isStatic="true">
+          <Argument type="int" name="id"/>
+        </Method>
+        <Method name="buscarPacientePorDni" returnType="Paciente" visibility="public" isStatic="true">
+          <Argument type="int" name="dni"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="buscarPacientePorId" returnType="Paciente" visibility="public" isStatic="true">
+          <Argument type="int" name="idPaciente"/>
+          <Argument type="Estado" name="isActivo"/>
+        </Method>
+        <Method name="ListarPorNombreOApellido" returnType="List&lt;Paciente&gt;" visibility="public" isStatic="true">
+          <Argument type="String" name="cadena"/>
+          <Argument type="Estado" name="buscar"/>
+        </Method>
+        <Method name="ListarPacientes" returnType="List&lt;Paciente&gt;" visibility="public" isStatic="true">
+          <Argument type="Estado" name="estado"/>
+        </Method>
+        <Method name="getEstadoCondition" returnType="String" visibility="private" isStatic="true">
+          <Argument type="int" name="estadoBusqueda"/>
+        </Method>
+        <Method name="activar" returnType="void" visibility="public" isStatic="true">
+          <Argument type="Paciente" name="paciente"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

@@ -69,15 +69,15 @@ public class DietaData {
             int diet = ps.executeUpdate();
 
             if (diet == 1) {
-                JOptionPane.showMessageDialog(null, " Se modifico la dieta exitosamente");
+                JOptionPane.showMessageDialog(null, "Se modificó la dieta exitosamente");
 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro la dieta");
+                JOptionPane.showMessageDialog(null, "No se encontró la dieta");
             }
 
             ps.close();
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Dieta. " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta. " + ex.getMessage());
         }
 
     }
@@ -91,17 +91,17 @@ public class DietaData {
             ps.setInt(1, dieta.getIdDieta());
             int diet = ps.executeUpdate();
             if (diet == 1) {
-                JOptionPane.showMessageDialog(null, " Se elimino la dieta exitosamente");
+                JOptionPane.showMessageDialog(null, " Se eliminó la dieta exitosamente");
 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro la dieta");
+                JOptionPane.showMessageDialog(null, " No se encontró la dieta");
             }
 
             ps.close();
 
         } catch (NullPointerException | SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Dieta.");
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta.");
         }
 
     }
@@ -259,13 +259,13 @@ public class DietaData {
 
             int res = ps.executeUpdate();
             if (res == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó la dieta.");
+                JOptionPane.showMessageDialog(null, "Se eliminó la dieta.");
             }
 
             ps.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla dieta." + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta." + e.getMessage());
         }
 
     }
