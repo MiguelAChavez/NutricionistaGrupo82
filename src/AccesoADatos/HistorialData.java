@@ -45,7 +45,7 @@ public class HistorialData {
             ps.close();
 
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar con la tabla de historial" + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
 
         }
 
@@ -65,12 +65,12 @@ public class HistorialData {
                 JOptionPane.showMessageDialog(null, " Se modifico el historial de registros exitosamente");
 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro el historial");
+                JOptionPane.showMessageDialog(null, "No se encontró el historial");
             }
 
             ps.close();
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, " No se encontro el historial");
+            JOptionPane.showMessageDialog(null, " No se pudo acceder a la tabla historial");
 
         }
 
@@ -85,17 +85,17 @@ public class HistorialData {
             ps.setInt(1, historial.getIdHistorial());
             int rta = ps.executeUpdate();
             if (rta == 1) {
-                JOptionPane.showMessageDialog(null, " Se elimino el historialexitosamente");
+                JOptionPane.showMessageDialog(null, "Se eliminó el historial exitosamente");
 
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontro el historial");
+                JOptionPane.showMessageDialog(null, "No se pudo encontrar el historial");
             }
 
             ps.close();
 
         } catch (NullPointerException | SQLException ex) {
 
-            JOptionPane.showMessageDialog(null, "No se encontro el historial");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar con la tabla historial, error: " + ex.getMessage());
         }
 
     }
@@ -117,7 +117,7 @@ public class HistorialData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "No se encontro el historial");
+            JOptionPane.showMessageDialog(null, "No se pudo conectar con la tabla historial, error: " + e.getMessage());
         }
         return listHistorial;
     }

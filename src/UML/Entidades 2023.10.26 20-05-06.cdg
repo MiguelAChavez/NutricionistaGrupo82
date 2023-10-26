@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Entidades">
+  <ClassDiagramComponents>
+    <Class name="Comida" package="Entidades" visibility="public" xPosition="974.0" yPosition="136.0">
+      <Fields>
+        <Field name="idComida" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="datalle" type="String" visibility="private"/>
+        <Field name="cantCalorias" type="int" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="datalle"/>
+          <Argument type="int" name="cantCalorias"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idComida"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="datalle"/>
+          <Argument type="int" name="cantCalorias"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCantCalorias" returnType="int" visibility="public"/>
+        <Method name="setCantCalorias" returnType="void" visibility="public">
+          <Argument type="int" name="cantCalorias"/>
+        </Method>
+        <Method name="getIdComida" returnType="int" visibility="public"/>
+        <Method name="setIdComida" returnType="void" visibility="public">
+          <Argument type="int" name="idComida"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getDatalle" returnType="String" visibility="public"/>
+        <Method name="setDatalle" returnType="void" visibility="public">
+          <Argument type="String" name="datalle"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Dieta" package="Entidades" visibility="public" xPosition="316.0" yPosition="15.0">
+      <Fields>
+        <Field name="idDieta" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="paciente" type="Paciente" visibility="private"/>
+        <Field name="fechaInicial" type="LocalDate" visibility="private"/>
+        <Field name="pesoInicial" type="double" visibility="private"/>
+        <Field name="pesoFinal" type="double" visibility="private"/>
+        <Field name="fechaFinal" type="LocalDate" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="Paciente" name="paciente"/>
+          <Argument type="LocalDate" name="fechaInicial"/>
+          <Argument type="double" name="pesoInicial"/>
+          <Argument type="double" name="pesoFinal"/>
+          <Argument type="LocalDate" name="fechaFinal"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idDieta"/>
+          <Argument type="String" name="nombre"/>
+          <Argument type="Paciente" name="paciente"/>
+          <Argument type="LocalDate" name="fechaInicial"/>
+          <Argument type="double" name="pesoInicial"/>
+          <Argument type="double" name="pesoFinal"/>
+          <Argument type="LocalDate" name="fechaFinal"/>
+          <Argument type="boolean" name="estado"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getFechaFinal" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaFinal" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaFinal"/>
+        </Method>
+        <Method name="getIdDieta" returnType="int" visibility="public"/>
+        <Method name="setIdDieta" returnType="void" visibility="public">
+          <Argument type="int" name="idDieta"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getPaciente" returnType="Paciente" visibility="public"/>
+        <Method name="setPaciente" returnType="void" visibility="public">
+          <Argument type="Paciente" name="paciente"/>
+        </Method>
+        <Method name="getFechaInicial" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaInicial" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaInicial"/>
+        </Method>
+        <Method name="getPesoInicial" returnType="double" visibility="public"/>
+        <Method name="setPesoInicial" returnType="void" visibility="public">
+          <Argument type="double" name="pesoInicial"/>
+        </Method>
+        <Method name="getPesoFinal" returnType="double" visibility="public"/>
+        <Method name="setPesoFinal" returnType="void" visibility="public">
+          <Argument type="double" name="pesoFinal"/>
+        </Method>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DietaComida" package="Entidades" visibility="public" xPosition="647.0" yPosition="155.0">
+      <Fields>
+        <Field name="idDietaComida" type="int" visibility="private"/>
+        <Field name="comida" type="Comida" visibility="private"/>
+        <Field name="dieta" type="Dieta" visibility="private"/>
+        <Field name="horario" type="Horario" visibility="private"/>
+        <Field name="porcion" type="double" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idDietaComida"/>
+          <Argument type="Comida" name="comida"/>
+          <Argument type="Dieta" name="dieta"/>
+          <Argument type="Horario" name="horario"/>
+          <Argument type="double" name="porcion"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDieta" returnType="Dieta" visibility="public"/>
+        <Method name="setDieta" returnType="void" visibility="public">
+          <Argument type="Dieta" name="dieta"/>
+        </Method>
+        <Method name="getIdDietaComida" returnType="int" visibility="public"/>
+        <Method name="setIdDietaComida" returnType="void" visibility="public">
+          <Argument type="int" name="idDietaComida"/>
+        </Method>
+        <Method name="getComida" returnType="Comida" visibility="public"/>
+        <Method name="setComida" returnType="void" visibility="public">
+          <Argument type="Comida" name="comida"/>
+        </Method>
+        <Method name="getHorario" returnType="Horario" visibility="public"/>
+        <Method name="setHorario" returnType="void" visibility="public">
+          <Argument type="Horario" name="horario"/>
+        </Method>
+        <Method name="getPorcion" returnType="double" visibility="public"/>
+        <Method name="setPorcion" returnType="void" visibility="public">
+          <Argument type="double" name="porcion"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Historial" package="Entidades" visibility="public" xPosition="316.0" yPosition="629.0">
+      <Fields>
+        <Field name="idHistorial" type="int" visibility="private"/>
+        <Field name="paciente" type="Paciente" visibility="private"/>
+        <Field name="peso" type="double" visibility="private"/>
+        <Field name="fechaRegistro" type="LocalDate" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="idHistorial"/>
+          <Argument type="double" name="peso"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="Paciente" name="paciente"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="LocalDate" name="fechaRegistro"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="int" name="idHistorial"/>
+          <Argument type="Paciente" name="paciente"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="LocalDate" name="fechaRegistro"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getIdHistorial" returnType="int" visibility="public"/>
+        <Method name="setIdHistorial" returnType="void" visibility="public">
+          <Argument type="int" name="idHistorial"/>
+        </Method>
+        <Method name="getPaciente" returnType="Paciente" visibility="public"/>
+        <Method name="setPaciente" returnType="void" visibility="public">
+          <Argument type="Paciente" name="paciente"/>
+        </Method>
+        <Method name="getPeso" returnType="double" visibility="public"/>
+        <Method name="setPeso" returnType="void" visibility="public">
+          <Argument type="double" name="peso"/>
+        </Method>
+        <Method name="getFechaRegistro" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaRegistro" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaRegistro"/>
+        </Method>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Paciente" package="Entidades" visibility="public" xPosition="8.0" yPosition="15.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="apellido" type="String" visibility="private"/>
+        <Field name="dni" type="int" visibility="private"/>
+        <Field name="domicilio" type="String" visibility="private"/>
+        <Field name="telefono" type="String" visibility="private"/>
+        <Field name="idPaciente" type="int" visibility="private"/>
+        <Field name="sexo" type="String" visibility="private"/>
+        <Field name="pesoActual" type="double" visibility="private"/>
+        <Field name="pesoBuscado" type="double" visibility="private"/>
+        <Field name="altura" type="double" visibility="private"/>
+        <Field name="fechaNac" type="LocalDate" visibility="private"/>
+        <Field name="estado" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="domicilio"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="String" name="sexo"/>
+          <Argument type="LocalDate" name="fechaNac"/>
+          <Argument type="boolean" name="estado"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="double" name="pesoBuscado"/>
+          <Argument type="double" name="altura"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="nombre"/>
+          <Argument type="String" name="apellido"/>
+          <Argument type="int" name="dni"/>
+          <Argument type="String" name="domicilio"/>
+          <Argument type="String" name="telefono"/>
+          <Argument type="int" name="idPaciente"/>
+          <Argument type="String" name="sexo"/>
+          <Argument type="LocalDate" name="fechaNac"/>
+          <Argument type="boolean" name="estado"/>
+          <Argument type="double" name="peso"/>
+          <Argument type="double" name="pesoBuscado"/>
+          <Argument type="double" name="altura"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isEstado" returnType="boolean" visibility="public"/>
+        <Method name="setEstado" returnType="void" visibility="public">
+          <Argument type="boolean" name="estado"/>
+        </Method>
+        <Method name="getNombre" returnType="String" visibility="public"/>
+        <Method name="setNombre" returnType="void" visibility="public">
+          <Argument type="String" name="nombre"/>
+        </Method>
+        <Method name="getApellido" returnType="String" visibility="public"/>
+        <Method name="setApellido" returnType="void" visibility="public">
+          <Argument type="String" name="apellido"/>
+        </Method>
+        <Method name="getDni" returnType="int" visibility="public"/>
+        <Method name="setDni" returnType="void" visibility="public">
+          <Argument type="int" name="dni"/>
+        </Method>
+        <Method name="getDomicilio" returnType="String" visibility="public"/>
+        <Method name="setDomicilio" returnType="void" visibility="public">
+          <Argument type="String" name="domicilio"/>
+        </Method>
+        <Method name="getTelefono" returnType="String" visibility="public"/>
+        <Method name="setTelefono" returnType="void" visibility="public">
+          <Argument type="String" name="telefono"/>
+        </Method>
+        <Method name="getIdPaciente" returnType="int" visibility="public"/>
+        <Method name="setIdPaciente" returnType="void" visibility="public">
+          <Argument type="int" name="idPaciente"/>
+        </Method>
+        <Method name="getSexo" returnType="String" visibility="public"/>
+        <Method name="setSexo" returnType="void" visibility="public">
+          <Argument type="String" name="sexo"/>
+        </Method>
+        <Method name="getFechaNac" returnType="LocalDate" visibility="public"/>
+        <Method name="setFechaNac" returnType="void" visibility="public">
+          <Argument type="LocalDate" name="fechaNac"/>
+        </Method>
+        <Method name="setPeso" returnType="void" visibility="public">
+          <Argument type="double" name="peso"/>
+        </Method>
+        <Method name="getPeso" returnType="double" visibility="public"/>
+        <Method name="setAltura" returnType="void" visibility="public">
+          <Argument type="double" name="altura"/>
+        </Method>
+        <Method name="getAltura" returnType="double" visibility="public"/>
+        <Method name="getPesoBuscado" returnType="double" visibility="public"/>
+        <Method name="setPesoBuscado" returnType="void" visibility="public">
+          <Argument type="double" name="pesoBuscado"/>
+        </Method>
+        <Method name="getFullname" returnType="String" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="paciente" source="Entidades.Historial" target="Entidades.Paciente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.DietaComida" target="Entidades.Comida" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Dieta" target="Entidades.Paciente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="dieta" source="Entidades.DietaComida" target="Entidades.Dieta" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="comida" source="Entidades.DietaComida" target="Entidades.Comida" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="paciente" source="Entidades.Dieta" target="Entidades.Paciente" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.Historial" target="Entidades.Paciente" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Entidades.DietaComida" target="Entidades.Dieta" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>

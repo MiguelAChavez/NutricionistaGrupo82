@@ -37,7 +37,7 @@ public class ComidaData {
             if (resultado.next()) {
 
                 comida.setIdComida(resultado.getInt(1));
-                JOptionPane.showMessageDialog(null, "Comida creada con éxito");
+                JOptionPane.showMessageDialog(null, "La comida fué creada con éxito");
 
             }
             ps.close();
@@ -63,7 +63,7 @@ public class ComidaData {
             }
             ps.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error en la tabla comida " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al conectar a la tabla comida " + ex.getMessage());
         }
     }
 
@@ -77,13 +77,13 @@ public class ComidaData {
             int res = ps.executeUpdate();
             if (res == 1) {
 
-                JOptionPane.showMessageDialog(null, " Se eliminó la comida.");
+                JOptionPane.showMessageDialog(null, "La comida se eliminó exitosamente");
             }
 
             ps.close();
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Comida." + e.getMessage());
+            JOptionPane.showMessageDialog(null, " Error al acceder a la tabla comida" + e.getMessage());
         }
 
     }
@@ -247,10 +247,10 @@ public class ComidaData {
 
             int res = ps.executeUpdate();
             if (res > 0) {
-                JOptionPane.showMessageDialog(null, "Fué dada de alta nuevamente.");
+                JOptionPane.showMessageDialog(null, "La comida se dió de alta nuevamente");
             }
         } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Comida.");
+            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla comida");
         }
     }
 
