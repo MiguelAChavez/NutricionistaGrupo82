@@ -16,7 +16,7 @@ public class Validacion {
     }
 
     public static boolean isValidoStringCNumero(String cadena) {
-        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ% 0-9]*$");
+        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ%,. 0-9]*$");
     }
 
     public static boolean isValidoNumero(String cadena) {

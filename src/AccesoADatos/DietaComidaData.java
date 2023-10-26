@@ -30,8 +30,8 @@ public class DietaComidaData {
     
     public static void crearDietaComida(DietaComida dietaComida) {
         
-        String sql = "INSERT INTO dieta ( idComida, idDieta, horario, porcion) "
-                + "VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO dietacomida(`idComida`, `idDieta`, `horario`, `porcion`) "
+                + "VALUES (?, ?, ?, ?);";
         try {
             PreparedStatement ps = CONN.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             

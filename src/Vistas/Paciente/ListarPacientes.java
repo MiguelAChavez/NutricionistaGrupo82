@@ -136,6 +136,9 @@ public class ListarPacientes extends javax.swing.JPanel {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTTextoKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTTextoKeyTyped(evt);
+            }
         });
         add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 40));
 
@@ -263,6 +266,13 @@ public class ListarPacientes extends javax.swing.JPanel {
     private void jTCantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTCantActionPerformed
 
     }//GEN-LAST:event_jTCantActionPerformed
+
+    private void jTTextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoKeyTyped
+        char caracter  = evt.getKeyChar();
+        if((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTTextoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

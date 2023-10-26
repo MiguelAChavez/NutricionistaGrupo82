@@ -80,6 +80,11 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 jTFNombreComidaActionPerformed(evt);
             }
         });
+        jTFNombreComida.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFNombreComidaKeyTyped(evt);
+            }
+        });
         panelRound1.add(jTFNombreComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 53, 229, 40));
 
         jTFCaloria.setBackground(new java.awt.Color(35, 35, 35));
@@ -302,6 +307,13 @@ public class FormularioComidaView extends javax.swing.JPanel {
     private void jTFCaloriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCaloriaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFCaloriaActionPerformed
+
+    private void jTFNombreComidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreComidaKeyTyped
+        char caracter  = evt.getKeyChar();
+        if((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z')){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFNombreComidaKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
