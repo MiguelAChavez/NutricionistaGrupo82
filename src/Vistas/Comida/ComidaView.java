@@ -40,7 +40,7 @@ public class ComidaView extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         PRFondo1 = new utils.PanelRound();
-        jBFormularioP1 = new javax.swing.JButton();
+        jBFormularioC = new javax.swing.JButton();
         jBListarComida = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -119,23 +119,23 @@ public class ComidaView extends javax.swing.JPanel {
         PRFondo1.setRoundTopRight(40);
         PRFondo1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jBFormularioP1.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
-        jBFormularioP1.setText("Formulario");
-        jBFormularioP1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.black));
-        jBFormularioP1.setBorderPainted(false);
-        jBFormularioP1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBFormularioP1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        jBFormularioP1.addFocusListener(new java.awt.event.FocusAdapter() {
+        jBFormularioC.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
+        jBFormularioC.setText("Formulario");
+        jBFormularioC.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.black));
+        jBFormularioC.setBorderPainted(false);
+        jBFormularioC.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBFormularioC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBFormularioC.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                jBFormularioP1FocusGained(evt);
+                jBFormularioCFocusGained(evt);
             }
         });
-        jBFormularioP1.addActionListener(new java.awt.event.ActionListener() {
+        jBFormularioC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBFormularioP1ActionPerformed(evt);
+                jBFormularioCActionPerformed(evt);
             }
         });
-        PRFondo1.add(jBFormularioP1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 240, 70));
+        PRFondo1.add(jBFormularioC, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 240, 70));
 
         jBListarComida.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarComida.setText("Listar ");
@@ -193,13 +193,13 @@ public class ComidaView extends javax.swing.JPanel {
       
     }//GEN-LAST:event_jBListarPActionPerformed
 
-    private void jBFormularioP1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioP1FocusGained
+    private void jBFormularioCFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jBFormularioCFocusGained
         CargarComponente.showComponents(new FormularioComidaView(), this.contenedor);
-    }//GEN-LAST:event_jBFormularioP1FocusGained
+    }//GEN-LAST:event_jBFormularioCFocusGained
 
-    private void jBFormularioP1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioP1ActionPerformed
+    private void jBFormularioCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioCActionPerformed
      
-    }//GEN-LAST:event_jBFormularioP1ActionPerformed
+    }//GEN-LAST:event_jBFormularioCActionPerformed
 
     private void jBListarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBListarComidaActionPerformed
        CargarComponente.showComponents(new ListarComidaView(), this.contenedor);
@@ -209,8 +209,8 @@ public class ComidaView extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRFondo;
     private utils.PanelRound PRFondo1;
+    private javax.swing.JButton jBFormularioC;
     private javax.swing.JButton jBFormularioP;
-    private javax.swing.JButton jBFormularioP1;
     private javax.swing.JButton jBListarComida;
     private javax.swing.JButton jBListarP;
     private javax.swing.JLabel jLabel2;

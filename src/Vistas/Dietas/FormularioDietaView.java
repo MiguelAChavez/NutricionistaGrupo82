@@ -44,6 +44,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         this.nutricionistaDesk = nutricionistaDesk;
         this.jBBuscarPaciente.setToolTipText("Buscar");
         this.jDFechaInicioDieta.setMinSelectableDate(new Date());
+        
         date();
     }
 
@@ -420,6 +421,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jBCancelarD.setBorderPainted(false);
         jBCancelarD.setContentAreaFilled(false);
         jBCancelarD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBCancelarD.setEnabled(false);
         jBCancelarD.setOpaque(true);
         jBCancelarD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -568,11 +570,12 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private void jBBuscarD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarD1ActionPerformed
         String nombre = this.jTFNombreDieta1.getText().trim();
         if (Validacion.isValidoString(nombre)) {
-            this.dietaD = DietaData.buscarDietaPorNombre("", Estado.TODOS);
+            this.dietaD = DietaData.buscarDietaPorNombre(nombre, Estado.TODOS);
             if (this.dietaD != null) {
                 cargarCampos(this.dietaD);
                 this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
                 this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+                invertirEstado();
             }
         } else {
             JOptionPane.showMessageDialog(this, "");

@@ -124,7 +124,7 @@ public class DietaData {
                 break;
         }
 
-        sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
+        sql = "SELECT * FROM dieta WHERE nombre LIKE ? " + estado;
 
         Dieta dieta = null;
         PreparedStatement ps;
@@ -136,12 +136,13 @@ public class DietaData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 dieta = new Dieta();
-                dieta.setIdDieta(rs.getInt("idComida"));
+                dieta.setIdDieta(rs.getInt("idDieta"));
                 dieta.setNombre(rs.getString("nombre"));
+                dieta.setPaciente(PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), isActivo));
                 dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
-                dieta.setPesoInicial(rs.getDouble("pesoInical"));
+                dieta.setPesoInicial(rs.getDouble("pesoInicial"));
                 dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
-                dieta.setPesoFinal(rs.getDouble("pesoBuscado"));
+                dieta.setPesoFinal(rs.getDouble("pesoFinal"));
 
             } else {
                 JOptionPane.showMessageDialog(null, "La dieta no existe");

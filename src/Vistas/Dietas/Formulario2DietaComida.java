@@ -58,8 +58,8 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         } else {
             this.MI_DIETA = dieta1;
             this.jComboBoxDietaComida.setEnabled(Boolean.FALSE);
-            cargarTabla(DietaComidaData.buscarDietaComidaPorIdDieta(this.MI_DIETA.getIdDieta()));
             jCBComidas.setEnabled(Boolean.TRUE);
+            cargarTabla(DietaComidaData.buscarDietaComidaPorIdDieta(this.MI_DIETA.getIdDieta()));
         }
         iniciarComboComida();
     }
@@ -143,7 +143,13 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
         jCBComidas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jCBComidas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar comidas" }));
+        jCBComidas.setSelectedIndex(-1);
         jCBComidas.setEnabled(false);
+        jCBComidas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBComidasActionPerformed(evt);
+            }
+        });
         add(jCBComidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 398, 30));
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
@@ -218,6 +224,15 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
     private void jBAgregarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBAgregarComidaActionPerformed
 
     }//GEN-LAST:event_jBAgregarComidaActionPerformed
+
+    private void jCBComidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBComidasActionPerformed
+        if (this.jCBComidas.getSelectedItem().getClass() != String.class) {
+            jBAgregarComida.setEnabled(Boolean.TRUE);
+
+        } else {
+            jBAgregarComida.setEnabled(Boolean.FALSE);
+        }
+    }//GEN-LAST:event_jCBComidasActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
