@@ -44,8 +44,7 @@ public class DietaComidaData {
             
             ResultSet rs = ps.getGeneratedKeys();
             
-            if (rs.next()) {
-                
+            if (rs.next()) {    
                 dietaComida.setIdDietaComida(rs.getInt(1));
                 JOptionPane.showMessageDialog(null, "La dietaComida ha sido creada con exito");
             }
