@@ -743,10 +743,10 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 return null;
             }
 
-            String nombre = this.jTFNombre.getText();
-            String apellido = this.jTFApellido.getText();
-            String telefono = this.jTFTelefono.getText();
-            String domicilio = this.jTFDomicilio.getText();
+            String nombre = this.jTFNombre.getText().trim();
+            String apellido = this.jTFApellido.getText().trim();
+            String telefono = this.jTFTelefono.getText().trim();
+            String domicilio = this.jTFDomicilio.getText().trim();
 
             if (nombre.isEmpty() || apellido.isEmpty() || telefono.isEmpty() || domicilio.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacios.");
