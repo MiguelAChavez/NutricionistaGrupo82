@@ -61,7 +61,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jSNombre2.setToolTipText("");
         jSNombre2.setOpaque(true);
         jSNombre2.setPreferredSize(new java.awt.Dimension(50, 2));
-        panelRound1.add(jSNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 170, 148, 3));
+        panelRound1.add(jSNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 167, 148, 3));
 
         jSNombre.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre.setToolTipText("");
@@ -107,17 +107,17 @@ public class FormularioComidaView extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nombre");
-        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 51, 79, 40));
+        panelRound1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 79, 40));
 
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Calorias");
-        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 122, 79, 40));
+        panelRound1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 79, 40));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Detalle");
-        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 34));
+        panelRound1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 70, 34));
 
         jBEditar.setBackground(new java.awt.Color(0, 204, 255));
         jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -185,7 +185,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 jBBuscarCActionPerformed(evt);
             }
         });
-        panelRound1.add(jBBuscarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 80, 40));
+        panelRound1.add(jBBuscarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 53, 80, 40));
 
         jBCancelarC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelarC.setToolTipText("");
@@ -200,7 +200,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
                 jBCancelarCActionPerformed(evt);
             }
         });
-        panelRound1.add(jBCancelarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 50, 40, 40));
+        panelRound1.add(jBCancelarC, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 53, 40, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -218,7 +218,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelRound1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(289, 289, 289))
+                .addGap(301, 301, 301))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -338,7 +338,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
             if (nombre.isEmpty() || detalle.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "No puede haber campos de texto vacios.");
                 return null;
-            } else if (!Validacion.isValidoString(nombre) || Validacion.isValidoString(detalle)) {
+            } else if (!Validacion.isValidoString(nombre) || !Validacion.isValidoString(detalle)) {
                 JOptionPane.showMessageDialog(this, "Alguno de los campos de texto contiene caracteres inválidos.");
                 return null;
             }

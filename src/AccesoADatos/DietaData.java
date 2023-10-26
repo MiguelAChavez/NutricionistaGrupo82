@@ -45,9 +45,14 @@ public class DietaData {
             }
             ps.close();
 
-        } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dieta " + ex.getMessage());
-
+        } catch (SQLException ex) {
+            if (ex.getErrorCode() == 1062) {
+                JOptionPane.showMessageDialog(null, "El nombre de la dieta ya existe.");
+            } else {
+                JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dieta " + ex.getMessage());
+            }
+        } catch (NullPointerException E) {
+            
         }
 
     }
@@ -132,7 +137,7 @@ public class DietaData {
             if (rs.next()) {
                 dieta = new Dieta();
                 dieta.setIdDieta(rs.getInt("idComida"));
-                dieta.setNombre(cadena);
+                dieta.setNombre(rs.getString("nombre"));
                 dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
                 dieta.setPesoInicial(rs.getDouble("pesoInical"));
                 dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());

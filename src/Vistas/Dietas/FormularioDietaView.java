@@ -1,14 +1,31 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * To change this license header, choose Lic    @Override
+    public boolean keyDown(Event event, int i) {
+        return super.keyDown(event, i); //To change body of generated methods, choose Tools | Templates.
+    }
+ense Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package Vistas.Dietas;
 
+import AccesoADatos.DietaComidaData;
+import AccesoADatos.DietaData;
+import AccesoADatos.PacienteData;
 import Entidades.*;
 import Vistas.DeskNutricionista;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.temporal.TemporalAmount;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 import javax.swing.JOptionPane;
 import utils.CargarComponente;
+import utils.Estado;
+import utils.Validacion;
 
 /**
  *
@@ -16,7 +33,7 @@ import utils.CargarComponente;
  */
 public class FormularioDietaView extends javax.swing.JPanel {
 
-    private Dieta dietaD;
+    private Dieta dietaD = new Dieta();
     /**
      * Creates new form NewJdd
      */
@@ -25,7 +42,9 @@ public class FormularioDietaView extends javax.swing.JPanel {
     public FormularioDietaView(DeskNutricionista nutricionistaDesk) {
         initComponents();
         this.nutricionistaDesk = nutricionistaDesk;
-        this.jBBuscarD.setToolTipText("Buscar");
+        this.jBBuscarPaciente.setToolTipText("Buscar");
+        this.jDFechaInicioDieta.setMinSelectableDate(new Date());
+        date();
     }
 
     /**
@@ -35,9 +54,9 @@ public class FormularioDietaView extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLTdieta = new javax.swing.JLabel();
         PRSeccion = new utils.PanelRound();
         jSNombre = new javax.swing.JSeparator();
-        jTFNombrePaciente = new javax.swing.JTextField();
         jLNombre = new javax.swing.JLabel();
         jLDni = new javax.swing.JLabel();
         jSDni = new javax.swing.JSeparator();
@@ -55,8 +74,8 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLFechaNac2 = new javax.swing.JLabel();
         jDFechaFinDieta = new com.toedter.calendar.JDateChooser();
         jTFPesoBuscadoDieta = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButtonSiguienteDieta = new javax.swing.JButton();
+        jCBPacientes = new javax.swing.JComboBox<>();
+        jBSiguienteDieta = new javax.swing.JButton();
         jSNombre7 = new javax.swing.JSeparator();
         jSNombre8 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -65,13 +84,19 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jTFNombreDieta1 = new javax.swing.JTextField();
         jLKg2 = new javax.swing.JLabel();
-        jSDni1 = new javax.swing.JSeparator();
-        jBBuscarD = new javax.swing.JButton();
+        jBBuscarPaciente = new javax.swing.JButton();
         jBCancelarD = new javax.swing.JButton();
-        jLTdieta = new javax.swing.JLabel();
+        jBBuscarD1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
+        jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
+        jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
+        jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTdieta.setText("Formulario dieta");
+        add(jLTdieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 479, -1));
 
         PRSeccion.setBackground(new java.awt.Color(51, 51, 51));
         PRSeccion.setRoundBottomLeft(50);
@@ -86,31 +111,10 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jSNombre.setPreferredSize(new java.awt.Dimension(50, 2));
         PRSeccion.add(jSNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 172, 300, 0));
 
-        jTFNombrePaciente.setBackground(new java.awt.Color(35, 35, 35));
-        jTFNombrePaciente.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTFNombrePaciente.setForeground(new java.awt.Color(204, 204, 204));
-        jTFNombrePaciente.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createEmptyBorder(2, 15, 2, 15), javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1)));
-        jTFNombrePaciente.setCaretColor(new java.awt.Color(51, 153, 255));
-        jTFNombrePaciente.setSelectionColor(new java.awt.Color(102, 102, 102));
-        jTFNombrePaciente.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jTFNombrePacienteFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jTFNombrePacienteFocusLost(evt);
-            }
-        });
-        jTFNombrePaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNombrePacienteActionPerformed(evt);
-            }
-        });
-        PRSeccion.add(jTFNombrePaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 190, 40));
-
         jLNombre.setBackground(new java.awt.Color(255, 255, 255));
         jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLNombre.setText("Paciente");
+        jLNombre.setText("Pacientes");
         PRSeccion.add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, 20));
 
         jLDni.setBackground(new java.awt.Color(255, 255, 255));
@@ -134,19 +138,19 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLPeso.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPeso.setForeground(new java.awt.Color(255, 255, 255));
         jLPeso.setText("Peso Inicial");
-        PRSeccion.add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, 90, 20));
+        PRSeccion.add(jLPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, 90, 20));
 
         jSPeso.setForeground(new java.awt.Color(255, 255, 255));
         jSPeso.setToolTipText("");
         jSPeso.setOpaque(true);
         jSPeso.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 340, 110, -1));
+        PRSeccion.add(jSPeso, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 110, -1));
 
         jLPesoDeseado.setBackground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setText("Peso Buscado");
-        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 280, 130, 20));
+        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 130, 20));
 
         jTFPesoIncialDieta.setEditable(false);
         jTFPesoIncialDieta.setBackground(new java.awt.Color(35, 35, 35));
@@ -173,13 +177,13 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jTFPesoIncialDietaKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoIncialDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, 110, 40));
+        PRSeccion.add(jTFPesoIncialDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, 110, 40));
 
         jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre6.setToolTipText("");
         jSNombre6.setOpaque(true);
         jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 110, -1));
+        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 110, -1));
 
         jBEditarDieta.setBackground(new java.awt.Color(0, 204, 255));
         jBEditarDieta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -238,10 +242,19 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
         jLKg.setText("(Kg.)");
-        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 40, 40));
+        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 40, 40));
 
         jDFechaInicioDieta.setBackground(new java.awt.Color(102, 102, 102));
         jDFechaInicioDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jDFechaInicioDieta.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jDFechaInicioDietaAncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
         PRSeccion.add(jDFechaInicioDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 440, 160, 35));
 
         jLFechaNac2.setBackground(new java.awt.Color(255, 255, 255));
@@ -250,7 +263,8 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLFechaNac2.setText("Fecha de fin");
         PRSeccion.add(jLFechaNac2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
 
-        jDFechaFinDieta.setBackground(new java.awt.Color(102, 102, 102));
+        jDFechaFinDieta.setBackground(new java.awt.Color(255, 255, 255));
+        jDFechaFinDieta.setEnabled(false);
         jDFechaFinDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         PRSeccion.add(jDFechaFinDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 440, 160, 35));
 
@@ -279,35 +293,45 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 jTFPesoBuscadoDietaKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoBuscadoDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, 40));
+        PRSeccion.add(jTFPesoBuscadoDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 110, 40));
 
-        jComboBox1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+        jCBPacientes.setEditable(true);
+        jCBPacientes.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jCBPacientes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jCBPacientesFocusLost(evt);
             }
         });
-        PRSeccion.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 220, 210, 40));
-
-        jButtonSiguienteDieta.setBackground(new java.awt.Color(153, 204, 255));
-        jButtonSiguienteDieta.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        jButtonSiguienteDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/s⁫iguiente.png"))); // NOI18N
-        jButtonSiguienteDieta.setText("Siguiente");
-        jButtonSiguienteDieta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(42, 42, 63)));
-        jButtonSiguienteDieta.setContentAreaFilled(false);
-        jButtonSiguienteDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButtonSiguienteDieta.setEnabled(false);
-        jButtonSiguienteDieta.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jButtonSiguienteDieta.setInheritsPopupMenu(true);
-        jButtonSiguienteDieta.setOpaque(true);
-        jButtonSiguienteDieta.addActionListener(new java.awt.event.ActionListener() {
+        jCBPacientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSiguienteDietaActionPerformed(evt);
+                jCBPacientesActionPerformed(evt);
             }
         });
-        PRSeccion.add(jButtonSiguienteDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 90, 40));
-        jButtonSiguienteDieta.getAccessibleContext().setAccessibleName(" Siguiente");
+        jCBPacientes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jCBPacientesKeyTyped(evt);
+            }
+        });
+        PRSeccion.add(jCBPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 250, 40));
+
+        jBSiguienteDieta.setBackground(new java.awt.Color(153, 204, 255));
+        jBSiguienteDieta.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jBSiguienteDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/s⁫iguiente.png"))); // NOI18N
+        jBSiguienteDieta.setText("Siguiente");
+        jBSiguienteDieta.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(42, 42, 63)));
+        jBSiguienteDieta.setContentAreaFilled(false);
+        jBSiguienteDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSiguienteDieta.setEnabled(false);
+        jBSiguienteDieta.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jBSiguienteDieta.setInheritsPopupMenu(true);
+        jBSiguienteDieta.setOpaque(true);
+        jBSiguienteDieta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSiguienteDietaActionPerformed(evt);
+            }
+        });
+        PRSeccion.add(jBSiguienteDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 530, 90, 40));
+        jBSiguienteDieta.getAccessibleContext().setAccessibleName(" Siguiente");
 
         jSNombre7.setBackground(new java.awt.Color(204, 204, 204));
         jSNombre7.setForeground(new java.awt.Color(255, 255, 255));
@@ -373,27 +397,22 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLKg2.setForeground(new java.awt.Color(255, 255, 255));
         jLKg2.setText("(Kg.)");
-        PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, 40, 40));
+        PRSeccion.add(jLKg2, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, 40, 40));
 
-        jSDni1.setForeground(new java.awt.Color(255, 255, 255));
-        jSDni1.setToolTipText("");
-        jSDni1.setOpaque(true);
-        PRSeccion.add(jSDni1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 190, -1));
-
-        jBBuscarD.setBackground(new java.awt.Color(51, 153, 255));
-        jBBuscarD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
-        jBBuscarD.setToolTipText("Buscar por nombre");
-        jBBuscarD.setBorder(null);
-        jBBuscarD.setBorderPainted(false);
-        jBBuscarD.setContentAreaFilled(false);
-        jBBuscarD.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBBuscarD.setOpaque(true);
-        jBBuscarD.addActionListener(new java.awt.event.ActionListener() {
+        jBBuscarPaciente.setBackground(new java.awt.Color(51, 153, 255));
+        jBBuscarPaciente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBBuscarPaciente.setToolTipText("Buscar por nombre");
+        jBBuscarPaciente.setBorder(null);
+        jBBuscarPaciente.setBorderPainted(false);
+        jBBuscarPaciente.setContentAreaFilled(false);
+        jBBuscarPaciente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBBuscarPaciente.setOpaque(true);
+        jBBuscarPaciente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBBuscarDActionPerformed(evt);
+                jBBuscarPacienteActionPerformed(evt);
             }
         });
-        PRSeccion.add(jBBuscarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 80, 40));
+        PRSeccion.add(jBBuscarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 230, 70, 40));
 
         jBCancelarD.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelarD.setToolTipText("");
@@ -409,27 +428,23 @@ public class FormularioDietaView extends javax.swing.JPanel {
         });
         PRSeccion.add(jBCancelarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 40, 40));
 
+        jBBuscarD1.setBackground(new java.awt.Color(51, 153, 255));
+        jBBuscarD1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
+        jBBuscarD1.setToolTipText("Buscar por nombre");
+        jBBuscarD1.setBorder(null);
+        jBBuscarD1.setBorderPainted(false);
+        jBBuscarD1.setContentAreaFilled(false);
+        jBBuscarD1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBBuscarD1.setOpaque(true);
+        jBBuscarD1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBBuscarD1ActionPerformed(evt);
+            }
+        });
+        PRSeccion.add(jBBuscarD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 90, 80, 40));
+
         add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 46, 479, 600));
-
-        jLTdieta.setBackground(new java.awt.Color(51, 51, 51));
-        jLTdieta.setFont(new java.awt.Font("Roboto", 1, 36)); // NOI18N
-        jLTdieta.setForeground(new java.awt.Color(255, 255, 255));
-        jLTdieta.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTdieta.setText("Formulario dieta");
-        add(jLTdieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(305, 0, 479, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTFNombrePacienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombrePacienteFocusGained
-
-    }//GEN-LAST:event_jTFNombrePacienteFocusGained
-
-    private void jTFNombrePacienteFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombrePacienteFocusLost
-
-    }//GEN-LAST:event_jTFNombrePacienteFocusLost
-
-    private void jTFNombrePacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombrePacienteActionPerformed
-
-    }//GEN-LAST:event_jTFNombrePacienteActionPerformed
 
     private void jTFPesoIncialDietaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaFocusGained
         // TODO add your handling code here:
@@ -440,7 +455,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoIncialDietaFocusLost
 
     private void jTFPesoIncialDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaActionPerformed
-    
+
     }//GEN-LAST:event_jTFPesoIncialDietaActionPerformed
 
     private void jTFPesoIncialDietaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPesoIncialDietaKeyTyped
@@ -455,7 +470,11 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBEditarDietaActionPerformed
 
     private void jBCrearDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearDietaActionPerformed
-
+        this.dietaD = crearDieta(this.dietaD);
+        if (this.dietaD != null) {
+            DietaData.crearDieta(dietaD);
+            invertirEstado();
+        }
     }//GEN-LAST:event_jBCrearDietaActionPerformed
 
     private void jBEliminarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaActionPerformed
@@ -471,21 +490,29 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoBuscadoDietaFocusLost
 
     private void jTFPesoBuscadoDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaActionPerformed
-        
+
     }//GEN-LAST:event_jTFPesoBuscadoDietaActionPerformed
 
     private void jTFPesoBuscadoDietaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaKeyTyped
-       
+
     }//GEN-LAST:event_jTFPesoBuscadoDietaKeyTyped
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-      
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    private void jCBPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBPacientesActionPerformed
 
-    private void jButtonSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSiguienteDietaActionPerformed
+        if (jCBPacientes.getSelectedItem() != null) {
+            if (jCBPacientes.getSelectedItem().getClass() != String.class) {
+                Paciente paciente = (Paciente) this.jCBPacientes.getSelectedItem();
+                this.dietaD.setPaciente(paciente);
+                this.jTFPesoIncialDieta.setText(paciente.getPeso() + "");
+                this.jTFPesoBuscadoDieta.setText(paciente.getPesoBuscado() + "");
+            }
+        }
+    }//GEN-LAST:event_jCBPacientesActionPerformed
+
+    private void jBSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSiguienteDietaActionPerformed
 
         CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), this.nutricionistaDesk);
-    }//GEN-LAST:event_jButtonSiguienteDietaActionPerformed
+    }//GEN-LAST:event_jBSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained
         // TODO add your handling code here:
@@ -497,31 +524,77 @@ public class FormularioDietaView extends javax.swing.JPanel {
 
     private void jTFNombreDieta1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNombreDieta1ActionPerformed
         // TODO add your handling code here:
-             JOptionPane.showConfirmDialog(this, ui);
+        JOptionPane.showConfirmDialog(this, ui);
     }//GEN-LAST:event_jTFNombreDieta1ActionPerformed
 
     private void jTFNombreDieta1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreDieta1KeyTyped
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFNombreDieta1KeyTyped
 
-    private void jBBuscarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarDActionPerformed
-       
-    }//GEN-LAST:event_jBBuscarDActionPerformed
+    private void jBBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarPacienteActionPerformed
+        String filtro = this.jCBPacientes.getEditor().getItem().toString();
+        if (Validacion.isValidoString(filtro)) {
+            List<Paciente> pacientes = PacienteData.ListarPorNombreOApellido(filtro, Estado.ACTIVO);
+            if (pacientes != null) {
+                if (pacientes.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "No se a encontrado ningun paciente");
+                    return;
+                }
+                jCBPacientes.removeAllItems();
+                for (Paciente paciente : pacientes) {
+                    jCBPacientes.addItem(paciente);
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "Caracteres invalido, por favor ingrese solo letras.");
+        }
+    }//GEN-LAST:event_jBBuscarPacienteActionPerformed
 
     private void jBCancelarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarDActionPerformed
-   
+        this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
+        this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+        limpiarCampos();
+        invertirEstado();
     }//GEN-LAST:event_jBCancelarDActionPerformed
+
+    private void jCBPacientesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jCBPacientesKeyTyped
+
+    }//GEN-LAST:event_jCBPacientesKeyTyped
+
+    private void jCBPacientesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCBPacientesFocusLost
+        this.jCBPacientes.removeAll();
+    }//GEN-LAST:event_jCBPacientesFocusLost
+
+    private void jBBuscarD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarD1ActionPerformed
+        String nombre = this.jTFNombreDieta1.getText().trim();
+        if (Validacion.isValidoString(nombre)) {
+            this.dietaD = DietaData.buscarDietaPorNombre("", Estado.TODOS);
+            if (this.dietaD != null) {
+                cargarCampos(this.dietaD);
+                this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
+                this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "");
+        }
+
+    }//GEN-LAST:event_jBBuscarD1ActionPerformed
+
+    private void jDFechaInicioDietaAncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jDFechaInicioDietaAncestorAdded
+
+    }//GEN-LAST:event_jDFechaInicioDietaAncestorAdded
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private utils.PanelRound PRSeccion;
-    private javax.swing.JButton jBBuscarD;
+    private javax.swing.JButton jBBuscarD1;
+    private javax.swing.JButton jBBuscarPaciente;
     private javax.swing.JButton jBCancelarD;
     private javax.swing.JButton jBCrearDieta;
     private javax.swing.JButton jBEditarDieta;
     private javax.swing.JButton jBEliminarDieta;
-    private javax.swing.JButton jButtonSiguienteDieta;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jBSiguienteDieta;
+    private javax.swing.JComboBox<Paciente> jCBPacientes;
     private com.toedter.calendar.JDateChooser jDFechaFinDieta;
     private com.toedter.calendar.JDateChooser jDFechaInicioDieta;
     private javax.swing.JLabel jLDni;
@@ -537,7 +610,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JSeparator jSDni;
-    private javax.swing.JSeparator jSDni1;
     private javax.swing.JSeparator jSNombre;
     private javax.swing.JSeparator jSNombre6;
     private javax.swing.JSeparator jSNombre7;
@@ -545,12 +617,105 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private javax.swing.JSeparator jSNombre9;
     private javax.swing.JSeparator jSPeso;
     private javax.swing.JTextField jTFNombreDieta1;
-    private javax.swing.JTextField jTFNombrePaciente;
     private javax.swing.JTextField jTFPesoBuscadoDieta;
     private javax.swing.JTextField jTFPesoIncialDieta;
     // End of variables declaration//GEN-END:variables
 
+    private Dieta crearDieta(Dieta dieta) {
+        try {
+            String nombre = this.jTFNombreDieta1.getText().trim();
+            if (!Validacion.isValidoString(nombre) || nombre.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "");
+                return null;
+            }
+
+            Date date = this.jDFechaInicioDieta.getDate();
+            Date dateFin = this.jDFechaFinDieta.getDate();
+            if (date == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese la fecha de inicio.");
+                return null;
+            } else if (dateFin == null) {
+                JOptionPane.showMessageDialog(this, "Por favor, ingrese la fecha de finalizacion.");
+                return null;
+            }
+
+            LocalDate fechaInicio = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate fechaFinal = dateFin.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            if (fechaInicio.isBefore(LocalDate.now())) {
+                JOptionPane.showMessageDialog(this, "");
+                return null;
+            } else if (fechaFinal.isEqual(fechaInicio) || fechaFinal.isBefore(fechaInicio)) {
+                JOptionPane.showMessageDialog(this, "");
+                return null;
+            }
+
+            if (dieta.getPaciente() == null) {
+                JOptionPane.showMessageDialog(this, "Seleccione un paciente");
+                return null;
+            }
+
+            dieta.setNombre(nombre);
+            dieta.setFechaInicial(fechaInicio);
+            dieta.setFechaFinal(fechaFinal);
+            dieta.setPesoInicial(dieta.getPaciente().getPeso());
+            dieta.setPesoFinal(dieta.getPaciente().getPesoBuscado());
+
+            return dieta;
+
+        } catch (NullPointerException e) {
+            JOptionPane.showMessageDialog(this, "Error");
+        }
+        return null;
+    }
+
+    private void date() {
+        this.jDFechaInicioDieta.addPropertyChangeListener("date", new PropertyChangeListener() {
+            @Override
+            public void propertyChange(PropertyChangeEvent evt) {
+                if ("date".equals(evt.getPropertyName()) && evt.getNewValue() != null) {
+
+                    Date selectedDate = (java.util.Date) evt.getNewValue();
+                    Calendar calendar = Calendar.getInstance();
+                    calendar.setTime(selectedDate);
+                    calendar.add(Calendar.DATE, 1);
+
+                    selectedDate = calendar.getTime();
+
+                    jDFechaFinDieta.setMinSelectableDate(selectedDate);
+                    jDFechaFinDieta.setEnabled(Boolean.TRUE);
+
+                } else {
+                    JOptionPane.showMessageDialog(null, "");
+                }
+            }
+        });
+    }
+
+    private void invertirEstado() {
+        this.jBCrearDieta.setEnabled(!this.jBCrearDieta.isEnabled());
+        this.jBEditarDieta.setEnabled(!this.jBEditarDieta.isEnabled());
+        this.jBEliminarDieta.setEnabled(!this.jBEliminarDieta.isEnabled());
+        this.jBSiguienteDieta.setEnabled(!this.jBSiguienteDieta.isEnabled());
+    }
+
+    private void cargarCampos(Dieta dieta) {
+        this.jTFNombreDieta1.setText(dieta.getNombre());
+        this.jCBPacientes.addItem(dieta.getPaciente());
+        ZoneId defaultZoneId = ZoneId.systemDefault();
+        this.jTFPesoIncialDieta.setText(dieta.getPesoInicial() + "");
+        this.jTFPesoBuscadoDieta.setText(dieta.getPaciente().getPesoBuscado() + "");
+        this.jDFechaInicioDieta.setDate(Date.from(dieta.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
+        this.jDFechaFinDieta.setDate(Date.from(dieta.getFechaFinal().atStartOfDay(defaultZoneId).toInstant()));
+    }
+
+    private void limpiarCampos() {
+        this.jTFNombreDieta1.setText("");
+        this.jCBPacientes.removeAllItems();
+        this.jTFPesoIncialDieta.setText("");
+        this.jTFPesoBuscadoDieta.setText("");
+        this.jDFechaInicioDieta.setDate(null);
+        this.jDFechaFinDieta.setDate(null);
+    }
 
 }
-
-

@@ -12,7 +12,7 @@ package utils;
 public class Validacion {
 
     public static boolean isValidoString(String cadena) {
-        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ% ]*$");
+        return cadena != null && cadena.matches("^[a-zA-ZáéíóúÁÉÍÓÚñÑ%,. ]*$");
     }
 
     public static boolean isValidoStringCNumero(String cadena) {

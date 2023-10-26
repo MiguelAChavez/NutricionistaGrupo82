@@ -47,18 +47,19 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             }
         }
     };
-    private final Dieta dieta;
+    private final Dieta MI_DIETA;
 
-    public Formulario2DietaComida(Dieta dietaS) {
+    public Formulario2DietaComida(Dieta dieta1) {
         initComponents();
         initTable();
-        if (dietaS == null) {
+        if (dieta1 == null) {
             iniciarComboDietas();
-            this.dieta = null;
+            this.MI_DIETA = null;
         } else {
-            this.dieta = dietaS;
+            this.MI_DIETA = dieta1;
             this.jComboBoxDietaComida.setEnabled(Boolean.FALSE);
-            cargarTabla(DietaComidaData.buscarDietaComidaPorIdDieta(this.dieta.getIdDieta()));
+            cargarTabla(DietaComidaData.buscarDietaComidaPorIdDieta(this.MI_DIETA.getIdDieta()));
+            jCBComidas.setEnabled(Boolean.TRUE);
         }
         iniciarComboComida();
     }

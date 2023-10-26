@@ -17,25 +17,25 @@ import utils.PanelRound;
  * @author Pc Chavez
  */
 public class DeskNutricionista extends javax.swing.JFrame {
-    
-    utils.AnimationPanel mover = new AnimationPanel();
-    
+
+    public utils.AnimationPanel mover = new AnimationPanel();
+
     private final PacientesView pacientesView;
     private final DietaView dietaView;
     private final ComidaView comidaView;
     private int ingreso = 0;
-    
+
     public DeskNutricionista() {
         initComponents();
         this.pacientesView = new PacientesView(this);
         this.dietaView = new DietaView(this);
         this.comidaView = new ComidaView(this);
-        
+
         this.setIconImage(this.getIconImage());
         this.jBDesplegar.setVisible(Boolean.FALSE);
         showComponents(new BienvenidaView());
     }
-    
+
     @Override
     public final Image getIconImage() {
         Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("Imagenes/logo-universidad-de-la-punta.png"));
@@ -425,17 +425,17 @@ public class DeskNutricionista extends javax.swing.JFrame {
         this.jPSetup.repaint();
         this.ingreso++;
     }
-    
+
     public PanelRound getPRBarraMenu() {
         return PRBarraMenu;
     }
-    
+
     public JPanel getjPSetup() {
         return jPSetup;
     }
-    
+
     public JButton getjBDesplegar() {
         return jBDesplegar;
     }
-    
+
 }

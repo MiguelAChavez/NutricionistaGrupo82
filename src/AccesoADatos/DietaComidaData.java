@@ -178,8 +178,7 @@ public class DietaComidaData {
         } catch (NullPointerException | SQLException e) {
             JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
         }
-        System.err.println("paso");
-        Listadietacomida.forEach((comida) -> System.out.println(comida));
+       
         return Listadietacomida;
     }
     
