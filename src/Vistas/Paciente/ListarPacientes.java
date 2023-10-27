@@ -163,7 +163,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         jLCantidad.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLCantidad.setForeground(new java.awt.Color(255, 255, 255));
         jLCantidad.setText("Cantidad:  ");
-        add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 640, 90, 30));
+        add(jLCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 640, 130, 30));
 
         jTCant.setEditable(false);
         jTCant.setBackground(new java.awt.Color(35, 35, 35));

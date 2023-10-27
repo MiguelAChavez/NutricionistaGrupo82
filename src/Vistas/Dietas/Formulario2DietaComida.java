@@ -11,7 +11,6 @@ import AccesoADatos.DietaData;
 import Entidades.Comida;
 import Entidades.Dieta;
 import Entidades.DietaComida;
-import Vistas.DeskNutricionista;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
