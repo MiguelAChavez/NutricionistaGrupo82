@@ -207,8 +207,13 @@ public class ListarPacientes extends javax.swing.JPanel {
                 }
 
             } else if (Validacion.isValidoString(texto)) {
-                ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
-               
+                System.out.println("Vistas.Paciente.ListarPacientes.jCBSelecionFiltroActionPerformed() " + (estado != Estado.DIETA_CULMINADA  && estado != Estado.DIETA_VIGENTE));
+                if (estado != Estado.DIETA_CULMINADA  && estado != Estado.DIETA_VIGENTE) {
+                    ListaPaciente = PacienteData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
+                } else {
+                    ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
+                }
+
                 if (ListaPaciente.isEmpty()) {
                     JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
                     this.jTCant.setText("0");
@@ -268,8 +273,8 @@ public class ListarPacientes extends javax.swing.JPanel {
     }//GEN-LAST:event_jTCantActionPerformed
 
     private void jTTextoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoKeyTyped
-        char caracter  = evt.getKeyChar();
-        if((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z')){
+        char caracter = evt.getKeyChar();
+        if ((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z') && caracter != ' ') {
             evt.consume();
         }
     }//GEN-LAST:event_jTTextoKeyTyped
@@ -308,7 +313,7 @@ public class ListarPacientes extends javax.swing.JPanel {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 c.setPreferredSize(new Dimension(c.getWidth(), 40));
-                c.setBackground(Color.GRAY); 
+                c.setBackground(Color.GRAY);
                 c.setForeground(Color.WHITE);
                 return this;
             }

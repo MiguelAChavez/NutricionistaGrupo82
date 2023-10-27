@@ -96,6 +96,9 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTTextoNombreKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTTextoNombreKeyTyped(evt);
+            }
         });
         add(jTTextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 400, 40));
 
@@ -186,6 +189,10 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             cargarTabla(p.getIdPaciente());
         }
     }//GEN-LAST:event_jCBPacienteActionPerformed
+
+    private void jTTextoNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTTextoNombreKeyTyped
+ 
+    }//GEN-LAST:event_jTTextoNombreKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
