@@ -115,7 +115,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         ));
         jTHistorial.setGridColor(new java.awt.Color(0, 0, 0));
         jTHistorial.setRowHeight(40);
-        jTHistorial.setSelectionBackground(new java.awt.Color(0, 153, 255));
+        jTHistorial.setSelectionBackground(new java.awt.Color(30, 150, 117));
         jTHistorial.getTableHeader().setResizingAllowed(false);
         jTHistorial.getTableHeader().setReorderingAllowed(false);
         jTHistorial.addFocusListener(new java.awt.event.FocusAdapter() {
