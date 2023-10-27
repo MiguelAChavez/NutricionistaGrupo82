@@ -74,7 +74,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jRMasculio = new javax.swing.JRadioButton();
         jRFemenino = new javax.swing.JRadioButton();
         jLAltura = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -503,11 +502,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLAltura.setText("Altura");
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
-        jCheckBox1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jCheckBox1.setForeground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setText("¿Quieres usar el IMC?");
-        PRSeccion.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, 160, 40));
-
         add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 470, 600));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
     }// </editor-fold>//GEN-END:initComponents
@@ -698,7 +692,6 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JButton jBCrear;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBEliminar;
-    private javax.swing.JCheckBox jCheckBox1;
     private com.toedter.calendar.JDateChooser jDFechaNacimiento;
     private javax.swing.JLabel jLAltura;
     private javax.swing.JLabel jLApellido;

@@ -77,7 +77,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLTDietaComida = new javax.swing.JLabel();
@@ -113,26 +113,27 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTableDietaComida.setForeground(new java.awt.Color(255, 255, 255));
         jTableDietaComida.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null }
-                },
-                new String[] {
-                        "Comida", "Porción", "Horario"
-                }) {
-            boolean[] canEdit = new boolean[] {
-                    false, true, true
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Comida", "Porción", "Horario"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jTableDietaComida.setGridColor(new java.awt.Color(0, 0, 0));
@@ -144,6 +145,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             jTableDietaComida.getColumnModel().getColumn(0).setResizable(false);
             jTableDietaComida.getColumnModel().getColumn(1).setResizable(false);
             jTableDietaComida.getColumnModel().getColumn(2).setResizable(false);
+            jTableDietaComida.getColumnModel().getColumn(3).setResizable(false);
         }
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, 700, 380));
@@ -160,9 +162,9 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBCrearDietaComida
-                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
+        jBCrearDietaComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
         jBCrearDietaComida.setText("Guardar");
+        jBCrearDietaComida.setToolTipText("");
         jBCrearDietaComida.setBorder(null);
         jBCrearDietaComida.setBorderPainted(false);
         jBCrearDietaComida.setContentAreaFilled(false);
@@ -226,9 +228,11 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             this.Mi_Dieta = d;
             List<DietaComida> comidas = DietaComidaData.buscarDietaComidaPorIdDieta(d.getIdDieta());
             this.jCBComidas.setEnabled(true);
+            this.jBEliminarDietaComida.setEnabled(true);
             cargarTabla(comidas);
         } else {
             this.jCBComidas.setEnabled(false);
+            this.jBEliminarDietaComida.setEnabled(false);
         }
     }// GEN-LAST:event_jComboBoxDietaComidaActionPerformed
 
@@ -239,9 +243,9 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         dietaComida.setComida(comida);
         dietaComida.setPorcion(0);
         dietaComida.setHorario(Horario.DESAYUNO);
-        
+
         DietaComidaData.crearDietaComida(dietaComida);
-        
+
         cargarTabla(dietaComida);
     }// GEN-LAST:event_jBAgregarComidaActionPerformed
 
