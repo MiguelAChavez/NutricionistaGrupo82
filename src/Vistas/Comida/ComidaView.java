@@ -135,7 +135,7 @@ public class ComidaView extends javax.swing.JPanel {
                 jBFormularioCActionPerformed(evt);
             }
         });
-        PRFondo1.add(jBFormularioC, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, 240, 70));
+        PRFondo1.add(jBFormularioC, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 240, 70));
 
         jBListarComida.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarComida.setText("Listar ");
@@ -147,28 +147,28 @@ public class ComidaView extends javax.swing.JPanel {
                 jBListarComidaActionPerformed(evt);
             }
         });
-        PRFondo1.add(jBListarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, 240, 70));
+        PRFondo1.add(jBListarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 240, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar las comidas del paciente<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 210, 70));
+        PRFondo1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 210, 70));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("<html>Explora el listado de las comidas y sus calorias<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 210, 70));
+        PRFondo1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 210, 70));
 
-        jPanel1.add(PRFondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 160, 560, 400));
+        jPanel1.add(PRFondo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 160, 580, 330));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/fondo paciente.png"))); // NOI18N
         jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 1100, 610));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(-160, 60, 1270, 600));
 
         jLabel6.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setForeground(new java.awt.Color(204, 204, 204));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText(" Home Comida");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1055, -1));
