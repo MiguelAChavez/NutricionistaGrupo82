@@ -68,8 +68,10 @@ public class DietaComida {
     public void setPorcion(double porcion) {
         this.porcion = porcion;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "DietaComida{" + "idDietaComida=" + idDietaComida + ", comida=" + comida + ", dieta=" + dieta + ", horario=" + horario + ", porcion=" + porcion + '}';
+    }
     
 }

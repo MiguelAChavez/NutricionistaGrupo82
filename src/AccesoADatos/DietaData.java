@@ -119,7 +119,10 @@ public class DietaData {
     }
 
     public static int eliminarDietaLogica(int id) {
-        String sql = "UPDATE dieta SET estado = 0 WHERE idDieta = ? ";
+        String sql = "UPDATE dieta as d "
+                + "INNER JOIN paciente as p ON (d.idPaciente = p.idPaciente) "
+                + "SET d.estado = 0, d.pesoFinal = p.pesoActual "
+                + "WHERE idDieta = ? ;";
         PreparedStatement ps;
         try {
             ps = CONN.prepareStatement(sql);
@@ -187,6 +190,41 @@ public class DietaData {
         return dieta;
     }
 
+    
+    public static Dieta buscarDietaPorId(int id) {
+        String sql;
+
+        sql = "SELECT * FROM dieta WHERE idDieta = ?;";
+
+        Dieta dieta = new Dieta();
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setNombre(rs.getString("nombre"));
+                dieta.setPaciente(PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), Estado.TODOS));
+                dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("pesoInicial"));
+                dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoFinal(rs.getDouble("pesoFinal"));
+
+            } else {
+                JOptionPane.showMessageDialog(null, "La dieta no existe");
+            }
+            ps.close();
+        } catch (NullPointerException | SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta. ");
+        }
+
+        return dieta;
+    }
+
+    
     public static List<Dieta> buscarListadodeDietaPorNombre(String cadena, Estado isActivo) {
         String sql;
 

@@ -78,7 +78,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jLTDietaComida = new javax.swing.JLabel();
@@ -114,32 +114,38 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         jTableDietaComida.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jTableDietaComida.setForeground(new java.awt.Color(255, 255, 255));
         jTableDietaComida.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null },
-                        { null, null, null }
-                },
-                new String[] {
-                        "Comida", "Porción", "Horario"
-                }) {
-            boolean[] canEdit = new boolean[] {
-                    false, true, true
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "Comida", "Porción", "Horario"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, true, true
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         jTableDietaComida.setGridColor(new java.awt.Color(0, 0, 0));
         jTableDietaComida.setRowHeight(40);
         jTableDietaComida.setSelectionBackground(new java.awt.Color(30, 150, 117));
         jTableDietaComida.getTableHeader().setReorderingAllowed(false);
+        jTableDietaComida.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDietaComidaMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableDietaComida);
         if (jTableDietaComida.getColumnModel().getColumnCount() > 0) {
             jTableDietaComida.getColumnModel().getColumn(0).setResizable(false);
@@ -161,8 +167,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBCrearDietaComida
-                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
+        jBCrearDietaComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
         jBCrearDietaComida.setText("Guardar");
         jBCrearDietaComida.setToolTipText("");
         jBCrearDietaComida.setBorder(null);
@@ -214,9 +219,24 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         add(jBAgregarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 130, 90, 40));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBEliminarDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBEliminarDietaComidaActionPerformed
+    private void jTableDietaComidaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDietaComidaMouseClicked
+        this.jBEliminarDietaComida.setEnabled(true);
+    }//GEN-LAST:event_jTableDietaComidaMouseClicked
 
-    }// GEN-LAST:event_jBEliminarDietaComidaActionPerformed
+    private void jBEliminarDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {
+        int[] filas = this.jTableDietaComida.getSelectedRows();
+        if (filas.length > 0) {
+            for (int i = 0; i < filas.length; i++) {
+                int rest = JOptionPane.showConfirmDialog(this, "¿?");
+                if (rest == JOptionPane.YES_OPTION) {
+                    DietaComida dietaComida = this.dietasComidas.get(filas[i]);
+                    System.out.println(dietaComida);
+                    DietaComidaData.eliminarDietaComida(dietaComida);
+                    this.tablita.removeRow(i);
+                }
+            }
+        }
+    }
 
     private void jBCrearDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBCrearDietaComidaActionPerformed
         int[] filas = jTableDietaComida.getSelectedRows();
