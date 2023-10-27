@@ -192,6 +192,7 @@ public class ListarPacientes extends javax.swing.JPanel {
     }//GEN-LAST:event_jTTextoFocusLost
 
     private void jCBSelecionFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionFiltroActionPerformed
+
         borrarFilas();
         if (this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class && cont != 0) {
             Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
@@ -199,7 +200,11 @@ public class ListarPacientes extends javax.swing.JPanel {
             String texto = this.jTTexto.getText().trim();
 
             if (texto.isEmpty()) {
-                ListaPaciente = PacienteData.ListarPacientes(estado);
+                if (estado != Estado.DIETA_CULMINADA && estado != Estado.DIETA_VIGENTE) {
+                    ListaPaciente = PacienteData.ListarPacientes(estado);
+                } else {
+                    ListaPaciente = PacienteData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
+                }
                 if (ListaPaciente.isEmpty()) {
                     JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
                     this.jTCant.setText("0");
@@ -207,8 +212,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                 }
 
             } else if (Validacion.isValidoString(texto)) {
-                System.out.println("Vistas.Paciente.ListarPacientes.jCBSelecionFiltroActionPerformed() " + (estado != Estado.DIETA_CULMINADA  && estado != Estado.DIETA_VIGENTE));
-                if (estado != Estado.DIETA_CULMINADA  && estado != Estado.DIETA_VIGENTE) {
+                if (estado != Estado.DIETA_CULMINADA && estado != Estado.DIETA_VIGENTE) {
                     ListaPaciente = PacienteData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
                 } else {
                     ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);

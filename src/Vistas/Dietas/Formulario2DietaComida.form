@@ -115,7 +115,7 @@
                   <Title/>
                   <Editor/>
                   <Renderer/>
-                </Column>      
+                </Column>
               </TableColumnModel>
             </Property>
             <Property name="gridColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

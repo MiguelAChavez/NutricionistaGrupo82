@@ -495,12 +495,16 @@ public class FormularioDietaView extends javax.swing.JPanel {
             case 0:
                 if (DietaData.eliminarDietaFisica(this.dietaD) > 0) {
                     invertirEstado();
+                    this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
+                    this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
                     limpiarCampos();
                 }
                 break;
             case 1:
                 if (DietaData.eliminarDietaLogica(this.dietaD.getIdDieta()) > 0) {
                     invertirEstado();
+                    this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
+                    this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
                     limpiarCampos();
                 }
                 break;
