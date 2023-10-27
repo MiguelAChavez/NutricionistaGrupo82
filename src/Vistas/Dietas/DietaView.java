@@ -18,7 +18,7 @@ public class DietaView extends javax.swing.JPanel {
      * Creates new form DietaView
      *
      */
-    DeskNutricionista d1;
+    private final DeskNutricionista d1;
 
     public DietaView(DeskNutricionista d1) {
         initComponents();

@@ -18,7 +18,7 @@ public class PacientesView extends javax.swing.JPanel {
      * Creates new form PacientesView
      */
    
-    DeskNutricionista contenedor;
+    private final DeskNutricionista contenedor;
     public PacientesView(DeskNutricionista ContentPanel) {
         initComponents();
         this.contenedor = ContentPanel;

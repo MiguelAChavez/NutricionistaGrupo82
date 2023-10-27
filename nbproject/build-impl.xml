@@ -863,15 +863,12 @@ is divided into following sections:
             -->
     <target depends="-init-debug-args" name="-init-macrodef-nbjpda">
         <macrodef name="nbjpdastart" uri="http://www.netbeans.org/ns/j2se-project/1">
-            <attribute default="${main.class}" name="name"/>
-            <attribute default="${debug.modulepath}" name="modulepath"/>
+            <attribute default="${main.class}" name="name"/>    
             <attribute default="${debug.classpath}" name="classpath"/>
             <attribute default="" name="stopclassname"/>
             <sequential>
                 <nbjpdastart addressproperty="jpda.address" name="@{name}" stopclassname="@{stopclassname}" transport="${debug-transport}">
-                    <modulepath>
-                        <path path="@{modulepath}"/>
-                    </modulepath>
+                   
                     <classpath>
                         <path path="@{classpath}"/>
                     </classpath>

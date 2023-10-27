@@ -352,9 +352,11 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// GEN-LAST:event_jBPacientesMouseEntered
 
     private void jBDesplegarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBDesplegarActionPerformed
+        if (PRBarraMenu.getX() == 0) {
             jBDesplegar.setVisible(Boolean.FALSE);
             PRBarraMenu.setVisible(Boolean.TRUE);
-            this.mover.animateVisibleScroll(PRBarraMenu, this.jBDesplegar);    
+        }
+        this.mover.animateVisibleScroll(PRBarraMenu, this.jBDesplegar);
     }// GEN-LAST:event_jBDesplegarActionPerformed
 
     private void jBPlegarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBPlegarActionPerformed
