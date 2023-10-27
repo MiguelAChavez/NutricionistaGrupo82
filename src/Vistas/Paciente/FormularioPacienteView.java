@@ -753,7 +753,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             } else if(telefono.matches("^\\d{7,12}$"));
             
             else{
-                JOptionPane.showMessageDialog(this, "El telefono debe contener como maximo 12 numeros.");
+                JOptionPane.showMessageDialog(this, "El telefono debe contener entre 7 y 12 numeros.");
                 return null;
             }
 
