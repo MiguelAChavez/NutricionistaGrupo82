@@ -18,7 +18,6 @@ public class ComidaView extends javax.swing.JPanel {
     public ComidaView(DeskNutricionista contenedor) {
         initComponents(); 
         this.contenedor = contenedor;
-        System.out.println("Vistas.Comida.ComidaView.<init>()  " +this.contenedor);
     }
 
     /**

@@ -310,7 +310,7 @@ public class FormularioComidaView extends javax.swing.JPanel {
 
     private void jTFNombreComidaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFNombreComidaKeyTyped
         char caracter  = evt.getKeyChar();
-        if((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z')){
+        if((caracter < 'a' || caracter > 'z') && (caracter < 'A' || caracter > 'Z') && caracter !=' '){
             evt.consume();
         }
     }//GEN-LAST:event_jTFNombreComidaKeyTyped

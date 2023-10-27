@@ -473,6 +473,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         this.dietaD = crearDieta(this.dietaD, Boolean.TRUE);
         if (this.dietaD != null) {
             DietaData.crearDieta(dietaD);
+            limpiarCampos();
             invertirEstado();
         }
     }//GEN-LAST:event_jBCrearDietaActionPerformed

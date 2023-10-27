@@ -10,10 +10,14 @@ import AccesoADatos.PacienteData;
 import Entidades.Historial;
 import Entidades.Paciente;
 import java.awt.Color;
-import java.awt.HeadlessException;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.util.List;
-import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import utils.CargarComponente;
 import utils.Estado;
 
 /**
@@ -25,23 +29,12 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-
     private DefaultTableModel MODEL = new DefaultTableModel() {
-
         @Override
         public boolean isCellEditable(int i, int i1) {
-            switch (i1) {
-                case 1:
-                    if (i > 0) {
-                        return Boolean.TRUE;
-                    }else{
-                        return Boolean.FALSE;
-                    }
-                default:
-                    return Boolean.FALSE;
-            }
+            return false;
         }
-              
+
     };
 
     public HistorialPacientesView() {
@@ -57,17 +50,13 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     private void initComponents() {
 
         jLTituloHistorial = new javax.swing.JLabel();
-        jLNombre = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jTTextoNombre = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTHistorial = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jTpesoIngreso = new javax.swing.JTextField();
-        jTpesoDeseado = new javax.swing.JTextField();
-        jBEditar = new javax.swing.JButton();
         jLNombre1 = new javax.swing.JLabel();
+        jCBPaciente = new javax.swing.JComboBox<>();
+        jLNombre2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
         setMaximumSize(new java.awt.Dimension(2147483647, 2147483647));
@@ -80,11 +69,6 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jLTituloHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTituloHistorial.setText("Historial Pacientes");
         add(jLTituloHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 1090, 64));
-
-        jLNombre.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jLNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jLNombre.setText("Primer registro");
-        add(jLNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 110, 32));
 
         jSeparator1.setOpaque(true);
         add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 400, -1));
@@ -141,49 +125,26 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTHistorial);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 403, 454));
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Peso de Ingreso");
-        add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 200, -1, -1));
-
-        jLabel3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Peso Deseado");
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, 115, 20));
-
-        jTpesoIngreso.setEditable(false);
-        jTpesoIngreso.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jTpesoIngreso.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(jTpesoIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 190, 90, 42));
-
-        jTpesoDeseado.setEditable(false);
-        jTpesoDeseado.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jTpesoDeseado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        add(jTpesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 300, 90, 41));
-
-        jBEditar.setBackground(new java.awt.Color(0, 204, 255));
-        jBEditar.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/boton-editar.png"))); // NOI18N
-        jBEditar.setText("Editar Peso");
-        jBEditar.setBorder(null);
-        jBEditar.setBorderPainted(false);
-        jBEditar.setContentAreaFilled(false);
-        jBEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBEditar.setDisabledIcon(null);
-        jBEditar.setOpaque(true);
-        jBEditar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEditarActionPerformed(evt);
-            }
-        });
-        add(jBEditar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 600, 110, 40));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 760, 454));
 
         jLNombre1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre1.setForeground(new java.awt.Color(255, 255, 255));
-        jLNombre1.setText("Ingrese un apellido o un nombre: ");
-        add(jLNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
+        jLNombre1.setText("Seleccione un paciente: ");
+        add(jLNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 240, 32));
+
+        jCBPaciente.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jCBPaciente.setToolTipText("");
+        jCBPaciente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCBPacienteActionPerformed(evt);
+            }
+        });
+        add(jCBPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 260, 40));
+
+        jLNombre2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLNombre2.setForeground(new java.awt.Color(255, 255, 255));
+        jLNombre2.setText("Ingrese un apellido o un nombre: ");
+        add(jLNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusGained
@@ -205,84 +166,57 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             borrarFilas();
         } else {
             List<Paciente> pacientes = PacienteData.ListarPorNombreOApellido(texto, Estado.TODOS);
-            if (!pacientes.isEmpty()) {
-
-                Paciente p = pacientes.get(0);
-                List<Historial> listHistorial = HistorialData.getHistorialPaciente(p.getIdPaciente());
-                if (!listHistorial.isEmpty()) {
-                    for (Historial historial : listHistorial) {
-                        this.MODEL.addRow(new Object[]{
-                            historial.getIdHistorial(),
-                            historial.getPeso(),
-                            historial.getFechaRegistro()
-                        });
-                    }
-                    this.jTpesoIngreso.setText(listHistorial.get(0).getPeso() + "");
-                    this.jTpesoDeseado.setText(p.getPesoBuscado() + "");
-                }
+            this.jCBPaciente.removeAllItems();
+            this.jCBPaciente.addItem("Seleccione");
+            for (Paciente p : pacientes) {
+                this.jCBPaciente.addItem(p);
             }
         }
 
     }//GEN-LAST:event_jTTextoNombreKeyReleased
 
-    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
-
-        int[] filas = jTHistorial.getSelectedRows();
-
-        if (filas.length > 0) {
-            try {
-                for (int i = 0; i < filas.length; i++) {
-
-                    int idHistorial = Integer.parseInt(jTHistorial.getValueAt(filas[i], 0).toString());
-                    double peso = Double.parseDouble(jTHistorial.getValueAt(filas[i], 1).toString());
-
-                    if (peso < 0.0) {
-                        JOptionPane.showMessageDialog(this, "ingrese un valor valido mayor a 0 para la fila " + (filas[i] + 1));
-                        break;
-                    }
-
-                    HistorialData.modificarHistorial(new Historial(idHistorial, peso));
-
-                }
-
-            } catch (NumberFormatException e) {
-                System.out.println(e.getMessage());
-                JOptionPane.showMessageDialog(this, "solo puede ingresar numeros");
-            } catch (HeadlessException e) {
-                System.out.println(e.getMessage());
-            }
-        } else {
-            JOptionPane.showMessageDialog(this, "Seleccione el peso a modificar");
-        }
-
-    }//GEN-LAST:event_jBEditarActionPerformed
-
     private void jTHistorialFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTHistorialFocusGained
 
     }//GEN-LAST:event_jTHistorialFocusGained
 
+    private void jCBPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBPacienteActionPerformed
+        Object selected = this.jCBPaciente.getSelectedItem();
+        if (selected != null && selected.getClass() != String.class) {
+            Paciente p = (Paciente) selected;
+            cargarTabla(p.getIdPaciente());
+        }
+    }//GEN-LAST:event_jCBPacienteActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBEditar;
-    private javax.swing.JLabel jLNombre;
+    private javax.swing.JComboBox<Object> jCBPaciente;
     private javax.swing.JLabel jLNombre1;
+    private javax.swing.JLabel jLNombre2;
     private javax.swing.JLabel jLTituloHistorial;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTHistorial;
     private javax.swing.JTextField jTTextoNombre;
-    private javax.swing.JTextField jTpesoDeseado;
-    private javax.swing.JTextField jTpesoIngreso;
     // End of variables declaration//GEN-END:variables
 
     private void initTableHistorial() {
-        this.MODEL.addColumn("Codigo");
+        this.MODEL.addColumn("dni");
+        this.MODEL.addColumn("Paciente");
         this.MODEL.addColumn("Peso");
         this.MODEL.addColumn("Fecha de Registro");
 
         this.jTHistorial.setModel(MODEL);
+        JTableHeader tableHeader = jTHistorial.getTableHeader();
+        tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
+            @Override
+            public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
+                Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+                c.setPreferredSize(new Dimension(c.getWidth(), 40));
+                c.setBackground(Color.GRAY);
+                c.setForeground(Color.WHITE);
+                return this;
+            }
+        });
     }
 
     private void borrarFilas() {
@@ -291,6 +225,23 @@ public class HistorialPacientesView extends javax.swing.JPanel {
             MODEL.removeRow(f);
         }
 
+    }
+
+    private void cargarTabla(int idPaciente) {
+        if (idPaciente > 0) {
+            List<Historial> listHistorial = HistorialData.getHistorialPaciente(idPaciente);
+            if (!listHistorial.isEmpty()) {
+                CargarComponente.borrarFilas(this.jTHistorial, this.MODEL);
+                for (Historial historial : listHistorial) {
+                    this.MODEL.addRow(new Object[]{
+                        historial.getPaciente().getDni(),
+                        historial.getPaciente().getFullname(),
+                        historial.getPeso(),
+                        historial.getFechaRegistro()
+                    });
+                }
+            }
+        }
     }
 
 }

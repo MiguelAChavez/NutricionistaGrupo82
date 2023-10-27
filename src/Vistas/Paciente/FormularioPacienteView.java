@@ -750,6 +750,9 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             } else if (!Validacion.isValidoNumero(telefono)) {
                 JOptionPane.showMessageDialog(this, "El telefono solo puede contener numeros.");
                 return null;
+            } else if(telefono.matches("{7,12}$")){
+                JOptionPane.showMessageDialog(this, "El telefono.");
+                return null;
             }
 
             Date date = this.jDFechaNacimiento.getDate();
