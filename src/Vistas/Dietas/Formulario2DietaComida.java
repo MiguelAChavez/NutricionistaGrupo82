@@ -34,8 +34,6 @@ import utils.Horario;
  * @author Lenovo
  */
 public final class Formulario2DietaComida extends javax.swing.JPanel {
- private Dieta dietaD = new Dieta();
- private final DeskNutricionista nutricionistaDesk;
     /**
      * Creates new form Formulario2DietaComida
      */
@@ -56,10 +54,9 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
     private int cont = 0;
     private List<DietaComida> dietasComidas;
 
-    public Formulario2DietaComida(Dieta dieta1, DeskNutricionista nutricionistaDesk) {
+    public Formulario2DietaComida(Dieta dieta1) {
         initComponents();
         initTable();
-         this.nutricionistaDesk = nutricionistaDesk;
         dietasComidas = new ArrayList<>();
         if (dieta1 == null) {
             iniciarComboDietas();

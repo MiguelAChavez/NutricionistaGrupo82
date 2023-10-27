@@ -20,7 +20,7 @@ public class Validacion {
     }
 
     public static boolean isValidoNumero(String cadena) {
-        return cadena != null && cadena.matches("^[0-9]$");
+        return cadena != null && cadena.matches("^[0-9]+$");
     }
 
     public static boolean isValidoNumero(int i) {

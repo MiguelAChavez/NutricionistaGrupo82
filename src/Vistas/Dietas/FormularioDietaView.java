@@ -479,7 +479,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearDietaActionPerformed
 
     private void jBEliminarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaActionPerformed
-
+        
     }//GEN-LAST:event_jBEliminarDietaActionPerformed
 
     private void jTFPesoBuscadoDietaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaFocusGained
@@ -511,8 +511,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jCBPacientesActionPerformed
 
     private void jBSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSiguienteDietaActionPerformed
-
-        CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), this.nutricionistaDesk);
+           CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), nutricionistaDesk);
     }//GEN-LAST:event_jBSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained
