@@ -46,7 +46,7 @@ public class DietaComidaData {
             
             if (rs.next()) {    
                 dietaComida.setIdDietaComida(rs.getInt(1));
-                JOptionPane.showMessageDialog(null, "Se ha creado con exito");
+                JOptionPane.showMessageDialog(null, "Se ha agregado con exito");
             }
             ps.close();
             
@@ -93,7 +93,7 @@ public class DietaComidaData {
             ps.setInt(1, dietaComida.getDieta().getIdDieta());
             int resultado = ps.executeUpdate();
             if (resultado == 1) {
-                JOptionPane.showMessageDialog(null, "Se elimino lacomida exitosamente");
+                JOptionPane.showMessageDialog(null, "Se eliminó la comida exitosamente");
                 
             } else {
                 JOptionPane.showMessageDialog(null, " No se encontró la comida");
@@ -124,7 +124,7 @@ public class DietaComidaData {
         
         sql = "SELECT * FROM dieta WHERE nombre=? " + estado;
         
-        DietaComida dietacomida =  new DietaComida();;
+        DietaComida dietacomida =  new DietaComida();
         PreparedStatement ps;
         
         try {
@@ -143,7 +143,7 @@ public class DietaComidaData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla dietacomida, error: " + e.getMessage());
         }
         
         return dietacomida;
@@ -174,7 +174,7 @@ public class DietaComidaData {
             
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla dietacomida, error: " + e.getMessage());
         }
        
         return Listadietacomida;
