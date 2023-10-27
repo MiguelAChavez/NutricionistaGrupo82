@@ -115,7 +115,7 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBBuscarComidaActionPerformed(evt);
             }
         });
-        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 120, 77, 40));
+        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 77, 40));
 
         jBCancelarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelarComida.setToolTipText("");
@@ -129,7 +129,7 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBCancelarComidaActionPerformed(evt);
             }
         });
-        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 120, 40, 40));
+        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 40, 40));
 
         jSTextComidaList.setForeground(new java.awt.Color(255, 255, 255));
         jSTextComidaList.setToolTipText("");

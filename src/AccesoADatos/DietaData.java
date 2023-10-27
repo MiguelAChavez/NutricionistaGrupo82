@@ -286,4 +286,20 @@ public class DietaData {
         }
     }
 
+    public static void actualizarEstadoYFinalDeDieta() {
+        String sql = "UPDATE dieta AS d INNER JOIN paciente AS p ON d.idPaciente = p.idPaciente "
+                + "SET d.estado = 0, d.pesoFinal = p.pesoActual "
+                + "WHERE d.fechaFinal <= CURDATE() AND d.estado = 1;";
+        PreparedStatement ps;
+        try {
+            ps = CONN.prepareStatement(sql);
+
+            ps.executeUpdate();
+
+            ps.close();
+        } catch (NullPointerException | SQLException ex) {
+            JOptionPane.showMessageDialog(null, "Error al actualizar las dietas. " + ex.getMessage());
+        }
+    }
+
 }

@@ -9,7 +9,6 @@ import javax.swing.JButton;
 public class AnimationPanel {
 
     public void animateVisibleScroll(PanelRound panel, JButton button) {
-        System.out.println("utils.AnimationPanel.animateVisibleScroll() " + panel.getX() + "  w: " + panel.getWidth() );
         if (panel.getX() == -panel.getWidth()) {
             button.setVisible(Boolean.FALSE);
             panel.setVisible(Boolean.TRUE);

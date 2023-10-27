@@ -1,5 +1,6 @@
 package Vistas;
 
+import AccesoADatos.DietaData;
 import Vistas.Comida.ComidaView;
 import Vistas.Dietas.DietaView;
 import Vistas.Paciente.*;
@@ -422,8 +423,9 @@ public class DeskNutricionista extends javax.swing.JFrame {
             @Override
             public void run() {
                 DeskNutricionista deskNutricionista = new DeskNutricionista();
-
                 deskNutricionista.setVisible(true);
+                //Actualizo el estado de las dietas que ya concluyeron
+                DietaData.actualizarEstadoYFinalDeDieta();
             }
         });
     }

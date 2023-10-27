@@ -53,6 +53,8 @@ public class PacienteData {
 
             if (rs.next()) {
                 paciente.setIdPaciente(rs.getInt(1));
+                Historial historial = new Historial(paciente, paciente.getPeso(), LocalDate.now());
+                HistorialData.crearHistorial(historial);
                 JOptionPane.showMessageDialog(null, "El paciente creado con éxito");
                 return;
             }
@@ -67,7 +69,7 @@ public class PacienteData {
             }
 
         } catch (NullPointerException npe) {
-           
+
         }
     }
 

@@ -100,7 +100,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         add(jTTextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 400, 40));
 
         jTHistorial.setBackground(new java.awt.Color(51, 51, 51));
-        jTHistorial.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        jTHistorial.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTHistorial.setForeground(new java.awt.Color(255, 255, 255));
         jTHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -240,6 +240,8 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                         historial.getFechaRegistro()
                     });
                 }
+            } else {
+                CargarComponente.borrarFilas(this.jTHistorial, this.MODEL);
             }
         }
     }
