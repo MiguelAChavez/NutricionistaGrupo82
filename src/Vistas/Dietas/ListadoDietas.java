@@ -52,7 +52,6 @@ public class ListadoDietas extends javax.swing.JPanel {
         jTableDietas = new javax.swing.JTable();
         jComboBoxDietasTabla = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jBEliminarDietaTabla = new javax.swing.JButton();
         jBCrearDietaComida = new javax.swing.JButton();
         jLTituloD = new javax.swing.JLabel();
 
@@ -108,24 +107,6 @@ public class ListadoDietas extends javax.swing.JPanel {
         jLabel1.setText("Filtro");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 50, 30));
 
-        jBEliminarDietaTabla.setBackground(new java.awt.Color(247, 87, 87));
-        jBEliminarDietaTabla.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBEliminarDietaTabla.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/eliminar.png"))); // NOI18N
-        jBEliminarDietaTabla.setText("Eliminar");
-        jBEliminarDietaTabla.setBorder(null);
-        jBEliminarDietaTabla.setBorderPainted(false);
-        jBEliminarDietaTabla.setContentAreaFilled(false);
-        jBEliminarDietaTabla.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBEliminarDietaTabla.setDisabledIcon(null);
-        jBEliminarDietaTabla.setEnabled(false);
-        jBEliminarDietaTabla.setOpaque(true);
-        jBEliminarDietaTabla.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBEliminarDietaTablaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBEliminarDietaTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 510, 90, 40));
-
         jBCrearDietaComida.setBackground(new java.awt.Color(48, 255, 167));
         jBCrearDietaComida.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jBCrearDietaComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
@@ -141,7 +122,7 @@ public class ListadoDietas extends javax.swing.JPanel {
                 jBCrearDietaComidaActionPerformed(evt);
             }
         });
-        jPanel1.add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 510, 80, 40));
+        jPanel1.add(jBCrearDietaComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 80, 40));
 
         jLTituloD.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
         jLTituloD.setForeground(new java.awt.Color(255, 255, 255));
@@ -170,12 +151,8 @@ public class ListadoDietas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jBEliminarDietaTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaTablaActionPerformed
-
-    }//GEN-LAST:event_jBEliminarDietaTablaActionPerformed
-
     private void jBCrearDietaComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCrearDietaComidaActionPerformed
-
+      
     }//GEN-LAST:event_jBCrearDietaComidaActionPerformed
 
     private void jComboBoxDietasTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDietasTablaActionPerformed
@@ -208,7 +185,6 @@ public class ListadoDietas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCrearDietaComida;
-    private javax.swing.JButton jBEliminarDietaTabla;
     private javax.swing.JComboBox<Object> jComboBoxDietasTabla;
     private javax.swing.JLabel jLTituloD;
     private javax.swing.JLabel jLabel1;

@@ -243,7 +243,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         jLKg.setText("(Kg.)");
         PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 310, 40, 40));
 
-        jDFechaInicioDieta.setBackground(new java.awt.Color(102, 102, 102));
+        jDFechaInicioDieta.setBackground(new java.awt.Color(255, 255, 255));
         jDFechaInicioDieta.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jDFechaInicioDieta.addAncestorListener(new javax.swing.event.AncestorListener() {
             public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
@@ -479,7 +479,34 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jBCrearDietaActionPerformed
 
     private void jBEliminarDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEliminarDietaActionPerformed
-        
+
+        int option = JOptionPane.showOptionDialog(
+                this,
+                "¿Desea eliminar o dar de baja la dieta?", // mensaje
+                "Confirmación", // titulo
+                JOptionPane.YES_NO_CANCEL_OPTION, // botones
+                JOptionPane.QUESTION_MESSAGE,
+                null, // Icon 
+                new String[]{"Eliminar", "Dar de Baja", "Cancelar"}, // texto de los botones
+                "Cancelar" // boton por default
+        );
+
+        switch (option) {
+            case 0:
+                if (DietaData.eliminarDietaFisica(this.dietaD) > 0) {
+                    invertirEstado();
+                    limpiarCampos();
+                }
+                break;
+            case 1:
+                if (DietaData.eliminarDietaLogica(this.dietaD.getIdDieta()) > 0) {
+                    invertirEstado();
+                    limpiarCampos();
+                }
+                break;
+            default:
+                break;
+        }
     }//GEN-LAST:event_jBEliminarDietaActionPerformed
 
     private void jTFPesoBuscadoDietaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFPesoBuscadoDietaFocusGained
@@ -511,7 +538,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jCBPacientesActionPerformed
 
     private void jBSiguienteDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSiguienteDietaActionPerformed
-           CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), nutricionistaDesk);
+        CargarComponente.showComponents(new Formulario2DietaComida(this.dietaD), nutricionistaDesk);
     }//GEN-LAST:event_jBSiguienteDietaActionPerformed
 
     private void jTFNombreDieta1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFNombreDieta1FocusGained

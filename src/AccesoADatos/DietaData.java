@@ -51,7 +51,7 @@ public class DietaData {
                 JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla dieta " + ex.getMessage());
             }
         } catch (NullPointerException E) {
-            
+
         }
 
     }
@@ -82,28 +82,64 @@ public class DietaData {
 
     }
 
-    public static void eliminarDieta(Dieta dieta) {
-
-        String sql = "DELETE FROM dieta WHERE idDieta = ? AND idDieta IN (SELECT idDieta FROM dietacomida) ";
-
+    public static int eliminarDietaFisica(Dieta dieta) {
+        String deleteDietacomidaSQL = "DELETE FROM dietacomida WHERE idDieta = ?";
+        String deleteDietaSQL = "DELETE FROM dieta WHERE idDieta = ?";
+        PreparedStatement ps1;
+        PreparedStatement ps2;
         try {
-            PreparedStatement ps = CONN.prepareStatement(sql);
-            ps.setInt(1, dieta.getIdDieta());
-            int diet = ps.executeUpdate();
-            if (diet == 1) {
-                JOptionPane.showMessageDialog(null, " Se eliminó la dieta exitosamente");
+            ps1 = CONN.prepareStatement(deleteDietacomidaSQL);
+            ps1.setInt(1, dieta.getIdDieta());
+            int dietacomidaDeleted = ps1.executeUpdate();
+            ps1.close();
 
+            if (dietacomidaDeleted > 0) {
+                ps2 = CONN.prepareStatement(deleteDietaSQL);
+                ps2.setInt(1, dieta.getIdDieta());
+                int dietaDeleted = ps2.executeUpdate();
+                ps2.close();
+
+                if (dietaDeleted > 0) {
+                    JOptionPane.showMessageDialog(null, "Se eliminó la dieta.");
+                    ps2.close();
+                    return 1;
+                } else {
+                    JOptionPane.showMessageDialog(null, "Error al eliminar la dieta.");
+                    ps2.close();
+                    return 0;
+                }
             } else {
-                JOptionPane.showMessageDialog(null, " No se encontró la dieta");
+                JOptionPane.showMessageDialog(null, "No se encontraron comidas para eliminar de la dieta.");
             }
-
-            ps.close();
-
         } catch (NullPointerException | SQLException ex) {
 
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta.");
         }
+        return 0;
+    }
 
+    public static int eliminarDietaLogica(int id) {
+        String sql = "UPDATE dieta SET estado = 0 WHERE idDieta = ? ";
+        PreparedStatement ps;
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setInt(1, id);
+
+            int res = ps.executeUpdate();
+            if (res == 1) {
+                JOptionPane.showMessageDialog(null, "La dieta se ha dado de baja.");
+                ps.close();
+                return 1;
+            } else {
+                JOptionPane.showMessageDialog(null, "No se encontró la dieta.");
+                ps.close();
+                return 0;
+            }
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta." + e.getMessage());
+        }
+        return 0;
     }
 
     public static Dieta buscarDietaPorNombre(String cadena, Estado isActivo) {
@@ -131,7 +167,7 @@ public class DietaData {
             ps.setString(1, cadena);
 
             ResultSet rs = ps.executeQuery();
-            if (rs.next()) {            
+            if (rs.next()) {
                 dieta.setIdDieta(rs.getInt("idDieta"));
                 dieta.setNombre(rs.getString("nombre"));
                 dieta.setPaciente(PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), isActivo));
@@ -248,26 +284,6 @@ public class DietaData {
         } catch (SQLException e) {
             JOptionPane.showConfirmDialog(null, "No se pudo acceder a la tabla dieta. " + e.getMessage());
         }
-    }
-
-    public static void eliminarDieta(int id) {
-        String sql = "UPDATE dieta SET estado = 0 WHERE idDieta = ? ";
-        PreparedStatement ps;
-        try {
-            ps = CONN.prepareStatement(sql);
-            ps.setInt(1, id);
-
-            int res = ps.executeUpdate();
-            if (res == 1) {
-                JOptionPane.showMessageDialog(null, "Se eliminó la dieta.");
-            }
-
-            ps.close();
-
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta." + e.getMessage());
-        }
-
     }
 
 }
