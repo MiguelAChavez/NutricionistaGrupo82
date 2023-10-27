@@ -224,7 +224,16 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             for (int i = 0; i < filas.length; i++) {
                 try {
                     double porcion = Double.parseDouble(this.jTableDietaComida.getValueAt(filas[i], 1).toString());
-                }catch(NumberFormatException ex){
+                    Horario horario = DietaComidaData
+                            .mapHorario(this.jTableDietaComida.getValueAt(filas[i], 2).toString());
+
+                    DietaComida comida = this.dietasComidas.get(filas[i]);
+                    comida.setPorcion(porcion);
+                    comida.setHorario(horario);
+
+                    DietaComidaData.modificarDietaComida(comida);
+
+                } catch (NumberFormatException ex) {
                     System.out.println("la porcion solo debe contener numeros");
                 }
             }

@@ -425,7 +425,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
                 DeskNutricionista deskNutricionista = new DeskNutricionista();
                 deskNutricionista.setVisible(true);
                 //Actualizo el estado de las dietas que ya concluyeron
-                DietaData.actualizarEstadoYFinalDeDieta();
+                //DietaData.actualizarEstadoYFinalDeDieta();
             }
         });
     }

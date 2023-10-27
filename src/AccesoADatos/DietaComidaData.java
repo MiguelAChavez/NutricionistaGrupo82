@@ -59,7 +59,7 @@ public class DietaComidaData {
     
     public static void modificarDietaComida(DietaComida dietaComida) {
         
-        String sql = "UPDATE dieta SET horario=?, porcion=?  WHERE idDietaComida=?";
+        String sql = "UPDATE dietacomida AS d SET d.horario=?, d.porcion=?  WHERE d.idDietaComida=?";
         
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
@@ -180,7 +180,7 @@ public class DietaComidaData {
         return Listadietacomida;
     }
     
-    private static Horario mapHorario(String horarioString) {
+    public static Horario mapHorario(String horarioString) {
         Horario horario = null;
         for (Horario h : Horario.values()) {
             if (h.toString().equalsIgnoreCase(horarioString)) {
