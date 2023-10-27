@@ -747,12 +747,11 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             } else if (!Validacion.isValidoString(nombre) || !Validacion.isValidoString(apellido) || !Validacion.isValidoStringCNumero(domicilio)) {
                 JOptionPane.showMessageDialog(this, "Alguno de los campos de texto contiene caracteres inválidos.");
                 return null;
-            } else if (!Validacion.isValidoNumero(telefono)) {
+            }
+            if (!Validacion.isValidoNumero(telefono)) {
                 JOptionPane.showMessageDialog(this, "El telefono solo puede contener numeros.");
                 return null;
-            } else if(telefono.matches("^\\d{7,12}$"));
-            
-            else{
+            }else if (!telefono.matches("^[0-9]{7,12}$")) {
                 JOptionPane.showMessageDialog(this, "El telefono debe contener entre 7 y 12 numeros.");
                 return null;
             }
