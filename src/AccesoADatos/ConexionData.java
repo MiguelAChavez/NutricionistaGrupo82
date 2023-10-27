@@ -33,9 +33,9 @@ public class ConexionData {
                 connection = DriverManager.getConnection(URL + BD, USUARIO, PASSWORD);//se crear el objeto connection
 
             } catch (ClassNotFoundException ex) {
-                JOptionPane.showMessageDialog(null, "No se puedo encontrar el Driver");
+                JOptionPane.showMessageDialog(null, "No se pudo encontrar el Driver");
             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "No se puedo encontrar la base de datos");
+                JOptionPane.showMessageDialog(null, "No se pudo encontrar la base de datos");
             }
         }
         return connection; //reroeno de la conexion

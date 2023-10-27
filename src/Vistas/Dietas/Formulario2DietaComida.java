@@ -11,6 +11,7 @@ import AccesoADatos.DietaData;
 import Entidades.Comida;
 import Entidades.Dieta;
 import Entidades.DietaComida;
+import Vistas.DeskNutricionista;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -33,7 +34,8 @@ import utils.Horario;
  * @author Lenovo
  */
 public final class Formulario2DietaComida extends javax.swing.JPanel {
-
+ private Dieta dietaD = new Dieta();
+ private final DeskNutricionista nutricionistaDesk;
     /**
      * Creates new form Formulario2DietaComida
      */
@@ -54,9 +56,10 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
     private int cont = 0;
     private List<DietaComida> dietasComidas;
 
-    public Formulario2DietaComida(Dieta dieta1) {
+    public Formulario2DietaComida(Dieta dieta1, DeskNutricionista nutricionistaDesk) {
         initComponents();
         initTable();
+         this.nutricionistaDesk = nutricionistaDesk;
         dietasComidas = new ArrayList<>();
         if (dieta1 == null) {
             iniciarComboDietas();

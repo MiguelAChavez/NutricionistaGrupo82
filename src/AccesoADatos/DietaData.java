@@ -145,7 +145,7 @@ public class DietaData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "Error al acceder a la tabla dieta. ");
         }
 
         return dieta;
@@ -188,7 +188,7 @@ public class DietaData {
             }
             ps.close();
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla dieta. " + e.getMessage());
         }
 
         return listadoDieta;
@@ -246,7 +246,7 @@ public class DietaData {
                 JOptionPane.showMessageDialog(null, "Fue dada de alta nuevamente.");
             }
         } catch (SQLException e) {
-            JOptionPane.showConfirmDialog(null, "Error al acceder a la tabla Dieta.");
+            JOptionPane.showConfirmDialog(null, "No se pudo acceder a la tabla dieta. " + e.getMessage());
         }
     }
 

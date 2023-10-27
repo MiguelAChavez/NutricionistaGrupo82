@@ -126,7 +126,7 @@ public class ComidaData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null,"No se pudo conectar a la tabla comida " + e.getMessage());
         }
 
         return comida;
@@ -194,7 +194,7 @@ public class ComidaData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla comida " + e.getMessage());
         }
         return comida;
     }
@@ -234,7 +234,7 @@ public class ComidaData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo acceder a la tabla comida " + e.getMessage());
         }
         return listacomida;
     }
