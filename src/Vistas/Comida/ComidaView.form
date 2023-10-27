@@ -203,7 +203,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="280" y="160" width="560" height="400"/>
+                      <AbsoluteConstraints x="260" y="160" width="580" height="330"/>
                     </Constraint>
                   </Constraints>
 
@@ -239,7 +239,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="280" y="110" width="240" height="70"/>
+                          <AbsoluteConstraints x="290" y="70" width="240" height="70"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -260,7 +260,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="280" y="220" width="240" height="70"/>
+                          <AbsoluteConstraints x="290" y="180" width="240" height="70"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -277,7 +277,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="110" width="210" height="70"/>
+                          <AbsoluteConstraints x="50" y="70" width="210" height="70"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -294,7 +294,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="220" width="210" height="70"/>
+                          <AbsoluteConstraints x="50" y="180" width="210" height="70"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -309,7 +309,7 @@
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="0" y="70" width="1100" height="610"/>
+                      <AbsoluteConstraints x="-160" y="60" width="1270" height="600"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -319,7 +319,7 @@
                       <Font name="Linux Libertine G" size="48" style="1"/>
                     </Property>
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
                     </Property>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="text" type="java.lang.String" value=" Home Comida"/>

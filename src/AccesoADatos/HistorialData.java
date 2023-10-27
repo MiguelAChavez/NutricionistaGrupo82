@@ -45,7 +45,7 @@ public class HistorialData {
             ps.close();
 
         } catch (NullPointerException | SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Error: " + ex.getMessage());
+            JOptionPane.showMessageDialog(null, " No se pudo acceder a la tabla historial. Error: " + ex.getMessage());
 
         }
 

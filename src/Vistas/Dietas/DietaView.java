@@ -63,7 +63,7 @@ public class DietaView extends javax.swing.JPanel {
                 jBFormularioDActionPerformed(evt);
             }
         });
-        PRFondo.add(jBFormularioD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 70, 240, 70));
+        PRFondo.add(jBFormularioD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 250, 70));
 
         jBListarD.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListarD.setText("Registro");
@@ -75,7 +75,7 @@ public class DietaView extends javax.swing.JPanel {
                 jBListarDActionPerformed(evt);
             }
         });
-        PRFondo.add(jBListarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 180, 240, 70));
+        PRFondo.add(jBListarD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 250, 70));
 
         jBListadoD.setFont(new java.awt.Font("Malgun Gothic", 1, 24)); // NOI18N
         jBListadoD.setText("Listado");
@@ -86,26 +86,26 @@ public class DietaView extends javax.swing.JPanel {
                 jBListadoDActionPerformed(evt);
             }
         });
-        PRFondo.add(jBListadoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 290, 240, 70));
+        PRFondo.add(jBListadoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 280, 250, 70));
 
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("<html>Abre el formulario para completar, modificar o eliminar los datos de la dieta, con el botón continuar abre el registro de comidas de cada dieta.<html>");
         jLabel7.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 220, 80));
+        PRFondo.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 230, 80));
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("<html>Selecciona una dieta, luego explora y registra las comidas con su horario y porción.<html>");
         jLabel8.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        PRFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 220, 70));
+        PRFondo.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 230, 70));
 
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 0, 11)); // NOI18N
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("<html>Consulta el listado de todas las dietas, si éstas se encuentran terminadas o vigentes, modificando el estado si fuese necesario. <html>");
-        PRFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, 220, 70));
+        PRFondo.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 230, 70));
 
-        add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 570, 400));
+        add(PRFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, 570, 400));
 
         jPanel5.setBackground(new java.awt.Color(22, 22, 22));
 
@@ -119,7 +119,7 @@ public class DietaView extends javax.swing.JPanel {
         jLabel11.setText("jLabel3");
         jPanel5.add(jLabel11);
 
-        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1110, -1));
+        add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(-50, 0, 1110, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBFormularioDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBFormularioDActionPerformed

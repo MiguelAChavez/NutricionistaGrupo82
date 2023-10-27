@@ -182,7 +182,7 @@ public class PacienteData {
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {
-            JOptionPane.showMessageDialog(null, "Error: " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo conectar a la tabla paciente, error: " + e.getMessage());
         }
 
         return paciente;
