@@ -16,6 +16,7 @@ public class Dieta {
     private double pesoFinal;
     private LocalDate fechaFinal;
     private boolean estado;
+    private boolean esExitosa;
 
     public Dieta() {
     }
@@ -105,9 +106,17 @@ public class Dieta {
         this.estado = estado;
     }
 
+    public boolean isEsExitosa() {
+        return esExitosa;
+    }
+
+    public void setEsExitosa(boolean esExitosa) {
+        this.esExitosa = esExitosa;
+    }
+
     @Override
     public String toString() {
-        return this.idDieta + " "+this.nombre + ", " + this.paciente.getFullname();
+        return this.idDieta + " " + this.nombre + ", " + this.paciente.getFullname();
     }
 
 }
