@@ -125,6 +125,7 @@ public class DietaData {
                 + "SET d.estado = 0, d.pesoFinal = p.pesoActual,"
                 + "d.esExitosa = CASE WHEN (d.pesoFinal >= p.pesoBuscado - 2 AND d.pesoFinal <= p.pesoBuscado + 2) THEN 1 ELSE 0 END "
                 + "WHERE idDieta = ? ;";
+        
         PreparedStatement ps;
         try {
             ps = CONN.prepareStatement(sql);

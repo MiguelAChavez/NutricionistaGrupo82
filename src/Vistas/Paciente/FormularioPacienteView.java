@@ -10,7 +10,9 @@ import Entidades.Paciente;
 import java.awt.Color;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import javax.swing.JOptionPane;
 import utils.Estado;
 import utils.Validacion;
@@ -26,6 +28,13 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     public FormularioPacienteView() {
         initComponents();
         this.jBBuscar.setToolTipText("Buscar");
+
+        int anioActual = new GregorianCalendar().get(Calendar.YEAR);
+        int anioMinimo = anioActual - 100;
+        Calendar fecha = new GregorianCalendar(anioMinimo, 0, 1);
+        
+        this.jDFechaNacimiento.setMinSelectableDate(fecha.getTime());
+        this.jDFechaNacimiento.setMaxSelectableDate(new Date());
     }
 
     /**
@@ -503,7 +512,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
 
         add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 470, 600));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1030, 680));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1030, 680));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarActionPerformed
@@ -751,7 +760,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             if (!Validacion.isValidoNumero(telefono)) {
                 JOptionPane.showMessageDialog(this, "El telefono solo puede contener numeros.");
                 return null;
-            }else if (!telefono.matches("^[0-9]{7,12}$")) {
+            } else if (!telefono.matches("^[0-9]{7,12}$")) {
                 JOptionPane.showMessageDialog(this, "El telefono debe contener entre 7 y 12 numeros.");
                 return null;
             }

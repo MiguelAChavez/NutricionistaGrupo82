@@ -24,6 +24,6 @@ public class Validacion {
     }
 
     public static boolean isValidoNumero(int i) {
-        return i > 9999 || i < 999999999;
+        return i > 9999 && i < 999999999;
     }
 }
