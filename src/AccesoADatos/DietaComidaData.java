@@ -87,9 +87,7 @@ public class DietaComidaData {
     public static void eliminarDietaComida(DietaComida dietaComida) {
 
         String sql = "DELETE FROM dietacomida WHERE idDieta = ? and idDietaComida = ?;";
-        
-        System.out.println(dietaComida);
-        
+                
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setInt(1, dietaComida.getDieta().getIdDieta());

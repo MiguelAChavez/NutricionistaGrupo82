@@ -70,6 +70,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         }
         this.cont++;
         iniciarComboComida();
+        this.jTableDietaComida.putClientProperty("terminateEditOnFocusLost", Boolean.TRUE);
     }
 
     /**
@@ -284,7 +285,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
         DietaComidaData.crearDietaComida(dietaComida);
 
-        cargarTabla(dietaComida);
+        cargarFila(dietaComida);
     }// GEN-LAST:event_jBAgregarComidaActionPerformed
 
     private void jCBComidasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jCBComidasActionPerformed
@@ -346,20 +347,24 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
 
     public void iniciarComboDietas() {
         List<Dieta> listaDietita = DietaData.buscarDietas(Estado.ACTIVO);
-        if (listaDietita.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No hay dietas disponibles");
-            return;
+        if (listaDietita != null) {
+            if (listaDietita.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay dietas disponibles");
+            } else {
+                cargarCombo(this.jComboBoxDietaComida, listaDietita);
+            }
         }
-        cargarCombo(this.jComboBoxDietaComida, listaDietita);
     }
 
     private void iniciarComboComida() {
         List<Comida> listaComidas = ComidaData.buscarComidas(Estado.ACTIVO);
-        if (listaComidas.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "No hay comidas");
-            return;
+        if (listaComidas != null) {
+            if (listaComidas.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "No hay comidas");
+            } else {
+                cargarCombo(this.jCBComidas, listaComidas);
+            }
         }
-        cargarCombo(this.jCBComidas, listaComidas);
     }
 
     private void cargarCombo(JComboBox<Object> comboBox, List<?> listita) {
@@ -393,7 +398,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         }
     }
 
-    private void cargarTabla(DietaComida dietaComida) {
+    private void cargarFila(DietaComida dietaComida) {
         this.dietasComidas.add(dietaComida);
         this.tablita.addRow(new Object[]{
             dietaComida.getComida(),

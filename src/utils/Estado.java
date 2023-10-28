@@ -14,7 +14,8 @@ public enum Estado {
     ACTIVO(1),
     TODOS(2),
     DIETA_CULMINADA(3),
-    DIETA_VIGENTE(4);
+    DIETA_CULMINADA_FALLIDA(4),
+    DIETA_VIGENTE(5);
     
 
     int cod;
@@ -38,6 +39,8 @@ public enum Estado {
                 return "Todos";
             case DIETA_CULMINADA:
                 return "Dieta culminada";
+            case DIETA_CULMINADA_FALLIDA:
+                return "Dietas fallidas";
             case DIETA_VIGENTE:
                 return "Dieta vigente";
             default:

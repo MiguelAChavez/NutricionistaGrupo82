@@ -1,6 +1,7 @@
 package AccesoADatos;
 
 import Entidades.Dieta;
+import Entidades.Paciente;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -59,7 +60,7 @@ public class DietaData {
     public static void modificarDieta(Dieta dieta) {
 
         String sql = "UPDATE dieta SET nombre=?, fechaFinal=? WHERE idDieta=?";
-        System.out.println(dieta);
+
         try {
             PreparedStatement ps = CONN.prepareStatement(sql);
             ps.setString(1, dieta.getNombre());
@@ -121,7 +122,8 @@ public class DietaData {
     public static int eliminarDietaLogica(int id) {
         String sql = "UPDATE dieta as d "
                 + "INNER JOIN paciente as p ON (d.idPaciente = p.idPaciente) "
-                + "SET d.estado = 0, d.pesoFinal = p.pesoActual "
+                + "SET d.estado = 0, d.pesoFinal = p.pesoActual,"
+                + "d.esExitosa = CASE WHEN (d.pesoFinal >= p.pesoBuscado - 2 AND d.pesoFinal <= p.pesoBuscado + 2) THEN 1 ELSE 0 END "
                 + "WHERE idDieta = ? ;";
         PreparedStatement ps;
         try {
@@ -190,7 +192,6 @@ public class DietaData {
         return dieta;
     }
 
-    
     public static Dieta buscarDietaPorId(int id) {
         String sql;
 
@@ -224,7 +225,6 @@ public class DietaData {
         return dieta;
     }
 
-    
     public static List<Dieta> buscarListadodeDietaPorNombre(String cadena, Estado isActivo) {
         String sql;
 
@@ -252,12 +252,12 @@ public class DietaData {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Dieta dietita = new Dieta();
-                dietita.setIdDieta(rs.getInt("idComida"));
+                dietita.setIdDieta(rs.getInt("idDieta"));
                 dietita.setNombre(cadena);
                 dietita.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
                 dietita.setPesoInicial(rs.getDouble("pesoInical"));
                 dietita.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
-                dietita.setPesoFinal(rs.getDouble("pesoBuscado"));
+                dietita.setPesoFinal(rs.getDouble("pesoFinal"));
                 listadoDieta.add(dietita);
             }
             ps.close();
@@ -266,6 +266,90 @@ public class DietaData {
         }
 
         return listadoDieta;
+    }
+
+    public static List<Dieta> buscarDietasFallidas() {
+        String sql;
+        PreparedStatement ps;
+        List<Dieta> dietas = new ArrayList<>();
+
+        sql = "SELECT * FROM dieta as d "
+                + "WHERE d.esExitosa = 0 AND d.estado = 0 "
+                + "GROUP BY d.idPaciente "
+                + "ORDER BY d.idPaciente, d.nombre ASC;";
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Dieta dieta = new Dieta();
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setNombre(rs.getString("nombre"));
+                Paciente p = PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), Estado.TODOS);
+                dieta.setPaciente(p);
+                dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("pesoInicial"));
+                dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoFinal(rs.getDouble("pesoFinal"));
+
+                dietas.add(dieta);
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "no " + ex);
+        }
+
+        return dietas;
+    }
+
+    public static List<Dieta> ListarPorNombreOApellidoYEstadoDieta(String cadena, Estado buscar) {
+        List<Dieta> dietas = new ArrayList<>();
+        int estado = 0;
+        switch (buscar) {
+            case DIETA_CULMINADA:
+                estado = 0;
+                break;
+            case DIETA_VIGENTE:
+                estado = 1;
+                break;
+            default:
+                break;
+        }
+
+        String sql = "SELECT * FROM dieta AS d INNER JOIN paciente AS p ON (d.idPaciente=p.idPaciente) "
+                + "WHERE ((CONCAT(p.nombre, ' ', p.apellido) LIKE ?) OR "
+                + "(CONCAT(p.apellido, ' ', p.nombre) LIKE ?)) AND"
+                + " d.estado = ?;";
+
+        PreparedStatement ps;
+
+        try {
+            ps = CONN.prepareStatement(sql);
+            ps.setString(1, "%" + cadena + "%");
+            ps.setString(2, "%" + cadena + "%");
+            ps.setInt(3, estado);
+
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Dieta dieta = new Dieta();
+                dieta.setIdDieta(rs.getInt("idDieta"));
+                dieta.setNombre(rs.getString("nombre"));
+                Paciente p = PacienteData.buscarPacientePorId(rs.getInt("idPaciente"), Estado.TODOS);
+                dieta.setPaciente(p);
+                dieta.setFechaInicial(rs.getDate("fechaInicial").toLocalDate());
+                dieta.setPesoInicial(rs.getDouble("pesoInicial"));
+                dieta.setFechaFinal(rs.getDate("fechaFinal").toLocalDate());
+                dieta.setPesoFinal(rs.getDouble("pesoFinal"));
+
+                dietas.add(dieta);
+            }
+            ps.close();
+        } catch (NullPointerException | SQLException e) {
+            JOptionPane.showMessageDialog(null, " No se pudo conectar a la tabla dieta, error: " + e.getMessage());
+        }
+
+        return dietas;
     }
 
     public static List<Dieta> buscarDietas(Estado isActivo) {
@@ -325,8 +409,9 @@ public class DietaData {
     }
 
     public static void actualizarEstadoYFinalDeDieta() {
-        String sql = "UPDATE dieta AS d INNER JOIN paciente AS p ON d.idPaciente = p.idPaciente "
-                + "SET d.estado = 0, d.pesoFinal = p.pesoActual "
+        String sql = "UPDATE dieta AS d INNER JOIN paciente AS p ON (d.idPaciente = p.idPaciente) "
+                + "SET d.estado = 0, d.pesoFinal = p.pesoActual, "
+                + "d.esExitosa = CASE WHEN (d.pesoFinal >= p.pesoBuscado - 2 AND d.pesoFinal <= p.pesoBuscado + 2) THEN 1 ELSE 0 END "
                 + "WHERE d.fechaFinal <= CURDATE() AND d.estado = 1;";
         PreparedStatement ps;
         try {
