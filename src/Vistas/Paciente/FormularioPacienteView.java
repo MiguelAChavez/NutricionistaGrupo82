@@ -83,6 +83,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jRMasculio = new javax.swing.JRadioButton();
         jRFemenino = new javax.swing.JRadioButton();
         jLAltura = new javax.swing.JLabel();
+        jLKg1 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(35, 35, 35));
@@ -319,7 +320,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLPesoDeseado.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jLPesoDeseado.setForeground(new java.awt.Color(255, 255, 255));
         jLPesoDeseado.setText("Peso Buscado");
-        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 440, 100, 20));
+        PRSeccion.add(jLPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 440, 100, 20));
 
         jTFPesoDeseado.setBackground(new java.awt.Color(35, 35, 35));
         jTFPesoDeseado.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -345,13 +346,13 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                 jTFPesoDeseadoKeyTyped(evt);
             }
         });
-        PRSeccion.add(jTFPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 460, 90, 40));
+        PRSeccion.add(jTFPesoDeseado, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 460, 90, 40));
 
         jSNombre6.setForeground(new java.awt.Color(255, 255, 255));
         jSNombre6.setToolTipText("");
         jSNombre6.setOpaque(true);
         jSNombre6.setPreferredSize(new java.awt.Dimension(50, 2));
-        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 90, -1));
+        PRSeccion.add(jSNombre6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 90, -1));
 
         jSAltura.setForeground(new java.awt.Color(255, 255, 255));
         jSAltura.setToolTipText("");
@@ -386,7 +387,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         PRSeccion.add(jTFAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 90, 40));
 
         jLcm.setBackground(new java.awt.Color(255, 255, 255));
-        jLcm.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        jLcm.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLcm.setForeground(new java.awt.Color(255, 255, 255));
         jLcm.setText("(cm)");
         PRSeccion.add(jLcm, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, 40));
@@ -485,10 +486,10 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         PRSeccion.add(jLSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 360, -1, -1));
 
         jLKg.setBackground(new java.awt.Color(255, 255, 255));
-        jLKg.setFont(new java.awt.Font("Roboto", 1, 16)); // NOI18N
+        jLKg.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLKg.setForeground(new java.awt.Color(255, 255, 255));
         jLKg.setText("(Kg)");
-        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, -1, 40));
+        PRSeccion.add(jLKg, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, 40));
 
         jRMasculio.setBackground(new java.awt.Color(51, 51, 51));
         bGrupoSexo.add(jRMasculio);
@@ -510,6 +511,12 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         jLAltura.setForeground(new java.awt.Color(255, 255, 255));
         jLAltura.setText("Altura");
         PRSeccion.add(jLAltura, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 360, -1, -1));
+
+        jLKg1.setBackground(new java.awt.Color(255, 255, 255));
+        jLKg1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jLKg1.setForeground(new java.awt.Color(255, 255, 255));
+        jLKg1.setText("(Kg)");
+        PRSeccion.add(jLKg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, -1, 40));
 
         add(PRSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 50, 470, 600));
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 1030, 680));
@@ -708,6 +715,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
     private javax.swing.JLabel jLDomicilio;
     private javax.swing.JLabel jLFechaNac;
     private javax.swing.JLabel jLKg;
+    private javax.swing.JLabel jLKg1;
     private javax.swing.JLabel jLNombre;
     private javax.swing.JLabel jLPeso;
     private javax.swing.JLabel jLPesoDeseado;

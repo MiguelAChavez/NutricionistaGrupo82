@@ -52,7 +52,6 @@ public class ListadoDietas extends javax.swing.JPanel {
         jTableDietas = new javax.swing.JTable();
         jComboBoxDietasTabla = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jBActivaDieta = new javax.swing.JButton();
         jLTituloD = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(33, 33, 33));
@@ -61,7 +60,7 @@ public class ListadoDietas extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableDietas.setBackground(new java.awt.Color(51, 51, 51));
-        jTableDietas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jTableDietas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jTableDietas.setForeground(new java.awt.Color(255, 255, 255));
         jTableDietas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -90,39 +89,31 @@ public class ListadoDietas extends javax.swing.JPanel {
         jTableDietas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableDietas);
         if (jTableDietas.getColumnModel().getColumnCount() > 0) {
-            jTableDietas.getColumnModel().getColumn(0).setResizable(false);
+            jTableDietas.getColumnModel().getColumn(0).setMinWidth(90);
+            jTableDietas.getColumnModel().getColumn(0).setMaxWidth(100);
+            jTableDietas.getColumnModel().getColumn(3).setMinWidth(90);
+            jTableDietas.getColumnModel().getColumn(3).setMaxWidth(100);
+            jTableDietas.getColumnModel().getColumn(4).setMinWidth(90);
+            jTableDietas.getColumnModel().getColumn(4).setMaxWidth(100);
+            jTableDietas.getColumnModel().getColumn(5).setMinWidth(90);
+            jTableDietas.getColumnModel().getColumn(5).setMaxWidth(100);
+            jTableDietas.getColumnModel().getColumn(6).setMinWidth(90);
+            jTableDietas.getColumnModel().getColumn(6).setMaxWidth(100);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, 800, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 750, 410));
 
         jComboBoxDietasTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDietasTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 40, 210, 30));
+        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 210, 30));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Filtro");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, 50, 30));
-
-        jBActivaDieta.setBackground(new java.awt.Color(48, 255, 167));
-        jBActivaDieta.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jBActivaDieta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/guardar-el-archivo.png"))); // NOI18N
-        jBActivaDieta.setText("Activar");
-        jBActivaDieta.setBorder(null);
-        jBActivaDieta.setBorderPainted(false);
-        jBActivaDieta.setContentAreaFilled(false);
-        jBActivaDieta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jBActivaDieta.setDisabledIcon(null);
-        jBActivaDieta.setOpaque(true);
-        jBActivaDieta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBActivaDietaActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jBActivaDieta, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 510, 80, 40));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, 50, 30));
 
         jLTituloD.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
         jLTituloD.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,26 +125,24 @@ public class ListadoDietas extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLTituloD, javax.swing.GroupLayout.PREFERRED_SIZE, 1005, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(151, 151, 151)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(51, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLTituloD, javax.swing.GroupLayout.PREFERRED_SIZE, 1005, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(8, 8, 8)
+                .addContainerGap()
                 .addComponent(jLTituloD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(3, 3, 3)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 565, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jBActivaDietaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBActivaDietaActionPerformed
-      
-    }//GEN-LAST:event_jBActivaDietaActionPerformed
 
     private void jComboBoxDietasTablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDietasTablaActionPerformed
         if (this.jComboBoxDietasTabla.getSelectedItem().getClass() != String.class) {
@@ -184,7 +173,6 @@ public class ListadoDietas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBActivaDieta;
     private javax.swing.JComboBox<Object> jComboBoxDietasTabla;
     private javax.swing.JLabel jLTituloD;
     private javax.swing.JLabel jLabel1;
@@ -203,13 +191,13 @@ public class ListadoDietas extends javax.swing.JPanel {
     }
 
     private void initTable() {
-        this.model.addColumn("Codigo");
+        this.model.addColumn("Código");
         this.model.addColumn("Nombre");
         this.model.addColumn("Paciente");
-        this.model.addColumn("Fecha de inicio");
-        this.model.addColumn("Fecha de fin");
-        this.model.addColumn("peso inicial");
-        this.model.addColumn("peso final");
+        this.model.addColumn("Fecha Inicio");
+        this.model.addColumn("Fecha Fin");
+        this.model.addColumn("Peso Inicial");
+        this.model.addColumn("Peso Final");
         
         this.jTableDietas.setModel(model);
         

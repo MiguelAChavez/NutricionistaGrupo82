@@ -68,10 +68,10 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         jLTituloHistorial.setForeground(new java.awt.Color(255, 255, 255));
         jLTituloHistorial.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTituloHistorial.setText("Historial Pacientes");
-        add(jLTituloHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 11, 1090, 64));
+        add(jLTituloHistorial, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, 1090, 64));
 
         jSeparator1.setOpaque(true);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 400, -1));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 400, -1));
 
         jTTextoNombre.setBackground(new java.awt.Color(35, 35, 35));
         jTTextoNombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -100,7 +100,7 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                 jTTextoNombreKeyTyped(evt);
             }
         });
-        add(jTTextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 400, 40));
+        add(jTTextoNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 400, 40));
 
         jTHistorial.setBackground(new java.awt.Color(51, 51, 51));
         jTHistorial.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -128,12 +128,12 @@ public class HistorialPacientesView extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(jTHistorial);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 190, 760, 454));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 760, 454));
 
         jLNombre1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre1.setForeground(new java.awt.Color(255, 255, 255));
         jLNombre1.setText("Seleccione un paciente: ");
-        add(jLNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 100, 240, 32));
+        add(jLNombre1, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 100, 240, 32));
 
         jCBPaciente.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jCBPaciente.setToolTipText("");
@@ -142,12 +142,12 @@ public class HistorialPacientesView extends javax.swing.JPanel {
                 jCBPacienteActionPerformed(evt);
             }
         });
-        add(jCBPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 130, 260, 40));
+        add(jCBPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, 260, 40));
 
         jLNombre2.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLNombre2.setForeground(new java.awt.Color(255, 255, 255));
         jLNombre2.setText("Ingrese un apellido o un nombre: ");
-        add(jLNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 240, 32));
+        add(jLNombre2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 240, 32));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTTextoNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTTextoNombreFocusGained
@@ -207,10 +207,10 @@ public class HistorialPacientesView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initTableHistorial() {
-        this.MODEL.addColumn("dni");
+        this.MODEL.addColumn("DNI");
         this.MODEL.addColumn("Paciente");
         this.MODEL.addColumn("Peso");
-        this.MODEL.addColumn("Fecha de Registro");
+        this.MODEL.addColumn("Fecha de registro");
 
         this.jTHistorial.setModel(MODEL);
         JTableHeader tableHeader = jTHistorial.getTableHeader();
