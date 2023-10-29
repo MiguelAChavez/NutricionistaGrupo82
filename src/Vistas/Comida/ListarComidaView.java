@@ -70,7 +70,7 @@ public class ListarComidaView extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         JTableComida.setBackground(new java.awt.Color(51, 51, 51));
-        JTableComida.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        JTableComida.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         JTableComida.setForeground(new java.awt.Color(255, 255, 255));
         JTableComida.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -84,14 +84,32 @@ public class ListarComidaView extends javax.swing.JPanel {
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         JTableComida.setGridColor(new java.awt.Color(0, 0, 0));
         JTableComida.setRowHeight(40);
         JTableComida.setSelectionBackground(new java.awt.Color(30, 150, 117));
         JTableComida.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(JTableComida);
+        if (JTableComida.getColumnModel().getColumnCount() > 0) {
+            JTableComida.getColumnModel().getColumn(0).setResizable(false);
+            JTableComida.getColumnModel().getColumn(0).setPreferredWidth(50);
+            JTableComida.getColumnModel().getColumn(1).setResizable(false);
+            JTableComida.getColumnModel().getColumn(1).setPreferredWidth(300);
+            JTableComida.getColumnModel().getColumn(2).setResizable(false);
+            JTableComida.getColumnModel().getColumn(2).setPreferredWidth(90);
+            JTableComida.getColumnModel().getColumn(3).setResizable(false);
+            JTableComida.getColumnModel().getColumn(3).setPreferredWidth(90);
+        }
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 770, 449));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 660, 449));
 
         JLtituloComida.setFont(new java.awt.Font("Dialog", 1, 39)); // NOI18N
         JLtituloComida.setForeground(new java.awt.Color(255, 255, 255));
@@ -100,7 +118,7 @@ public class ListarComidaView extends javax.swing.JPanel {
         JLtituloComida.setMaximumSize(new java.awt.Dimension(352, 50));
         JLtituloComida.setMinimumSize(new java.awt.Dimension(352, 50));
         JLtituloComida.setPreferredSize(new java.awt.Dimension(352, 50));
-        add(JLtituloComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 1080, -1));
+        add(JLtituloComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 10, 1080, -1));
 
         jBBuscarComida.setBackground(new java.awt.Color(51, 153, 255));
         jBBuscarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/buscar.png"))); // NOI18N
@@ -115,7 +133,7 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBBuscarComidaActionPerformed(evt);
             }
         });
-        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 77, 40));
+        add(jBBuscarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 110, 77, 40));
 
         jBCancelarComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/cancelar.png"))); // NOI18N
         jBCancelarComida.setToolTipText("");
@@ -129,13 +147,13 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jBCancelarComidaActionPerformed(evt);
             }
         });
-        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 110, 40, 40));
+        add(jBCancelarComida, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, 40, 40));
 
         jSTextComidaList.setForeground(new java.awt.Color(255, 255, 255));
         jSTextComidaList.setToolTipText("");
         jSTextComidaList.setOpaque(true);
         jSTextComidaList.setPreferredSize(new java.awt.Dimension(50, 2));
-        add(jSTextComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 150, 180, -1));
+        add(jSTextComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 152, 130, -1));
 
         jTextFieldComidaList.setBackground(new java.awt.Color(35, 35, 35));
         jTextFieldComidaList.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -161,12 +179,12 @@ public class ListarComidaView extends javax.swing.JPanel {
                 jTextFieldComidaListKeyTyped(evt);
             }
         });
-        add(jTextFieldComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, 180, 40));
+        add(jTextFieldComidaList, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 110, 130, 40));
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Escriba hasta que cantidad de calorias quiere listar :");
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, 40));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, 40));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBBuscarComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarComidaActionPerformed
@@ -225,9 +243,9 @@ public class ListarComidaView extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void initTableComida() {
-        this.model.addColumn("Codigo");
+        this.model.addColumn("Código");
         this.model.addColumn("Nombre");
-        this.model.addColumn("Calorias");
+        this.model.addColumn("Calorías");
         this.model.addColumn("Estado");
 
         this.JTableComida.setModel(model);   

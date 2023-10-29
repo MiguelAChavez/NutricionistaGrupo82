@@ -1,7 +1,6 @@
 package Vistas;
 
 import AccesoADatos.DietaData;
-import Entidades.Paciente;
 import Vistas.Comida.ComidaView;
 import Vistas.Dietas.DietaView;
 import Vistas.Paciente.*;
@@ -12,7 +11,6 @@ import java.awt.Toolkit;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import utils.AnimationPanel;
-import utils.IMC;
 import utils.PanelRound;
 
 /**

@@ -160,7 +160,7 @@ public class ListarPacientes extends javax.swing.JPanel {
 
         jLTexto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLTexto.setForeground(new java.awt.Color(255, 255, 255));
-        jLTexto.setText("Ingrese un apellido o un nombre: ");
+        jLTexto.setText("Busque por apellido o nombre: ");
         add(jLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 240, 50));
 
         jLFiltro1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
@@ -359,17 +359,17 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.MODEL_PACIENTE.addColumn("Apellido");
         this.MODEL_PACIENTE.addColumn("Nombre");
         this.MODEL_PACIENTE.addColumn("Dni");
-        this.MODEL_PACIENTE.addColumn("sexo");
+        this.MODEL_PACIENTE.addColumn("Sexo");
         this.MODEL_PACIENTE.addColumn("Peso");
-        this.MODEL_PACIENTE.addColumn("peso Buscado");
+        this.MODEL_PACIENTE.addColumn("Peso Buscado");
         
         this.MODEL_DIETA_PACIENTE.addColumn("Apellido");
         this.MODEL_DIETA_PACIENTE.addColumn("Nombre");
         this.MODEL_DIETA_PACIENTE.addColumn("Dni");
         this.MODEL_DIETA_PACIENTE.addColumn("Nombre de Dieta");
-        this.MODEL_DIETA_PACIENTE.addColumn("peso Buscado");
-        this.MODEL_DIETA_PACIENTE.addColumn("peso Final");
-        this.MODEL_DIETA_PACIENTE.addColumn("fecha Final");
+        this.MODEL_DIETA_PACIENTE.addColumn("Peso Buscado");
+        this.MODEL_DIETA_PACIENTE.addColumn("Peso Final");
+        this.MODEL_DIETA_PACIENTE.addColumn("Fecha Final");
         
     }
 }
