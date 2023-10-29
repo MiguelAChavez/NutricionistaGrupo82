@@ -35,6 +35,7 @@ public class FormularioPacienteView extends javax.swing.JPanel {
         
         this.jDFechaNacimiento.setMinSelectableDate(fecha.getTime());
         this.jDFechaNacimiento.setMaxSelectableDate(new Date());
+        this.jDFechaNacimiento.getDateEditor().setEnabled(false);
     }
 
     /**
