@@ -191,13 +191,18 @@ public class ListarComidaView extends javax.swing.JPanel {
         try {
             int num;
             num = Integer.parseInt(jTextFieldComidaList.getText());
-            List<Comida> listacomidas;
-            listacomidas = ComidaData.buscarComidasPorCalorias(num, Estado.TODOS);
-            if (listacomidas.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "No se ha encontrado ninguna comida menor: " + num);
-                return;
+            if (num > 0) {
+                List<Comida> listacomidas;
+                listacomidas = ComidaData.buscarComidasPorCalorias(num, Estado.TODOS);
+                if (listacomidas.isEmpty()) {
+                    JOptionPane.showMessageDialog(this, "No se ha encontrado ninguna comida menor: " + num);
+                    return;
+                }
+                cargarTabla(listacomidas);
+
+            } else {
+                JOptionPane.showMessageDialog(this, "ingrese numeros mayores a cero.");
             }
-            cargarTabla(listacomidas);
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Ingrese un número válido de calorías.");
         }
@@ -225,7 +230,7 @@ public class ListarComidaView extends javax.swing.JPanel {
 
     private void jTextFieldComidaListKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldComidaListKeyTyped
         char caracter = evt.getKeyChar();
-        if(caracter < '0' || caracter > '9'){
+        if (caracter < '0' || caracter > '9') {
             evt.consume();
         }
     }//GEN-LAST:event_jTextFieldComidaListKeyTyped
@@ -248,14 +253,14 @@ public class ListarComidaView extends javax.swing.JPanel {
         this.model.addColumn("Calorías");
         this.model.addColumn("Estado");
 
-        this.JTableComida.setModel(model);   
+        this.JTableComida.setModel(model);
         JTableHeader tableHeader = JTableComida.getTableHeader();
         tableHeader.setDefaultRenderer(new DefaultTableCellRenderer() {
             @Override
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 Component c = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 c.setPreferredSize(new Dimension(c.getWidth(), 40));
-                c.setBackground(Color.GRAY); 
+                c.setBackground(Color.GRAY);
                 c.setForeground(Color.WHITE);
                 return c;
             }
