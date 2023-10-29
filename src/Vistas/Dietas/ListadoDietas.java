@@ -60,7 +60,7 @@ public class ListadoDietas extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTableDietas.setBackground(new java.awt.Color(51, 51, 51));
-        jTableDietas.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jTableDietas.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jTableDietas.setForeground(new java.awt.Color(255, 255, 255));
         jTableDietas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,6 +86,7 @@ public class ListadoDietas extends javax.swing.JPanel {
             }
         });
         jTableDietas.setRowHeight(40);
+        jTableDietas.setSelectionBackground(new java.awt.Color(30, 150, 117));
         jTableDietas.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(jTableDietas);
         if (jTableDietas.getColumnModel().getColumnCount() > 0) {
@@ -101,14 +102,15 @@ public class ListadoDietas extends javax.swing.JPanel {
             jTableDietas.getColumnModel().getColumn(6).setMaxWidth(100);
         }
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 750, 410));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, 750, 410));
 
+        jComboBoxDietasTabla.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jComboBoxDietasTabla.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxDietasTablaActionPerformed(evt);
             }
         });
-        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 210, 30));
+        jPanel1.add(jComboBoxDietasTabla, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 210, 40));
 
         jLabel1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));

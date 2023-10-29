@@ -39,17 +39,17 @@ public class ListarPacientes extends javax.swing.JPanel {
             return Boolean.FALSE;
         }
     };
-    
+
     private final DefaultTableModel MODEL_DIETA_PACIENTE = new DefaultTableModel() {
         @Override
         public boolean isCellEditable(int i, int i1) {
             return Boolean.FALSE;
         }
     };
-    
+
     private Paciente mipaciente;
     private int cont = 0;
-    
+
     public ListarPacientes() {
         initComponents();
         initTable();
@@ -203,15 +203,17 @@ public class ListarPacientes extends javax.swing.JPanel {
 
     private void jCBSelecionFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionFiltroActionPerformed
         CargarComponente.borrarFilas(this.jTPacientes, (DefaultTableModel) this.jTPacientes.getModel());
-        
+
         if (this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class && cont != 0) {
             Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
             List<Paciente> ListaPaciente = new ArrayList<>();
             List<Dieta> ListaPacienteDieta = new ArrayList<>();
-            
+
             String texto = this.jTTexto.getText().trim();
+            boolean isNoDieta = isEstadoNoDieta(estado);
+
             if (texto.isEmpty()) {
-                if (isEstadoNoDieta(estado)) {
+                if (isNoDieta) {
                     jTPacientes.setModel(MODEL_PACIENTE);
                     ListaPaciente = PacienteData.ListarPacientes(estado);
                     if (ListaPaciente.isEmpty()) {
@@ -219,40 +221,47 @@ public class ListarPacientes extends javax.swing.JPanel {
                         this.jTCant.setText("0");
                         return;
                     }
-                } else if(estado == Estado.DIETA_CULMINADA_FALLIDA) {
+                } else if (estado == Estado.DIETA_CULMINADA_FALLIDA) {
                     jTPacientes.setModel(MODEL_DIETA_PACIENTE);
                     ListaPacienteDieta = DietaData.buscarDietasFallidas();
-                }else{
+                } else {
                     jTPacientes.setModel(MODEL_DIETA_PACIENTE);
-                    ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);                 
+                    ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
                 }
             } else if (Validacion.isValidoString(texto)) {
-                if (isEstadoNoDieta(estado)) {
-                    ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
+                if (isNoDieta) {
+                    jTPacientes.setModel(MODEL_PACIENTE);
+                    ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
                     if (ListaPaciente.isEmpty()) {
                         JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
                         this.jTCant.setText("0");
                         return;
                     }
                 } else {
-                    ListaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
+                    jTPacientes.setModel(MODEL_DIETA_PACIENTE);
+                    ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
+                    if (ListaPaciente.isEmpty()) {
+                        JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
+                        this.jTCant.setText("0");
+                        return;
+                    }
                 }
-                
             }
-            
-            this.jTCant.setText(ListaPaciente.size() + "");
-            if (isEstadoNoDieta(estado)) {
+
+            if (isNoDieta) {
+                this.jTCant.setText(ListaPaciente.size() + "");
                 for (Paciente paciente : ListaPaciente) {
                     cargarFila(paciente);
                 }
             } else {
+                this.jTCant.setText(ListaPacienteDieta.size() + "");
                 for (Dieta dieta : ListaPacienteDieta) {
                     cargarFila(dieta);
                 }
             }
         }
     }//GEN-LAST:event_jCBSelecionFiltroActionPerformed
-    
+
     private boolean isEstadoNoDieta(Estado estado) {
         return estado != Estado.DIETA_CULMINADA && estado != Estado.DIETA_VIGENTE && estado != Estado.DIETA_CULMINADA_FALLIDA;
     }
@@ -262,17 +271,26 @@ public class ListarPacientes extends javax.swing.JPanel {
         String texto = this.jTTexto.getText().trim();
         Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
         List<Paciente> listaPaciente;
-        
+        List<Dieta> listaPacienteDietas;
+
         if (texto.isEmpty()) {
             CargarComponente.borrarFilas(this.jTPacientes, (DefaultTableModel) this.jTPacientes.getModel());
             this.jTCant.setText("0");
         } else {
             if (Validacion.isValidoString(texto)) {
                 if (isEstadoNoDieta(estado)) {
+                    jTPacientes.setModel(MODEL_PACIENTE);
                     listaPaciente = PacienteData.ListarPorNombreOApellido(texto, estado);
                     this.jTCant.setText(listaPaciente.size() + "");
                     for (Paciente paciente : listaPaciente) {
                         cargarFila(paciente);
+                    }
+                } else {
+                    jTPacientes.setModel(MODEL_DIETA_PACIENTE);
+                    listaPacienteDietas = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
+                    this.jTCant.setText(listaPacienteDietas.size() + "");
+                    for (Dieta PacienteDieta : listaPacienteDietas) {
+                        cargarFila(PacienteDieta);
                     }
                 }
             }
@@ -318,9 +336,9 @@ public class ListarPacientes extends javax.swing.JPanel {
                 return this;
             }
         });
-        
+
     }
-    
+
     private void armarCombo() {
         this.jCBSelecionFiltro.removeAll();
         this.jCBSelecionFiltro.addItem(Estado.TODOS);
@@ -331,7 +349,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.jCBSelecionFiltro.addItem(Estado.DIETA_CULMINADA_FALLIDA);
         this.jCBSelecionFiltro.setSelectedIndex(0);
     }
-    
+
     private void cargarFila(Paciente paciente) {
         MODEL_PACIENTE.addRow(new Object[]{
             paciente.getApellido(),
@@ -342,7 +360,7 @@ public class ListarPacientes extends javax.swing.JPanel {
             paciente.getPesoBuscado()
         });
     }
-    
+
     private void cargarFila(Dieta dietaPaciente) {
         MODEL_DIETA_PACIENTE.addRow(new Object[]{
             dietaPaciente.getPaciente().getApellido(),
@@ -354,7 +372,7 @@ public class ListarPacientes extends javax.swing.JPanel {
             dietaPaciente.getFechaFinal()
         });
     }
-    
+
     public void iniciarModel() {
         this.MODEL_PACIENTE.addColumn("Apellido");
         this.MODEL_PACIENTE.addColumn("Nombre");
@@ -362,7 +380,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.MODEL_PACIENTE.addColumn("Sexo");
         this.MODEL_PACIENTE.addColumn("Peso");
         this.MODEL_PACIENTE.addColumn("Peso Buscado");
-        
+
         this.MODEL_DIETA_PACIENTE.addColumn("Apellido");
         this.MODEL_DIETA_PACIENTE.addColumn("Nombre");
         this.MODEL_DIETA_PACIENTE.addColumn("Dni");
@@ -370,6 +388,6 @@ public class ListarPacientes extends javax.swing.JPanel {
         this.MODEL_DIETA_PACIENTE.addColumn("Peso Buscado");
         this.MODEL_DIETA_PACIENTE.addColumn("Peso Final");
         this.MODEL_DIETA_PACIENTE.addColumn("Fecha Final");
-        
+
     }
 }

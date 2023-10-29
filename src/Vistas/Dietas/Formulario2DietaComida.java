@@ -247,13 +247,16 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
                     double porcion = Double.parseDouble(this.jTableDietaComida.getValueAt(filas[i], 1).toString());
                     Horario horario = DietaComidaData
                             .mapHorario(this.jTableDietaComida.getValueAt(filas[i], 2).toString());
+                    if (porcion > 0) {
+                        DietaComida comida = this.dietasComidas.get(filas[i]);
+                        comida.setPorcion(porcion);
+                        comida.setHorario(horario);
 
-                    DietaComida comida = this.dietasComidas.get(filas[i]);
-                    comida.setPorcion(porcion);
-                    comida.setHorario(horario);
-
-                    DietaComidaData.modificarDietaComida(comida);
-
+                        DietaComidaData.modificarDietaComida(comida);
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Ingrese un numero pocitivo");
+                        return;
+                    }
                 } catch (NumberFormatException ex) {
                     System.out.println("la porcion solo debe contener numeros");
                 }

@@ -584,6 +584,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     private void jBCancelarDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarDActionPerformed
         this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
         this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+        this.jBBuscarPaciente.setEnabled(!this.jBBuscarPaciente.isEnabled());
         limpiarCampos();
         invertirEstado();
     }//GEN-LAST:event_jBCancelarDActionPerformed
@@ -604,6 +605,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 cargarCampos(this.dietaD);
                 this.jBBuscarD1.setEnabled(!this.jBBuscarD1.isEnabled());
                 this.jBCancelarD.setEnabled(!this.jBCancelarD.isEnabled());
+                this.jBBuscarPaciente.setEnabled(!this.jBBuscarPaciente.isEnabled());
                 ZoneId defaultZoneId = ZoneId.systemDefault();
                 this.jDFechaInicioDieta.setMinSelectableDate(Date.from(this.dietaD.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
                 invertirEstado();
