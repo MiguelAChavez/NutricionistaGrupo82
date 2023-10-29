@@ -659,7 +659,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
         try {
             String nombre = this.jTFNombreDieta1.getText().trim();
             if (!Validacion.isValidoString(nombre) || nombre.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "");
+                JOptionPane.showMessageDialog(this, "Error en el campo nombre");
                 return null;
             }
 

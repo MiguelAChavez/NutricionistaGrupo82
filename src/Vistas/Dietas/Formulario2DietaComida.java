@@ -228,7 +228,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
         int[] filas = this.jTableDietaComida.getSelectedRows();
         if (filas.length > 0) {
             for (int i = 0; i < filas.length; i++) {
-                int rest = JOptionPane.showConfirmDialog(this, "¿?");
+                int rest = JOptionPane.showConfirmDialog(this, "¿Desea eliminar la comida de la dieta?");
                 if (rest == JOptionPane.YES_OPTION) {
                     DietaComida dietaComida = this.dietasComidas.get(filas[i]);
                     System.out.println(dietaComida);
