@@ -179,6 +179,7 @@ public class PacienteData {
 
             } else {
                 JOptionPane.showMessageDialog(null, "El paciente no existe");
+                paciente = null;
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {

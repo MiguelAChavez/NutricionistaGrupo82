@@ -123,6 +123,7 @@ public class ComidaData {
 
             } else {
                 JOptionPane.showMessageDialog(null, "La comida no existe");
+                comida = null;
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {

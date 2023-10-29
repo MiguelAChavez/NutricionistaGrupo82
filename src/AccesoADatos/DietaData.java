@@ -184,6 +184,7 @@ public class DietaData {
 
             } else {
                 JOptionPane.showMessageDialog(null, "La dieta no existe");
+                dieta = null;
             }
             ps.close();
         } catch (NullPointerException | SQLException e) {

@@ -842,7 +842,8 @@ public class FormularioPacienteView extends javax.swing.JPanel {
             int dni = Integer.parseInt(jTFDni.getText());
             if (dni > 0) {
                 paciente = PacienteData.buscarPacientePorDni(dni, Estado.TODOS);
-                if (!paciente.isEstado()) {
+                if (paciente !=null) {
+                       if (!paciente.isEstado()) {
                     int result = JOptionPane.showConfirmDialog(this, "El paciente se encuentra dado de baja. ¿Quiere darlo de alta?");
                     switch (result) {
                         case JOptionPane.YES_OPTION:
@@ -855,6 +856,8 @@ public class FormularioPacienteView extends javax.swing.JPanel {
                             return null;
                     }
                 }
+                }
+             
                 return paciente;
             }
         } catch (NumberFormatException e) {
