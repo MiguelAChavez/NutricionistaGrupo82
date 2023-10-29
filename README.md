@@ -1,7 +1,7 @@
 Grupo82
 # NutriJava
-//imagen
-![Diagrama sql](https://github.com/MiguelAChavez/NutricionistaGrupo82/assets/129125500/41e426b8-a6ae-4e4c-a92a-0c53cc1d27a8)
+
+![Inicio del programa](https://github.com/MiguelAChavez/NutricionistaGrupo82/blob/29ef338bdf34b29352e99b03a78c92701c340a3c/Presentacion/Inicio%20del%20programa.png)
   
 &nbsp;
 
