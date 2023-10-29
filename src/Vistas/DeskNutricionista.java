@@ -51,7 +51,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPFondo = new javax.swing.JPanel();
@@ -75,6 +75,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jPFondo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         PRBarraMenu.setBackground(new java.awt.Color(51, 51, 51));
+        PRBarraMenu.setOpaque(true);
         PRBarraMenu.setRoundBottomRight(40);
         PRBarraMenu.setRoundTopRight(40);
         PRBarraMenu.setVerifyInputWhenFocusTarget(false);
@@ -96,7 +97,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jBPacientesMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBPacientesMouseExited(evt);
             }
@@ -122,7 +122,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jBDientasMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBDientasMouseExited(evt);
             }
@@ -148,7 +147,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jBComidaMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBComidaMouseExited(evt);
             }
@@ -174,7 +172,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jBPlegarMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBPlegarMouseExited(evt);
             }
@@ -198,8 +195,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
         });
 
         jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
         jLabel2.setToolTipText("Inicio");
         jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,66 +207,55 @@ public class DeskNutricionista extends javax.swing.JFrame {
         javax.swing.GroupLayout jPRFondoImagenLayout = new javax.swing.GroupLayout(jPRFondoImagen);
         jPRFondoImagen.setLayout(jPRFondoImagenLayout);
         jPRFondoImagenLayout.setHorizontalGroup(
-                jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPRFondoImagenLayout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addContainerGap()));
+            jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPRFondoImagenLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
         jPRFondoImagenLayout.setVerticalGroup(
-                jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                jPRFondoImagenLayout.createSequentialGroup()
-                                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addContainerGap()));
+            jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPRFondoImagenLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         javax.swing.GroupLayout PRBarraMenuLayout = new javax.swing.GroupLayout(PRBarraMenu);
         PRBarraMenu.setLayout(PRBarraMenuLayout);
         PRBarraMenuLayout.setHorizontalGroup(
-                PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(43, 43, 43)
-                                .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
+            PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(94, 94, 94)
+                .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
         PRBarraMenuLayout.setVerticalGroup(
-                PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(PRBarraMenuLayout
-                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(PRBarraMenuLayout.createSequentialGroup()
-                                                .addGap(14, 14, 14)
-                                                .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(29, 29, 29)
-                                .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(31, 31, 31)
-                                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)));
+            PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(PRBarraMenuLayout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jPRFondoImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBPlegar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(jBPacientes, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(31, 31, 31)
+                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         jPFondo.add(PRBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 670));
 
@@ -290,7 +275,6 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jBDesplegarMouseEntered(evt);
             }
-
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jBDesplegarMouseExited(evt);
             }
@@ -305,13 +289,13 @@ public class DeskNutricionista extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1100,
-                                javax.swing.GroupLayout.PREFERRED_SIZE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPFondo, javax.swing.GroupLayout.PREFERRED_SIZE, 1100, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jPFondo, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPFondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         pack();
         setLocationRelativeTo(null);
