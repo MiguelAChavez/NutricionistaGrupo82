@@ -59,7 +59,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
         jBComida = new javax.swing.JButton();
         jBPlegar = new javax.swing.JButton();
         jPRFondoImagen = new utils.PanelRound();
-        jLabel2 = new javax.swing.JLabel();
+        jLImagen = new javax.swing.JLabel();
+        jBSalir = new javax.swing.JButton();
         jPSetup = new javax.swing.JPanel();
         jBDesplegar = new javax.swing.JButton();
 
@@ -80,7 +81,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jBPacientes.setBackground(new java.awt.Color(58, 58, 58));
         jBPacientes.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jBPacientes.setForeground(new java.awt.Color(204, 204, 204));
+        jBPacientes.setForeground(new java.awt.Color(255, 255, 255));
         jBPacientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/paciente (2).png"))); // NOI18N
         jBPacientes.setText("  Pacientes");
         jBPacientes.setBorder(null);
@@ -107,7 +108,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jBDientas.setBackground(new java.awt.Color(58, 58, 58));
         jBDientas.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jBDientas.setForeground(new java.awt.Color(204, 204, 204));
+        jBDientas.setForeground(new java.awt.Color(255, 255, 255));
         jBDientas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/dieta (1).png"))); // NOI18N
         jBDientas.setText("  Dietas");
         jBDientas.setBorder(null);
@@ -132,7 +133,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
         jBComida.setBackground(new java.awt.Color(58, 58, 58));
         jBComida.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
-        jBComida.setForeground(new java.awt.Color(204, 204, 204));
+        jBComida.setForeground(new java.awt.Color(255, 255, 255));
         jBComida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/comida.png"))); // NOI18N
         jBComida.setText("  Comidas");
         jBComida.setBorder(null);
@@ -190,15 +191,27 @@ public class DeskNutricionista extends javax.swing.JFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jPRFondoImagenMouseClicked(evt);
             }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPRFondoImagenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPRFondoImagenMouseExited(evt);
+            }
         });
 
-        jLabel2.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
-        jLabel2.setToolTipText("Inicio");
-        jLabel2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLImagen.setBackground(new java.awt.Color(255, 255, 255));
+        jLImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/logo-universidad-de-la-punta.png"))); // NOI18N
+        jLImagen.setToolTipText("Inicio");
+        jLImagen.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLImagen.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                jLImagenMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jLImagenMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jLImagenMouseExited(evt);
             }
         });
 
@@ -208,16 +221,41 @@ public class DeskNutricionista extends javax.swing.JFrame {
             jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPRFondoImagenLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPRFondoImagenLayout.setVerticalGroup(
             jPRFondoImagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPRFondoImagenLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
+
+        jBSalir.setBackground(new java.awt.Color(122, 122, 122));
+        jBSalir.setFont(new java.awt.Font("Roboto", 1, 15)); // NOI18N
+        jBSalir.setForeground(new java.awt.Color(23, 36, 50));
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/salida (1).png"))); // NOI18N
+        jBSalir.setText("Salir");
+        jBSalir.setBorder(null);
+        jBSalir.setBorderPainted(false);
+        jBSalir.setContentAreaFilled(false);
+        jBSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jBSalir.setFocusable(false);
+        jBSalir.setOpaque(true);
+        jBSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jBSalirMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jBSalirMouseExited(evt);
+            }
+        });
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout PRBarraMenuLayout = new javax.swing.GroupLayout(PRBarraMenu);
         PRBarraMenu.setLayout(PRBarraMenuLayout);
@@ -236,7 +274,9 @@ public class DeskNutricionista extends javax.swing.JFrame {
                 .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(PRBarraMenuLayout.createSequentialGroup()
                 .addGap(28, 28, 28)
-                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         PRBarraMenuLayout.setVerticalGroup(
             PRBarraMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -252,7 +292,10 @@ public class DeskNutricionista extends javax.swing.JFrame {
                 .addGap(31, 31, 31)
                 .addComponent(jBDientas, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
-                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jBComida, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(94, 94, 94))
         );
 
         jPFondo.add(PRBarraMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 670));
@@ -299,6 +342,34 @@ public class DeskNutricionista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBSalirMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalirMouseEntered
+        this.jBSalir.setBackground(new Color(0, 145, 218));
+    }//GEN-LAST:event_jBSalirMouseEntered
+
+    private void jBSalirMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalirMouseExited
+        this.jBSalir.setBackground(new Color(122, 122, 122));
+    }//GEN-LAST:event_jBSalirMouseExited
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jPRFondoImagenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPRFondoImagenMouseEntered
+        this.jPRFondoImagen.setBackground(new Color(76, 76, 76));
+    }//GEN-LAST:event_jPRFondoImagenMouseEntered
+
+    private void jPRFondoImagenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPRFondoImagenMouseExited
+        this.jPRFondoImagen.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jPRFondoImagenMouseExited
+
+    private void jLImagenMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLImagenMouseEntered
+        this.jPRFondoImagen.setBackground(new Color(76, 76, 76));
+    }//GEN-LAST:event_jLImagenMouseEntered
+
+    private void jLImagenMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLImagenMouseExited
+        this.jPRFondoImagen.setBackground(Color.WHITE);
+    }//GEN-LAST:event_jLImagenMouseExited
+
     private void jBComidaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBComidaActionPerformed
         showComponents(this.comidaView);
     }// GEN-LAST:event_jBComidaActionPerformed
@@ -308,7 +379,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// GEN-LAST:event_jBComidaMouseExited
 
     private void jBComidaMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jBComidaMouseEntered
-        this.jBComida.setBackground(new Color(45, 45, 45));
+        this.jBComida.setBackground(new Color(0, 145, 218));
     }// GEN-LAST:event_jBComidaMouseEntered
 
     private void jBDientasActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBDientasActionPerformed
@@ -321,7 +392,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// GEN-LAST:event_jBDientasMouseExited
 
     private void jBDientasMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jBDientasMouseEntered
-        this.jBDientas.setBackground(new Color(45, 45, 45));
+        this.jBDientas.setBackground(new Color(0, 145, 218));
     }// GEN-LAST:event_jBDientasMouseEntered
 
     private void jBPacientesActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBPacientesActionPerformed
@@ -333,7 +404,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
     }// GEN-LAST:event_jBPacientesMouseExited
 
     private void jBPacientesMouseEntered(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jBPacientesMouseEntered
-        this.jBPacientes.setBackground(new Color(45, 45, 45));
+        this.jBPacientes.setBackground(new Color(0, 145, 218));
     }// GEN-LAST:event_jBPacientesMouseEntered
 
     private void jBDesplegarActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jBDesplegarActionPerformed
@@ -368,7 +439,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
 
     }// GEN-LAST:event_jPRFondoImagenMouseClicked
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel2MouseClicked
+    private void jLImagenMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_jLabel2MouseClicked
         if (this.ingreso > 1) {
             showComponents(new BienvenidaView());
         }
@@ -409,7 +480,7 @@ public class DeskNutricionista extends javax.swing.JFrame {
                 DeskNutricionista deskNutricionista = new DeskNutricionista();
                 deskNutricionista.setVisible(true);
                 //Actualizo el estado de las dietas que ya concluyeron
-                DietaData.actualizarEstadoYFinalDeDieta();    
+                DietaData.actualizarEstadoYFinalDeDieta();
             }
         });
     }
@@ -421,7 +492,8 @@ public class DeskNutricionista extends javax.swing.JFrame {
     private javax.swing.JButton jBDientas;
     private javax.swing.JButton jBPacientes;
     private javax.swing.JButton jBPlegar;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton jBSalir;
+    private javax.swing.JLabel jLImagen;
     private javax.swing.JPanel jPFondo;
     private utils.PanelRound jPRFondoImagen;
     private javax.swing.JPanel jPSetup;
