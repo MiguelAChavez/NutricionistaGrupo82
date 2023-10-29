@@ -118,10 +118,10 @@ public class ListarPacientes extends javax.swing.JPanel {
         theader.setFont(new java.awt.Font("Roboto", Font.BOLD, 16));
         jScrollPane1.setViewportView(jTPacientes);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, 970, 450));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 740, 450));
 
         jSeparator1.setOpaque(true);
-        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 148, 480, 3));
+        add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 180, 310, -1));
 
         jTTexto.setBackground(new java.awt.Color(35, 35, 35));
         jTTexto.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -150,7 +150,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                 jTTextoKeyTyped(evt);
             }
         });
-        add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 480, 40));
+        add(jTTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 140, 310, 40));
 
         jLTitulo.setFont(new java.awt.Font("Roboto", 1, 39)); // NOI18N
         jLTitulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,7 +161,7 @@ public class ListarPacientes extends javax.swing.JPanel {
         jLTexto.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLTexto.setForeground(new java.awt.Color(255, 255, 255));
         jLTexto.setText("Busque por apellido o nombre: ");
-        add(jLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 240, 50));
+        add(jLTexto, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 140, 240, 50));
 
         jLFiltro1.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jLFiltro1.setForeground(new java.awt.Color(255, 255, 255));

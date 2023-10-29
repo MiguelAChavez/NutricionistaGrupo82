@@ -26,32 +26,64 @@ public class BienvenidaView extends javax.swing.JPanel {
     private void initComponents() {
 
         jPFondo = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
         jLBienvenida = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPFondo.setBackground(new java.awt.Color(35, 35, 35));
+        jPFondo.setForeground(new java.awt.Color(35, 35, 35));
 
+        jPanel1.setBackground(new java.awt.Color(35, 35, 35));
+        jPanel1.setForeground(new java.awt.Color(35, 35, 35));
+
+        jLBienvenida.setBackground(new java.awt.Color(35, 35, 35));
         jLBienvenida.setFont(new java.awt.Font("Linux Libertine G", 1, 48)); // NOI18N
         jLBienvenida.setForeground(new java.awt.Color(255, 255, 255));
         jLBienvenida.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLBienvenida.setText("Bienvenido/a");
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/BienvenidsFondo.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(246, 246, 246)
+                        .addComponent(jLBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(137, 137, 137)
+                        .addComponent(jLabel3)))
+                .addContainerGap(3621, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLBienvenida)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 583, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(158, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPFondoLayout = new javax.swing.GroupLayout(jPFondo);
         jPFondo.setLayout(jPFondoLayout);
         jPFondoLayout.setHorizontalGroup(
             jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPFondoLayout.createSequentialGroup()
-                .addGap(311, 311, 311)
-                .addComponent(jLBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(355, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPFondoLayout.createSequentialGroup()
+                .addContainerGap(112, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPFondoLayout.setVerticalGroup(
             jPFondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPFondoLayout.createSequentialGroup()
-                .addGap(45, 45, 45)
-                .addComponent(jLBienvenida)
-                .addContainerGap(563, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(542, Short.MAX_VALUE))
         );
 
         add(jPFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -60,6 +92,8 @@ public class BienvenidaView extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLBienvenida;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPFondo;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
