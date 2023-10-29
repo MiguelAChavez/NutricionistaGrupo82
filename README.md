@@ -20,7 +20,7 @@ Este sistema, desarrollado en Java utilizando la librería Swing, está diseñad
    
 &nbsp;
 ## Equipo
-**equipo del Grupo 82:** 
+**Integrantes del Grupo 82:** 
 - María Lucía Matonti
 - Miguel Ángel Chávez
 - Ramón Briceño
