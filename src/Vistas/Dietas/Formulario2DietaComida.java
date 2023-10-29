@@ -127,7 +127,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
                 {null, null, null}
             },
             new String [] {
-                "Comida", "Porción", "Horario"
+                "Comida", "Porción (mg)", "Horario"
             }
         ) {
             boolean[] canEdit = new boolean [] {
