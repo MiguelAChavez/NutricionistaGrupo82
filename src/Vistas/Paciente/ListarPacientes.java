@@ -202,8 +202,9 @@ public class ListarPacientes extends javax.swing.JPanel {
     }//GEN-LAST:event_jTTextoFocusLost
 
     private void jCBSelecionFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBSelecionFiltroActionPerformed
+      
         CargarComponente.borrarFilas(this.jTPacientes, (DefaultTableModel) this.jTPacientes.getModel());
-
+        
         if (this.jCBSelecionFiltro.getSelectedItem().getClass() != String.class && cont != 0) {
             Estado estado = (Estado) jCBSelecionFiltro.getSelectedItem();
             List<Paciente> ListaPaciente = new ArrayList<>();
@@ -213,6 +214,7 @@ public class ListarPacientes extends javax.swing.JPanel {
             boolean isNoDieta = isEstadoNoDieta(estado);
 
             if (texto.isEmpty()) {
+                
                 if (isNoDieta) {
                     jTPacientes.setModel(MODEL_PACIENTE);
                     ListaPaciente = PacienteData.ListarPacientes(estado);
@@ -228,6 +230,7 @@ public class ListarPacientes extends javax.swing.JPanel {
                     jTPacientes.setModel(MODEL_DIETA_PACIENTE);
                     ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
                 }
+                
             } else if (Validacion.isValidoString(texto)) {
                 if (isNoDieta) {
                     jTPacientes.setModel(MODEL_PACIENTE);
@@ -237,10 +240,11 @@ public class ListarPacientes extends javax.swing.JPanel {
                         this.jTCant.setText("0");
                         return;
                     }
-                } else {
+                    
+                } else {                   
                     jTPacientes.setModel(MODEL_DIETA_PACIENTE);
                     ListaPacienteDieta = DietaData.ListarPorNombreOApellidoYEstadoDieta(texto, estado);
-                    if (ListaPaciente.isEmpty()) {
+                    if (ListaPacienteDieta.isEmpty()) {
                         JOptionPane.showMessageDialog(this, "No hay pacientes regristados");
                         this.jTCant.setText("0");
                         return;
