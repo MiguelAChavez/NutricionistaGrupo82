@@ -230,10 +230,9 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
             for (int i = 0; i < filas.length; i++) {
                 int rest = JOptionPane.showConfirmDialog(this, "¿Desea eliminar la comida de la dieta?");
                 if (rest == JOptionPane.YES_OPTION) {
-                    DietaComida dietaComida = this.dietasComidas.get(filas[i]);
-                    System.out.println(dietaComida);
+                    DietaComida dietaComida = this.dietasComidas.get(filas[i]);                 
                     DietaComidaData.eliminarDietaComida(dietaComida);
-                    this.tablita.removeRow(i);
+                    this.tablita.removeRow(filas[i]);
                 }
             }
         }
@@ -258,7 +257,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
                         return;
                     }
                 } catch (NumberFormatException ex) {
-                    System.out.println("la porcion solo debe contener numeros");
+                    JOptionPane.showMessageDialog(this,"la porcion solo debe contener numeros");
                 }
             }
         }
