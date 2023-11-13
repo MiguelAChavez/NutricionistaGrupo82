@@ -610,6 +610,9 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 this.jDFechaInicioDieta.setMinSelectableDate(Date.from(this.dietaD.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
                 invertirEstado();
             }
+            else{
+                this.dietaD = new Dieta();
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Ingrese un nombre valido.");
         }

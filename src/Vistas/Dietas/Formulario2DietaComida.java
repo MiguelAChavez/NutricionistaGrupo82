@@ -233,7 +233,7 @@ public final class Formulario2DietaComida extends javax.swing.JPanel {
                     DietaComida dietaComida = this.dietasComidas.get(filas[i]);
                     System.out.println(dietaComida);
                     DietaComidaData.eliminarDietaComida(dietaComida);
-                    this.tablita.removeRow(i);
+                    this.tablita.removeRow(filas[i]);
                 }
             }
         }
