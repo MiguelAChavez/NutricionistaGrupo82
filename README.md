@@ -12,7 +12,7 @@ Este sistema, desarrollado en Java utilizando la librería Swing, está diseñad
 
 - **Gestión de Comidas:** Los nutricionistas pueden ingresar información sobre diferentes comidas, especificando los ingredientes, valor nutricional y restricciones dietéticas asociadas.
 
-- **Dietas Personalizadas:** Para cada paciente, se pueden crear dietas personalizadas seleccionando comidas específicas y estableciendo pautas nutricionales. Estas dietas pueden ser ajustadas según las necesidades individuales del paciente.
+- **Dietas Personalizadas:** Para cada paciente, se pueden crear dietas personalizadas seleccionando comidas específicas y estableciendo la porción junto con su horario. Estas dietas pueden ser ajustadas según las necesidades individuales del paciente.
 
 - **Asignación de Dietas:** Los profesionales pueden asignar dietas específicas a cada paciente, lo que facilita el seguimiento de su plan de alimentación a lo largo del tiempo.
 

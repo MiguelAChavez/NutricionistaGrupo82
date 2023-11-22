@@ -473,7 +473,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
         this.dietaD = crearDieta(this.dietaD, Boolean.TRUE);
         if (this.dietaD != null) {
             DietaData.crearDieta(dietaD);
-            limpiarCampos();
             invertirEstado();
         }
     }//GEN-LAST:event_jBCrearDietaActionPerformed
@@ -530,7 +529,6 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFPesoBuscadoDietaKeyTyped
 
     private void jCBPacientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBPacientesActionPerformed
-
         if (jCBPacientes.getSelectedItem() != null) {
             if (jCBPacientes.getSelectedItem().getClass() != String.class) {
                 Paciente paciente = (Paciente) this.jCBPacientes.getSelectedItem();
@@ -563,7 +561,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
     }//GEN-LAST:event_jTFNombreDieta1KeyTyped
 
     private void jBBuscarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBBuscarPacienteActionPerformed
-        String filtro = this.jCBPacientes.getEditor().getItem().toString();
+        String filtro = this.jCBPacientes.getEditor().getItem().toString().trim();
         if (Validacion.isValidoString(filtro)) {
             List<Paciente> pacientes = PacienteData.ListarPorNombreOApellido(filtro, Estado.ACTIVO);
             if (pacientes != null) {
@@ -609,6 +607,7 @@ public class FormularioDietaView extends javax.swing.JPanel {
                 ZoneId defaultZoneId = ZoneId.systemDefault();
                 this.jDFechaInicioDieta.setMinSelectableDate(Date.from(this.dietaD.getFechaInicial().atStartOfDay(defaultZoneId).toInstant()));
                 invertirEstado();
+
             }
             else{
                 this.dietaD = new Dieta();

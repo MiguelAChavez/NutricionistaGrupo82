@@ -170,6 +170,8 @@ public class ListadoDietas extends javax.swing.JPanel {
                     dieta.getPesoInicial()
                 });
             }
+        }else{
+            CargarComponente.borrarFilas(jTableDietas, model);
         }
     }//GEN-LAST:event_jComboBoxDietasTablaActionPerformed
 
